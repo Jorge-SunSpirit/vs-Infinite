@@ -43,6 +43,7 @@ import openfl.Lib;
 import openfl.display.BlendMode;
 import openfl.display.StageQuality;
 import openfl.filters.BitmapFilter;
+import openfl.filters.ColorMatrixFilter;
 import openfl.utils.Assets as OpenFlAssets;
 import editors.ChartingState;
 import editors.CharacterEditorState;
@@ -3052,6 +3053,18 @@ class PlayState extends MusicBeatState
 							songSpeedTween = null;
 						}
 					});
+				}
+
+			case 'Phantom Ruby':
+				if (value1 == "true")
+				{
+					camGame.setFilters([new ColorMatrixFilter([1, -1, -1, 0, 255, -1, 1, -1, 0, 255, -1, -1, 1, 0, 255, 0, 0, 0, 1, 0])]);
+					if (value2 == "true") FlxG.camera.fade(FlxColor.BLACK, 0.4, true);
+				}
+				else
+				{
+					camGame.setFilters(null);
+					if (value2 == "true") FlxG.camera.fade(FlxColor.WHITE, 0.4, true);
 				}
 		}
 		callOnLuas('onEvent', [eventName, value1, value2]);

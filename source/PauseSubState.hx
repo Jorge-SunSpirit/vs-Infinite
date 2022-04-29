@@ -36,6 +36,7 @@ class PauseSubState extends MusicBeatSubstate
 	public function new(x:Float, y:Float)
 	{
 		super();
+		FlxG.sound.play(Paths.sound('pause'));
 		if(CoolUtil.difficulties.length < 2) menuItemsOG.remove('Change Difficulty'); //No need to change difficulty if there is only one!
 
 		if(PlayState.chartingMode)
@@ -208,6 +209,11 @@ class PauseSubState extends MusicBeatSubstate
 				regenMenu();
 			}
 
+			if (daSelected == 'Resume')
+				FlxG.sound.play(Paths.sound('cancelMenu'));
+			else
+				FlxG.sound.play(Paths.sound('confirmMenu'));
+
 			switch (daSelected)
 			{
 				case "Resume":
@@ -291,7 +297,7 @@ class PauseSubState extends MusicBeatSubstate
 	{
 		curSelected += change;
 
-		FlxG.sound.play(Paths.sound('scrollMenu'), 0.4);
+		FlxG.sound.play(Paths.sound('scrollMenu'));
 
 		if (curSelected < 0)
 			curSelected = menuItems.length - 1;

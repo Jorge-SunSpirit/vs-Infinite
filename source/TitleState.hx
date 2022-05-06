@@ -53,7 +53,6 @@ class TitleState extends MusicBeatState
 	var infinite:FlxSprite;
 
 	var floatshit:Float = 0;
-	var framerateShit:Float = (1 / 60);
 
 	var curWacky:Array<String> = [];
 
@@ -107,7 +106,6 @@ class TitleState extends MusicBeatState
 
 		// DEBUG BULLSHIT
 
-		swagShader = new ColorSwap();
 		super.create();
 
 		FlxG.save.bind('funkin', 'ninjamuffin99');
@@ -159,7 +157,6 @@ class TitleState extends MusicBeatState
 	var gfDance:FlxSprite;
 	var danceLeft:Bool = false;
 	var titleText:FlxSprite;
-	var swagShader:ColorSwap = null;
 
 	function startIntro()
 	{
@@ -192,15 +189,12 @@ class TitleState extends MusicBeatState
 		logoBl.updateHitbox();
 		logoBl.angle = -6;
 
-		swagShader = new ColorSwap();
-
 		infinite = new FlxSprite(684, 23);
 		infinite.loadGraphic(Paths.image("titlescreen/infinite_placeholder"));
 		infinite.antialiasing = ClientPrefs.globalAntialiasing;
 		add(infinite);
 
 		add(logoBl);
-		logoBl.shader = swagShader.shader;
 
 		titleText = new FlxSprite(.100, 576);
 		titleText.frames = Paths.getSparrowAtlas('titleEnter');
@@ -268,10 +262,9 @@ class TitleState extends MusicBeatState
 
 	override function update(elapsed:Float)
 	{
-		framerateShit = ((1 / 60) / elapsed);
-		floatshit += 0.03 / framerateShit;
+		floatshit += 0.03 / FramerateTools.timeMultiplier();
 		if (infinite != null)
-			infinite.y += Math.sin(floatshit) / framerateShit;
+			infinite.y += Math.sin(floatshit) / FramerateTools.timeMultiplier();
 
 		if (FlxG.sound.music != null)
 			Conductor.songPosition = FlxG.sound.music.time;
@@ -310,14 +303,14 @@ class TitleState extends MusicBeatState
 			{
 				if(titleText != null) titleText.animation.play('press');
 
-				FlxG.camera.fade();
+				FlxG.camera.fade(1.5);
 				FlxTransitionableState.skipNextTransIn = true;
-				FlxG.sound.play(Paths.sound('confirmMenu'), 0.7);
+				FlxG.sound.play(Paths.sound('confirmMenu'));
 
 				transitioning = true;
 				// FlxG.sound.music.stop();
 
-				new FlxTimer().start(1, function(tmr:FlxTimer)
+				new FlxTimer().start(1.5, function(tmr:FlxTimer)
 				{
 					if (mustUpdate) {
 						MusicBeatState.switchState(new OutdatedState());
@@ -333,12 +326,6 @@ class TitleState extends MusicBeatState
 		if (initialized && pressedEnter && !skippedIntro)
 		{
 			skipIntro();
-		}
-
-		if(swagShader != null)
-		{
-			if(controls.UI_LEFT) swagShader.hue -= elapsed * 0.1;
-			if(controls.UI_RIGHT) swagShader.hue += elapsed * 0.1;
 		}
 
 		super.update(elapsed);

@@ -283,6 +283,7 @@ class StoryMenuState extends MusicBeatState
 				FlxG.sound.play(Paths.sound('confirmMenuWeek'));
 				FlxG.sound.music.fadeOut(1.5);
 				FlxG.camera.fade(FlxColor.BLACK, 1.5);
+				FlxTransitionableState.skipNextTransIn = true;
 				stopspamming = true;
 			}
 

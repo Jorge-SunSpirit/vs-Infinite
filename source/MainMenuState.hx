@@ -68,9 +68,6 @@ class MainMenuState extends MusicBeatState
 		add(menuItems);
 
 		var scale:Float = 1;
-		/*if(optionShit.length > 6) {
-			scale = 6 / optionShit.length;
-		}*/
 
 		for (i in 0...optionShit.length)
 		{
@@ -84,10 +81,8 @@ class MainMenuState extends MusicBeatState
 			var scr:Float = (optionShit.length - 4) * 0.135;
 			if(optionShit.length < 6) scr = 0;
 			menuItem.antialiasing = ClientPrefs.globalAntialiasing;
-			//menuItem.setGraphicSize(Std.int(menuItem.width * 0.58));
 			menuItem.updateHitbox();
 		}
-
 
 		var versionShit:FlxText = new FlxText(12, FlxG.height - 44, 0, "Psych Engine v" + psychEngineVersion, 12);
 		versionShit.scrollFactor.set();
@@ -98,7 +93,6 @@ class MainMenuState extends MusicBeatState
 		versionShit.setFormat(Paths.font("futura.otf"), 16, FlxColor.RED, LEFT);
 		add(versionShit);
 
-		// NG.core.calls.event.logEvent('swag').send();
 
 		changeItem();
 

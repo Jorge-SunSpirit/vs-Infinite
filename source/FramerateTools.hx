@@ -22,7 +22,7 @@ class FramerateTools
 	**/
 	public static function easeConvert(ease:Float):Float
 	{
-		return FlxG.elapsed / (1 / baseFramerate) * ease;
+		return ease / timeMultiplier();
 	}
 
 	/**

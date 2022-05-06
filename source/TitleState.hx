@@ -53,6 +53,7 @@ class TitleState extends MusicBeatState
 	var infinite:FlxSprite;
 
 	var floatshit:Float = 0;
+	var framerateShit:Float = (1 / 60);
 
 	var curWacky:Array<String> = [];
 
@@ -195,6 +196,7 @@ class TitleState extends MusicBeatState
 
 		infinite = new FlxSprite(684, 23);
 		infinite.loadGraphic(Paths.image("titlescreen/infinite_placeholder"));
+		infinite.antialiasing = ClientPrefs.globalAntialiasing;
 		add(infinite);
 
 		add(logoBl);
@@ -266,9 +268,10 @@ class TitleState extends MusicBeatState
 
 	override function update(elapsed:Float)
 	{
-		floatshit += 0.03;
+		framerateShit = ((1 / 60) / elapsed);
+		floatshit += 0.03 / framerateShit;
 		if (infinite != null)
-			infinite.y += Math.sin(floatshit);
+			infinite.y += Math.sin(floatshit) / framerateShit;
 
 		if (FlxG.sound.music != null)
 			Conductor.songPosition = FlxG.sound.music.time;

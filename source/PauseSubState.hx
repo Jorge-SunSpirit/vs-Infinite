@@ -17,7 +17,7 @@ import flixel.util.FlxStringUtil;
 
 class PauseSubState extends MusicBeatSubstate
 {
-	var grpMenuShit:FlxTypedGroup<Alphabet>;
+	var grpMenuShit:FlxTypedGroup<FlxText>;
 
 	var menuItems:Array<String> = [];
 	var menuItemsOG:Array<String> = ['Resume', 'Restart Song', 'Change Difficulty', 'Exit to menu'];
@@ -26,10 +26,9 @@ class PauseSubState extends MusicBeatSubstate
 
 	var pauseMusic:FlxSound;
 	var practiceText:FlxText;
-	var skipTimeText:FlxText;
-	var skipTimeTracker:Alphabet;
 	var curTime:Float = Math.max(0, Conductor.songPosition);
-	//var botplayText:FlxText;
+
+	var itemY:Float = 575;
 
 	public static var songName:String = '';
 
@@ -47,7 +46,6 @@ class PauseSubState extends MusicBeatSubstate
 			if(!PlayState.instance.startingSong)
 			{
 				num = 1;
-				menuItemsOG.insert(3, 'Skip Time');
 			}
 			menuItemsOG.insert(3 + num, 'End Song');
 			menuItemsOG.insert(4 + num, 'Toggle Practice Mode');
@@ -78,60 +76,71 @@ class PauseSubState extends MusicBeatSubstate
 		bg.scrollFactor.set();
 		add(bg);
 
-		var levelInfo:FlxText = new FlxText(20, 15, 0, "", 32);
+		var bg1:FlxSprite = new FlxSprite(-250).loadGraphic(Paths.image('pause/pause_bottom', 'shared'));
+		bg1.scrollFactor.set();
+		bg1.screenCenter(Y);
+		bg1.antialiasing = ClientPrefs.globalAntialiasing;
+		add(bg1);
+
+		grpMenuShit = new FlxTypedGroup<FlxText>();
+		add(grpMenuShit);
+
+		var bg2:FlxSprite = new FlxSprite(-250).loadGraphic(Paths.image('pause/pause_top', 'shared'));
+		bg2.scrollFactor.set();
+		bg2.screenCenter(Y);
+		bg2.antialiasing = ClientPrefs.globalAntialiasing;
+		add(bg2);
+
+		var curRank:FlxText = new FlxText(-10, 299, 0, PlayState.instance.ratingFC);
+		curRank.angle = -3.5;
+		curRank.scrollFactor.set();
+		curRank.setFormat(Paths.font("futura.otf"), 64);
+		curRank.color = 0xFFDF00;
+		curRank.antialiasing = ClientPrefs.globalAntialiasing;
+		curRank.updateHitbox();
+		add(curRank);
+		
+		var accuracy:FlxText = new FlxText(-10, 342, 0, '');
+		accuracy.text = Highscore.floorDecimal(PlayState.instance.ratingPercent * 100, 2) + '%';
+		accuracy.angle = -3.5;
+		accuracy.scrollFactor.set();
+		accuracy.setFormat(Paths.font("futura.otf"), 25);
+		accuracy.color = 0xFF181818;
+		accuracy.antialiasing = ClientPrefs.globalAntialiasing;
+		accuracy.updateHitbox();
+		add(accuracy);
+
+		var missednotes:FlxText = new FlxText(-10, 368, 0, "");
+		missednotes.text = Std.string(PlayState.instance.songMisses);
+		missednotes.angle = -3.5;
+		missednotes.scrollFactor.set();
+		missednotes.setFormat(Paths.font("futura.otf"), 25);
+		missednotes.color = 0xFF181818;
+		missednotes.antialiasing = ClientPrefs.globalAntialiasing;
+		missednotes.updateHitbox();
+		add(missednotes);
+
+		var levelInfo:FlxText = new FlxText(-10, 199, 0, "", 8);
 		levelInfo.text += PlayState.SONG.song;
+		levelInfo.angle = -3.5;
 		levelInfo.scrollFactor.set();
 		levelInfo.setFormat(Paths.font("futura.otf"), 32);
+		levelInfo.color = 0xFF181818;
+		levelInfo.antialiasing = ClientPrefs.globalAntialiasing;
 		levelInfo.updateHitbox();
 		add(levelInfo);
 
-		var levelDifficulty:FlxText = new FlxText(20, 15 + 32, 0, "", 32);
-		levelDifficulty.text += CoolUtil.difficultyString();
-		levelDifficulty.scrollFactor.set();
-		levelDifficulty.setFormat(Paths.font('futura.otf'), 32);
-		levelDifficulty.updateHitbox();
-		add(levelDifficulty);
 
-		var blueballedTxt:FlxText = new FlxText(20, 15 + 64, 0, "", 32);
-		blueballedTxt.text = "Blueballed: " + PlayState.deathCounter;
-		blueballedTxt.scrollFactor.set();
-		blueballedTxt.setFormat(Paths.font('futura.otf'), 32);
-		blueballedTxt.updateHitbox();
-		add(blueballedTxt);
-
-		practiceText = new FlxText(20, 15 + 101, 0, "PRACTICE MODE", 32);
-		practiceText.scrollFactor.set();
-		practiceText.setFormat(Paths.font('futura.otf'), 32);
-		practiceText.x = FlxG.width - (practiceText.width + 20);
-		practiceText.updateHitbox();
-		practiceText.visible = PlayState.instance.practiceMode;
-		add(practiceText);
-
-		var chartingText:FlxText = new FlxText(20, 15 + 101, 0, "CHARTING MODE", 32);
-		chartingText.scrollFactor.set();
-		chartingText.setFormat(Paths.font('futura.otf'), 32);
-		chartingText.x = FlxG.width - (chartingText.width + 20);
-		chartingText.y = FlxG.height - (chartingText.height + 20);
-		chartingText.updateHitbox();
-		chartingText.visible = PlayState.chartingMode;
-		add(chartingText);
-
-		blueballedTxt.alpha = 0;
-		levelDifficulty.alpha = 0;
-		levelInfo.alpha = 0;
-
-		levelInfo.x = FlxG.width - (levelInfo.width + 20);
-		levelDifficulty.x = FlxG.width - (levelDifficulty.width + 20);
-		blueballedTxt.x = FlxG.width - (blueballedTxt.width + 20);
 
 		FlxTween.tween(bg, {alpha: 0.6}, 0.4, {ease: FlxEase.quartInOut});
-		FlxTween.tween(levelInfo, {alpha: 1, y: 20}, 0.4, {ease: FlxEase.quartInOut, startDelay: 0.3});
-		FlxTween.tween(levelDifficulty, {alpha: 1, y: levelDifficulty.y + 5}, 0.4, {ease: FlxEase.quartInOut, startDelay: 0.5});
-		FlxTween.tween(blueballedTxt, {alpha: 1, y: blueballedTxt.y + 5}, 0.4, {ease: FlxEase.quartInOut, startDelay: 0.7});
+		FlxTween.tween(bg2, {x: 0}, 0.4, {ease: FlxEase.elasticOut});
+		FlxTween.tween(bg1, {x: 0}, 0.4, {ease: FlxEase.elasticOut});
+		FlxTween.tween(levelInfo, {x: 66}, 0.4, {ease: FlxEase.elasticOut});
+		FlxTween.tween(missednotes, {x: 423}, 0.4, {ease: FlxEase.elasticOut});
+		FlxTween.tween(accuracy, {x: 423}, 0.4, {ease: FlxEase.elasticOut});
+		FlxTween.tween(curRank, {x: 250}, 0.4, {ease: FlxEase.elasticOut});
 
-		grpMenuShit = new FlxTypedGroup<Alphabet>();
-		add(grpMenuShit);
-
+		FlxTween.tween(levelInfo, {alpha: 1}, 0.4, {ease: FlxEase.quartInOut, startDelay: 0.3});
 		regenMenu();
 		cameras = [FlxG.cameras.list[FlxG.cameras.list.length - 1]];
 	}
@@ -143,7 +152,6 @@ class PauseSubState extends MusicBeatSubstate
 			pauseMusic.volume += 0.01 * elapsed;
 
 		super.update(elapsed);
-		updateSkipTextStuff();
 
 		var upP = controls.UI_UP_P;
 		var downP = controls.UI_DOWN_P;
@@ -159,35 +167,6 @@ class PauseSubState extends MusicBeatSubstate
 		}
 
 		var daSelected:String = menuItems[curSelected];
-		switch (daSelected)
-		{
-			case 'Skip Time':
-				if (controls.UI_LEFT_P)
-				{
-					FlxG.sound.play(Paths.sound('scrollMenu'), 0.4);
-					curTime -= 1000;
-					holdTime = 0;
-				}
-				if (controls.UI_RIGHT_P)
-				{
-					FlxG.sound.play(Paths.sound('scrollMenu'), 0.4);
-					curTime += 1000;
-					holdTime = 0;
-				}
-
-				if(controls.UI_LEFT || controls.UI_RIGHT)
-				{
-					holdTime += elapsed;
-					if(holdTime > 0.5)
-					{
-						curTime += 45000 * elapsed * (controls.UI_LEFT ? -1 : 1);
-					}
-
-					if(curTime >= FlxG.sound.music.length) curTime -= FlxG.sound.music.length;
-					else if(curTime < 0) curTime += FlxG.sound.music.length;
-					updateSkipTimeText();
-				}
-		}
 
 		if (accepted)
 		{
@@ -230,21 +209,6 @@ class PauseSubState extends MusicBeatSubstate
 				case "Leave Charting Mode":
 					restartSong();
 					PlayState.chartingMode = false;
-				case 'Skip Time':
-					if(curTime < Conductor.songPosition)
-					{
-						PlayState.startOnTime = curTime;
-						restartSong(true);
-					}
-					else
-					{
-						if (curTime != Conductor.songPosition)
-						{
-							PlayState.instance.clearNotesBefore(curTime);
-							PlayState.instance.setSongTime(curTime);
-						}
-						close();
-					}
 				case "End Song":
 					close();
 					PlayState.instance.finishSong(true);
@@ -308,23 +272,21 @@ class PauseSubState extends MusicBeatSubstate
 
 		for (item in grpMenuShit.members)
 		{
-			item.targetY = bullShit - curSelected;
+			item.ID = bullShit - curSelected;
 			bullShit++;
 
-			item.alpha = 0.6;
-			// item.setGraphicSize(Std.int(item.width * 0.8));
-
-			if (item.targetY == 0)
+			if (item.ID == 0)
 			{
-				item.alpha = 1;
-				// item.setGraphicSize(Std.int(item.width));
-
-				if(item == skipTimeTracker)
-				{
-					curTime = Math.max(0, Conductor.songPosition);
-					updateSkipTimeText();
-				}
+				//Yes I need to do this. Flixel is dumb
+				item.y = itemY;
+				item.color = 0xFFC90000;
 			}
+			else
+			{
+				item.y = itemY + (item.ID * 40);
+				item.color = 0xFFE8D8C0;
+			}			
+
 		}
 	}
 
@@ -337,39 +299,16 @@ class PauseSubState extends MusicBeatSubstate
 		}
 
 		for (i in 0...menuItems.length) {
-			var item = new Alphabet(0, 70 * i + 30, menuItems[i], true, false);
-			item.isMenuItem = true;
-			item.targetY = i;
+			var item:FlxText = new FlxText(-10, itemY + (i * 40), 0, menuItems[i]);
+			item.setFormat(Paths.font("futura.otf"), 25);
+			item.ID = i;
+			item.angle = -3.5;
+			FlxTween.tween(item, {x: 40}, 0.4, {ease: FlxEase.elasticOut});
 			grpMenuShit.add(item);
 
-			if(menuItems[i] == 'Skip Time')
-			{
-				skipTimeText = new FlxText(0, 0, 0, '', 64);
-				skipTimeText.setFormat(Paths.font("futura.otf"), 64, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
-				skipTimeText.scrollFactor.set();
-				skipTimeText.borderSize = 2;
-				skipTimeTracker = item;
-				add(skipTimeText);
-
-				updateSkipTextStuff();
-				updateSkipTimeText();
-			}
 		}
 		curSelected = 0;
 		changeSelection();
 	}
 	
-	function updateSkipTextStuff()
-	{
-		if(skipTimeText == null) return;
-
-		skipTimeText.x = skipTimeTracker.x + skipTimeTracker.width + 60;
-		skipTimeText.y = skipTimeTracker.y;
-		skipTimeText.visible = (skipTimeTracker.alpha >= 1);
-	}
-
-	function updateSkipTimeText()
-	{
-		skipTimeText.text = FlxStringUtil.formatTime(Math.max(0, Math.floor(curTime / 1000)), false) + ' / ' + FlxStringUtil.formatTime(Math.max(0, Math.floor(FlxG.sound.music.length / 1000)), false);
-	}
 }

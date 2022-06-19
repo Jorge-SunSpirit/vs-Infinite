@@ -1,0 +1,50 @@
+{
+	"storyName": "Infinite Placeholder",
+	"difficulties": "",
+	"hideFreeplay": false,
+	"weekBackground": "stage",
+	"freeplayColor": [
+		146,
+		113,
+		253
+	],
+	"weekBefore": "tutorial",
+	"startUnlocked": true,
+	"weekCharacters": [
+		"",
+		"bf",
+		""
+	],
+	"songs": [
+		[
+			"Phantom",
+			"dad",
+			[
+				146,
+				113,
+				253
+			]
+		],
+		[
+			"Masked",
+			"dad",
+			[
+				146,
+				113,
+				253
+			]
+		],
+		[
+			"Fragility",
+			"dad",
+			[
+				146,
+				113,
+				253
+			]
+		]
+	],
+	"hideStoryMode": false,
+	"weekName": "Week Infinite",
+	"hiddenUntilUnlocked": false
+}

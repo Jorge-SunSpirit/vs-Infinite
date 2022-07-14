@@ -518,6 +518,26 @@
 				"bpm": 165
 			},
 			{
+				"lengthInSteps": 16,
+				"typeOfSection": 0,
+				"sectionNotes": [],
+				"altAnim": false,
+				"gfSection": false,
+				"bpm": 160,
+				"changeBPM": false,
+				"mustHitSection": true
+			},
+			{
+				"sectionNotes": [],
+				"typeOfSection": 0,
+				"lengthInSteps": 16,
+				"gfSection": false,
+				"altAnim": false,
+				"mustHitSection": true,
+				"changeBPM": false,
+				"bpm": 160
+			},
+			{
 				"gfSection": false,
 				"lengthInSteps": 16,
 				"altAnim": false,
@@ -528,10 +548,10 @@
 				"mustHitSection": true
 			}
 		],
-		"gfVersion": null,
+		"gfVersion": "gf",
 		"events": [],
 		"player3": null,
-		"song": "Phantom",
+		"song": "Masked",
 		"validScore": true,
 		"needsVoices": true,
 		"speed": 1.5,

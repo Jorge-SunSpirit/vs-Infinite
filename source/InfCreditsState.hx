@@ -51,10 +51,6 @@ class InfCreditsState extends MusicBeatState
 
 	var bg:FlxSprite;
 	var descText:FlxText;
-	var intendedColor:Int;
-	var colorTween:FlxTween;
-
-	var offsetThing:Float = -75;
 
 	override function create()
 	{
@@ -96,7 +92,6 @@ class InfCreditsState extends MusicBeatState
 	}
 
 	var quitting:Bool = false;
-	var holdTime:Float = 0;
 	override function update(elapsed:Float)
 	{
 		if (FlxG.sound.music.volume < 0.7)
@@ -112,12 +107,10 @@ class InfCreditsState extends MusicBeatState
 				if (controls.UI_UP_P)
 				{
 					changeSelection('up');
-					holdTime = 0;
 				}
 				if (controls.UI_DOWN_P)
 				{
 					changeSelection('down');
-					holdTime = 0;
 				}
 				if (controls.UI_LEFT_P)
 				{
@@ -148,7 +141,6 @@ class InfCreditsState extends MusicBeatState
 		super.update(elapsed);
 	}
 
-	var moveTween:FlxTween = null;
 	function changeSelection(?direction:String)
 	{
 		var change:Int = 0;

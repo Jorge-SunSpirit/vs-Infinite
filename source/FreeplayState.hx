@@ -383,6 +383,7 @@ class FreeplayState extends MusicBeatState
 
 		for (item in grpSongs.members)
 		{
+			trace(songs.length);
 			item.ID = bullShit - curSelected;
 			bullShit++;
 
@@ -399,12 +400,14 @@ class FreeplayState extends MusicBeatState
 			if(curSelected == 2)
 				FlxTween.tween(item, {x: 720 + (item.ID * 2), y: 206 + (item.ID * 72)}, 0.5, {ease: FlxEase.circOut});
 
-
-			if(curSelected == songs.length - 2)
-				FlxTween.tween(item, {x: 724 + (item.ID * 2), y: 350 + (item.ID * 72)}, 0.5, {ease: FlxEase.circOut});
-			if(curSelected == songs.length - 1)
-				FlxTween.tween(item, {x: 726 + (item.ID * 2), y: 422 + (item.ID * 72)}, 0.5, {ease: FlxEase.circOut});
-				//item.y = 1148 + (item.ID * 72);
+			if (songs.length >= 5)
+			{
+				if(curSelected == songs.length - 2)
+					FlxTween.tween(item, {x: 724 + (item.ID * 2), y: 350 + (item.ID * 72)}, 0.5, {ease: FlxEase.circOut});
+				if(curSelected == songs.length - 1)
+					FlxTween.tween(item, {x: 726 + (item.ID * 2), y: 422 + (item.ID * 72)}, 0.5, {ease: FlxEase.circOut});	
+			}
+			
 
 			item.selected(false);
 

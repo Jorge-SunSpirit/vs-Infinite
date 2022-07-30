@@ -127,8 +127,9 @@ class FreeplayState extends MusicBeatState
 
 		WeekData.setDirectoryFromWeek();
 
-		diffText = new FlxText(200, 10, 0, "", 24);
-		diffText.setFormat(Paths.font("futura.otf"), 20, FlxColor.BLACK, FlxTextAlign.RIGHT);
+		diffText = new FlxText(713, 569, 0, "", 24);
+		diffText.angle = -3;
+		diffText.setFormat(Paths.font("futura.otf"), 35, FlxColor.BLACK, FlxTextAlign.RIGHT);
 		add(diffText);
 
 		if(curSelected >= songs.length) curSelected = 0;
@@ -159,7 +160,6 @@ class FreeplayState extends MusicBeatState
 		#end
 		var text:FlxText = new FlxText(textBG.x, textBG.y + 4, FlxG.width, leText, size);
 		text.setFormat(Paths.font("futura.otf"), size, FlxColor.WHITE, RIGHT);
-		text.scrollFactor.set();
 		add(text);
 		super.create();
 	}
@@ -189,6 +189,22 @@ class FreeplayState extends MusicBeatState
 		{
 			FlxG.sound.music.volume += 0.5 * FlxG.elapsed;
 		}
+
+		#if debug
+		if (FlxG.keys.pressed.SHIFT && (FlxG.keys.pressed.I || FlxG.keys.pressed.J || FlxG.keys.pressed.K || FlxG.keys.pressed.L))
+			{
+				if (FlxG.keys.pressed.I)
+					diffText.y += -1;
+				else if (FlxG.keys.pressed.K)
+					diffText.y += 1;
+				if (FlxG.keys.pressed.J)
+					diffText.x += -1;
+				else if (FlxG.keys.pressed.L)
+					diffText.x += 1;
+	
+				trace("extracharpos" + diffText.x + " X " + diffText.y + ' y');
+			}
+		#end
 
 		var upP = controls.UI_UP_P;
 		var downP = controls.UI_DOWN_P;
@@ -498,7 +514,6 @@ class FreeplayItem extends FlxSpriteGroup
 		add(bg);
 
 		songname = new FlxText(100, 20, 0, 'Song ' + Std.string(songNum + 1) + '\n' + song);
-		songname.scrollFactor.set();
 		songname.setFormat(Paths.font("futura.otf"), 20, FlxColor.RED, FlxTextAlign.LEFT);
 		songname.antialiasing = ClientPrefs.globalAntialiasing;
 		songname.updateHitbox();
@@ -506,7 +521,6 @@ class FreeplayItem extends FlxSpriteGroup
 
 		//Lazy want to get atleast the base of this finished. Gotta implement rating here.
 		score = new FlxText(320, 0, 120, '');
-		score.scrollFactor.set();
 		score.setFormat(Paths.font("futura.otf"), 20, FlxColor.RED, FlxTextAlign.RIGHT);
 		score.autoSize = false;
 		score.wordWrap = false;

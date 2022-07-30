@@ -45,7 +45,7 @@ class InfCreditsState extends MusicBeatState
 		['M&M',	'mandm',	'Main Programmer',	"I put fortnite on a scu burner account",	'https://twitter.com/ActualMandM',	"1", "0"],
 		['SunSpirit',	'sunspirit',	'UI Programmer',	"Defeat me with heat beams, you're crazy!",	'https://twitter.com/Jorge_SunSpirit',	"1", "1"],
 		['HighPoweredKeyz',	'hpk',	'Chromatic Assistance',	"hueh",	'https://twitter.com/HighPoweredArt',	"1", "2"],
-		['DiskWraith',	'discwraith',	'Charter',	"I've only played Sonic Heroes",	'https://twitter.com/DiscWraith',	"1", "3"],
+		['DiscWraith',	'discwraith',	'Charter',	"I've only played Sonic Heroes",	'https://twitter.com/DiscWraith',	"1", "3"],
 		['Psych Engine Team',	'psych',	'Psych Engine Credits',	"Open the Psych Engine Credits Here!",	'hueh',	"1", "4"]
 	];
 

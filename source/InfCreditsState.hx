@@ -85,6 +85,7 @@ class InfCreditsState extends MusicBeatState
 		descText = new FlxText(264, 640, 753, "", 32);
 		descText.setFormat(Paths.font("futura.otf"), 32, 0xFFFFBDBD, CENTER, FlxTextBorderStyle.SHADOW, FlxColor.BLACK);
 		descText.scrollFactor.set();
+		descText.antialiasing = ClientPrefs.globalAntialiasing;
 		add(descText);
 
 		changeSelection();

@@ -130,6 +130,7 @@ class FreeplayState extends MusicBeatState
 		diffText = new FlxText(713, 569, 0, "", 24);
 		diffText.angle = -3;
 		diffText.setFormat(Paths.font("futura.otf"), 35, FlxColor.BLACK, FlxTextAlign.RIGHT);
+		diffText.antialiasing = ClientPrefs.globalAntialiasing;
 		add(diffText);
 
 		if(curSelected >= songs.length) curSelected = 0;
@@ -160,6 +161,7 @@ class FreeplayState extends MusicBeatState
 		#end
 		var text:FlxText = new FlxText(textBG.x, textBG.y + 4, FlxG.width, leText, size);
 		text.setFormat(Paths.font("futura.otf"), size, FlxColor.WHITE, RIGHT);
+		text.antialiasing = ClientPrefs.globalAntialiasing;
 		add(text);
 		super.create();
 	}

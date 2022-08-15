@@ -174,10 +174,12 @@ class TitleState extends MusicBeatState
 
 		var bg:FlxSprite = new FlxSprite();
 		bg.loadGraphic(Paths.image("titlescreen/bg"));
+		bg.antialiasing = ClientPrefs.globalAntialiasing;
 		add(bg);
 
 		var overlaybg:FlxSprite = new FlxSprite();
 		overlaybg.loadGraphic(Paths.image("titlescreen/Overlay"));
+		overlaybg.antialiasing = ClientPrefs.globalAntialiasing;
 		add(overlaybg);
 
 		logoBl = new FlxSprite(0, 0);

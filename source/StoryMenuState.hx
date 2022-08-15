@@ -61,16 +61,19 @@ class StoryMenuState extends MusicBeatState
 
 		scoreText = new FlxText(10, 10, 0, "SCORE: 49324858", 36);
 		scoreText.setFormat(Paths.font("futura.otf"), 32);
+		scoreText.antialiasing = ClientPrefs.globalAntialiasing;
 
 		txtWeekTitle = new FlxText(FlxG.width * 0.7, 10, 0, "", 32);
 		txtWeekTitle.setFormat(Paths.font("futura.otf"), 32, FlxColor.WHITE, RIGHT);
 		txtWeekTitle.alpha = 0.7;
+		txtWeekTitle.antialiasing = ClientPrefs.globalAntialiasing;
 
 		var rankText:FlxText = new FlxText(0, 10);
 		rankText.text = 'RANK: GREAT';
 		rankText.setFormat(Paths.font("futura.otf"), 32);
 		rankText.size = scoreText.size;
 		rankText.screenCenter(X);
+		rankText.antialiasing = ClientPrefs.globalAntialiasing;
 
 		var ui_tex = Paths.getSparrowAtlas('campaign_menu_UI_assets');
 		var bgYellow:FlxSprite = new FlxSprite(0, 56).makeGraphic(FlxG.width, 386, 0xFFF9CF51);
@@ -177,6 +180,7 @@ class StoryMenuState extends MusicBeatState
 		txtTracklist.alignment = CENTER;
 		txtTracklist.font = rankText.font;
 		txtTracklist.color = 0xFFe55777;
+		txtTracklist.antialiasing = ClientPrefs.globalAntialiasing;
 		add(txtTracklist);
 		// add(rankText);
 		add(scoreText);

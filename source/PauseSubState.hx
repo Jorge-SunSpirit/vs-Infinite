@@ -20,7 +20,7 @@ class PauseSubState extends MusicBeatSubstate
 	var grpMenuShit:FlxTypedGroup<FlxText>;
 
 	var menuItems:Array<String> = [];
-	var menuItemsOG:Array<String> = ['Resume', 'Restart Song', 'Change Difficulty', 'Exit to menu'];
+	var menuItemsOG:Array<String> = ['Resume', 'Restart Song', 'Change Difficulty', 'Exit to Menu'];
 	var difficultyChoices = [];
 	var curSelected:Int = 0;
 
@@ -203,7 +203,7 @@ class PauseSubState extends MusicBeatSubstate
 				case 'Toggle Practice Mode':
 					PlayState.instance.practiceMode = !PlayState.instance.practiceMode;
 					PlayState.changedDifficulty = true;
-					practiceText.visible = PlayState.instance.practiceMode;
+					// practiceText.visible = PlayState.instance.practiceMode;
 				case "Restart Song":
 					restartSong();
 				case "Leave Charting Mode":
@@ -218,7 +218,7 @@ class PauseSubState extends MusicBeatSubstate
 					PlayState.instance.botplayTxt.visible = PlayState.instance.cpuControlled;
 					PlayState.instance.botplayTxt.alpha = 1;
 					PlayState.instance.botplaySine = 0;
-				case "Exit to menu":
+				case "Exit to Menu":
 					PlayState.deathCounter = 0;
 					PlayState.seenCutscene = false;
 					if(PlayState.isStoryMode) {
@@ -304,6 +304,7 @@ class PauseSubState extends MusicBeatSubstate
 			item.ID = i;
 			item.angle = -3.5;
 			FlxTween.tween(item, {x: 40}, 0.4, {ease: FlxEase.elasticOut});
+			item.antialiasing = ClientPrefs.globalAntialiasing;
 			grpMenuShit.add(item);
 
 		}

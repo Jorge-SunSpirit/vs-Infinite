@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="infinitemask.png">
+	<!-- Created with Adobe Animate version 19.2.1.408 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="Infinite_IdleDance0000" x="4784" y="6134" width="1271" height="1874" frameX="0" frameY="-21" frameWidth="1271" frameHeight="1895"/>
+	<SubTexture name="Infinite_IdleDance0001" x="4784" y="6134" width="1271" height="1874" frameX="0" frameY="-21" frameWidth="1271" frameHeight="1895"/>
+	<SubTexture name="Infinite_IdleDance0002" x="6155" y="6134" width="1227" height="1882" frameX="-12" frameY="-4" frameWidth="1271" frameHeight="1895"/>
+	<SubTexture name="Infinite_IdleDance0003" x="6155" y="6134" width="1227" height="1882" frameX="-12" frameY="-4" frameWidth="1271" frameHeight="1895"/>
+	<SubTexture name="Infinite_SingDOWN0000" x="4784" y="4110" width="1342" height="1924" frameX="0" frameY="-41" frameWidth="1346" frameHeight="1965"/>
+	<SubTexture name="Infinite_SingDOWN0001" x="4784" y="4110" width="1342" height="1924" frameX="0" frameY="-41" frameWidth="1346" frameHeight="1965"/>
+	<SubTexture name="Infinite_SingDOWN0002" x="4871" y="2075" width="1313" height="1928" frameX="-33" frameY="0" frameWidth="1346" frameHeight="1965"/>
+	<SubTexture name="Infinite_SingDOWN0003" x="4871" y="2075" width="1313" height="1928" frameX="-33" frameY="0" frameWidth="1346" frameHeight="1965"/>
+	<SubTexture name="Infinite_SingDOWN0004" x="6226" y="4103" width="1179" height="1910" frameX="-78" frameY="-6" frameWidth="1346" frameHeight="1965"/>
+	<SubTexture name="Infinite_SingDOWN0005" x="6226" y="4103" width="1179" height="1910" frameX="-78" frameY="-6" frameWidth="1346" frameHeight="1965"/>
+	<SubTexture name="Infinite_SingDOWN0006" x="6284" y="2075" width="1164" height="1908" frameX="-87" frameY="-2" frameWidth="1346" frameHeight="1965"/>
+	<SubTexture name="Infinite_SingDOWN0007" x="6284" y="2075" width="1164" height="1908" frameX="-87" frameY="-2" frameWidth="1346" frameHeight="1965"/>
+	<SubTexture name="Infinite_SingDOWN0008" x="6417" y="50" width="1159" height="1908" frameX="-90" frameY="0" frameWidth="1346" frameHeight="1965"/>
+	<SubTexture name="Infinite_SingDOWN0009" x="6417" y="50" width="1159" height="1908" frameX="-90" frameY="0" frameWidth="1346" frameHeight="1965"/>
+	<SubTexture name="Infinite_SingDOWN0010" x="6417" y="50" width="1159" height="1908" frameX="-90" frameY="0" frameWidth="1346" frameHeight="1965"/>
+	<SubTexture name="Infinite_SingDOWN0011" x="6417" y="50" width="1159" height="1908" frameX="-90" frameY="0" frameWidth="1346" frameHeight="1965"/>
+	<SubTexture name="Infinite_SingDOWN0012" x="6417" y="50" width="1159" height="1908" frameX="-90" frameY="0" frameWidth="1346" frameHeight="1965"/>
+	<SubTexture name="Infinite_SingDOWN0013" x="6417" y="50" width="1159" height="1908" frameX="-90" frameY="0" frameWidth="1346" frameHeight="1965"/>
+	<SubTexture name="Infinite_SingLEFT0000" x="50" y="50" width="1630" height="2056" frameX="0" frameY="-13" frameWidth="1635" frameHeight="2069"/>
+	<SubTexture name="Infinite_SingLEFT0001" x="50" y="50" width="1630" height="2056" frameX="0" frameY="-13" frameWidth="1635" frameHeight="2069"/>
+	<SubTexture name="Infinite_SingLEFT0002" x="50" y="2206" width="1622" height="2051" frameX="-13" frameY="0" frameWidth="1635" frameHeight="2069"/>
+	<SubTexture name="Infinite_SingLEFT0003" x="50" y="2206" width="1622" height="2051" frameX="-13" frameY="0" frameWidth="1635" frameHeight="2069"/>
+	<SubTexture name="Infinite_SingLEFT0004" x="1772" y="2206" width="1438" height="2016" frameX="-165" frameY="-25" frameWidth="1635" frameHeight="2069"/>
+	<SubTexture name="Infinite_SingLEFT0005" x="1772" y="2206" width="1438" height="2016" frameX="-165" frameY="-25" frameWidth="1635" frameHeight="2069"/>
+	<SubTexture name="Infinite_SingLEFT0006" x="1780" y="50" width="1412" height="2009" frameX="-186" frameY="-29" frameWidth="1635" frameHeight="2069"/>
+	<SubTexture name="Infinite_SingLEFT0007" x="1780" y="50" width="1412" height="2009" frameX="-186" frameY="-29" frameWidth="1635" frameHeight="2069"/>
+	<SubTexture name="Infinite_SingLEFT0008" x="3275" y="4322" width="1409" height="2008" frameX="-188" frameY="-29" frameWidth="1635" frameHeight="2069"/>
+	<SubTexture name="Infinite_SingLEFT0009" x="3275" y="4322" width="1409" height="2008" frameX="-188" frameY="-29" frameWidth="1635" frameHeight="2069"/>
+	<SubTexture name="Infinite_SingLEFT0010" x="3275" y="4322" width="1409" height="2008" frameX="-188" frameY="-29" frameWidth="1635" frameHeight="2069"/>
+	<SubTexture name="Infinite_SingLEFT0011" x="3275" y="4322" width="1409" height="2008" frameX="-188" frameY="-29" frameWidth="1635" frameHeight="2069"/>
+	<SubTexture name="Infinite_SingLEFT0012" x="3275" y="4322" width="1409" height="2008" frameX="-188" frameY="-29" frameWidth="1635" frameHeight="2069"/>
+	<SubTexture name="Infinite_SingRIGHT0000" x="1677" y="4357" width="1498" height="1969" frameX="-116" frameY="-17" frameWidth="1614" frameHeight="1986"/>
+	<SubTexture name="Infinite_SingRIGHT0001" x="1677" y="4357" width="1498" height="1969" frameX="-116" frameY="-17" frameWidth="1614" frameHeight="1986"/>
+	<SubTexture name="Infinite_SingRIGHT0002" x="50" y="4357" width="1527" height="1977" frameX="-16" frameY="0" frameWidth="1614" frameHeight="1986"/>
+	<SubTexture name="Infinite_SingRIGHT0003" x="50" y="4357" width="1527" height="1977" frameX="-16" frameY="0" frameWidth="1614" frameHeight="1986"/>
+	<SubTexture name="Infinite_SingRIGHT0004" x="3292" y="50" width="1465" height="1932" frameX="-16" frameY="-42" frameWidth="1614" frameHeight="1986"/>
+	<SubTexture name="Infinite_SingRIGHT0005" x="3292" y="50" width="1465" height="1932" frameX="-16" frameY="-42" frameWidth="1614" frameHeight="1986"/>
+	<SubTexture name="Infinite_SingRIGHT0006" x="3310" y="2082" width="1461" height="1928" frameX="-4" frameY="-45" frameWidth="1614" frameHeight="1986"/>
+	<SubTexture name="Infinite_SingRIGHT0007" x="3310" y="2082" width="1461" height="1928" frameX="-4" frameY="-45" frameWidth="1614" frameHeight="1986"/>
+	<SubTexture name="Infinite_SingRIGHT0008" x="4857" y="50" width="1460" height="1925" frameX="0" frameY="-47" frameWidth="1614" frameHeight="1986"/>
+	<SubTexture name="Infinite_SingRIGHT0009" x="4857" y="50" width="1460" height="1925" frameX="0" frameY="-47" frameWidth="1614" frameHeight="1986"/>
+	<SubTexture name="Infinite_SingRIGHT0010" x="4857" y="50" width="1460" height="1925" frameX="0" frameY="-47" frameWidth="1614" frameHeight="1986"/>
+	<SubTexture name="Infinite_SingRIGHT0011" x="4857" y="50" width="1460" height="1925" frameX="0" frameY="-47" frameWidth="1614" frameHeight="1986"/>
+	<SubTexture name="Infinite_SingRIGHT0012" x="4857" y="50" width="1460" height="1925" frameX="0" frameY="-47" frameWidth="1614" frameHeight="1986"/>
+	<SubTexture name="Infinite_SingRIGHT0013" x="4857" y="50" width="1460" height="1925" frameX="0" frameY="-47" frameWidth="1614" frameHeight="1986"/>
+	<SubTexture name="Infinite_SingUP0000" x="1677" y="6426" width="1415" height="1589" frameX="0" frameY="0" frameWidth="1455" frameHeight="1594"/>
+	<SubTexture name="Infinite_SingUP0001" x="1677" y="6426" width="1415" height="1589" frameX="0" frameY="0" frameWidth="1455" frameHeight="1594"/>
+	<SubTexture name="Infinite_SingUP0002" x="3192" y="6430" width="1443" height="1548" frameX="-12" frameY="-45" frameWidth="1455" frameHeight="1594"/>
+	<SubTexture name="Infinite_SingUP0003" x="3192" y="6430" width="1443" height="1548" frameX="-12" frameY="-45" frameWidth="1455" frameHeight="1594"/>
+</TextureAtlas>

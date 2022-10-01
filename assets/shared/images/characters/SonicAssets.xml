@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="SonicAssets.png">
+	<!-- Created with Adobe Animate version 19.2.1.408 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="Sonic_IdleDance0000" x="50" y="3416" width="523" height="760" frameX="0" frameY="-12" frameWidth="536" frameHeight="772"/>
+	<SubTexture name="Sonic_IdleDance0001" x="50" y="3416" width="523" height="760" frameX="0" frameY="-12" frameWidth="536" frameHeight="772"/>
+	<SubTexture name="Sonic_IdleDance0002" x="50" y="2544" width="527" height="772" frameX="-9" frameY="0" frameWidth="536" frameHeight="772"/>
+	<SubTexture name="Sonic_IdleDance0003" x="50" y="2544" width="527" height="772" frameX="-9" frameY="0" frameWidth="536" frameHeight="772"/>
+	<SubTexture name="Sonic_IdleDance0004" x="2972" y="3237" width="521" height="749" frameX="-8" frameY="-23" frameWidth="536" frameHeight="772"/>
+	<SubTexture name="Sonic_IdleDance0005" x="2972" y="3237" width="521" height="749" frameX="-8" frameY="-23" frameWidth="536" frameHeight="772"/>
+	<SubTexture name="Sonic_IdleDance0006" x="2053" y="3393" width="520" height="747" frameX="-9" frameY="-25" frameWidth="536" frameHeight="772"/>
+	<SubTexture name="Sonic_IdleDance0007" x="2053" y="3393" width="520" height="747" frameX="-9" frameY="-25" frameWidth="536" frameHeight="772"/>
+	<SubTexture name="Sonic_IdleDance0008" x="1300" y="3477" width="519" height="747" frameX="-10" frameY="-25" frameWidth="536" frameHeight="772"/>
+	<SubTexture name="Sonic_IdleDance0009" x="1300" y="3477" width="519" height="747" frameX="-10" frameY="-25" frameWidth="536" frameHeight="772"/>
+	<SubTexture name="Sonic_IdleDance0010" x="1300" y="3477" width="519" height="747" frameX="-10" frameY="-25" frameWidth="536" frameHeight="772"/>
+	<SubTexture name="Sonic_IdleDance0011" x="1300" y="3477" width="519" height="747" frameX="-10" frameY="-25" frameWidth="536" frameHeight="772"/>
+	<SubTexture name="Sonic_IdleDance0012" x="1300" y="3477" width="519" height="747" frameX="-10" frameY="-25" frameWidth="536" frameHeight="772"/>
+	<SubTexture name="Sonic_IdleDance0013" x="2972" y="3237" width="521" height="749" frameX="-8" frameY="-23" frameWidth="536" frameHeight="772"/>
+	<SubTexture name="Sonic_SingDOWN0000" x="2478" y="865" width="707" height="680" frameX="0" frameY="-20" frameWidth="708" frameHeight="700"/>
+	<SubTexture name="Sonic_SingDOWN0001" x="2478" y="865" width="707" height="680" frameX="0" frameY="-20" frameWidth="708" frameHeight="700"/>
+	<SubTexture name="Sonic_SingDOWN0002" x="50" y="906" width="696" height="700" frameX="-12" frameY="0" frameWidth="708" frameHeight="700"/>
+	<SubTexture name="Sonic_SingDOWN0003" x="50" y="906" width="696" height="700" frameX="-12" frameY="0" frameWidth="708" frameHeight="700"/>
+	<SubTexture name="Sonic_SingDOWN0004" x="3179" y="1699" width="674" height="670" frameX="-16" frameY="-30" frameWidth="708" frameHeight="700"/>
+	<SubTexture name="Sonic_SingDOWN0005" x="3179" y="1699" width="674" height="670" frameX="-16" frameY="-30" frameWidth="708" frameHeight="700"/>
+	<SubTexture name="Sonic_SingDOWN0006" x="3179" y="2469" width="670" height="668" frameX="-18" frameY="-32" frameWidth="708" frameHeight="700"/>
+	<SubTexture name="Sonic_SingDOWN0007" x="3179" y="2469" width="670" height="668" frameX="-18" frameY="-32" frameWidth="708" frameHeight="700"/>
+	<SubTexture name="Sonic_SingDOWN0008" x="805" y="1723" width="669" height="667" frameX="-18" frameY="-33" frameWidth="708" frameHeight="700"/>
+	<SubTexture name="Sonic_SingDOWN0009" x="805" y="1723" width="669" height="667" frameX="-18" frameY="-33" frameWidth="708" frameHeight="700"/>
+	<SubTexture name="Sonic_SingDOWN0010" x="805" y="1723" width="669" height="667" frameX="-18" frameY="-33" frameWidth="708" frameHeight="700"/>
+	<SubTexture name="Sonic_SingDOWN0011" x="805" y="1723" width="669" height="667" frameX="-18" frameY="-33" frameWidth="708" frameHeight="700"/>
+	<SubTexture name="Sonic_SingDOWN0012" x="805" y="1723" width="669" height="667" frameX="-18" frameY="-33" frameWidth="708" frameHeight="700"/>
+	<SubTexture name="Sonic_SingDOWN0013" x="805" y="1723" width="669" height="667" frameX="-18" frameY="-33" frameWidth="708" frameHeight="700"/>
+	<SubTexture name="Sonic_SingLEFT0000" x="50" y="50" width="729" height="756"/>
+	<SubTexture name="Sonic_SingLEFT0001" x="50" y="50" width="729" height="756"/>
+	<SubTexture name="Sonic_SingLEFT0002" x="1697" y="50" width="681" height="753" frameX="-47" frameY="-3" frameWidth="729" frameHeight="756"/>
+	<SubTexture name="Sonic_SingLEFT0003" x="1697" y="50" width="681" height="753" frameX="-47" frameY="-3" frameWidth="729" frameHeight="756"/>
+	<SubTexture name="Sonic_SingLEFT0004" x="50" y="1706" width="655" height="738" frameX="-63" frameY="-17" frameWidth="729" frameHeight="756"/>
+	<SubTexture name="Sonic_SingLEFT0005" x="50" y="1706" width="655" height="738" frameX="-63" frameY="-17" frameWidth="729" frameHeight="756"/>
+	<SubTexture name="Sonic_SingLEFT0006" x="3285" y="863" width="646" height="736" frameX="-71" frameY="-19" frameWidth="729" frameHeight="756"/>
+	<SubTexture name="Sonic_SingLEFT0007" x="3285" y="863" width="646" height="736" frameX="-71" frameY="-19" frameWidth="729" frameHeight="756"/>
+	<SubTexture name="Sonic_SingLEFT0008" x="2435" y="1645" width="644" height="735" frameX="-73" frameY="-20" frameWidth="729" frameHeight="756"/>
+	<SubTexture name="Sonic_SingLEFT0009" x="2435" y="1645" width="644" height="735" frameX="-73" frameY="-20" frameWidth="729" frameHeight="756"/>
+	<SubTexture name="Sonic_SingLEFT0010" x="2435" y="1645" width="644" height="735" frameX="-73" frameY="-20" frameWidth="729" frameHeight="756"/>
+	<SubTexture name="Sonic_SingLEFT0011" x="2435" y="1645" width="644" height="735" frameX="-73" frameY="-20" frameWidth="729" frameHeight="756"/>
+	<SubTexture name="Sonic_SingLEFT0012" x="2435" y="1645" width="644" height="735" frameX="-73" frameY="-20" frameWidth="729" frameHeight="756"/>
+	<SubTexture name="Sonic_SingLEFT0013" x="2435" y="1645" width="644" height="735" frameX="-73" frameY="-20" frameWidth="729" frameHeight="756"/>
+	<SubTexture name="Sonic_SingRIGHT0000" x="879" y="50" width="718" height="733" frameX="0" frameY="-7" frameWidth="718" frameHeight="740"/>
+	<SubTexture name="Sonic_SingRIGHT0001" x="879" y="50" width="718" height="733" frameX="0" frameY="-7" frameWidth="718" frameHeight="740"/>
+	<SubTexture name="Sonic_SingRIGHT0002" x="879" y="883" width="691" height="740" frameX="-13" frameY="0" frameWidth="718" frameHeight="740"/>
+	<SubTexture name="Sonic_SingRIGHT0003" x="879" y="883" width="691" height="740" frameX="-13" frameY="0" frameWidth="718" frameHeight="740"/>
+	<SubTexture name="Sonic_SingRIGHT0004" x="2478" y="50" width="673" height="715" frameX="-17" frameY="-25" frameWidth="718" frameHeight="740"/>
+	<SubTexture name="Sonic_SingRIGHT0005" x="2478" y="50" width="673" height="715" frameX="-17" frameY="-25" frameWidth="718" frameHeight="740"/>
+	<SubTexture name="Sonic_SingRIGHT0006" x="3251" y="50" width="667" height="713" frameX="-19" frameY="-27" frameWidth="718" frameHeight="740"/>
+	<SubTexture name="Sonic_SingRIGHT0007" x="3251" y="50" width="667" height="713" frameX="-19" frameY="-27" frameWidth="718" frameHeight="740"/>
+	<SubTexture name="Sonic_SingRIGHT0008" x="1670" y="903" width="665" height="712" frameX="-20" frameY="-28" frameWidth="718" frameHeight="740"/>
+	<SubTexture name="Sonic_SingRIGHT0009" x="1670" y="903" width="665" height="712" frameX="-20" frameY="-28" frameWidth="718" frameHeight="740"/>
+	<SubTexture name="Sonic_SingRIGHT0010" x="1670" y="903" width="665" height="712" frameX="-20" frameY="-28" frameWidth="718" frameHeight="740"/>
+	<SubTexture name="Sonic_SingRIGHT0011" x="1670" y="903" width="665" height="712" frameX="-20" frameY="-28" frameWidth="718" frameHeight="740"/>
+	<SubTexture name="Sonic_SingRIGHT0012" x="1670" y="903" width="665" height="712" frameX="-20" frameY="-28" frameWidth="718" frameHeight="740"/>
+	<SubTexture name="Sonic_SingRIGHT0013" x="1670" y="903" width="665" height="712" frameX="-20" frameY="-28" frameWidth="718" frameHeight="740"/>
+	<SubTexture name="Sonic_SingUP0000" x="2329" y="2480" width="543" height="813" frameX="-11" frameY="0" frameWidth="559" frameHeight="813"/>
+	<SubTexture name="Sonic_SingUP0001" x="2329" y="2480" width="543" height="813" frameX="-11" frameY="0" frameWidth="559" frameHeight="813"/>
+	<SubTexture name="Sonic_SingUP0002" x="1670" y="1715" width="559" height="791" frameX="0" frameY="-22" frameWidth="559" frameHeight="813"/>
+	<SubTexture name="Sonic_SingUP0003" x="1670" y="1715" width="559" height="791" frameX="0" frameY="-22" frameWidth="559" frameHeight="813"/>
+	<SubTexture name="Sonic_SingUP0004" x="805" y="2490" width="525" height="776" frameX="-9" frameY="-37" frameWidth="559" frameHeight="813"/>
+	<SubTexture name="Sonic_SingUP0005" x="805" y="2490" width="525" height="776" frameX="-9" frameY="-37" frameWidth="559" frameHeight="813"/>
+	<SubTexture name="Sonic_SingUP0006" x="1430" y="2606" width="523" height="771" frameX="-8" frameY="-42" frameWidth="559" frameHeight="813"/>
+	<SubTexture name="Sonic_SingUP0007" x="1430" y="2606" width="523" height="771" frameX="-8" frameY="-42" frameWidth="559" frameHeight="813"/>
+	<SubTexture name="Sonic_SingUP0008" x="677" y="3366" width="523" height="769" frameX="-8" frameY="-44" frameWidth="559" frameHeight="813"/>
+	<SubTexture name="Sonic_SingUP0009" x="677" y="3366" width="523" height="769" frameX="-8" frameY="-44" frameWidth="559" frameHeight="813"/>
+	<SubTexture name="Sonic_SingUP0010" x="677" y="3366" width="523" height="769" frameX="-8" frameY="-44" frameWidth="559" frameHeight="813"/>
+	<SubTexture name="Sonic_SingUP0011" x="677" y="3366" width="523" height="769" frameX="-8" frameY="-44" frameWidth="559" frameHeight="813"/>
+	<SubTexture name="Sonic_SingUP0012" x="677" y="3366" width="523" height="769" frameX="-8" frameY="-44" frameWidth="559" frameHeight="813"/>
+	<SubTexture name="Sonic_SingUP0013" x="677" y="3366" width="523" height="769" frameX="-8" frameY="-44" frameWidth="559" frameHeight="813"/>
+</TextureAtlas>

@@ -1,59 +1,59 @@
 {
 	"animations": [
 		{
-			"loop": false,
 			"offsets": [
 				-50,
 				60
 			],
+			"loop": false,
+			"fps": 24,
 			"anim": "idle",
-			"fps": 24,
-			"name": "Infinite_IdleDance",
-			"indices": []
+			"indices": [],
+			"name": "Infinite_IdleDance"
 		},
 		{
-			"loop": false,
-			"offsets": [
-				-10,
-				60
-			],
-			"anim": "singDOWN",
-			"fps": 24,
-			"name": "Infinite_SingDOWN",
-			"indices": []
-		},
-		{
-			"loop": false,
 			"offsets": [
 				0,
-				55
+				80
 			],
-			"anim": "singUP",
+			"loop": false,
 			"fps": 24,
-			"name": "Infinite_SingUP",
-			"indices": []
+			"anim": "singDOWN",
+			"indices": [],
+			"name": "Infinite_SingDOWN"
 		},
 		{
-			"loop": false,
 			"offsets": [
-				18,
+				0,
+				5
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singUP",
+			"indices": [],
+			"name": "Infinite_SingUP"
+		},
+		{
+			"offsets": [
+				-62,
 				123
 			],
-			"anim": "singLEFT",
+			"loop": false,
 			"fps": 24,
-			"name": "Infinite_SingLEFT",
-			"indices": []
+			"anim": "singLEFT",
+			"indices": [],
+			"name": "Infinite_SingLEFT"
 		},
 		{
-			"loop": false,
 			"offsets": [
-				-130,
+				-110,
 				81
 			],
-			"anim": "singRIGHT",
+			"loop": false,
 			"fps": 24,
-			"name": "Infinite_SingRIGHT",
-			"indices": []
+			"anim": "singRIGHT",
+			"indices": [],
+			"name": "Infinite_SingRIGHT"
 		}
 	],
 	"no_antialiasing": false,

@@ -1,6 +1,6 @@
 {
 	"song": {
-		"player1": "bf",
+		"player1": "sonic",
 		"events": [],
 		"gfVersion": "gf-car",
 		"notes": [
@@ -8468,7 +8468,7 @@
 				"mustHitSection": true
 			}
 		],
-		"player2": "betaInfinitefx",
+		"player2": "infinite-masked",
 		"player3": null,
 		"song": "Phantom",
 		"stage": "stage",

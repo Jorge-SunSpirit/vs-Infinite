@@ -142,6 +142,7 @@ class PlayState extends MusicBeatState
 	public var opponentStrums:FlxTypedGroup<StrumNote>;
 	public var playerStrums:FlxTypedGroup<StrumNote>;
 	public var grpNoteSplashes:FlxTypedGroup<NoteSplash>;
+	private var grpUnderlay:FlxTypedGroup<FlxSprite>;
 
 	public var camZooming:Bool = false;
 	private var curSong:String = "";
@@ -875,6 +876,34 @@ class PlayState extends MusicBeatState
 		strumLine = new FlxSprite(ClientPrefs.middleScroll ? STRUM_X_MIDDLESCROLL : STRUM_X, 50).makeGraphic(FlxG.width, 10);
 		if(ClientPrefs.downScroll) strumLine.y = FlxG.height - 150;
 		strumLine.scrollFactor.set();
+
+		grpUnderlay = new FlxTypedGroup<FlxSprite>();
+		add(grpUnderlay);
+
+		// this code kinda shit but idgaf
+		if (ClientPrefs.noteUnderlay > 0)
+		{
+			if (!ClientPrefs.middleScroll)
+			{
+				for (i in 0...2)
+				{
+					var underlay = new FlxSprite(70 + ((FlxG.width / 2) * i), 0).makeGraphic(500, FlxG.height * 2, FlxColor.BLACK);
+					underlay.alpha = ClientPrefs.noteUnderlay;
+					underlay.screenCenter(Y);
+					underlay.cameras = [camHUD];
+					underlay.ID = i;
+					grpUnderlay.add(underlay);
+				}
+			}
+			else
+			{
+				var underlay = new FlxSprite(0, 0).makeGraphic(500, FlxG.height * 2, FlxColor.BLACK);
+				underlay.alpha = ClientPrefs.noteUnderlay;
+				underlay.screenCenter();
+				underlay.cameras = [camHUD];
+				grpUnderlay.add(underlay);
+			}
+		}
 
 		var showTime:Bool = (ClientPrefs.timeBarType != 'Disabled');
 		timeTxt = new FlxText(STRUM_X + (FlxG.width / 2) - 248, 19, 400, "", 32);

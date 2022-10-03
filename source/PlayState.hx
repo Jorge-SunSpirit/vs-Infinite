@@ -911,6 +911,7 @@ class PlayState extends MusicBeatState
 		timeTxt.screenCenter(X);
 		timeTxt.alpha = 0;
 		timeTxt.borderSize = 2;
+		timeTxt.antialiasing = ClientPrefs.globalAntialiasing;
 		timeTxt.visible = showTime;
 		if(ClientPrefs.downScroll) timeTxt.y = FlxG.height - 44;
 
@@ -1066,13 +1067,15 @@ class PlayState extends MusicBeatState
 		scoreTxt.setFormat(Paths.font("futura.otf"), 20, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		scoreTxt.scrollFactor.set();
 		scoreTxt.borderSize = 1.25;
+		scoreTxt.antialiasing = ClientPrefs.globalAntialiasing;
 		scoreTxt.visible = !ClientPrefs.hideHud;
 		add(scoreTxt);
 
-		botplayTxt = new FlxText(400, timeBarBG.y + 55, FlxG.width - 800, "BOTPLAY", 32);
+		botplayTxt = new FlxText(0, timeBarBG.y + 55, FlxG.width - 800, "BOTPLAY", 32);
 		botplayTxt.setFormat(Paths.font("futura.otf"), 32, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
-		botplayTxt.scrollFactor.set();
+		botplayTxt.screenCenter(X);
 		botplayTxt.borderSize = 1.25;
+		botplayTxt.antialiasing = ClientPrefs.globalAntialiasing;
 		botplayTxt.visible = cpuControlled;
 		add(botplayTxt);
 		if(ClientPrefs.downScroll) {

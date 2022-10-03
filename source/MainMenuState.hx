@@ -52,7 +52,7 @@ class MainMenuState extends MusicBeatState
 		transIn = FlxTransitionableState.defaultTransIn;
 		transOut = FlxTransitionableState.defaultTransOut;
 
-		persistentUpdate = persistentDraw = true;
+		// persistentUpdate = persistentDraw = true;
 
 		var bg:FlxSprite = new FlxSprite(-80).loadGraphic(Paths.image('mainmenu/menu_bg'));
 		bg.scrollFactor.set(0, 0);
@@ -95,9 +95,7 @@ class MainMenuState extends MusicBeatState
 		versionShit.antialiasing = ClientPrefs.globalAntialiasing;
 		add(versionShit);
 
-
 		changeItem();
-
 
 		super.create();
 	}
@@ -128,6 +126,11 @@ class MainMenuState extends MusicBeatState
 				changeItem(1);
 			}
 
+			if (FlxG.keys.justPressed.CONTROL && optionShit[curSelected] == 'story_mode')
+			{
+				openSubState(new GameplayChangersSubstate());
+			}
+
 			if (controls.BACK)
 			{
 				selectedSomethin = true;
@@ -144,7 +147,21 @@ class MainMenuState extends MusicBeatState
 				else
 				{
 					selectedSomethin = true;
-					FlxG.sound.play(Paths.sound('confirmMenu'));
+
+					var duration:Float = 1;
+
+					if (optionShit[curSelected] == 'story_mode')
+					{
+						duration = 1.5;
+						FlxG.sound.play(Paths.sound('confirmMenuWeek'));
+						FlxG.sound.music.fadeOut(1.5);
+						FlxG.camera.fade(FlxColor.BLACK, 1.5);
+						FlxTransitionableState.skipNextTransIn = true;
+					}
+					else
+					{
+						FlxG.sound.play(Paths.sound('confirmMenu'));
+					}
 
 					menuItems.forEach(function(spr:FlxSprite)
 					{
@@ -160,14 +177,25 @@ class MainMenuState extends MusicBeatState
 						}
 						else
 						{
-							FlxFlicker.flicker(spr, 1, 0.06, false, false, function(flick:FlxFlicker)
+							FlxFlicker.flicker(spr, duration, 0.06, false, false, function(flick:FlxFlicker)
 							{
 								var daChoice:String = optionShit[curSelected];
 
 								switch (daChoice)
 								{
 									case 'story_mode':
-										MusicBeatState.switchState(new StoryMenuState());
+									{
+										//MusicBeatState.switchState(new StoryMenuState());
+										PlayState.storyPlaylist = ['Phantom', 'Masked', 'Fragility'];
+										PlayState.isStoryMode = true;
+										PlayState.storyDifficulty = 2;
+										PlayState.SONG = Song.loadFromJson(PlayState.storyPlaylist[0].toLowerCase() + '-hard',
+											PlayState.storyPlaylist[0].toLowerCase());
+										PlayState.campaignScore = 0;
+										PlayState.campaignMisses = 0;
+										LoadingState.loadAndSwitchState(new PlayState(), true);
+										FreeplayState.destroyFreeplayVocals();
+									}
 									case 'freeplay':
 										MusicBeatState.switchState(new FreeplayState());
 									case 'credits':

@@ -1,8 +1,8 @@
 function onCreate()
 
-	posX = -600;
-	posY = -200;
-	scale = 2;
+	posX = -580;
+	posY = -300;
+	scale = 3;
 	-- background shit
 	makeLuaSprite('bg', 'SSH/skybox', posX, posY);
 	setScrollFactor('bg', 0.2, 1);

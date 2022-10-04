@@ -186,7 +186,7 @@ class MainMenuState extends MusicBeatState
 									case 'story_mode':
 									{
 										//MusicBeatState.switchState(new StoryMenuState());
-										PlayState.storyPlaylist = ['Phantom', 'Masked', 'Fragility', 'Ruby Insanity'];
+										PlayState.storyPlaylist = ['Phantom', 'Masked', 'Fragility', 'RUBY INSANITY'];
 										PlayState.isStoryMode = true;
 										PlayState.storyDifficulty = 2;
 										PlayState.SONG = Song.loadFromJson(PlayState.storyPlaylist[0].toLowerCase() + '-hard',

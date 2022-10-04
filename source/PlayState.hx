@@ -646,34 +646,6 @@ class PlayState extends MusicBeatState
 		if(ClientPrefs.downScroll) strumLine.y = FlxG.height - 150;
 		strumLine.scrollFactor.set();
 
-		grpUnderlay = new FlxTypedGroup<FlxSprite>();
-		add(grpUnderlay);
-
-		// this code kinda shit but idgaf
-		if (ClientPrefs.noteUnderlay > 0)
-		{
-			if (!ClientPrefs.middleScroll)
-			{
-				for (i in 0...2)
-				{
-					var underlay = new FlxSprite(70 + ((FlxG.width / 2) * i), 0).makeGraphic(500, FlxG.height * 2, FlxColor.BLACK);
-					underlay.alpha = ClientPrefs.noteUnderlay;
-					underlay.screenCenter(Y);
-					underlay.cameras = [camHUD];
-					underlay.ID = i;
-					grpUnderlay.add(underlay);
-				}
-			}
-			else
-			{
-				var underlay = new FlxSprite(0, 0).makeGraphic(500, FlxG.height * 2, FlxColor.BLACK);
-				underlay.alpha = ClientPrefs.noteUnderlay;
-				underlay.screenCenter();
-				underlay.cameras = [camHUD];
-				grpUnderlay.add(underlay);
-			}
-		}
-
 		var showTime:Bool = (ClientPrefs.timeBarType != 'Disabled');
 		timeTxt = new FlxText(0, 19, 400, "", 32);
 		timeTxt.setFormat(Paths.font("futura.otf"), 32, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
@@ -711,6 +683,9 @@ class PlayState extends MusicBeatState
 		add(timeBar);
 		add(timeTxt);
 		timeBarBG.sprTracker = timeBar;
+
+		grpUnderlay = new FlxTypedGroup<FlxSprite>();
+		add(grpUnderlay);
 
 		strumLineNotes = new FlxTypedGroup<StrumNote>();
 		add(strumLineNotes);
@@ -851,6 +826,7 @@ class PlayState extends MusicBeatState
 			botplayTxt.y = timeBarBG.y - 78;
 		}
 
+		grpUnderlay.cameras = [camHUD];
 		strumLineNotes.cameras = [camHUD];
 		grpNoteSplashes.cameras = [camHUD];
 		notes.cameras = [camHUD];
@@ -1768,6 +1744,25 @@ class PlayState extends MusicBeatState
 	public var skipArrowStartTween:Bool = false; //for lua
 	private function generateStaticArrows(player:Int):Void
 	{
+		if (ClientPrefs.noteUnderlay > 0)
+		{
+			if (!ClientPrefs.middleScroll && player >= 0)
+			{
+				var underlay = new FlxSprite(70 + ((FlxG.width / 2) * player), 0).makeGraphic(500, FlxG.height * 2, FlxColor.BLACK);
+				underlay.alpha = ClientPrefs.noteUnderlay;
+				underlay.screenCenter(Y);
+				underlay.ID = player;
+				grpUnderlay.add(underlay);
+			}
+			else
+			{
+				var underlay = new FlxSprite(0, 0).makeGraphic(500, FlxG.height * 2, FlxColor.BLACK);
+				underlay.alpha = ClientPrefs.noteUnderlay;
+				underlay.screenCenter();
+				grpUnderlay.add(underlay);
+			}
+		}
+
 		for (i in 0...4)
 		{
 			// FlxG.log.add(i);

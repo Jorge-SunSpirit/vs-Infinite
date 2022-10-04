@@ -956,7 +956,7 @@ class PlayState extends MusicBeatState
 		add(strumLineNotes);
 		add(grpNoteSplashes);
 
-		if(ClientPrefs.timeBarType == 'Song Name')
+		if(ClientPrefs.timeBarType == 'Song Name' || ClientPrefs.timeBarType == 'Combined')
 		{
 			timeTxt.size = 24;
 			timeTxt.y += 3;
@@ -2423,6 +2423,9 @@ class PlayState extends MusicBeatState
 
 					if(ClientPrefs.timeBarType != 'Song Name')
 						timeTxt.text = FlxStringUtil.formatTime(secondsTotal, false);
+
+					if(ClientPrefs.timeBarType == 'Combined')
+						timeTxt.text = '${SONG.song} (${FlxStringUtil.formatTime(secondsTotal, false)})';
 				}
 			}
 

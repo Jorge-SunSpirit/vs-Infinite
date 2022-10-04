@@ -81,27 +81,27 @@ class DialogueBoxInfinite extends FlxSpriteGroup
 
 		if (PlayerSettings.player1.controls.ACCEPT)
 		{
-			if (dialogueData.dialogue[currentDialogue] != null)
+			if (!dialogueEnded)
 			{
-				if (!dialogueEnded)
-				{
-					dialogueText.skip();
+				dialogueText.skip();
 
-					if (skipDialogueThing != null)
-					{
-						skipDialogueThing();
-					}
-				}
-				else
+				if (skipDialogueThing != null)
 				{
-					startDialogue();
+					skipDialogueThing();
 				}
 			}
 			else
 			{
-				killVoice();
-				finishThing();
-				kill();
+				if (dialogueData.dialogue[currentDialogue] != null)
+				{
+					startDialogue();
+				}
+				else
+				{
+					killVoice();
+					finishThing();
+					kill();
+				}
 			}
 		}
 	}

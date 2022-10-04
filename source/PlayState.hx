@@ -646,6 +646,13 @@ class PlayState extends MusicBeatState
 		if(ClientPrefs.downScroll) strumLine.y = FlxG.height - 150;
 		strumLine.scrollFactor.set();
 
+		grpUnderlay = new FlxTypedGroup<FlxSprite>();
+		add(grpUnderlay);
+
+		strumLineNotes = new FlxTypedGroup<StrumNote>();
+		add(strumLineNotes);
+		add(grpNoteSplashes);
+
 		var showTime:Bool = (ClientPrefs.timeBarType != 'Disabled');
 		timeTxt = new FlxText(0, 19, 400, "", 32);
 		timeTxt.setFormat(Paths.font("futura.otf"), 32, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
@@ -683,13 +690,6 @@ class PlayState extends MusicBeatState
 		add(timeBar);
 		add(timeTxt);
 		timeBarBG.sprTracker = timeBar;
-
-		grpUnderlay = new FlxTypedGroup<FlxSprite>();
-		add(grpUnderlay);
-
-		strumLineNotes = new FlxTypedGroup<StrumNote>();
-		add(strumLineNotes);
-		add(grpNoteSplashes);
 
 		if(ClientPrefs.timeBarType == 'Song Name' || ClientPrefs.timeBarType == 'Combined')
 		{

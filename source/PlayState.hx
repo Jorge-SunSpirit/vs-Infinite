@@ -1144,7 +1144,7 @@ class PlayState extends MusicBeatState
 		{
 			switch (daSong)
 			{
-				case 'phantom' | 'masked' | 'fragility':
+				case 'phantom' | 'masked' | 'fragility' | 'ruby-insanity':
 					startInfiniteDialogue(infDialogue);
 
 				default:

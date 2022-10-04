@@ -1,5 +1,5 @@
 {
-	"storyName": "Infinite Placeholder",
+	"storyName": "Infinite",
 	"hideFreeplay": false,
 	"weekBackground": "stage",
 	"freeplayColor": [
@@ -41,9 +41,18 @@
 				113,
 				253
 			]
+		],
+		[
+			"Ruby Insanity",
+			"maskedinfinite",
+			[
+				146,
+				113,
+				253
+			]
 		]
 	],
 	"hideStoryMode": false,
-	"weekName": "Week Infinite",
+	"weekName": "Infinite",
 	"hiddenUntilUnlocked": false
 }

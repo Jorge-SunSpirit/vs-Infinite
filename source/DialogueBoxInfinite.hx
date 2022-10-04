@@ -18,10 +18,10 @@ typedef InfiniteDialogueFile =
 
 typedef InfiniteDialogueLine =
 {
-	var character:Null<String>; // Should be uppercase (ex. Infinite), will be used visually
+	var character:Null<String>; // Should be capitalized (ex. Infinite)
 	var expression:Null<String>;
 	var text:Null<String>;
-	var sound:Null<String>; // Used for the voice clips (if we're proceeding with that)
+	var sound:Null<String>; // Used for the voice clips
 }
 
 class DialogueBoxInfinite extends FlxSpriteGroup
@@ -52,16 +52,11 @@ class DialogueBoxInfinite extends FlxSpriteGroup
 		box.antialiasing = ClientPrefs.globalAntialiasing;
 		add(box);
 
-		/*
-		characterPortrait = new FlxSprite(-20, 40);
-		characterPortrait.frames = Paths.getSparrowAtlas('weeb/senpaiPortrait');
-		characterPortrait.animation.addByPrefix('enter', 'Senpai Portrait Enter', 24, false);
-		characterPortrait.setGraphicSize(Std.int(characterPortrait.width * 0.9));
+		characterPortrait = new FlxSprite(179, 489).loadGraphic(Paths.image('dialogue/temp'));
+		characterPortrait.setGraphicSize(Std.int(characterPortrait.width / 1.5)); // 1080p -> 720p
 		characterPortrait.updateHitbox();
-		characterPortrait.scrollFactor.set();
+		characterPortrait.antialiasing = ClientPrefs.globalAntialiasing;
 		add(characterPortrait);
-		characterPortrait.visible = false;
-		*/
 
 		characterName = new FlxText(1044, 616, "", 20);
 		characterName.font = Paths.font("futura.otf");
@@ -128,8 +123,12 @@ class DialogueBoxInfinite extends FlxSpriteGroup
 
 		if (curDialogue.character == null || curDialogue.character.length < 1)
 			curDialogue.character = '';
+		if (curDialogue.expression == null || curDialogue.expression.length < 1)
+			curDialogue.expression = '';
 		if (curDialogue.text == null || curDialogue.text.length < 1)
 			curDialogue.text = '';
+		if (curDialogue.sound == null || curDialogue.sound.length < 1)
+			curDialogue.sound = '';
 
 		characterName.text = curDialogue.character;
 
@@ -143,6 +142,8 @@ class DialogueBoxInfinite extends FlxSpriteGroup
 		killVoice();
 		dialogueVoice = new FlxSound().loadEmbedded(Paths.sound('dialogue/${curDialogue.sound}'));
 		dialogueVoice.play();
+
+		characterPortrait.loadGraphic(Paths.image('dialogue/${curDialogue.character}_${curDialogue.expression}'));
 
 		dialogueEnded = false; 
 

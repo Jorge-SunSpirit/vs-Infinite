@@ -3,25 +3,31 @@
 		{
 			"character": "Infinite",
 			"expression": "Normal",
-			"text": "...Who-",
+			"text": "I can feel the fear in your heart, hero.",
 			"sound": "movie"
 		},
 		{
 			"character": "Sonic",
 			"expression": "Normal",
-			"text": "Skeep doop",
+			"text": "You again?! What's going on here...",
 			"sound": "movie"
 		},
 		{
 			"character": "Infinite",
 			"expression": "Normal",
-			"text": "Oh, it's you.",
+			"text": "Will you back down and flee? Or will you throw your life away in battle?",
 			"sound": "movie"
 		},
 		{
-			"character": "Infinite",
+			"character": "Sonic",
 			"expression": "Normal",
-			"text": "You're with her...",
+			"text": "Heh, you and I both know I'm not the type to back down from ANY fight!",
+			"sound": "movie"
+		},
+		{
+			"character": "Sonic",
+			"expression": "Normal",
+			"text": "Bring it on!",
 			"sound": "movie"
 		}
 	]

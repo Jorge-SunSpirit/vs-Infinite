@@ -56,6 +56,7 @@ class DialogueBoxInfinite extends FlxSpriteGroup
 		characterPortrait.setGraphicSize(Std.int(characterPortrait.width / 1.5)); // 1080p -> 720p
 		characterPortrait.updateHitbox();
 		characterPortrait.antialiasing = ClientPrefs.globalAntialiasing;
+		characterPortrait.visible = false;
 		add(characterPortrait);
 
 		characterName = new FlxText(1044, 616, "", 20);
@@ -80,27 +81,27 @@ class DialogueBoxInfinite extends FlxSpriteGroup
 
 		if (PlayerSettings.player1.controls.ACCEPT)
 		{
-			if (dialogueData.dialogue[currentDialogue] != null)
+			if (!dialogueEnded)
 			{
-				if (!dialogueEnded)
-				{
-					dialogueText.skip();
+				dialogueText.skip();
 
-					if (skipDialogueThing != null)
-					{
-						skipDialogueThing();
-					}
-				}
-				else
+				if (skipDialogueThing != null)
 				{
-					startDialogue();
+					skipDialogueThing();
 				}
 			}
 			else
 			{
-				killVoice();
-				finishThing();
-				kill();
+				if (dialogueData.dialogue[currentDialogue] != null)
+				{
+					startDialogue();
+				}
+				else
+				{
+					killVoice();
+					finishThing();
+					kill();
+				}
 			}
 		}
 	}
@@ -144,6 +145,7 @@ class DialogueBoxInfinite extends FlxSpriteGroup
 		dialogueVoice.play();
 
 		characterPortrait.loadGraphic(Paths.image('dialogue/${curDialogue.character}_${curDialogue.expression}'));
+		characterPortrait.visible = true;
 
 		dialogueEnded = false; 
 

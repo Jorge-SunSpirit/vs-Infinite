@@ -1746,13 +1746,16 @@ class PlayState extends MusicBeatState
 	{
 		if (ClientPrefs.noteUnderlay > 0)
 		{
-			if (!ClientPrefs.middleScroll && player >= 0)
+			if (!ClientPrefs.middleScroll)
 			{
-				var underlay = new FlxSprite(70 + ((FlxG.width / 2) * player), 0).makeGraphic(500, FlxG.height * 2, FlxColor.BLACK);
-				underlay.alpha = ClientPrefs.noteUnderlay;
-				underlay.screenCenter(Y);
-				underlay.ID = player;
-				grpUnderlay.add(underlay);
+				if (player >= 0)
+				{
+					var underlay = new FlxSprite(70 + ((FlxG.width / 2) * player), 0).makeGraphic(500, FlxG.height * 2, FlxColor.BLACK);
+					underlay.alpha = ClientPrefs.noteUnderlay;
+					underlay.screenCenter(Y);
+					underlay.ID = player;
+					grpUnderlay.add(underlay);
+				}
 			}
 			else
 			{

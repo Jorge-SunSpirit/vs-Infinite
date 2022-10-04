@@ -1,27 +1,26 @@
 package;
 
-import flixel.FlxG;
 import flixel.FlxSprite;
-import flixel.addons.text.FlxTypeText;
 import flixel.group.FlxSpriteGroup;
+import flixel.system.FlxSound;
 import flixel.text.FlxText;
-import flixel.util.FlxColor;
-import flixel.util.FlxTimer;
+import flixel.addons.text.FlxTypeText;
+import haxe.Json;
+import openfl.utils.Assets;
 
 using StringTools;
 
-typedef DialogueFile =
+typedef InfiniteDialogueFile =
 {
-	var dialogue:Array<DialogueLine>;
+	var dialogue:Array<InfiniteDialogueLine>;
 }
 
-typedef DialogueLine =
+typedef InfiniteDialogueLine =
 {
 	var character:Null<String>; // Should be uppercase (ex. Infinite), will be used visually
 	var expression:Null<String>;
 	var text:Null<String>;
-	var speed:Null<Float>;
-	var sound:Null<String>;
+	var sound:Null<String>; // Used for the voice clips (if we're proceeding with that)
 }
 
 class DialogueBoxInfinite extends FlxSpriteGroup
@@ -30,8 +29,13 @@ class DialogueBoxInfinite extends FlxSpriteGroup
 	var characterPortrait:FlxSprite;
 	var characterName:FlxText;
 	var dialogueText:FlxTypeText;
+	var dialogueVoice:FlxSound;
 
-	public function new(?dialogueData:DialogueFile)
+	public var finishThing:Void->Void;
+	public var nextDialogueThing:Void->Void = null;
+	public var skipDialogueThing:Void->Void = null;
+
+	public function new(dialogueList:InfiniteDialogueFile)
 	{
 		super();
 
@@ -41,7 +45,7 @@ class DialogueBoxInfinite extends FlxSpriteGroup
 		box.antialiasing = ClientPrefs.globalAntialiasing;
 		add(box);
 
-		// make use of psych json
+		/*
 		characterPortrait = new FlxSprite(-20, 40);
 		characterPortrait.frames = Paths.getSparrowAtlas('weeb/senpaiPortrait');
 		characterPortrait.animation.addByPrefix('enter', 'Senpai Portrait Enter', 24, false);
@@ -50,21 +54,34 @@ class DialogueBoxInfinite extends FlxSpriteGroup
 		characterPortrait.scrollFactor.set();
 		add(characterPortrait);
 		characterPortrait.visible = false;
+		*/
 
 		// needs positioning and right alignment
-		characterName = new FlxText(240, 500, "Infinite", 32);
+		characterName = new FlxText(1044, 616, "Infinite", 20);
 		characterName.font = Paths.font("futura.otf");
+		characterName.antialiasing = ClientPrefs.globalAntialiasing;
 		add(characterName);
 
 		// needs positioning
-		dialogueText = new FlxTypeText(240, 500, Std.int(FlxG.width * 0.6), "", 32);
+		dialogueText = new FlxTypeText(0, 0, 0, "soap shoes mf", 32);
 		dialogueText.font = Paths.font("futura.otf");
-		dialogueText.sounds = [FlxG.sound.load(Paths.sound('pixelText'), 0.6)];
+		dialogueText.antialiasing = ClientPrefs.globalAntialiasing;
 		add(dialogueText);
 	}
 
 	override function update(elapsed:Float)
 	{
+		if (PlayerSettings.player1.controls.ACCEPT)
+		{
+			finishThing();
+			kill();
+		}
+
 		super.update(elapsed);
+	}
+
+	public static function parseDialogue(path:String):InfiniteDialogueFile
+	{
+		return cast Json.parse(Assets.getText(path));
 	}
 }

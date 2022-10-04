@@ -1,0 +1,28 @@
+{
+	"dialogue": [
+		{
+			"character": "Infinite",
+			"expression": "talk",
+			"text": "...Who-",
+			"sound": "normal"
+		},
+		{
+			"character": "Sonic",
+			"expression": "talk",
+			"text": "Skeep doop",
+			"sound": "normal"
+		},
+		{
+			"character": "Infinite",
+			"expression": "talk",
+			"text": "Oh, it's you.",
+			"sound": "normal"
+		},
+		{
+			"character": "Infinite",
+			"expression": "talk",
+			"text": "You're with her...",
+			"sound": "normal"
+		}
+	]
+}

@@ -56,6 +56,7 @@ import Achievements;
 import StageData;
 import FunkinLua;
 import DialogueBoxPsych;
+import DialogueBoxInfinite;
 #if sys
 import sys.FileSystem;
 #end
@@ -189,6 +190,8 @@ class PlayState extends MusicBeatState
 
 	var dialogue:Array<String> = ['blah blah blah', 'coolswag'];
 	var dialogueJson:DialogueFile = null;
+
+	var infDialogue:InfiniteDialogueFile = null;
 
 	var halloweenBG:BGSprite;
 	var halloweenWhite:BGSprite;
@@ -860,6 +863,11 @@ class PlayState extends MusicBeatState
 			dialogueJson = DialogueBoxPsych.parseDialogue(file);
 		}
 
+		var file:String = Paths.json(songName + '/infDialogue'); //Checks for Infinite dialogue
+		if (OpenFlAssets.exists(file)) {
+			infDialogue = DialogueBoxInfinite.parseDialogue(file);
+		}
+
 		var file:String = Paths.txt(songName + '/' + songName + 'Dialogue'); //Checks for vanilla/Senpai dialogue
 		if (OpenFlAssets.exists(file)) {
 			dialogue = CoolUtil.coolTextFile(file);
@@ -1136,62 +1144,8 @@ class PlayState extends MusicBeatState
 		{
 			switch (daSong)
 			{
-				case "monster":
-					var whiteScreen:FlxSprite = new FlxSprite(0, 0).makeGraphic(Std.int(FlxG.width * 2), Std.int(FlxG.height * 2), FlxColor.WHITE);
-					add(whiteScreen);
-					whiteScreen.scrollFactor.set();
-					whiteScreen.blend = ADD;
-					camHUD.visible = false;
-					snapCamFollowToPos(dad.getMidpoint().x + 150, dad.getMidpoint().y - 100);
-					inCutscene = true;
-
-					FlxTween.tween(whiteScreen, {alpha: 0}, 1, {
-						startDelay: 0.1,
-						ease: FlxEase.linear,
-						onComplete: function(twn:FlxTween)
-						{
-							camHUD.visible = true;
-							remove(whiteScreen);
-							startCountdown();
-						}
-					});
-					FlxG.sound.play(Paths.soundRandom('thunder_', 1, 2));
-					if(gf != null) gf.playAnim('scared', true);
-					boyfriend.playAnim('scared', true);
-
-				case "winter-horrorland":
-					var blackScreen:FlxSprite = new FlxSprite().makeGraphic(Std.int(FlxG.width * 2), Std.int(FlxG.height * 2), FlxColor.BLACK);
-					add(blackScreen);
-					blackScreen.scrollFactor.set();
-					camHUD.visible = false;
-					inCutscene = true;
-
-					FlxTween.tween(blackScreen, {alpha: 0}, 0.7, {
-						ease: FlxEase.linear,
-						onComplete: function(twn:FlxTween) {
-							remove(blackScreen);
-						}
-					});
-					FlxG.sound.play(Paths.sound('Lights_Turn_On'));
-					snapCamFollowToPos(400, -2050);
-					FlxG.camera.focusOn(camFollow);
-					FlxG.camera.zoom = 1.5;
-
-					new FlxTimer().start(0.8, function(tmr:FlxTimer)
-					{
-						camHUD.visible = true;
-						remove(blackScreen);
-						FlxTween.tween(FlxG.camera, {zoom: defaultCamZoom}, 2.5, {
-							ease: FlxEase.quadInOut,
-							onComplete: function(twn:FlxTween)
-							{
-								startCountdown();
-							}
-						});
-					});
-				case 'senpai' | 'roses' | 'thorns':
-					if(daSong == 'roses') FlxG.sound.play(Paths.sound('ANGRY'));
-					schoolIntro(doof);
+				case 'phantom' | 'masked' | 'fragility':
+					startInfiniteDialogue(infDialogue);
 
 				default:
 					startCountdown();
@@ -1443,6 +1397,32 @@ class PlayState extends MusicBeatState
 			} else {
 				startCountdown();
 			}
+		}
+	}
+
+	public function startInfiniteDialogue(dialogueFile:InfiniteDialogueFile):Void
+	{
+		var infiniteDialogue:DialogueBoxInfinite;
+
+		if (dialogueFile.dialogue.length > 0)
+		{
+			inCutscene = true;
+			infiniteDialogue = new DialogueBoxInfinite(dialogueFile);
+			infiniteDialogue.scrollFactor.set();
+			infiniteDialogue.finishThing = function()
+			{
+				infiniteDialogue = null;
+				startCountdown();
+			}
+			infiniteDialogue.nextDialogueThing = startNextDialogue;
+			infiniteDialogue.skipDialogueThing = skipDialogue;
+			infiniteDialogue.cameras = [camHUD];
+			add(infiniteDialogue);
+		}
+		else
+		{
+			FlxG.log.warn('Your dialogue file is badly formatted!');
+			startCountdown();
 		}
 	}
 

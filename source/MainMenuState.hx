@@ -89,7 +89,7 @@ class MainMenuState extends MusicBeatState
 		versionShit.setFormat(Paths.font("futura.otf"), 16, FlxColor.RED, LEFT);
 		versionShit.antialiasing = ClientPrefs.globalAntialiasing;
 		add(versionShit);
-		var versionShit:FlxText = new FlxText(12, FlxG.height - 24, 0, "Friday Night Funkin' v" + Application.current.meta.get('version'), 12);
+		var versionShit:FlxText = new FlxText(12, FlxG.height - 24, 0, "VS. Infinite v" + Application.current.meta.get('version'), 12);
 		versionShit.scrollFactor.set();
 		versionShit.setFormat(Paths.font("futura.otf"), 16, FlxColor.RED, LEFT);
 		versionShit.antialiasing = ClientPrefs.globalAntialiasing;

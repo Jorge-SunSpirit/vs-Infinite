@@ -1,5 +1,6 @@
 package;
 
+import flixel.util.FlxColor;
 import animateatlas.AtlasFrameMaker;
 import flixel.FlxG;
 import flixel.FlxSprite;
@@ -17,6 +18,7 @@ import openfl.utils.AssetType;
 import openfl.utils.Assets;
 import haxe.Json;
 import haxe.format.JsonParser;
+import shaders.ReflectionShader;
 
 using StringTools;
 
@@ -33,6 +35,8 @@ typedef CharacterFile = {
 	var flip_x:Bool;
 	var no_antialiasing:Bool;
 	var healthbar_colors:Array<Int>;
+	var shadow_Offset:Float;
+	var charaFloat:Bool;
 }
 
 typedef AnimArray = {
@@ -78,8 +82,15 @@ class Character extends FlxSprite
 	public var originalFlipX:Bool = false;
 	public var healthColorArray:Array<Int> = [255, 0, 0];
 
+	public var baseYPos:Float = 0;
+	public var shadowOffset:Float = 50;
+	public var hasShadow:Bool = false;
+	public var float:Bool;
+	var shadowShader:ReflectionShader = new ReflectionShader();
+	var floatshit:Float = 0;
+
 	public static var DEFAULT_CHARACTER:String = 'sonic'; //In case a character is missing, it will use BF on its place
-	public function new(x:Float, y:Float, ?character:String = 'sonic', ?isPlayer:Bool = false)
+	public function new(x:Float, y:Float, ?character:String = 'sonic', ?isPlayer:Bool = false, ?shadowCtx:Bool = false)
 	{
 		super(x, y);
 
@@ -90,7 +101,7 @@ class Character extends FlxSprite
 		#end
 		curCharacter = character;
 		this.isPlayer = isPlayer;
-		antialiasing = ClientPrefs.globalAntialiasing;
+		antialiasing = ClientPrefs.globalAntialiasing; 
 		var library:String = null;
 		switch (curCharacter)
 		{
@@ -179,7 +190,9 @@ class Character extends FlxSprite
 
 				healthIcon = json.healthicon;
 				singDuration = json.sing_duration;
+				shadowOffset = json.shadow_Offset;
 				flipX = !!json.flip_x;
+				float = json.charaFloat;
 				if(json.no_antialiasing) {
 					antialiasing = false;
 					noAntialiasing = true;
@@ -223,31 +236,46 @@ class Character extends FlxSprite
 		if (isPlayer)
 		{
 			flipX = !flipX;
-
-			/*// Doesn't flip for BF, since his are already in the right place???
-			if (!curCharacter.startsWith('bf'))
-			{
-				// var animArray
-				if(animation.getByName('singLEFT') != null && animation.getByName('singRIGHT') != null)
-				{
-					var oldRight = animation.getByName('singRIGHT').frames;
-					animation.getByName('singRIGHT').frames = animation.getByName('singLEFT').frames;
-					animation.getByName('singLEFT').frames = oldRight;
-				}
-
-				// IF THEY HAVE MISS ANIMATIONS??
-				if (animation.getByName('singLEFTmiss') != null && animation.getByName('singRIGHTmiss') != null)
-				{
-					var oldMiss = animation.getByName('singRIGHTmiss').frames;
-					animation.getByName('singRIGHTmiss').frames = animation.getByName('singLEFTmiss').frames;
-					animation.getByName('singLEFTmiss').frames = oldMiss;
-				}
-			}*/
 		}
+
+		hasShadow = shadowCtx;
+		if (hasShadow)
+			shadowShader = new ReflectionShader(0.5, 0.5, 0.5);
 	}
+
+	public override function draw():Void
+		{
+			if (!debugMode && hasShadow)
+			{
+				var origY = y;
+				var origShader = shader;
+				var origColor = color;
+	
+				y = baseYPos + (baseYPos - y) + height + offset.y + shadowOffset;
+				flipY = !flipY;
+				shader = shadowShader;
+				color = FlxColor.BLACK;
+	
+				if (shadowShader.data.resolution.value[0] != FlxG.stage.stageWidth || shadowShader.data.resolution.value[1] != FlxG.stage.stageHeight)
+					shadowShader.data.resolution.value = [FlxG.stage.stageWidth, FlxG.stage.stageHeight];
+	
+				super.draw();
+	
+				y = origY;
+				color = origColor;
+				flipY = !flipY;
+				shader = origShader;
+			}
+			super.draw();
+		}
 
 	override function update(elapsed:Float)
 	{
+		floatshit += 0.03 / FramerateTools.timeMultiplier();
+		if (!debugMode && float)
+			y += Math.sin(floatshit) / FramerateTools.timeMultiplier();
+
+
 		if(!debugMode && animation.curAnim != null)
 		{
 			if(heyTimer > 0)

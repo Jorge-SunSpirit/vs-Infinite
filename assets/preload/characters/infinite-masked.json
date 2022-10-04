@@ -74,5 +74,7 @@
 		100
 	],
 	"sing_duration": 6.1,
-	"scale": 0.8
+	"scale": 0.8,
+	"shadow_Offset": -100,
+	"charaFloat": true
 }

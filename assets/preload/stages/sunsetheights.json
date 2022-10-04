@@ -1,7 +1,8 @@
 {
 	"directory": "",
-	"defaultZoom": 0.8,
+	"defaultZoom": 0.77,
 	"isPixelStage": false,
+	"has_Shadows": true,
 
 	"boyfriend": [770, 100],
 	"girlfriend": [400, 130],

@@ -1,59 +1,70 @@
 {
 	"animations": [
 		{
-			"loop": false,
 			"offsets": [
 				0,
 				0
 			],
+			"loop": false,
+			"fps": 24,
 			"anim": "idle",
-			"fps": 24,
-			"name": "Sonic_IdleDance",
-			"indices": []
+			"indices": [],
+			"name": "Sonic_IdleDance"
 		},
 		{
-			"loop": false,
 			"offsets": [
-				160,
-				-70
+				130,
+				-20
 			],
+			"loop": false,
+			"fps": 24,
 			"anim": "singDOWN",
-			"fps": 24,
-			"name": "Sonic_SingDOWN",
-			"indices": []
+			"indices": [],
+			"name": "Sonic_SingDOWN"
 		},
 		{
-			"loop": false,
 			"offsets": [
-				200,
-				-30
+				100,
+				-50
 			],
+			"loop": false,
+			"fps": 24,
 			"anim": "singLEFT",
-			"fps": 24,
-			"name": "Sonic_SingLEFT",
-			"indices": []
+			"indices": [],
+			"name": "Sonic_SingLEFT"
 		},
 		{
-			"loop": false,
 			"offsets": [
-				-10,
-				30
+				-11,
+				-13
 			],
+			"loop": false,
+			"fps": 24,
 			"anim": "singUP",
-			"fps": 24,
-			"name": "Sonic_SingUP",
-			"indices": []
+			"indices": [],
+			"name": "Sonic_SingUP"
 		},
 		{
-			"loop": false,
 			"offsets": [
-				40,
-				-30
+				35,
+				-5
 			],
-			"anim": "singRIGHT",
+			"loop": false,
 			"fps": 24,
-			"name": "Sonic_SingRIGHT",
-			"indices": []
+			"anim": "singRIGHT",
+			"indices": [],
+			"name": "Sonic_SingRIGHT"
+		},
+		{
+			"offsets": [
+				2,
+				92
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "micFlip",
+			"loop": false,
+			"name": "Sonic_MicFlip"
 		}
 	],
 	"no_antialiasing": false,
@@ -74,5 +85,6 @@
 		100
 	],
 	"sing_duration": 6.1,
-	"scale": 0.8
+	"scale": 0.8,
+	"shadow_Offset": 140
 }

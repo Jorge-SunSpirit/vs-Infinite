@@ -31,7 +31,7 @@ class DialogueBoxInfinite extends FlxSpriteGroup
 	var characterPortrait:FlxSprite;
 	var characterName:FlxText;
 	var dialogueText:FlxTypeText;
-	var dialogueVoice:FlxSound;
+	var dialogueVoice:FlxSound = null;
 
 	public var finishThing:Void->Void;
 	public var nextDialogueThing:Void->Void = null;
@@ -85,6 +85,7 @@ class DialogueBoxInfinite extends FlxSpriteGroup
 			}
 			else
 			{
+				killVoice();
 				finishThing();
 				kill();
 			}
@@ -123,6 +124,10 @@ class DialogueBoxInfinite extends FlxSpriteGroup
 			dialogueEnded = true;
 		};
 
+		killVoice();
+		dialogueVoice = new FlxSound().loadEmbedded(Paths.sound('dialogue/${curDialogue.sound}'));
+		dialogueVoice.play();
+
 		dialogueEnded = false; 
 
 		currentDialogue++;
@@ -130,6 +135,15 @@ class DialogueBoxInfinite extends FlxSpriteGroup
 		if (nextDialogueThing != null)
 		{
 			nextDialogueThing();
+		}
+	}
+
+	function killVoice()
+	{
+		if (dialogueVoice != null)
+		{
+			dialogueVoice.stop();
+			dialogueVoice.destroy();
 		}
 	}
 }

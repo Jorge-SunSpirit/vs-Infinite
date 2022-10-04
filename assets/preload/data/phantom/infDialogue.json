@@ -4,25 +4,25 @@
 			"character": "Infinite",
 			"expression": "talk",
 			"text": "...Who-",
-			"sound": "normal"
+			"sound": "movie"
 		},
 		{
 			"character": "Sonic",
 			"expression": "talk",
 			"text": "Skeep doop",
-			"sound": "normal"
+			"sound": "movie"
 		},
 		{
 			"character": "Infinite",
 			"expression": "talk",
 			"text": "Oh, it's you.",
-			"sound": "normal"
+			"sound": "movie"
 		},
 		{
 			"character": "Infinite",
 			"expression": "talk",
 			"text": "You're with her...",
-			"sound": "normal"
+			"sound": "movie"
 		}
 	]
 }

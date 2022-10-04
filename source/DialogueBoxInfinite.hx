@@ -87,7 +87,19 @@ class DialogueBoxInfinite extends FlxSpriteGroup
 		{
 			if (dialogueData.dialogue[currentDialogue] != null)
 			{
-				startDialogue();
+				if (!dialogueEnded)
+				{
+					dialogueText.skip();
+
+					if (skipDialogueThing != null)
+					{
+						skipDialogueThing();
+					}
+				}
+				else
+				{
+					startDialogue();
+				}
 			}
 			else
 			{
@@ -107,11 +119,6 @@ class DialogueBoxInfinite extends FlxSpriteGroup
 
 	function startDialogue():Void
 	{
-		if (skipDialogueThing != null && !dialogueEnded)
-		{
-			skipDialogueThing();
-		}
-
 		var curDialogue:InfiniteDialogueLine = null;
 		do
 		{

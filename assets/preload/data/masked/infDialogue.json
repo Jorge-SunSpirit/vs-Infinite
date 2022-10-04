@@ -1,0 +1,34 @@
+{
+	"dialogue": [
+		{
+			"character": "Sonic",
+			"expression": "Normal",
+			"text": "Why did you come back? Do you like me that much?",
+			"sound": "movie"
+		},
+		{
+			"character": "Infinite",
+			"expression": "Normal",
+			"text": "This is not about you!",
+			"sound": "movie"
+		},
+		{
+			"character": "Sonic",
+			"expression": "Normal",
+			"text": "Then what IS it about, you masked clown?!",
+			"sound": "movie"
+		},
+		{
+			"character": "Infinite",
+			"expression": "Normal",
+			"text": "That's none of your concern, hero. I've come here to set things straight.",
+			"sound": "movie"
+		},
+		{
+			"character": "Sonic",
+			"expression": "Normal",
+			"text": "...",
+			"sound": "movie"
+		}
+	]
+}

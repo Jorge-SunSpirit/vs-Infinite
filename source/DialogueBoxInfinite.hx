@@ -1,5 +1,6 @@
 package;
 
+import flixel.FlxG;
 import flixel.FlxSprite;
 import flixel.group.FlxSpriteGroup;
 import flixel.system.FlxSound;
@@ -72,7 +73,10 @@ class DialogueBoxInfinite extends FlxSpriteGroup
 		dialogueText.antialiasing = ClientPrefs.globalAntialiasing;
 		add(dialogueText);
 
-		startDialogue();
+		FlxG.sound.play(Paths.sound('radioDialogue'), function()
+		{
+			startDialogue();
+		});
 	}
 
 	override function update(elapsed:Float)

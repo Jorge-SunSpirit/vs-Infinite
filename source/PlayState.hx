@@ -1402,6 +1402,13 @@ class PlayState extends MusicBeatState
 
 	public function startInfiniteDialogue(dialogueFile:InfiniteDialogueFile):Void
 	{
+		if (dialogueFile == null)
+		{
+			FlxG.log.warn("Your dialogue file doesn't exist!");
+			startCountdown();
+			return;
+		}
+
 		var infiniteDialogue:DialogueBoxInfinite;
 
 		if (dialogueFile != null && dialogueFile.dialogue.length > 0)
@@ -1421,7 +1428,7 @@ class PlayState extends MusicBeatState
 		}
 		else
 		{
-			FlxG.log.warn("Your dialogue file is badly formatted or doesn't exist!");
+			FlxG.log.warn("Your dialogue file is badly formatted!");
 			startCountdown();
 		}
 	}

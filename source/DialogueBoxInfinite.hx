@@ -81,6 +81,8 @@ class DialogueBoxInfinite extends FlxSpriteGroup
 
 	override function update(elapsed:Float)
 	{
+		super.update(elapsed);
+
 		if (PlayerSettings.player1.controls.ACCEPT)
 		{
 			if (dialogueData.dialogue[currentDialogue] != null)
@@ -94,8 +96,6 @@ class DialogueBoxInfinite extends FlxSpriteGroup
 				kill();
 			}
 		}
-
-		super.update(elapsed);
 	}
 
 	public static function parseDialogue(path:String):InfiniteDialogueFile

@@ -1404,7 +1404,7 @@ class PlayState extends MusicBeatState
 	{
 		var infiniteDialogue:DialogueBoxInfinite;
 
-		if (dialogueFile.dialogue.length > 0)
+		if (dialogueFile != null && dialogueFile.dialogue.length > 0)
 		{
 			inCutscene = true;
 			infiniteDialogue = new DialogueBoxInfinite(dialogueFile);
@@ -1421,7 +1421,7 @@ class PlayState extends MusicBeatState
 		}
 		else
 		{
-			FlxG.log.warn('Your dialogue file is badly formatted!');
+			FlxG.log.warn("Your dialogue file is badly formatted or doesn't exist!");
 			startCountdown();
 		}
 	}
@@ -3259,7 +3259,8 @@ class PlayState extends MusicBeatState
 					if(FlxTransitionableState.skipNextTransIn) {
 						CustomFadeTransition.nextCamera = null;
 					}
-					MusicBeatState.switchState(new StoryMenuState());
+					// MusicBeatState.switchState(new StoryMenuState());
+					MusicBeatState.switchState(new MainMenuState());
 
 					// if ()
 					if(!ClientPrefs.getGameplaySetting('practice', false) && !ClientPrefs.getGameplaySetting('botplay', false)) {

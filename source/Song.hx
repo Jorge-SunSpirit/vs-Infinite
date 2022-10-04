@@ -44,8 +44,8 @@ class Song
 	public var speed:Float = 1;
 	public var stage:String;
 
-	public var player1:String = 'bf';
-	public var player2:String = 'dad';
+	public var player1:String = 'sonic';
+	public var player2:String = 'infinite-masked';
 	public var player3:String = 'gf'; //deprecated
 	public var gfVersion:String = 'gf';
 

@@ -1,13 +1,23 @@
 function onCreate()
 
-	posX = -1000;
-	posY = -500;
-	scale = 2.5;
+	posX = -600;
+	posY = -300;
+	scale = 2;
 	-- background shit
 	makeLuaSprite('bg', 'SSH/skybox', posX, posY);
 	setScrollFactor('bg', 0.2, 1);
 	scaleObject('bg', scale, scale);
 	updateHitbox('bg');
+	
+	makeLuaSprite('stageback3', 'SSH/bg3', posX, posY);
+	setScrollFactor('stageback3', 0.75, 1);
+	scaleObject('stageback3', scale, scale);
+	updateHitbox('stageback3');
+	
+	makeLuaSprite('stageback2', 'SSH/bg2', posX, posY);
+	setScrollFactor('stageback2', 0.8, 1);
+	scaleObject('stageback2', scale, scale);
+	updateHitbox('stageback2');
 	
 	makeLuaSprite('stageback', 'SSH/bg', posX, posY);
 	setScrollFactor('stageback', 0.9, 1);
@@ -26,6 +36,8 @@ function onCreate()
 
 	
 	addLuaSprite('bg', false);
+	addLuaSprite('stageback3', false);
+	addLuaSprite('stageback2', false);
 	addLuaSprite('stageback', false);
 	addLuaSprite('ground', false);
 	addLuaSprite('foreground', true);

@@ -1750,7 +1750,7 @@ class PlayState extends MusicBeatState
 			{
 				if (player >= 0)
 				{
-					var underlay = new FlxSprite(70 + ((FlxG.width / 2) * player), 0).makeGraphic(500, FlxG.height * 2, FlxColor.BLACK);
+					var underlay = new FlxSprite(70 + ((FlxG.width / 2) * player), 0).makeGraphic(500, FlxG.height, FlxColor.BLACK);
 					underlay.alpha = ClientPrefs.noteUnderlay;
 					underlay.screenCenter(Y);
 					underlay.ID = player;
@@ -1759,10 +1759,14 @@ class PlayState extends MusicBeatState
 			}
 			else
 			{
-				var underlay = new FlxSprite(0, 0).makeGraphic(500, FlxG.height * 2, FlxColor.BLACK);
-				underlay.alpha = ClientPrefs.noteUnderlay;
-				underlay.screenCenter();
-				grpUnderlay.add(underlay);
+				if (player == 1)
+				{
+					var underlay = new FlxSprite(0, 0).makeGraphic(500, FlxG.height, FlxColor.BLACK);
+					underlay.alpha = ClientPrefs.noteUnderlay;
+					underlay.screenCenter();
+					underlay.ID = 1;
+					grpUnderlay.add(underlay);
+				}
 			}
 		}
 

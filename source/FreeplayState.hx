@@ -203,9 +203,7 @@ class FreeplayState extends MusicBeatState
 					diffText.x += -1;
 				else if (FlxG.keys.pressed.L)
 					diffText.x += 1;
-	
-				trace("extracharpos" + diffText.x + " X " + diffText.y + ' y');
-			}
+				}
 		#end
 
 		var upP = controls.UI_UP_P;
@@ -296,13 +294,11 @@ class FreeplayState extends MusicBeatState
 			persistentUpdate = false;
 			var songLowercase:String = Paths.formatToSongPath(songs[curSelected].songName);
 			var poop:String = Highscore.formatSong(songLowercase, curDifficulty);
-			trace(poop);
-
 			PlayState.SONG = Song.loadFromJson(poop, songLowercase);
 			PlayState.isStoryMode = false;
 			PlayState.storyDifficulty = curDifficulty;
 
-			trace('CURRENT WEEK: ' + WeekData.getWeekFileName());
+
 			if(colorTween != null) {
 				colorTween.cancel();
 			}
@@ -385,7 +381,6 @@ class FreeplayState extends MusicBeatState
 
 		for (item in grpSongs.members)
 		{
-			trace(songs.length);
 			item.ID = bullShit - curSelected;
 			bullShit++;
 

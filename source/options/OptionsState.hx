@@ -30,7 +30,8 @@ using StringTools;
 class OptionsState extends MusicBeatState
 {
 	var options:Array<String> = ['Note Colors', 'Controls', 'Adjust Delay and Combo', 'Graphics', 'Visuals and UI', 'Gameplay'];
-	private var grpOptions:FlxTypedGroup<Alphabet>;
+	private var grpOptions:FlxTypedGroup<FlxText>;
+	var grayArray:Array<FlxSprite> = [];
 	private static var curSelected:Int = 0;
 	public static var menuBG:FlxSprite;
 
@@ -51,37 +52,43 @@ class OptionsState extends MusicBeatState
 		}
 	}
 
-	var selectorLeft:Alphabet;
-	var selectorRight:Alphabet;
+	var selector:FlxSprite;
 
 	override function create() {
 		#if desktop
 		DiscordClient.changePresence("Options Menu", null);
 		#end
 
-		var bg:FlxSprite = new FlxSprite().loadGraphic(Paths.image('menuDesat'));
-		bg.color = 0xFFea71fd;
-		bg.updateHitbox();
-
-		bg.screenCenter();
+		var bg:FlxSprite = new FlxSprite().loadGraphic(Paths.image('options/optionsBG', 'preload'));
 		bg.antialiasing = ClientPrefs.globalAntialiasing;
 		add(bg);
 
-		grpOptions = new FlxTypedGroup<Alphabet>();
+
+		for (i in 0...options.length)
+		{
+			var graybox:FlxSprite = new FlxSprite(146 + (i * 4), 178 + (i * 57)).loadGraphic(Paths.image('options/box', 'preload'));
+			graybox.antialiasing = ClientPrefs.globalAntialiasing;
+			graybox.ID = i;
+			grayArray.push(graybox);
+			add(graybox);
+		}
+
+		selector = new FlxSprite(146, 178).loadGraphic(Paths.image('options/selected', 'preload'));
+		add(selector);
+
+		grpOptions = new FlxTypedGroup<FlxText>();
 		add(grpOptions);
 
 		for (i in 0...options.length)
 		{
-			var optionText:Alphabet = new Alphabet(0, 0, options[i], true, false);
-			optionText.screenCenter();
-			optionText.y += (100 * (i - (options.length / 2))) + 50;
-			grpOptions.add(optionText);
+			var menuItem:FlxText = new FlxText(197 + (i * 4), 190 + (i * 57), 1000, options[i]);
+			menuItem.setFormat(Paths.font("futura.otf"), 27, FlxColor.BLACK, LEFT);
+			menuItem.angle = -4;
+			menuItem.antialiasing = ClientPrefs.globalAntialiasing;
+			menuItem.ID = i;
+			grpOptions.add(menuItem);
 		}
-
-		selectorLeft = new Alphabet(0, 0, '>', true, false);
-		add(selectorLeft);
-		selectorRight = new Alphabet(0, 0, '<', true, false);
-		add(selectorRight);
+		
 
 		changeSelection();
 		ClientPrefs.saveSettings();
@@ -121,21 +128,18 @@ class OptionsState extends MusicBeatState
 		if (curSelected >= options.length)
 			curSelected = 0;
 
-		var bullShit:Int = 0;
 
-		for (item in grpOptions.members) {
-			item.targetY = bullShit - curSelected;
-			bullShit++;
-
-			item.alpha = 0.6;
-			if (item.targetY == 0) {
-				item.alpha = 1;
-				selectorLeft.x = item.x - 63;
-				selectorLeft.y = item.y;
-				selectorRight.x = item.x + item.width + 15;
-				selectorRight.y = item.y;
+		grpOptions.forEach(function(txt:FlxText)
+		{
+			txt.color = FlxColor.BLACK;
+			if (txt.ID == curSelected) 
+			{
+				txt.color = FlxColor.RED;
+				selector.setPosition(grayArray[curSelected].x, grayArray[curSelected].y);
 			}
-		}
+		});
+
+
 		FlxG.sound.play(Paths.sound('scrollMenu'));
 	}
 }

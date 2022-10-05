@@ -155,6 +155,7 @@ class NoteOffsetState extends MusicBeatState
 		timeTxt.borderSize = 2;
 		timeTxt.visible = false;
 		timeTxt.cameras = [camHUD];
+		timeTxt.antialiasing = ClientPrefs.globalAntialiasing;
 
 		barPercent = ClientPrefs.noteOffset;
 		updateNoteDelay();
@@ -190,6 +191,7 @@ class NoteOffsetState extends MusicBeatState
 		changeModeText.setFormat(Paths.font("futura.otf"), 32, FlxColor.WHITE, CENTER);
 		changeModeText.scrollFactor.set();
 		changeModeText.cameras = [camHUD];
+		changeModeText.antialiasing = ClientPrefs.globalAntialiasing;
 		add(changeModeText);
 		updateMode();
 
@@ -424,6 +426,7 @@ class NoteOffsetState extends MusicBeatState
 			text.setFormat(Paths.font("futura.otf"), 24, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 			text.scrollFactor.set();
 			text.borderSize = 2;
+			text.antialiasing = ClientPrefs.globalAntialiasing;
 			dumbTexts.add(text);
 			text.cameras = [camHUD];
 

@@ -74,6 +74,7 @@ class OptionsState extends MusicBeatState
 		}
 
 		selector = new FlxSprite(146, 178).loadGraphic(Paths.image('options/selected', 'preload'));
+		selector.antialiasing = ClientPrefs.globalAntialiasing;
 		add(selector);
 
 		grpOptions = new FlxTypedGroup<FlxText>();

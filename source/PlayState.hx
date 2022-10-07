@@ -43,6 +43,7 @@ import openfl.Lib;
 import openfl.display.BlendMode;
 import openfl.display.StageQuality;
 import openfl.filters.BitmapFilter;
+import openfl.filters.ShaderFilter;
 import openfl.filters.ColorMatrixFilter;
 import openfl.utils.Assets as OpenFlAssets;
 import editors.ChartingState;
@@ -127,6 +128,8 @@ class PlayState extends MusicBeatState
 	public var dad:Character = null;
 	public var gf:Character = null;
 	public var boyfriend:Boyfriend = null;
+
+	var staticlol:StaticShader;
 
 	public var notes:FlxTypedGroup<Note>;
 	public var unspawnNotes:Array<Note> = [];
@@ -459,6 +462,15 @@ class PlayState extends MusicBeatState
 					stageCurtains.updateHitbox();
 					add(stageCurtains);
 				}
+		}
+
+		// shaders right here lol
+		// funny static for all stages
+		if (!ClientPrefs.lowQuality)
+		{
+			staticlol = new StaticShader();
+			camHUD.setFilters([new ShaderFilter(staticlol)]);
+			camHUD.filtersEnabled = false;
 		}
 
 		if(isPixelStage) {
@@ -2932,9 +2944,14 @@ class PlayState extends MusicBeatState
 				});
 
 				if (generatedMusic)
-				{
 					notes.sort(FlxSort.byY, downScroll ? FlxSort.ASCENDING : FlxSort.DESCENDING);
-				}
+
+				camHUD.filtersEnabled = true;
+
+				new FlxTimer().start(0.1, function(tmr:FlxTimer)
+				{
+					camHUD.filtersEnabled = false;
+				});
 		}
 		callOnLuas('onEvent', [eventName, value1, value2]);
 	}

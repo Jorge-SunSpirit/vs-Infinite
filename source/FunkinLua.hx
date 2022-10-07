@@ -163,7 +163,7 @@ class FunkinLua {
 		set('gfName', PlayState.SONG.player3);
 
 		// Some settings, no jokes
-		set('downscroll', ClientPrefs.downScroll);
+		set('downscroll', PlayState.instance.downScroll);
 		set('middlescroll', ClientPrefs.middleScroll);
 		set('framerate', ClientPrefs.framerate);
 		set('ghostTapping', ClientPrefs.ghostTapping);

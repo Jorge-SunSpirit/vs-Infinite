@@ -2881,7 +2881,7 @@ class PlayState extends MusicBeatState
 			case 'Swap Notescroll':
 				downScroll = !downScroll;
 
-				// TODO: Fix sustains.
+				// TODO: Fully fix sustains.
 				notes.forEachAlive(function(daNote:Note)
 				{
 					var strumGroup:FlxTypedGroup<StrumNote> = playerStrums;
@@ -2889,21 +2889,37 @@ class PlayState extends MusicBeatState
 						strumGroup = opponentStrums;
 
 					strumGroup.members[daNote.noteData].downScroll = !strumGroup.members[daNote.noteData].downScroll;
+
+					if (daNote.isSustainNote && daNote.prevNote != null)
+					{
+						daNote.flipY = downScroll;
+					}
 				});
 
-				// TODO: Properly fix all UI positions.
 				if (downScroll)
 				{
 					strumLine.y = FlxG.height - 150;
 					timeTxt.y = FlxG.height - 44;
+					timeBarBG.y = timeTxt.y + (timeTxt.height / 4);
+					timeBar.y = timeBarBG.y + 4;
 					healthBarBG.y = 0.11 * FlxG.height;
+					healthBar.y = healthBarBG.y + 4;
+					iconP1.y = healthBar.y - 75;
+					iconP2.y = healthBar.y - 75;
+					scoreTxt.y = healthBarBG.y + 36;
 					botplayTxt.y = timeBarBG.y - 78;
 				}
 				else
 				{
 					strumLine.y = 50;
 					timeTxt.y = 19;
+					timeBarBG.y = timeTxt.y + (timeTxt.height / 4);
+					timeBar.y = timeBarBG.y + 4;
 					healthBarBG.y = FlxG.height * 0.89;
+					healthBar.y = healthBarBG.y + 4;
+					iconP1.y = healthBar.y - 75;
+					iconP2.y = healthBar.y - 75;
+					scoreTxt.y = healthBarBG.y + 36;
 					botplayTxt.y = timeBarBG.y + 55;
 				}
 

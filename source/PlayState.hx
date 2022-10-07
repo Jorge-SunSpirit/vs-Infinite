@@ -178,6 +178,7 @@ class PlayState extends MusicBeatState
 	public var instakillOnMiss:Bool = false;
 	public var cpuControlled:Bool = false;
 	public var practiceMode:Bool = false;
+	public var downScroll:Bool = false;
 
 	public var botplaySine:Float = 0;
 	public var botplayTxt:FlxText;
@@ -309,6 +310,7 @@ class PlayState extends MusicBeatState
 		instakillOnMiss = ClientPrefs.getGameplaySetting('instakill', false);
 		practiceMode = ClientPrefs.getGameplaySetting('practice', false);
 		cpuControlled = ClientPrefs.getGameplaySetting('botplay', false);
+		downScroll = ClientPrefs.downScroll;
 
 		// var gameCam:FlxCamera = FlxG.camera;
 		camGame = new FlxCamera();
@@ -643,7 +645,7 @@ class PlayState extends MusicBeatState
 		Conductor.songPosition = -5000;
 
 		strumLine = new FlxSprite(ClientPrefs.middleScroll ? STRUM_X_MIDDLESCROLL : STRUM_X, 50).makeGraphic(FlxG.width, 10);
-		if(ClientPrefs.downScroll) strumLine.y = FlxG.height - 150;
+		if (downScroll) strumLine.y = FlxG.height - 150;
 		strumLine.scrollFactor.set();
 
 		grpUnderlay = new FlxTypedGroup<FlxSprite>();
@@ -661,7 +663,7 @@ class PlayState extends MusicBeatState
 		timeTxt.borderSize = 2;
 		timeTxt.antialiasing = ClientPrefs.globalAntialiasing;
 		timeTxt.visible = showTime;
-		if(ClientPrefs.downScroll) timeTxt.y = FlxG.height - 44;
+		if (downScroll) timeTxt.y = FlxG.height - 44;
 
 		if(ClientPrefs.timeBarType == 'Song Name')
 		{
@@ -783,7 +785,7 @@ class PlayState extends MusicBeatState
 		healthBarBG.xAdd = -4;
 		healthBarBG.yAdd = -4;
 		add(healthBarBG);
-		if(ClientPrefs.downScroll) healthBarBG.y = 0.11 * FlxG.height;
+		if (downScroll) healthBarBG.y = 0.11 * FlxG.height;
 
 		healthBar = new FlxBar(healthBarBG.x + 4, healthBarBG.y + 4, RIGHT_TO_LEFT, Std.int(healthBarBG.width - 8), Std.int(healthBarBG.height - 8), this,
 			'health', 0, 2);
@@ -822,7 +824,7 @@ class PlayState extends MusicBeatState
 		botplayTxt.antialiasing = ClientPrefs.globalAntialiasing;
 		botplayTxt.visible = cpuControlled;
 		add(botplayTxt);
-		if(ClientPrefs.downScroll) {
+		if (downScroll) {
 			botplayTxt.y = timeBarBG.y - 78;
 		}
 
@@ -1777,7 +1779,7 @@ class PlayState extends MusicBeatState
 			if (player < 1 && ClientPrefs.middleScroll) targetAlpha = 0.35;
 
 			var babyArrow:StrumNote = new StrumNote(ClientPrefs.middleScroll ? STRUM_X_MIDDLESCROLL : STRUM_X, strumLine.y, i, player);
-			babyArrow.downScroll = ClientPrefs.downScroll;
+			babyArrow.downScroll = downScroll;
 			if (!isStoryMode && !skipArrowStartTween)
 			{
 				//babyArrow.y -= 10;
@@ -2874,6 +2876,46 @@ class PlayState extends MusicBeatState
 				{
 					camGame.setFilters(null);
 					if (value2 == "true") FlxG.camera.fade(FlxColor.WHITE, 0.4, true);
+				}
+
+			case 'Swap Notescroll':
+				downScroll = !downScroll;
+
+				// TODO: Fix sustains.
+				notes.forEachAlive(function(daNote:Note)
+				{
+					var strumGroup:FlxTypedGroup<StrumNote> = playerStrums;
+					if (!daNote.mustPress)
+						strumGroup = opponentStrums;
+
+					strumGroup.members[daNote.noteData].downScroll = !strumGroup.members[daNote.noteData].downScroll;
+				});
+
+				// TODO: Properly fix all UI positions.
+				if (downScroll)
+				{
+					strumLine.y = FlxG.height - 150;
+					timeTxt.y = FlxG.height - 44;
+					healthBarBG.y = 0.11 * FlxG.height;
+					botplayTxt.y = timeBarBG.y - 78;
+				}
+				else
+				{
+					strumLine.y = 50;
+					timeTxt.y = 19;
+					healthBarBG.y = FlxG.height * 0.89;
+					botplayTxt.y = timeBarBG.y + 55;
+				}
+
+				strumLineNotes.forEachAlive(function(daStrum:StrumNote)
+				{
+					daStrum.y = strumLine.y;
+					daStrum.downScroll = downScroll;
+				});
+
+				if (generatedMusic)
+				{
+					notes.sort(FlxSort.byY, downScroll ? FlxSort.ASCENDING : FlxSort.DESCENDING);
 				}
 		}
 		callOnLuas('onEvent', [eventName, value1, value2]);
@@ -4064,7 +4106,7 @@ class PlayState extends MusicBeatState
 
 		if (generatedMusic)
 		{
-			notes.sort(FlxSort.byY, ClientPrefs.downScroll ? FlxSort.ASCENDING : FlxSort.DESCENDING);
+			notes.sort(FlxSort.byY, downScroll ? FlxSort.ASCENDING : FlxSort.DESCENDING);
 		}
 
 		if (SONG.notes[Math.floor(curStep / 16)] != null)

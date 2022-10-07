@@ -2288,6 +2288,9 @@ class PlayState extends MusicBeatState
 				strumAngle += daNote.offsetAngle;
 				strumAlpha *= daNote.multAlpha;
 
+				if (daNote.isSustainNote && daNote.prevNote != null)
+					daNote.flipY = strumScroll;
+
 				if (strumScroll) //Downscroll
 				{
 					//daNote.y = (strumY + 0.45 * (Conductor.songPosition - daNote.strumTime) * songSpeed);
@@ -2881,7 +2884,6 @@ class PlayState extends MusicBeatState
 			case 'Swap Notescroll':
 				downScroll = !downScroll;
 
-				// TODO: Fully fix sustains.
 				notes.forEachAlive(function(daNote:Note)
 				{
 					var strumGroup:FlxTypedGroup<StrumNote> = playerStrums;

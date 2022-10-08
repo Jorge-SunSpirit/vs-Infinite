@@ -1975,10 +1975,8 @@ class PlayState extends MusicBeatState
 
 	override public function update(elapsed:Float)
 	{
-		/*if (FlxG.keys.justPressed.NINE)
-		{
-			iconP1.swapOldIcon();
-		}*/
+		if (staticlol != null && !ClientPrefs.lowQuality)
+			staticlol.iTime.value = [elapsed];
 
 		#if debug
 		if (FlxG.keys.pressed.CONTROL && (FlxG.keys.pressed.I || FlxG.keys.pressed.J || FlxG.keys.pressed.K || FlxG.keys.pressed.L || FlxG.keys.pressed.U || FlxG.keys.pressed.O))
@@ -2948,7 +2946,7 @@ class PlayState extends MusicBeatState
 
 				camHUD.filtersEnabled = true;
 
-				new FlxTimer().start(0.1, function(tmr:FlxTimer)
+				new FlxTimer().start(0.15, function(tmr:FlxTimer)
 				{
 					camHUD.filtersEnabled = false;
 				});

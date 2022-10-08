@@ -135,13 +135,14 @@ class StaticShader extends FlxShader // https://www.shadertoy.com/view/ldjGzV an
     float red 	=   flixel_texture2D(	bitmap, 	vec2(uv.x + xOffset -0.01*rgbOffsetOpt,y)).r+staticVal;
     float green = 	flixel_texture2D(	bitmap, 	vec2(uv.x + xOffset,	  y)).g+staticVal;
     float blue 	=	flixel_texture2D(	bitmap, 	vec2(uv.x + xOffset +0.01*rgbOffsetOpt,y)).b+staticVal;
+    float flAlpha = 	flixel_texture2D(	bitmap, 	vec2(uv.x + xOffset,	  y)).a+staticVal;
 
     vec3 color = vec3(red,green,blue);
     float scanline = sin(uv.y*800.0)*0.04*scalinesOpt;
     color -= scanline;
 
     vec4 baseColor = flixel_texture2D(bitmap,uv);
-    gl_FragColor = mix(vec4(color,1.0), baseColor, alpha);
+    gl_FragColor = mix(vec4(color,flAlpha), baseColor, alpha);
   }
 
 

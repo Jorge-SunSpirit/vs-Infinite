@@ -24,8 +24,8 @@ class StaticShader extends FlxShader // https://www.shadertoy.com/view/ldjGzV an
   uniform vec3 iResolution;
   uniform float alpha;
 
-  float vertJerkOpt = 1.0;
-  float vertMovementOpt = 1.0;
+  float vertJerkOpt = 0.0;
+  float vertMovementOpt = 0.0;
   float bottomStaticOpt = 1.0;
   float scalinesOpt = 1.0;
   float rgbOffsetOpt = 1.0;

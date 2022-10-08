@@ -1972,11 +1972,15 @@ class PlayState extends MusicBeatState
 	var startedCountdown:Bool = false;
 	var canPause:Bool = true;
 	var limoSpeed:Float = 0;
+	var iTime:Float = 0;
 
 	override public function update(elapsed:Float)
 	{
 		if (staticlol != null && !ClientPrefs.lowQuality)
-			staticlol.iTime.value = [elapsed];
+		{
+			iTime += elapsed;
+			staticlol.iTime.value = [iTime];
+		}
 
 		#if debug
 		if (FlxG.keys.pressed.CONTROL && (FlxG.keys.pressed.I || FlxG.keys.pressed.J || FlxG.keys.pressed.K || FlxG.keys.pressed.L || FlxG.keys.pressed.U || FlxG.keys.pressed.O))

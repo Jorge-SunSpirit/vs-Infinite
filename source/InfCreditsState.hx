@@ -35,8 +35,8 @@ class InfCreditsState extends MusicBeatState
 
 	var userChara:Array<Array<String>> = [ //Name - Icon name - role - Quote of the day - Link - Which Row - position
 		//column 1
-		['Kallionic',	'kallionic',	'Director, Music, UI',	"Welcome to the next level.",	'https://kallionic.com',	"0", "0"],
-		['Omega',	'omega',	'Main Artist',	"hueh",	'https://twitter.com/ScrimbloCrimbo',	"0", "1"],
+		['Kallionic',	'kallionic',	'Director, Music, UI',	"Welcome to the next level.",	'https://twitter.com/RisingRyota',	"0", "0"],
+		['Omega',	'omega',	'Main Artist',	":v",	'https://twitter.com/ScrimbloCrimbo',	"0", "1"],
 		['SirDusterBuster',	'duster',	'Sprite Animator',	"When is vs Zavok?",	'https://twitter.com/SirDusterBuster',	"0", "2"],
 		['MissBeepy',	'Beep',	'Infinite Sketches',	"hueh",	'https://www.youtube.com/watch?v=0MW9Nrg_kZU',	"0", "3"],
 		['Whoever TF',	'sunspirit',	'BG Artist',	"hueh",	'https://www.youtube.com/watch?v=0MW9Nrg_kZU',	"0", "4"],

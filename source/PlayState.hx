@@ -191,6 +191,7 @@ class PlayState extends MusicBeatState
 	public var camHUD:FlxCamera;
 	public var camGame:FlxCamera;
 	public var camOther:FlxCamera;
+	public var camCache:FlxCamera;
 	public var cameraSpeed:Float = 1;
 
 	var dialogue:Array<String> = ['blah blah blah', 'coolswag'];
@@ -319,12 +320,16 @@ class PlayState extends MusicBeatState
 		camGame = new FlxCamera();
 		camHUD = new FlxCamera();
 		camOther = new FlxCamera();
+		camCache = new FlxCamera();
 		camHUD.bgColor.alpha = 0;
 		camOther.bgColor.alpha = 0;
+		camCache.bgColor.alpha = 0;
+		camHUD.filtersEnabled = false;
 
 		FlxG.cameras.reset(camGame);
 		FlxG.cameras.add(camHUD);
 		FlxG.cameras.add(camOther);
+		FlxG.cameras.add(camCache);
 		grpNoteSplashes = new FlxTypedGroup<NoteSplash>();
 
 		FlxCamera.defaultCameras = [camGame];
@@ -470,7 +475,7 @@ class PlayState extends MusicBeatState
 		{
 			staticlol = new StaticShader();
 			camHUD.setFilters([new ShaderFilter(staticlol)]);
-			camHUD.filtersEnabled = false;
+			camCache.setFilters([new ShaderFilter(staticlol)]);
 		}
 
 		if(isPixelStage) {
@@ -1152,6 +1157,9 @@ class PlayState extends MusicBeatState
 
 	public function startInfiniteDialogue(dialogueFile:InfiniteDialogueFile):Void
 	{
+		// disable filters on the caching camera
+		camCache.filtersEnabled = false;
+
 		if (dialogueFile == null)
 		{
 			FlxG.log.warn("Your dialogue file doesn't exist!");
@@ -1285,6 +1293,9 @@ class PlayState extends MusicBeatState
 			callOnLuas('onStartCountdown', []);
 			return;
 		}
+
+		// disable filters on the caching camera
+		camCache.filtersEnabled = false;
 
 		inCutscene = false;
 		var ret:Dynamic = callOnLuas('onStartCountdown', []);

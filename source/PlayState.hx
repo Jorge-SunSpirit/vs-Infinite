@@ -2230,7 +2230,7 @@ class PlayState extends MusicBeatState
 					var secondsTotal:Int = Math.floor(songCalc / 1000);
 					if(secondsTotal < 0) secondsTotal = 0;
 
-					if(ClientPrefs.timeBarType != 'Song Name')
+					if(ClientPrefs.timeBarType.startsWith('Time'))
 						timeTxt.text = FlxStringUtil.formatTime(secondsTotal, false);
 
 					if(ClientPrefs.timeBarType == 'Combined')

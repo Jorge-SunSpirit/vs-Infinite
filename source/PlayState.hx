@@ -471,7 +471,7 @@ class PlayState extends MusicBeatState
 
 		// shaders right here lol
 		// funny static for all stages
-		if (!ClientPrefs.lowQuality)
+		if (ClientPrefs.shaders)
 		{
 			staticlol = new StaticShader();
 			camHUD.setFilters([new ShaderFilter(staticlol)]);
@@ -1987,7 +1987,7 @@ class PlayState extends MusicBeatState
 
 	override public function update(elapsed:Float)
 	{
-		if (staticlol != null && !ClientPrefs.lowQuality)
+		if (staticlol != null && ClientPrefs.shaders)
 		{
 			iTime += elapsed;
 			staticlol.iTime.value = [iTime];

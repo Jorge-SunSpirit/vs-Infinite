@@ -19,6 +19,7 @@ class ClientPrefs {
 	public static var lowQuality:Bool = false;
 	public static var shaders:Bool = true;
 	public static var framerate:Int = 60;
+	public static var fullscreen:Bool = false;
 	public static var cursing:Bool = true;
 	public static var violence:Bool = true;
 	public static var camZooms:Bool = true;
@@ -107,6 +108,7 @@ class ClientPrefs {
 		FlxG.save.data.lowQuality = lowQuality;
 		FlxG.save.data.shaders = shaders;
 		FlxG.save.data.framerate = framerate;
+		FlxG.save.data.fullscreen = fullscreen;
 		//FlxG.save.data.cursing = cursing;
 		//FlxG.save.data.violence = violence;
 		FlxG.save.data.camZooms = camZooms;
@@ -196,6 +198,11 @@ class ClientPrefs {
 		if(framerate != FlxG.drawFramerate) {
 			FlxG.updateFramerate = framerate;
 			FlxG.drawFramerate = framerate;
+		}
+		if(FlxG.save.data.fullscreen != null)
+		{
+			fullscreen = FlxG.save.data.fullscreen;
+			FlxG.fullscreen = fullscreen;
 		}
 		/*if(FlxG.save.data.cursing != null) {
 			cursing = FlxG.save.data.cursing;

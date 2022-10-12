@@ -94,6 +94,9 @@ class DialogueBoxInfinite extends FlxSpriteGroup
 			{
 				if (dialogueData.dialogue[currentDialogue] != null)
 				{
+					if (dialogueData.dialogue[currentDialogue].sound == '')
+						FlxG.sound.play(Paths.sound('scrollMenu'));
+
 					startDialogue();
 				}
 				else

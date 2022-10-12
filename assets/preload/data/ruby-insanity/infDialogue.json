@@ -4,55 +4,55 @@
 			"character": "Sonic",
 			"expression": "Normal",
 			"text": "Infinite!",
-			"sound": "movie"
+			"sound": ""
 		},
 		{
 			"character": "Sonic",
 			"expression": "Normal",
 			"text": "Why did you bring us into Null Space?!",
-			"sound": "movie"
+			"sound": ""
 		},
 		{
 			"character": "Sonic",
 			"expression": "Normal",
 			"text": "I've gotten out of here before, what makes you think I won't do it again?",
-			"sound": "movie"
+			"sound": ""
 		},
 		{
 			"character": "Infinite",
 			"expression": "Normal",
 			"text": "Heh...",
-			"sound": "movie"
+			"sound": ""
 		},
 		{
 			"character": "Infinite",
 			"expression": "Normal",
 			"text": "You haven't figured it out, yet?",
-			"sound": "movie"
+			"sound": ""
 		},
 		{
 			"character": "Infinite",
 			"expression": "Normal",
 			"text": "This is all an illusion. And for as long as you're manipulated by the Phantom Ruby's power...",
-			"sound": "movie"
+			"sound": ""
 		},
 		{
 			"character": "Infinite",
 			"expression": "Normal",
 			"text": "I WILL CONTINUE TO FIGHT!",
-			"sound": "movie"
+			"sound": ""
 		},
 		{
 			"character": "Sonic",
 			"expression": "Normal",
 			"text": "Well, if you're not giving up, then I won't either!",
-			"sound": "movie"
+			"sound": ""
 		},
 		{
 			"character": "Sonic",
 			"expression": "Normal",
 			"text": "Now let's wrap this up!",
-			"sound": "movie"
+			"sound": ""
 		}
 	]
 }

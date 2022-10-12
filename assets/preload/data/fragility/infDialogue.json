@@ -4,25 +4,25 @@
 			"character": "Sonic",
 			"expression": "Normal",
 			"text": "*sigh* These illusions are really starting to become an eyesore!",
-			"sound": "movie"
+			"sound": ""
 		},
 		{
 			"character": "Sonic",
 			"expression": "Normal",
 			"text": "You got any more tricks you can show off? I'm getting bored.",
-			"sound": "movie"
+			"sound": ""
 		},
 		{
 			"character": "Infinite",
 			"expression": "Normal",
 			"text": "I can still fight, Sonic!",
-			"sound": "movie"
+			"sound": ""
 		},
 		{
 			"character": "Infinite",
 			"expression": "Normal",
 			"text": "I CAN STILL FIGHT!",
-			"sound": "movie"
+			"sound": ""
 		}
 	]
 }

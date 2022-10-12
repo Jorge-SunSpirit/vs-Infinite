@@ -1121,6 +1121,9 @@ class PlayState extends MusicBeatState
 	//You don't have to add a song, just saying. You can just do "startDialogue(dialogueJson);" and it should work
 	public function startDialogue(dialogueFile:DialogueFile, ?song:String = null):Void
 	{
+		// disable filters on the caching camera
+		camCache.filtersEnabled = false;
+
 		// TO DO: Make this more flexible, maybe?
 		if(psychDialogue != null) return;
 
@@ -1172,17 +1175,12 @@ class PlayState extends MusicBeatState
 			return;
 		}
 
-		var infiniteDialogue:DialogueBoxInfinite;
-
 		if (dialogueFile.dialogue.length > 0)
 		{
 			inCutscene = true;
-			infiniteDialogue = new DialogueBoxInfinite(dialogueFile);
-			infiniteDialogue.scrollFactor.set();
+			var infiniteDialogue:DialogueBoxInfinite = new DialogueBoxInfinite(dialogueFile);
 			infiniteDialogue.finishThing = function()
 			{
-				infiniteDialogue = null;
-
 				if (endingSong)
 					endSong()
 				else
@@ -1206,6 +1204,9 @@ class PlayState extends MusicBeatState
 
 	function schoolIntro(?dialogueBox:DialogueBox):Void
 	{
+		// disable filters on the caching camera
+		camCache.filtersEnabled = false;
+
 		inCutscene = true;
 		var black:FlxSprite = new FlxSprite(-100, -100).makeGraphic(FlxG.width * 2, FlxG.height * 2, FlxColor.BLACK);
 		black.scrollFactor.set();

@@ -26,15 +26,15 @@ typedef InfiniteDialogueLine =
 
 class DialogueBoxInfinite extends FlxSpriteGroup
 {
-	var dialogueData:InfiniteDialogueFile = null;
+	var dialogueData:InfiniteDialogueFile;
 
 	var box:FlxSprite;
 	var characterPortrait:FlxSprite;
 	var characterName:FlxText;
 	var dialogueText:FlxTypeText;
-	var dialogueVoice:FlxSound = null;
+	var dialogueVoice:FlxSound;
 
-	public var finishThing:Void->Void;
+	public var finishThing:Void->Void = null;
 	public var nextDialogueThing:Void->Void = null;
 	public var skipDialogueThing:Void->Void = null;
 
@@ -86,9 +86,7 @@ class DialogueBoxInfinite extends FlxSpriteGroup
 				dialogueText.skip();
 
 				if (skipDialogueThing != null)
-				{
 					skipDialogueThing();
-				}
 			}
 			else
 			{
@@ -160,9 +158,7 @@ class DialogueBoxInfinite extends FlxSpriteGroup
 		currentDialogue++;
 
 		if (nextDialogueThing != null)
-		{
 			nextDialogueThing();
-		}
 	}
 
 	function killVoice()

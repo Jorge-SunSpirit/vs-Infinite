@@ -86,7 +86,7 @@ class Character extends FlxSprite
 	public var shadowOffset:Float = 50;
 	public var hasShadow:Bool = false;
 	public var float:Bool;
-	var shadowShader:ReflectionShader = new ReflectionShader();
+	var shadowShader:ReflectionShader;
 	var floatshit:Float = 0;
 
 	public static var DEFAULT_CHARACTER:String = 'sonic'; //In case a character is missing, it will use BF on its place
@@ -239,7 +239,7 @@ class Character extends FlxSprite
 		}
 
 		hasShadow = shadowCtx;
-		if (hasShadow)
+		if (hasShadow && ClientPrefs.shaders)
 			shadowShader = new ReflectionShader(0.5, 0.5, 0.5);
 	}
 

@@ -130,7 +130,6 @@ class PlayState extends MusicBeatState
 	public var boyfriend:Boyfriend = null;
 
 	var staticlol:StaticShader;
-	private var staticAlpha:Float = 0;
 
 	public var notes:FlxTypedGroup<Note>;
 	public var unspawnNotes:Array<Note> = [];
@@ -477,7 +476,6 @@ class PlayState extends MusicBeatState
 			staticlol = new StaticShader();
 			camHUD.setFilters([new ShaderFilter(staticlol)]);
 			camCache.setFilters([new ShaderFilter(staticlol)]);
-			staticlol.alpha.value = [staticAlpha];
 		}
 
 		if(isPixelStage) {
@@ -2006,7 +2004,6 @@ class PlayState extends MusicBeatState
 		if (staticlol != null && ClientPrefs.shaders)
 		{
 			iTime += elapsed;
-			staticlol.alpha.value = [staticAlpha];
 			staticlol.iTime.value = [iTime];
 		}
 

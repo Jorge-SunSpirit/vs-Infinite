@@ -244,30 +244,31 @@ class Character extends FlxSprite
 	}
 
 	public override function draw():Void
+	{
+		if (!debugMode && hasShadow && ClientPrefs.shaders)
 		{
-			if (!debugMode && hasShadow)
-			{
-				var origY = y;
-				var origShader = shader;
-				var origColor = color;
-	
-				y = baseYPos + (baseYPos - y) + height + offset.y + shadowOffset;
-				flipY = !flipY;
-				shader = shadowShader;
-				color = FlxColor.BLACK;
-	
-				if (shadowShader.data.resolution.value[0] != FlxG.stage.stageWidth || shadowShader.data.resolution.value[1] != FlxG.stage.stageHeight)
-					shadowShader.data.resolution.value = [FlxG.stage.stageWidth, FlxG.stage.stageHeight];
-	
-				super.draw();
-	
-				y = origY;
-				color = origColor;
-				flipY = !flipY;
-				shader = origShader;
-			}
+			var origY = y;
+			var origShader = shader;
+			var origColor = color;
+
+			y = baseYPos + (baseYPos - y) + height + offset.y + shadowOffset;
+			flipY = !flipY;
+			shader = shadowShader;
+			color = FlxColor.BLACK;
+
+			if (shadowShader.data.resolution.value[0] != FlxG.stage.stageWidth
+				|| shadowShader.data.resolution.value[1] != FlxG.stage.stageHeight)
+				shadowShader.data.resolution.value = [FlxG.stage.stageWidth, FlxG.stage.stageHeight];
+
 			super.draw();
+
+			y = origY;
+			color = origColor;
+			flipY = !flipY;
+			shader = origShader;
 		}
+		super.draw();
+	}
 
 	override function update(elapsed:Float)
 	{

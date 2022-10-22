@@ -467,6 +467,36 @@ class PlayState extends MusicBeatState
 					stageCurtains.updateHitbox();
 					add(stageCurtains);
 				}
+			case 'nullspace':
+				var posX:Int = -400;
+				var posY:Int = -400;
+				var scale:Float = 1.7;
+
+				var bg:BGSprite = new BGSprite('nullspace/bg1', posX, posY, 0.2, 0.2);
+				bg.setGraphicSize(Std.int(bg.width * scale));
+				bg.updateHitbox();
+				add(bg);
+				
+				var bg2:BGSprite = new BGSprite('nullspace/bg2', posX, posY, 0.3, 0.3);
+				bg2.setGraphicSize(Std.int(bg2.width * scale));
+				bg2.updateHitbox();
+				add(bg2);
+
+				var bg3:BGSprite = new BGSprite('nullspace/bg3', posX, posY, 0.3, 0.3);
+				bg3.setGraphicSize(Std.int(bg3.width * scale));
+				bg3.updateHitbox();
+				add(bg3);
+
+				var ground:BGSprite = new BGSprite('nullspace/floor', posX, posY, 1, 1);
+				ground.setGraphicSize(Std.int(ground.width * scale));
+				ground.updateHitbox();
+				add(ground);
+
+				var stageCurtains:BGSprite = new BGSprite('nullspace/purple smoke', posX - 20, posY, 1.1, 1.1);
+				stageCurtains.setGraphicSize(Std.int(stageCurtains.width * scale));
+				stageCurtains.updateHitbox();
+				add(stageCurtains);
+
 		}
 
 		// shaders right here lol

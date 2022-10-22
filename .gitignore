@@ -18,4 +18,3 @@ export/*
 !.vscode/tasks.json
 !.vscode/launch.json
 !.vscode/extensions.json
-assets/preload/data/fragility/events.json

@@ -1,9 +1,9 @@
 package;
 
-import flixel.util.FlxColor;
-import animateatlas.AtlasFrameMaker;
 import flixel.FlxG;
 import flixel.FlxSprite;
+import flixel.FlxObject;
+import flixel.util.FlxColor;
 import flixel.addons.effects.FlxTrail;
 import flixel.animation.FlxBaseAnimation;
 import flixel.graphics.frames.FlxAtlasFrames;
@@ -37,6 +37,9 @@ typedef CharacterFile = {
 	var healthbar_colors:Array<Int>;
 	var shadow_Offset:Float;
 	var charaFloat:Bool;
+	var gameover_Character:String;
+	var death_Sound:String;
+	var playericon:String;
 }
 
 typedef AnimArray = {
@@ -65,21 +68,26 @@ class Character extends FlxSprite
 	public var singDuration:Float = 4; //Multiplier of how long a character holds the sing pose
 	public var idleSuffix:String = '';
 	public var danceIdle:Bool = false; //Character use "danceLeft" and "danceRight" instead of "idle"
-	
-
 	public var healthIcon:String = 'face';
 	public var animationsArray:Array<AnimArray> = [];
 
 	public var positionArray:Array<Float> = [0, 0];
 	public var cameraPosition:Array<Float> = [0, 0];
-
+	public var flipAnim:Bool = false;
 	public var hasMissAnimations:Bool = false;
+
+	public var deathsound:String = 'fnf_loss_sfx';
+  	public var gameoverchara:String = 'sonic';
 
 	//Used on Character Editor
 	public var imageFile:String = '';
 	public var jsonScale:Float = 1;
 	public var noAntialiasing:Bool = false;
 	public var originalFlipX:Bool = false;
+	public var initFacing:Int = FlxObject.RIGHT;
+	var initWidth:Float;
+	var facingleft:Bool = false;
+	var animdebug:Bool = false;
 	public var healthColorArray:Array<Int> = [255, 0, 0];
 
 	public var baseYPos:Float = 0;
@@ -90,7 +98,7 @@ class Character extends FlxSprite
 	var floatshit:Float = 0;
 
 	public static var DEFAULT_CHARACTER:String = 'sonic'; //In case a character is missing, it will use BF on its place
-	public function new(x:Float, y:Float, ?character:String = 'sonic', ?isPlayer:Bool = false, ?shadowCtx:Bool = false)
+	public function new(x:Float, y:Float, ?character:String = 'sonic', ?isPlayer:Bool = false, ?shadowCtx:Bool = false, ?isAnimDebug:Bool = false)
 	{
 		super(x, y);
 
@@ -101,15 +109,17 @@ class Character extends FlxSprite
 		#end
 		curCharacter = character;
 		this.isPlayer = isPlayer;
-		antialiasing = ClientPrefs.globalAntialiasing; 
+		animdebug = isAnimDebug;
+		if (!animdebug)	flipAnim = isPlayer;
+		antialiasing = ClientPrefs.globalAntialiasing;
+
 		var library:String = null;
 		switch (curCharacter)
 		{
-			//case 'your character name in case you want to hardcode them instead':
+			//case 'your character name in case you want to hardcode him instead':
 
 			default:
 				var characterPath:String = 'characters/' + curCharacter + '.json';
-
 				#if MODS_ALLOWED
 				var path:String = Paths.modFolders(characterPath);
 				if (!FileSystem.exists(path)) {
@@ -132,52 +142,35 @@ class Character extends FlxSprite
 				#end
 
 				var json:CharacterFile = cast Json.parse(rawJson);
-				var spriteType = "sparrow";
-				//sparrow
-				//packer
-				//texture
 				#if MODS_ALLOWED
-				var modTxtToFind:String = Paths.modsTxt(json.image);
 				var txtToFind:String = Paths.getPath('images/' + json.image + '.txt', TEXT);
-				
-				//var modTextureToFind:String = Paths.modFolders("images/"+json.image);
-				//var textureToFind:String = Paths.getPath('images/' + json.image, new AssetType();
-				
-				if (FileSystem.exists(modTxtToFind) || FileSystem.exists(txtToFind) || Assets.exists(txtToFind))
+				if(FileSystem.exists(txtToFind) || Assets.exists(txtToFind))
 				#else
-				if (Assets.exists(Paths.getPath('images/' + json.image + '.txt', TEXT)))
+				if(Assets.exists(Paths.getPath('images/' + json.image + '.txt', TEXT)))
 				#end
 				{
-					spriteType = "packer";
+				//bozo forgot about the packer shits : P
+					frames = Paths.getPackerAtlas(json.image);
 				}
-				
-				#if MODS_ALLOWED
-				var modAnimToFind:String = Paths.modFolders('images/' + json.image + '/Animation.json');
-				var animToFind:String = Paths.getPath('images/' + json.image + '/Animation.json', TEXT);
-				
-				//var modTextureToFind:String = Paths.modFolders("images/"+json.image);
-				//var textureToFind:String = Paths.getPath('images/' + json.image, new AssetType();
-				
-				if (FileSystem.exists(modAnimToFind) || FileSystem.exists(animToFind) || Assets.exists(animToFind))
-				#else
-				if (Assets.exists(Paths.getPath('images/' + json.image + '/Animation.json', TEXT)))
-				#end
+				else
 				{
-					spriteType = "texture";
-				}
-
-				switch (spriteType){
-					
-					case "packer":
-						frames = Paths.getPackerAtlas(json.image);
-					
-					case "sparrow":
-						frames = Paths.getSparrowAtlas(json.image);
-					
-					case "texture":
-						frames = AtlasFrameMaker.construct(json.image);
+					frames = Paths.getSparrowAtlas(json.image);
 				}
 				imageFile = json.image;
+				
+				if (!animdebug)
+				{
+					if (!!json.flip_x)
+						{
+							initFacing = FlxObject.LEFT;
+							facingleft = true;
+						}
+						else
+						{
+							initFacing = FlxObject.RIGHT;
+							facingleft = false;
+						}
+				}
 
 				if(json.scale != 1) {
 					jsonScale = json.scale;
@@ -188,11 +181,19 @@ class Character extends FlxSprite
 				positionArray = json.position;
 				cameraPosition = json.camera_position;
 
-				healthIcon = json.healthicon;
+				if (isPlayer && json.playericon != null)
+					healthIcon = json.playericon;
+				else
+					healthIcon = json.healthicon;
+
 				singDuration = json.sing_duration;
 				shadowOffset = json.shadow_Offset;
-				flipX = !!json.flip_x;
 				float = json.charaFloat;
+				gameoverchara = json.gameover_Character;
+  				deathsound = json.death_Sound;
+
+				if (animdebug) flipX = !!json.flip_x;
+
 				if(json.no_antialiasing) {
 					antialiasing = false;
 					noAntialiasing = true;
@@ -227,20 +228,59 @@ class Character extends FlxSprite
 				}
 				//trace('Loaded file to character ' + curCharacter);
 		}
-		originalFlipX = flipX;
 
+		if (!animdebug) setFacingFlip((initFacing == FlxObject.LEFT ? FlxObject.RIGHT : FlxObject.LEFT), true, false);
+		
+		if (animdebug) originalFlipX = flipX;
+			
 		if(animOffsets.exists('singLEFTmiss') || animOffsets.exists('singDOWNmiss') || animOffsets.exists('singUPmiss') || animOffsets.exists('singRIGHTmiss')) hasMissAnimations = true;
 		recalculateDanceIdle();
 		dance();
 
-		if (isPlayer)
+		if (!animdebug) facing = (flipAnim ? FlxObject.LEFT : FlxObject.RIGHT);
+
+		if (animdebug && isPlayer)	flipX = !flipX;
+
+		if (!animdebug && facing != initFacing)
 		{
-			flipX = !flipX;
+			
+
+			if (animation.getByName('singRIGHT') != null)
+				{
+					var oldRight = animation.getByName('singRIGHT').frames;
+					var oldOffset = animOffsets['singRIGHT'];
+					animation.getByName('singRIGHT').frames = animation.getByName('singLEFT').frames;
+					animOffsets['singRIGHT'] = animOffsets['singLEFT'];
+					animation.getByName('singLEFT').frames = oldRight;
+					animOffsets['singLEFT'] = oldOffset;
+				}
+	
+				// IF THEY HAVE MISS ANIMATIONS??
+				if (animation.getByName('singRIGHTmiss') != null)
+				{
+					var oldMiss = animation.getByName('singRIGHTmiss').frames;
+					var oldOffset = animOffsets['singRIGHTmiss'];
+					animation.getByName('singRIGHTmiss').frames = animation.getByName('singLEFTmiss').frames;
+					animOffsets['singRIGHTmiss'] = animOffsets['singLEFTmiss'];
+					animation.getByName('singLEFTmiss').frames = oldMiss;
+					animOffsets['singLEFTmiss'] = oldOffset;
+				}
+	
+				if (animation.getByName('singRIGHT-alt') != null)
+				{
+					var oldRight = animation.getByName('singRIGHT-alt').frames;
+					var oldOffset = animOffsets['singRIGHT-alt'];
+					animation.getByName('singRIGHT-alt').frames = animation.getByName('singLEFT-alt').frames;
+					animOffsets['singRIGHT-alt'] = animOffsets['singLEFT-alt'];
+					animation.getByName('singLEFT-alt').frames = oldRight;
+					animOffsets['singLEFT-alt'] = oldOffset;
+				}
 		}
 
 		hasShadow = shadowCtx;
 		if (hasShadow && ClientPrefs.shaders)
 			shadowShader = new ReflectionShader(0.5, 0.5, 0.5);
+
 	}
 
 	public override function draw():Void
@@ -248,12 +288,12 @@ class Character extends FlxSprite
 		if (!debugMode && hasShadow && ClientPrefs.shaders)
 		{
 			var origY = y;
-			var origShader = shader;
+			var origalpha = alpha;
 			var origColor = color;
 
 			y = baseYPos + (baseYPos - y) + height + offset.y + shadowOffset;
 			flipY = !flipY;
-			shader = shadowShader;
+			alpha = 0.5;
 			color = FlxColor.BLACK;
 
 			if (shadowShader.data.resolution.value[0] != FlxG.stage.stageWidth
@@ -263,9 +303,9 @@ class Character extends FlxSprite
 			super.draw();
 
 			y = origY;
-			color = origColor;
+			alpha = origalpha;
 			flipY = !flipY;
-			shader = origShader;
+			//shader = origShader;
 		}
 		super.draw();
 	}
@@ -351,7 +391,11 @@ class Character extends FlxSprite
 		var daOffset = animOffsets.get(AnimName);
 		if (animOffsets.exists(AnimName))
 		{
-			offset.set(daOffset[0], daOffset[1]);
+			if (!animdebug) offset.set((facing != initFacing ? -1 : 1) * daOffset[0] + (facing != initFacing ? frameWidth - initWidth : 0), daOffset[1]);	
+			
+			if (animdebug) offset.set(daOffset[0], daOffset[1]);
+			
+			if (!animdebug && facing != initFacing)	offset.x -= 400;
 		}
 		else
 			offset.set(0, 0);

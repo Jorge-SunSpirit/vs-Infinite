@@ -18,7 +18,6 @@ import openfl.utils.AssetType;
 import openfl.utils.Assets;
 import haxe.Json;
 import haxe.format.JsonParser;
-import shaders.ReflectionShader;
 
 using StringTools;
 
@@ -94,7 +93,6 @@ class Character extends FlxSprite
 	public var shadowOffset:Float = 50;
 	public var hasShadow:Bool = false;
 	public var float:Bool;
-	var shadowShader:ReflectionShader;
 	var floatshit:Float = 0;
 
 	public static var DEFAULT_CHARACTER:String = 'sonic'; //In case a character is missing, it will use BF on its place
@@ -278,14 +276,11 @@ class Character extends FlxSprite
 		}
 
 		hasShadow = shadowCtx;
-		if (hasShadow && ClientPrefs.shaders)
-			shadowShader = new ReflectionShader(0.5, 0.5, 0.5);
-
 	}
 
 	public override function draw():Void
 	{
-		if (!debugMode && hasShadow && ClientPrefs.shaders)
+		if (!debugMode && hasShadow)
 		{
 			var origY = y;
 			var origalpha = alpha;
@@ -296,17 +291,14 @@ class Character extends FlxSprite
 			alpha = 0.5;
 			color = FlxColor.BLACK;
 
-			if (shadowShader.data.resolution.value[0] != FlxG.stage.stageWidth
-				|| shadowShader.data.resolution.value[1] != FlxG.stage.stageHeight)
-				shadowShader.data.resolution.value = [FlxG.stage.stageWidth, FlxG.stage.stageHeight];
-
 			super.draw();
 
 			y = origY;
 			alpha = origalpha;
+			color = origColor;
 			flipY = !flipY;
-			//shader = origShader;
 		}
+
 		super.draw();
 	}
 

@@ -9,6 +9,8 @@ import Song.SwagSong;
 import WiggleEffect.WiggleEffectType;
 import flixel.FlxBasic;
 import flixel.FlxCamera;
+import motion.Actuate;
+import motion.easing.*;
 import flixel.FlxG;
 import flixel.FlxGame;
 import flixel.FlxObject;
@@ -243,6 +245,7 @@ class PlayState extends MusicBeatState
 	public static var deathCounter:Int = 0;
 
 	public var defaultCamZoom:Float = 1.05;
+	var defaultStageZoom:Float = 1.05;
 
 	// how big to stretch the pixel art assets
 	public static var daPixelZoom:Float = 6;
@@ -410,7 +413,7 @@ class PlayState extends MusicBeatState
 			};
 		}
 
-		defaultCamZoom = stageData.defaultZoom;
+		defaultStageZoom = stageData.defaultZoom;
 		isPixelStage = stageData.isPixelStage;
 		BF_X = stageData.boyfriend[0];
 		BF_Y = stageData.boyfriend[1];
@@ -440,6 +443,8 @@ class PlayState extends MusicBeatState
 		boyfriendGroup = new FlxSpriteGroup(BF_X, BF_Y);
 		dadGroup = new FlxSpriteGroup(DAD_X, DAD_Y);
 		gfGroup = new FlxSpriteGroup(GF_X, GF_Y);
+
+		defaultCamZoom = defaultStageZoom;
 
 		switch (curStage)
 		{
@@ -2764,6 +2769,33 @@ class PlayState extends MusicBeatState
 					bgGhouls.dance(true);
 					bgGhouls.visible = true;
 				}
+			
+			case 'Change Camera Zoom':
+				var val1:Float = Std.parseFloat(value1);
+				var val2:Float = Std.parseFloat(value2);
+
+				if (Math.isNaN(val1))
+					val1 = defaultCamZoom;
+
+				// if value2 isn't a numerical value, then rely on defaultCamZoom
+				if (Math.isNaN(val2))
+				{
+					var forceBool:Bool = false;
+					if (value2 == 'true')
+						forceBool = true;
+	
+					defaultCamZoom = val1;
+					if (forceBool)
+						FlxG.camera.zoom = val1;
+				}
+				else
+				{
+					Actuate.tween(FlxG.camera, val2, {zoom: val1}).ease(Linear.easeNone).onComplete(function()
+					{
+						defaultCamZoom = val1;
+					});
+				}
+	
 
 			case 'Play Animation':
 				//trace('Anim to play: ' + value1);

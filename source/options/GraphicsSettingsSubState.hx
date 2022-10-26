@@ -86,7 +86,7 @@ class GraphicsSettingsSubState extends BaseOptionsMenu
 			'If checked, renders textures on the GPU instead,\ndecreasing memory usage.',
 			'gpuTextures',
 			'bool',
-			false);
+			true);
 		addOption(option);
 
 		super();

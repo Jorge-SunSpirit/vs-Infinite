@@ -2,10 +2,11 @@ package;
 
 import flixel.FlxG;
 import flixel.FlxSprite;
+import flixel.addons.text.FlxTypeText;
 import flixel.group.FlxSpriteGroup;
 import flixel.system.FlxSound;
 import flixel.text.FlxText;
-import flixel.addons.text.FlxTypeText;
+import flixel.util.FlxTimer;
 import haxe.Json;
 import openfl.utils.Assets;
 
@@ -75,34 +76,41 @@ class DialogueBoxInfinite extends FlxSpriteGroup
 		});
 	}
 
+	var allowInput:Bool = true;
+
 	override function update(elapsed:Float)
 	{
 		super.update(elapsed);
 
-		if (PlayerSettings.player1.controls.ACCEPT)
+		if (allowInput)
 		{
-			if (!dialogueEnded)
+			if (PlayerSettings.player1.controls.ACCEPT)
 			{
-				dialogueText.skip();
-
-				if (skipDialogueThing != null)
-					skipDialogueThing();
-			}
-			else
-			{
-				if (dialogueData.dialogue[currentDialogue] != null)
+				if (!dialogueEnded)
 				{
-					if (dialogueData.dialogue[currentDialogue].sound == '')
-						FlxG.sound.play(Paths.sound('scrollMenu'));
+					dialogueText.skip();
 
-					startDialogue();
+					if (skipDialogueThing != null)
+						skipDialogueThing();
 				}
 				else
 				{
-					killVoice();
-					finishThing();
-					kill();
+					if (dialogueData.dialogue[currentDialogue] != null)
+					{
+						if (dialogueData.dialogue[currentDialogue].sound == '')
+							FlxG.sound.play(Paths.sound('scrollMenu'));
+
+						startDialogue();
+					}
+					else
+					{
+						closeDialogue();
+					}
 				}
+			}
+			else if (PlayerSettings.player1.controls.BACK)
+			{
+				closeDialogue();
 			}
 		}
 	}
@@ -153,7 +161,7 @@ class DialogueBoxInfinite extends FlxSpriteGroup
 		characterPortrait.loadGraphic(Paths.image('dialogue/${curDialogue.character}_${curDialogue.expression}'));
 		characterPortrait.visible = true;
 
-		dialogueEnded = false; 
+		dialogueEnded = false;
 
 		currentDialogue++;
 
@@ -168,5 +176,18 @@ class DialogueBoxInfinite extends FlxSpriteGroup
 			dialogueVoice.stop();
 			dialogueVoice.destroy();
 		}
+	}
+
+	function closeDialogue():Void
+	{
+		allowInput = false;
+		FlxG.sound.play(Paths.sound('cancelMenu'));
+
+		new FlxTimer().start(0.1, function(tmr:FlxTimer)
+		{
+			killVoice();
+			finishThing();
+			kill();
+		});
 	}
 }

@@ -151,7 +151,6 @@ class TitleState extends MusicBeatState
 	}
 
 	var logoBl:FlxSprite;
-	var gfDance:FlxSprite;
 	var danceLeft:Bool = false;
 	var titleText:FlxSprite;
 
@@ -188,9 +187,16 @@ class TitleState extends MusicBeatState
 		logoBl.updateHitbox();
 		logoBl.angle = -6;
 
-		infinite = new FlxSprite(684, 23);
-		infinite.loadGraphic(Paths.image("titlescreen/infinite_placeholder"));
+		//infinite = new FlxSprite(684, 23);
+		//.loadGraphic(Paths.image("titlescreen/infinite_placeholder"));
+		//infinite.antialiasing = ClientPrefs.globalAntialiasing;
+		//add(infinite);
+
+		infinite = new FlxSprite(700, 0);
+		infinite.frames = Paths.getSparrowAtlas('titlescreen/Infinite_Title_Bumpin');
+		infinite.animation.addByPrefix('bump', "Infinite_Title_Bumpin", 24);
 		infinite.antialiasing = ClientPrefs.globalAntialiasing;
+		infinite.animation.play('bump');
 		add(infinite);
 
 		add(logoBl);
@@ -258,8 +264,8 @@ class TitleState extends MusicBeatState
 	override function update(elapsed:Float)
 	{
 		floatshit += 0.03 / FramerateTools.timeMultiplier();
-		if (infinite != null)
-			infinite.y += Math.sin(floatshit) / FramerateTools.timeMultiplier();
+		//if (infinite != null)
+			//infinite.y += Math.sin(floatshit) / FramerateTools.timeMultiplier();
 
 		if (FlxG.sound.music != null)
 			Conductor.songPosition = FlxG.sound.music.time;
@@ -367,13 +373,7 @@ class TitleState extends MusicBeatState
 		if(logoBl != null) 
 			logoBl.animation.play('bump', true);
 
-		if(gfDance != null) {
-			danceLeft = !danceLeft;
-			if (danceLeft)
-				gfDance.animation.play('danceRight');
-			else
-				gfDance.animation.play('danceLeft');
-		}
+		if (infinite != null) logoBl.animation.play('bump', true);
 
 		if(!closedState) {
 			sickBeats++;

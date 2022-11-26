@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="Infinite_Title_Bumpin.png">
+	<!-- Created with Adobe Animate version 20.0.3.25487 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="Infinite_Title_Bumpin instance 10000" x="10" y="10" width="724" height="833" frameX="-24" frameY="-17" frameWidth="748" frameHeight="850"/>
+	<SubTexture name="Infinite_Title_Bumpin instance 10001" x="10" y="10" width="724" height="833" frameX="-24" frameY="-17" frameWidth="748" frameHeight="850"/>
+	<SubTexture name="Infinite_Title_Bumpin instance 10002" x="744" y="10" width="742" height="850" frameX="0" frameY="0" frameWidth="748" frameHeight="850"/>
+	<SubTexture name="Infinite_Title_Bumpin instance 10003" x="744" y="10" width="742" height="850" frameX="0" frameY="0" frameWidth="748" frameHeight="850"/>
+	<SubTexture name="Infinite_Title_Bumpin instance 10004" x="1496" y="10" width="683" height="830" frameX="-48" frameY="-20" frameWidth="748" frameHeight="850"/>
+	<SubTexture name="Infinite_Title_Bumpin instance 10005" x="1496" y="10" width="683" height="830" frameX="-48" frameY="-20" frameWidth="748" frameHeight="850"/>
+	<SubTexture name="Infinite_Title_Bumpin instance 10006" x="2189" y="10" width="678" height="830" frameX="-51" frameY="-20" frameWidth="748" frameHeight="850"/>
+	<SubTexture name="Infinite_Title_Bumpin instance 10007" x="2189" y="10" width="678" height="830" frameX="-51" frameY="-20" frameWidth="748" frameHeight="850"/>
+	<SubTexture name="Infinite_Title_Bumpin instance 10008" x="2877" y="10" width="677" height="830" frameX="-51" frameY="-20" frameWidth="748" frameHeight="850"/>
+	<SubTexture name="Infinite_Title_Bumpin instance 10009" x="2877" y="10" width="677" height="830" frameX="-51" frameY="-20" frameWidth="748" frameHeight="850"/>
+	<SubTexture name="Infinite_Title_Bumpin instance 10010" x="2877" y="10" width="677" height="830" frameX="-51" frameY="-20" frameWidth="748" frameHeight="850"/>
+	<SubTexture name="Infinite_Title_Bumpin instance 10011" x="2877" y="10" width="677" height="830" frameX="-51" frameY="-20" frameWidth="748" frameHeight="850"/>
+	<SubTexture name="Infinite_Title_Bumpin instance 10012" x="2877" y="10" width="677" height="830" frameX="-51" frameY="-20" frameWidth="748" frameHeight="850"/>
+	<SubTexture name="Infinite_Title_Bumpin instance 10013" x="10" y="870" width="683" height="830" frameX="-48" frameY="-20" frameWidth="748" frameHeight="850"/>
+</TextureAtlas>

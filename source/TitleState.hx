@@ -194,7 +194,7 @@ class TitleState extends MusicBeatState
 
 		infinite = new FlxSprite(700, 0);
 		infinite.frames = Paths.getSparrowAtlas('titlescreen/Infinite_Title_Bumpin');
-		infinite.animation.addByPrefix('bump', "Infinite_Title_Bumpin", 24);
+		infinite.animation.addByPrefix('bump', "Infinite_Title_Bumpin", 24, false);
 		infinite.antialiasing = ClientPrefs.globalAntialiasing;
 		infinite.animation.play('bump');
 		add(infinite);
@@ -370,10 +370,11 @@ class TitleState extends MusicBeatState
 	{
 		super.beatHit();
 
-		if(logoBl != null) 
+		if (logoBl != null) 
 			logoBl.animation.play('bump', true);
 
-		if (infinite != null) logoBl.animation.play('bump', true);
+		if (infinite != null)
+			infinite.animation.play('bump', true);
 
 		if(!closedState) {
 			sickBeats++;

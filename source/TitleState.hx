@@ -53,6 +53,7 @@ class TitleState extends MusicBeatState
 	var textGroup:FlxGroup;
 	var ngSpr:FlxSprite;
 	var infinite:FlxSprite;
+	var squid:FlxSound;
 
 	var floatshit:Float = 0;
 
@@ -68,6 +69,8 @@ class TitleState extends MusicBeatState
 	{
 		Paths.clearStoredMemory();
 		Paths.clearUnusedMemory();
+
+		squid = new FlxSound().loadEmbedded(Paths.sound("SQUID"));
 
 		// Just to load a mod on start up if ya got one. For mods that change the menu music and bg
 		WeekData.loadTheFirstEnabledMod();
@@ -382,47 +385,45 @@ class TitleState extends MusicBeatState
 			{
 				case 1:
 					createCoolText(['KALLIONIC AND TEAM TBD']);
-				// credTextShit.visible = true;
+
 				case 3:
 					addMoreText('present');
-				// credTextShit.text += '\npresent...';
-				// credTextShit.addText();
+
 				case 4:
 					deleteCoolText();
-				// credTextShit.visible = false;
-				// credTextShit.text = 'In association \nwith';
-				// credTextShit.screenCenter();
+
 				case 5:
 					createCoolText(['OG COPYRIGHT', 'TO'], -40);
 				case 7:
 					ngSpr.visible = true;
-				// credTextShit.text += '\nNewgrounds';
+
 				case 8:
 					deleteCoolText();
 					ngSpr.visible = false;
-				// credTextShit.visible = false;
 
-				// credTextShit.text = 'Shoutouts Tom Fulp';
-				// credTextShit.screenCenter();
 				case 9:
 					createCoolText([curWacky[0]]);
-				// credTextShit.visible = true;
+
 				case 11:
 					addMoreText(curWacky[1]);
-				// credTextShit.text += '\nlmao';
+
+					if (curWacky[1] == "SQUID" && !skippedIntro)
+						squid.play();
+
 				case 12:
 					deleteCoolText();
-				// credTextShit.visible = false;
-				// credTextShit.text = "Friday";
-				// credTextShit.screenCenter();
+
+					if (curWacky[1] == "SQUID" && !skippedIntro)
+						squid.stop();
+
 				case 13:
 					addMoreText('FNF');
-				// credTextShit.visible = true;
+
 				case 14:
 					addMoreText('VS');
-				// credTextShit.text += '\nNight';
+
 				case 15:
-					addMoreText('INFINITE'); // credTextShit.text += '\nFunkin';
+					addMoreText('INFINITE');
 
 				case 16:
 					skipIntro();

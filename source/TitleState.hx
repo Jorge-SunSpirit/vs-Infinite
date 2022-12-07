@@ -113,7 +113,7 @@ class TitleState extends MusicBeatState
 
 		super.create();
 
-		FlxG.save.bind('funkin', 'ninjamuffin99');
+		FlxG.save.bind('vsinfinite', 'teamtbd');
 		
 		ClientPrefs.loadPrefs();
 
@@ -384,7 +384,7 @@ class TitleState extends MusicBeatState
 			switch (sickBeats)
 			{
 				case 1:
-					createCoolText(['KALLIONIC AND TEAM TBD']);
+					createCoolText(['KAIRII AND TEAM TBD']);
 
 				case 3:
 					addMoreText('present');

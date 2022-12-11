@@ -9,8 +9,6 @@ import Song.SwagSong;
 import WiggleEffect.WiggleEffectType;
 import flixel.FlxBasic;
 import flixel.FlxCamera;
-import motion.Actuate;
-import motion.easing.*;
 import flixel.FlxG;
 import flixel.FlxGame;
 import flixel.FlxObject;
@@ -3718,9 +3716,12 @@ class PlayState extends MusicBeatState
 				}
 				else
 				{
-					Actuate.tween(FlxG.camera, val2, {zoom: val1}).ease(Linear.easeNone).onComplete(function()
-					{
-						defaultCamZoom = val1;
+					FlxTween.cancelTweensOf(FlxG.camera);
+					FlxTween.tween(FlxG.camera, {zoom: val1}, val2 / playbackRate, {ease: FlxEase.cubeInOut, onComplete:
+						function (twn:FlxTween)
+						{
+							defaultCamZoom = val1;
+						}
 					});
 				}
 

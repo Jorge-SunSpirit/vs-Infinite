@@ -9,6 +9,8 @@ import Song.SwagSong;
 import WiggleEffect.WiggleEffectType;
 import flixel.FlxBasic;
 import flixel.FlxCamera;
+import motion.Actuate;
+import motion.easing.*;
 import flixel.FlxG;
 import flixel.FlxGame;
 import flixel.FlxObject;
@@ -3691,6 +3693,32 @@ class PlayState extends MusicBeatState
 				if(curStage == 'schoolEvil' && !ClientPrefs.lowQuality) {
 					bgGhouls.dance(true);
 					bgGhouls.visible = true;
+				}
+
+			case 'Change Camera Zoom':
+				var val1:Float = Std.parseFloat(value1);
+				var val2:Float = Std.parseFloat(value2);
+
+				if (Math.isNaN(val1))
+					val1 = defaultCamZoom;
+
+				// if value2 isn't a numerical value, then rely on defaultCamZoom
+				if (Math.isNaN(val2))
+				{
+					var forceBool:Bool = false;
+					if (value2 == 'true')
+						forceBool = true;
+
+					defaultCamZoom = val1;
+					if (forceBool)
+						FlxG.camera.zoom = val1;
+				}
+				else
+				{
+					Actuate.tween(FlxG.camera, val2, {zoom: val1}).ease(Linear.easeNone).onComplete(function()
+					{
+						defaultCamZoom = val1;
+					});
 				}
 
 			case 'Play Animation':

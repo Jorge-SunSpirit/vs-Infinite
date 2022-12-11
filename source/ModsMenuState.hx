@@ -148,6 +148,7 @@ class ModsMenuState extends MusicBeatState
 		visibleWhenHasMods.push(buttonToggle);
 		
 		buttonToggle.label.setFormat(Paths.font("futura.otf"), 24, FlxColor.WHITE, CENTER);
+		buttonToggle.label.antialiasing = ClientPrefs.globalAntialiasing;
 		setAllLabelsOffset(buttonToggle, -15, 10);
 		startX -= 70;
 
@@ -162,6 +163,7 @@ class ModsMenuState extends MusicBeatState
 		buttonsArray.push(buttonUp);
 		visibleWhenHasMods.push(buttonUp);
 		buttonUp.label.setFormat(Paths.font("futura.otf"), 24, FlxColor.BLACK, CENTER);
+		buttonUp.label.antialiasing = ClientPrefs.globalAntialiasing;
 		setAllLabelsOffset(buttonUp, -15, 10);
 		startX -= 70;
 
@@ -175,6 +177,7 @@ class ModsMenuState extends MusicBeatState
 		buttonsArray.push(buttonDown);
 		visibleWhenHasMods.push(buttonDown);
 		buttonDown.label.setFormat(Paths.font("futura.otf"), 24, FlxColor.BLACK, CENTER);
+		buttonDown.label.antialiasing = ClientPrefs.globalAntialiasing;
 		setAllLabelsOffset(buttonDown, -15, 10);
 
 		startX -= 100;
@@ -194,6 +197,7 @@ class ModsMenuState extends MusicBeatState
 		buttonTop.setGraphicSize(80, 50);
 		buttonTop.updateHitbox();
 		buttonTop.label.setFormat(Paths.font("futura.otf"), 24, FlxColor.BLACK, CENTER);
+		buttonTop.label.antialiasing = ClientPrefs.globalAntialiasing;
 		setAllLabelsOffset(buttonTop, 0, 10);
 		add(buttonTop);
 		buttonsArray.push(buttonTop);
@@ -220,6 +224,7 @@ class ModsMenuState extends MusicBeatState
 		buttonDisableAll.setGraphicSize(170, 50);
 		buttonDisableAll.updateHitbox();
 		buttonDisableAll.label.setFormat(Paths.font("futura.otf"), 24, FlxColor.BLACK, CENTER);
+		buttonDisableAll.label.antialiasing = ClientPrefs.globalAntialiasing;
 		buttonDisableAll.label.fieldWidth = 170;
 		setAllLabelsOffset(buttonDisableAll, 0, 10);
 		add(buttonDisableAll);
@@ -246,6 +251,7 @@ class ModsMenuState extends MusicBeatState
 		buttonEnableAll.setGraphicSize(170, 50);
 		buttonEnableAll.updateHitbox();
 		buttonEnableAll.label.setFormat(Paths.font("futura.otf"), 24, FlxColor.BLACK, CENTER);
+		buttonEnableAll.label.antialiasing = ClientPrefs.globalAntialiasing;
 		buttonEnableAll.label.fieldWidth = 170;
 		setAllLabelsOffset(buttonEnableAll, 0, 10);
 		add(buttonEnableAll);
@@ -268,6 +274,7 @@ class ModsMenuState extends MusicBeatState
 		installButton.color = FlxColor.GREEN;
 		installButton.label.fieldWidth = 135;
 		installButton.label.setFormat(Paths.font("futura.otf"), 16, FlxColor.WHITE, CENTER);
+			installButton.label.antialiasing = ClientPrefs.globalAntialiasing;
 		setAllLabelsOffset(installButton, 2, 24);
 		add(installButton);
 		startX -= 180;
@@ -305,6 +312,7 @@ class ModsMenuState extends MusicBeatState
 		removeButton.color = FlxColor.RED;
 		removeButton.label.fieldWidth = 135;
 		removeButton.label.setFormat(Paths.font("futura.otf"), 16, FlxColor.WHITE, CENTER);
+		removeButton.label.antialiasing = ClientPrefs.globalAntialiasing;
 		setAllLabelsOffset(removeButton, 2, 15);
 		add(removeButton);
 		visibleWhenHasMods.push(removeButton);*/

@@ -2,7 +2,7 @@
 	"song": {
 		"player1": "sonic",
 		"events": [],
-		"gfVersion": "sonic",
+		"gfVersion": "gf-realdoki",
 		"notes": [
 			{
 				"sectionNotes": [
@@ -3350,7 +3350,7 @@
 			}
 		],
 		"player2": "infinite-masked",
-		"song": "Phantom",
+		"song": "ERB",
 		"stage": "sunsetheights",
 		"needsVoices": true,
 		"validScore": true,

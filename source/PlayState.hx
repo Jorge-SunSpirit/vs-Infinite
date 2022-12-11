@@ -43,6 +43,8 @@ import openfl.Lib;
 import openfl.display.BlendMode;
 import openfl.display.StageQuality;
 import openfl.filters.BitmapFilter;
+import openfl.filters.ShaderFilter;
+import openfl.filters.ColorMatrixFilter;
 import openfl.utils.Assets as OpenFlAssets;
 import editors.ChartingState;
 import editors.CharacterEditorState;
@@ -3866,6 +3868,78 @@ class PlayState extends MusicBeatState
 						}
 					});
 				}
+
+			case 'Phantom Ruby':
+				if (value1 == "true")
+				{
+					camGame.setFilters([new ColorMatrixFilter([1, -1, -1, 0, 255, -1, 1, -1, 0, 255, -1, -1, 1, 0, 255, 0, 0, 0, 1, 0])]);
+					if (value2 == "true") FlxG.camera.fade(FlxColor.BLACK, 0.4, true);
+				}
+				else
+				{
+					camGame.setFilters(null);
+					if (value2 == "true") FlxG.camera.fade(FlxColor.WHITE, 0.4, true);
+				}
+
+			case 'Swap Notescroll':
+				downScroll = !downScroll;
+
+				notes.forEachAlive(function(daNote:Note)
+				{
+					var strumGroup:FlxTypedGroup<StrumNote> = playerStrums;
+					if (!daNote.mustPress)
+						strumGroup = opponentStrums;
+
+					strumGroup.members[daNote.noteData].downScroll = !strumGroup.members[daNote.noteData].downScroll;
+
+					if (daNote.isSustainNote && daNote.prevNote != null)
+					{
+						daNote.flipY = downScroll;
+					}
+				});
+
+				if (downScroll)
+				{
+					strumLine.y = FlxG.height - 150;
+					timeTxt.y = FlxG.height - 44;
+					timeBarBG.y = timeTxt.y + (timeTxt.height / 4);
+					timeBar.y = timeBarBG.y + 4;
+					healthBarBG.y = 0.11 * FlxG.height;
+					healthBar.y = healthBarBG.y + 4;
+					iconP1.y = healthBar.y - 75;
+					iconP2.y = healthBar.y - 75;
+					scoreTxt.y = healthBarBG.y + 36;
+					botplayTxt.y = timeBarBG.y - 78;
+				}
+				else
+				{
+					strumLine.y = 50;
+					timeTxt.y = 19;
+					timeBarBG.y = timeTxt.y + (timeTxt.height / 4);
+					timeBar.y = timeBarBG.y + 4;
+					healthBarBG.y = FlxG.height * 0.89;
+					healthBar.y = healthBarBG.y + 4;
+					iconP1.y = healthBar.y - 75;
+					iconP2.y = healthBar.y - 75;
+					scoreTxt.y = healthBarBG.y + 36;
+					botplayTxt.y = timeBarBG.y + 55;
+				}
+
+				strumLineNotes.forEachAlive(function(daStrum:StrumNote)
+				{
+					daStrum.y = strumLine.y;
+					daStrum.downScroll = downScroll;
+				});
+
+				if (generatedMusic)
+					notes.sort(FlxSort.byY, downScroll ? FlxSort.ASCENDING : FlxSort.DESCENDING);
+
+				camHUD.filtersEnabled = true;
+
+				new FlxTimer().start(0.15, function(tmr:FlxTimer)
+				{
+					camHUD.filtersEnabled = false;
+				});
 
 			case 'Set Property':
 				var killMe:Array<String> = value1.split('.');

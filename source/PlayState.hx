@@ -969,11 +969,11 @@ class PlayState extends MusicBeatState
 			SONG.gfVersion = gfVersion; //Fix for the Chart Editor
 		}
 
+		gf = new Character(0, 0, gfVersion, false, hasShadows);
+		startCharacterPos(gf);
+		gf.scrollFactor.set(0.95, 0.95);
 		if (!stageData.hide_girlfriend)
 		{
-			gf = new Character(0, 0, gfVersion, false, hasShadows);
-			startCharacterPos(gf);
-			gf.scrollFactor.set(0.95, 0.95);
 			gfGroup.add(gf);
 			startCharacterLua(gf.curCharacter);
 

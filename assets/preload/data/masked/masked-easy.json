@@ -2,7 +2,7 @@
 	"song": {
 		"player1": "sonic",
 		"events": [],
-		"gfVersion": "sonic",
+		"gfVersion": "gf-car",
 		"notes": [
 			{
 				"sectionNotes": [

@@ -2121,6 +2121,9 @@ class PlayState extends MusicBeatState
 			return;
 		}
 
+		// disable filters on the caching camera
+		camCache.filtersEnabled = false;
+
 		inCutscene = false;
 		var ret:Dynamic = callOnLuas('onStartCountdown', [], false);
 		if(ret != FunkinLua.Function_Stop) {
@@ -2895,11 +2898,16 @@ class PlayState extends MusicBeatState
 	override public function onFocusLost():Void
 	{
 		#if DISCORD_ALLOWED
-		if (health > 0 && !paused)
+		if (health > 0 && !paused && FlxG.autoPause)
 		{
 			DiscordClient.changePresence(detailsPausedText, SONG.song + " (" + storyDifficultyText + ")", iconP2.getCharacter());
 		}
 		#end
+
+		if (!FlxG.autoPause && !paused && canPause && startedCountdown && !cpuControlled)
+		{
+			openPauseMenu();
+		}
 
 		super.onFocusLost();
 	}
@@ -2926,13 +2934,16 @@ class PlayState extends MusicBeatState
 	var startedCountdown:Bool = false;
 	var canPause:Bool = true;
 	var limoSpeed:Float = 0;
+	var iTime:Float = 0;
 
 	override public function update(elapsed:Float)
 	{
-		/*if (FlxG.keys.justPressed.NINE)
+		if (staticlol != null && ClientPrefs.shaders)
 		{
-			iconP1.swapOldIcon();
-		}*/
+			iTime += elapsed;
+			staticlol.iTime.value = [iTime];
+		}
+
 		callOnLuas('onUpdate', [elapsed]);
 
 		switch (curStage)

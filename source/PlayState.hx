@@ -3268,6 +3268,9 @@ class PlayState extends MusicBeatState
 					strumAngle += daNote.offsetAngle;
 					strumAlpha *= daNote.multAlpha;
 
+					if (daNote.isSustainNote && daNote.prevNote != null)
+						daNote.flipY = strumScroll;
+
 					if (strumScroll) //Downscroll
 					{
 						//daNote.y = (strumY + 0.45 * (Conductor.songPosition - daNote.strumTime) * songSpeed);

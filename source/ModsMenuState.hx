@@ -85,6 +85,7 @@ class ModsMenuState extends MusicBeatState
 		noModsTxt.setFormat(Paths.font("futura.otf"), 32, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		noModsTxt.scrollFactor.set();
 		noModsTxt.borderSize = 2;
+		noModsTxt.antialiasing = ClientPrefs.globalAntialiasing;
 		add(noModsTxt);
 		noModsTxt.screenCenter();
 		visibleWhenNoMods.push(noModsTxt);
@@ -312,6 +313,7 @@ class ModsMenuState extends MusicBeatState
 		descriptionTxt = new FlxText(148, 0, FlxG.width - 216, "", 32);
 		descriptionTxt.setFormat(Paths.font("futura.otf"), 32, FlxColor.WHITE, LEFT);
 		descriptionTxt.scrollFactor.set();
+		descriptionTxt.antialiasing = ClientPrefs.globalAntialiasing;
 		add(descriptionTxt);
 		visibleWhenHasMods.push(descriptionTxt);
 		

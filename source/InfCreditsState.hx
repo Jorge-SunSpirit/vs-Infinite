@@ -207,6 +207,7 @@ class CreditsItem extends FlxSpriteGroup
 		icon.y = 15;
 		icon.setGraphicSize(Std.int(icon.width * .4));
 		icon.updateHitbox();
+		icon.antialiasing = ClientPrefs.globalAntialiasing;
 		add(icon);
 
 		var username:FlxText = new FlxText(70, 10, 300, name);

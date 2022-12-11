@@ -495,7 +495,7 @@ class ModsMenuState extends MusicBeatState
 			}
 			else
 			{
-				MusicBeatState.switchState(new MainMenuState());
+				MusicBeatState.switchState(new options.OptionsState());
 			}
 		}
 

@@ -52,7 +52,7 @@ class VisualsUISubState extends BaseOptionsMenu
 			"What should the Time Bar display?",
 			'timeBarType',
 			'string',
-			'Combined',
+			'Time Left',
 			['Time Left', 'Time Elapsed', 'Song Name', 'Combined', 'Disabled']);
 		addOption(option);
 
@@ -112,9 +112,25 @@ class VisualsUISubState extends BaseOptionsMenu
 			'pauseMusic',
 			'string',
 			'Frozen Projections',
-			['None', 'Frozen Projections']);
+			['None', 'Breakfast', 'Tea Time', 'Frozen Projections']);
 		addOption(option);
 		option.onChange = onChangePauseMusic;
+		
+		#if CHECK_FOR_UPDATES
+		var option:Option = new Option('Check for Updates',
+			'On Release builds, turn this on to check for updates when you start the game.',
+			'checkForUpdates',
+			'bool',
+			true);
+		addOption(option);
+		#end
+
+		var option:Option = new Option('Combo Stacking',
+			"If unchecked, Ratings and Combo won't stack, saving on System Memory and making them easier to read",
+			'comboStacking',
+			'bool',
+			true);
+		addOption(option);
 
 		super();
 	}

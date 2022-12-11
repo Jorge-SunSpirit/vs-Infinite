@@ -14,6 +14,7 @@ class Boyfriend extends Character
 	public function new(x:Float, y:Float, ?char:String = 'bf', ?shadow:Bool = false)
 	{
 		super(x, y, char, true, shadow);
+		super.dance();
 	}
 
 	override function update(elapsed:Float)

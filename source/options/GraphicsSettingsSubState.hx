@@ -75,12 +75,13 @@ class GraphicsSettingsSubState extends BaseOptionsMenu
 		option.onChange = onChangeAntiAliasing; //Changing onChange is only needed if you want to make a special interaction after it changes the value
 		addOption(option);
 
-		var option:Option = new Option('Shaders',
-			'If unchecked, disables shaders.\nIt\'s used for some visual effects, and also CPU intensive for weaker PCs.',
-			'shaders',
-			'bool',
-			true);
+		var option:Option = new Option('Shaders', //Name
+			'If unchecked, disables shaders.\nIt\'s used for some visual effects, and also CPU intensive for weaker PCs.', //Description
+			'shaders', //Save data variable name
+			'bool', //Variable type
+			true); //Default value
 		addOption(option);
+
 
 		var option:Option = new Option('GPU Textures',
 			'If checked, renders textures on the GPU instead,\ndecreasing memory usage.',

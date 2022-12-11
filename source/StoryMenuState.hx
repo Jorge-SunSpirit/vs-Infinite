@@ -60,20 +60,17 @@ class StoryMenuState extends MusicBeatState
 		persistentUpdate = persistentDraw = true;
 
 		scoreText = new FlxText(10, 10, 0, "SCORE: 49324858", 36);
-		scoreText.setFormat(Paths.font("futura.otf"), 32);
-		scoreText.antialiasing = ClientPrefs.globalAntialiasing;
+		scoreText.setFormat("VCR OSD Mono", 32);
 
 		txtWeekTitle = new FlxText(FlxG.width * 0.7, 10, 0, "", 32);
-		txtWeekTitle.setFormat(Paths.font("futura.otf"), 32, FlxColor.WHITE, RIGHT);
+		txtWeekTitle.setFormat("VCR OSD Mono", 32, FlxColor.WHITE, RIGHT);
 		txtWeekTitle.alpha = 0.7;
-		txtWeekTitle.antialiasing = ClientPrefs.globalAntialiasing;
 
 		var rankText:FlxText = new FlxText(0, 10);
 		rankText.text = 'RANK: GREAT';
-		rankText.setFormat(Paths.font("futura.otf"), 32);
+		rankText.setFormat(Paths.font("vcr.ttf"), 32);
 		rankText.size = scoreText.size;
 		rankText.screenCenter(X);
-		rankText.antialiasing = ClientPrefs.globalAntialiasing;
 
 		var ui_tex = Paths.getSparrowAtlas('campaign_menu_UI_assets');
 		var bgYellow:FlxSprite = new FlxSprite(0, 56).makeGraphic(FlxG.width, 386, 0xFFF9CF51);
@@ -180,7 +177,6 @@ class StoryMenuState extends MusicBeatState
 		txtTracklist.alignment = CENTER;
 		txtTracklist.font = rankText.font;
 		txtTracklist.color = 0xFFe55777;
-		txtTracklist.antialiasing = ClientPrefs.globalAntialiasing;
 		add(txtTracklist);
 		// add(rankText);
 		add(scoreText);
@@ -204,7 +200,7 @@ class StoryMenuState extends MusicBeatState
 		lerpScore = Math.floor(FlxMath.lerp(lerpScore, intendedScore, CoolUtil.boundTo(elapsed * 30, 0, 1)));
 		if(Math.abs(intendedScore - lerpScore) < 10) lerpScore = intendedScore;
 
-		scoreText.text = "WEEK SCORE: " + lerpScore;
+		scoreText.text = "WEEK SCORE:" + lerpScore;
 
 		// FlxG.watch.addQuick('font', scoreText.font);
 
@@ -222,6 +218,13 @@ class StoryMenuState extends MusicBeatState
 			{
 				changeWeek(1);
 				FlxG.sound.play(Paths.sound('scrollMenu'));
+			}
+
+			if(FlxG.mouse.wheel != 0)
+			{
+				FlxG.sound.play(Paths.sound('scrollMenu'), 0.4);
+				changeWeek(-FlxG.mouse.wheel);
+				changeDifficulty();
 			}
 
 			if (controls.UI_RIGHT)
@@ -284,10 +287,17 @@ class StoryMenuState extends MusicBeatState
 		{
 			if (stopspamming == false)
 			{
-				FlxG.sound.play(Paths.sound('confirmMenuWeek'));
-				FlxG.sound.music.fadeOut(1.5);
-				FlxG.camera.fade(FlxColor.BLACK, 1.5);
-				FlxTransitionableState.skipNextTransIn = true;
+				FlxG.sound.play(Paths.sound('confirmMenu'));
+
+				grpWeekText.members[curWeek].startFlashing();
+
+				for (char in grpWeekCharacters.members)
+				{
+					if (char.character != '' && char.hasConfirmAnimation)
+					{
+						char.animation.play('confirm');
+					}
+				}
 				stopspamming = true;
 			}
 
@@ -311,7 +321,7 @@ class StoryMenuState extends MusicBeatState
 			PlayState.SONG = Song.loadFromJson(PlayState.storyPlaylist[0].toLowerCase() + diffic, PlayState.storyPlaylist[0].toLowerCase());
 			PlayState.campaignScore = 0;
 			PlayState.campaignMisses = 0;
-			new FlxTimer().start(1.5, function(tmr:FlxTimer)
+			new FlxTimer().start(1, function(tmr:FlxTimer)
 			{
 				LoadingState.loadAndSwitchState(new PlayState(), true);
 				FreeplayState.destroyFreeplayVocals();

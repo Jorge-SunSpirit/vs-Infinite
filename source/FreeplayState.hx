@@ -94,7 +94,7 @@ class FreeplayState extends MusicBeatState
 				{
 					colors = [146, 113, 253];
 				}
-				addSong(song[0], i, song[1], FlxColor.fromRGB(colors[0], colors[1], colors[2]));
+				addSong(song[0], i, song[1], FlxColor.fromRGB(colors[0], colors[1], colors[2]), song[3]);
 			}
 		}
 		WeekData.loadTheFirstEnabledMod();
@@ -115,7 +115,7 @@ class FreeplayState extends MusicBeatState
 		for (i in 0...songs.length)
 		{
 			Paths.currentModDirectory = songs[i].folder;
-			var songObject:FreeplayItem = new FreeplayItem(716 + (i * 2), 62 + (i* 72), songs[i].songName, i, songs[i].songCharacter);
+			var songObject:FreeplayItem = new FreeplayItem(716 + (i * 2), 62 + (i* 72), songs[i].songName, songs[i].songCharacter, songs[i].artist);
 			songObject.angle = -6;
 			grpSongs.add(songObject);
 		}
@@ -172,9 +172,9 @@ class FreeplayState extends MusicBeatState
 		super.closeSubState();
 	}
 
-	public function addSong(songName:String, weekNum:Int, songCharacter:String, color:Int)
+	public function addSong(songName:String, weekNum:Int, songCharacter:String, color:Int, artist:String)
 	{
-		songs.push(new SongMetadata(songName, weekNum, songCharacter, color));
+		songs.push(new SongMetadata(songName, weekNum, songCharacter, color, artist));
 	}
 
 	function weekIsLocked(name:String):Bool {
@@ -467,14 +467,16 @@ class SongMetadata
 	public var week:Int = 0;
 	public var songCharacter:String = "";
 	public var color:Int = -7179779;
+	public var artist:String = "";
 	public var folder:String = "";
 
-	public function new(song:String, week:Int, songCharacter:String, color:Int)
+	public function new(song:String, week:Int, songCharacter:String, color:Int, artist:String)
 	{
 		this.songName = song;
 		this.week = week;
 		this.songCharacter = songCharacter;
 		this.color = color;
+		this.artist = artist;
 		this.folder = Paths.currentModDirectory;
 		if(this.folder == null) this.folder = '';
 	}
@@ -495,7 +497,7 @@ class FreeplayItem extends FlxSpriteGroup
 	var score:FlxText;
 	var charIcon:HealthIcon;
 
-	public function new(x:Float = 0, y:Float = 0, songs:String, songNum:Int, chara:String)
+	public function new(x:Float = 0, y:Float = 0, songs:String, chara:String, artist:String)
 	{
 		song = songs;
 		super(x, y);
@@ -513,7 +515,8 @@ class FreeplayItem extends FlxSpriteGroup
 		bg.antialiasing = ClientPrefs.globalAntialiasing;
 		add(bg);
 
-		songname = new FlxText(100, 20, 0, 'Song ' + Std.string(songNum + 1) + '\n' + song);
+		songname = new FlxText(100, 20, 0, song);
+		if (artist != null) songname.text += '\n$artist';
 		songname.setFormat(Paths.font("futura.otf"), 20, FlxColor.RED, FlxTextAlign.LEFT);
 		songname.antialiasing = ClientPrefs.globalAntialiasing;
 		songname.updateHitbox();

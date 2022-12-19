@@ -38,7 +38,7 @@ class InfCreditsState extends MusicBeatState
 		['Kairii',	'kairii',	'Director, Music, UI',	"Flying to the next level.",	'https://www.youtube.com/@RiiStudios',	"0", "0"],
 		['Crim',	'crim',	'Main Artist',	":v",	'https://twitter.com/ScrimbloCrimbo',	"0", "1"],
 		['SirDusterBuster',	'duster',	'Sprite Animator',	"When is vs Zavok?",	'https://twitter.com/SirDusterBuster',	"0", "2"],
-		['MissBeepy',	'Beep',	'Infinite Sketches',	"hueh",	'https://www.youtube.com/watch?v=0MW9Nrg_kZU',	"0", "3"],
+		['MissBeepy',	'beepy',	'Infinite Sketches',	"hueh",	'https://www.youtube.com/watch?v=0MW9Nrg_kZU',	"0", "3"],
 		['Whoever TF',	'jorge',	'BG Artist',	"hueh",	'https://www.youtube.com/watch?v=0MW9Nrg_kZU',	"0", "4"],
 
 		

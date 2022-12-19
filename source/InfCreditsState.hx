@@ -39,11 +39,11 @@ class InfCreditsState extends MusicBeatState
 		['Crim',	'crim',	'Main Artist',	":v",	'https://twitter.com/ScrimbloCrimbo',	"0", "1"],
 		['SirDusterBuster',	'duster',	'Sprite Animator',	"When is vs Zavok?",	'https://twitter.com/SirDusterBuster',	"0", "2"],
 		['MissBeepy',	'Beep',	'Infinite Sketches',	"hueh",	'https://www.youtube.com/watch?v=0MW9Nrg_kZU',	"0", "3"],
-		['Whoever TF',	'sunspirit',	'BG Artist',	"hueh",	'https://www.youtube.com/watch?v=0MW9Nrg_kZU',	"0", "4"],
+		['Whoever TF',	'jorge',	'BG Artist',	"hueh",	'https://www.youtube.com/watch?v=0MW9Nrg_kZU',	"0", "4"],
 
 		
 		['M&M',	'mandm',	'Main Programmer',	"i put fortnite on a scu burner account",	'https://linktr.ee/ActualMandM',	"1", "0"],
-		['SunSpirit',	'sunspirit',	'UI Programmer',	"Defeat me with heat beams, you're crazy!",	'https://twitter.com/Jorge_SunSpirit',	"1", "1"],
+		['SunSpirit',	'jorge',	'UI Programmer',	"Defeat me with heat beams, you're crazy!",	'https://twitter.com/Jorge_SunSpirit',	"1", "1"],
 		['HighPoweredKeyz',	'hpk',	'Chromatic Assistance',	"Stay creative, and stay powerful.",	'https://twitter.com/HighPoweredArt',	"1", "2"],
 		['Psych Engine Team',	'psych',	'Psych Engine Credits',	"Open the Psych Engine Credits Here!",	'hueh',	"1", "4"]
 	];

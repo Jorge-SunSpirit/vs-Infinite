@@ -3326,7 +3326,7 @@
 				"altAnim": false,
 				"mustHitSection": true,
 				"changeBPM": false,
-				"bpm": 100
+				"bpm": 180
 			},
 			{
 				"gfSection": false,
@@ -3334,7 +3334,7 @@
 				"altAnim": false,
 				"typeOfSection": 0,
 				"sectionNotes": [],
-				"bpm": 100,
+				"bpm": 180,
 				"changeBPM": false,
 				"mustHitSection": true
 			},
@@ -3344,7 +3344,7 @@
 				"altAnim": false,
 				"typeOfSection": 0,
 				"sectionNotes": [],
-				"bpm": 100,
+				"bpm": 180,
 				"changeBPM": false,
 				"mustHitSection": true
 			}
@@ -3355,7 +3355,7 @@
 		"stage": "sunsetheights",
 		"needsVoices": true,
 		"validScore": true,
-		"bpm": 100,
+		"bpm": 180,
 		"speed": 2.8,
 		"noteStyle": "normal"
 	}

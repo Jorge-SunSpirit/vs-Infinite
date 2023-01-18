@@ -52,11 +52,10 @@ class TitleState extends MusicBeatState
 	var credGroup:FlxGroup;
 	var credTextShit:Alphabet;
 	var textGroup:FlxGroup;
+	var tbdSpr:FlxSprite;
 	var ngSpr:FlxSprite;
 	var infinite:FlxSprite;
 	var squid:FlxSound;
-
-	var floatshit:Float = 0;
 
 	var curWacky:Array<String> = [];
 
@@ -154,7 +153,7 @@ class TitleState extends MusicBeatState
 		#end
 	}
 
-	var logoBl:FlxSprite;
+	var symbol:FlxSprite;
 	var danceLeft:Bool = false;
 	var titleText:FlxSprite;
 
@@ -172,46 +171,54 @@ class TitleState extends MusicBeatState
 		Conductor.changeBPM(102);
 		persistentUpdate = true;
 
-		var bg:FlxSprite = new FlxSprite();
-		bg.loadGraphic(Paths.image("titlescreen/bg"));
+		var bg:FlxSprite = new FlxSprite().makeGraphic(FlxG.width, FlxG.height, 0xFF1B1B1B);
 		bg.antialiasing = ClientPrefs.globalAntialiasing;
 		add(bg);
 
-		var overlaybg:FlxSprite = new FlxSprite();
-		overlaybg.loadGraphic(Paths.image("titlescreen/Overlay"));
-		overlaybg.antialiasing = ClientPrefs.globalAntialiasing;
-		add(overlaybg);
+		symbol = new FlxSprite(-20, 5).loadGraphic(Paths.image('title/Infinite_Symbol'));
+		symbol.antialiasing = ClientPrefs.globalAntialiasing;
+		add(symbol);
 
-		logoBl = new FlxSprite(0, 0);
-		logoBl.frames = Paths.getSparrowAtlas('logoBumpin');
-		logoBl.antialiasing = ClientPrefs.globalAntialiasing;
-		logoBl.animation.addByPrefix('bump', 'logo bumpin', 24, false);
-		logoBl.animation.play('bump');
-		logoBl.setGraphicSize(Std.int(logoBl.width * 0.5));
-		logoBl.updateHitbox();
-		logoBl.angle = -6;
+		var tightBarTop:FlxSprite = new FlxSprite().makeGraphic(FlxG.width, 48, FlxColor.BLACK);
+		tightBarTop.antialiasing = ClientPrefs.globalAntialiasing;
+		add(tightBarTop);
 
-		//infinite = new FlxSprite(684, 23);
-		//.loadGraphic(Paths.image("titlescreen/infinite_placeholder"));
-		//infinite.antialiasing = ClientPrefs.globalAntialiasing;
-		//add(infinite);
+		var logo = new FlxSprite().loadGraphic(Paths.image('title/VS_Infinite_Logo'));
+		logo.scale.set(0.6, 0.6);
+		logo.updateHitbox();
+		logo.setPosition(80, 100);
+		logo.antialiasing = ClientPrefs.globalAntialiasing;
+		add(logo);
 
-		infinite = new FlxSprite(650, 25);
-		infinite.frames = Paths.getSparrowAtlas('titlescreen/Infinite_Title_Bumpin');
+		infinite = new FlxSprite(620, -40);
+		infinite.frames = Paths.getSparrowAtlas('title/Infinite_Title_Bumpin');
 		infinite.animation.addByPrefix('bump', "Infinite_Title_Bumpin", 24, false);
 		infinite.antialiasing = ClientPrefs.globalAntialiasing;
 		infinite.animation.play('bump');
 		add(infinite);
 
-		add(logoBl);
+		var tightBarBottom:FlxSprite = new FlxSprite(0, FlxG.height - 48).makeGraphic(FlxG.width, 48, FlxColor.BLACK);
+		tightBarBottom.antialiasing = ClientPrefs.globalAntialiasing;
+		add(tightBarBottom);
 
-		titleText = new FlxSprite(.100, 576);
+		var segaTxt = new FlxText(52, 682, 0, "ORIGINAL GAME ©SEGA");
+		segaTxt.setFormat(Paths.font("gothic.ttf"), 12, FlxColor.WHITE, LEFT);
+		segaTxt.scrollFactor.set();
+		segaTxt.antialiasing = ClientPrefs.globalAntialiasing;
+		add(segaTxt);
+
+		var tbdTxt = new FlxText(1158, 682, 0, "TEAM TBD 2023");
+		tbdTxt.setFormat(Paths.font("gothic.ttf"), 12, FlxColor.WHITE, LEFT);
+		tbdTxt.scrollFactor.set();
+		tbdTxt.antialiasing = ClientPrefs.globalAntialiasing;
+		add(tbdTxt);
+
+		titleText = new FlxSprite(150, 550);
 		titleText.frames = Paths.getSparrowAtlas('titleEnter');
 		titleText.animation.addByPrefix('idle', "Press start0", 24);
 		titleText.animation.addByPrefix('press', "Press start selected", 24);
 		titleText.antialiasing = ClientPrefs.globalAntialiasing;
 		titleText.animation.play('idle');
-		titleText.screenCenter(X);
 		titleText.updateHitbox();
 		add(titleText);
 
@@ -224,18 +231,23 @@ class TitleState extends MusicBeatState
 
 		credTextShit = new Alphabet(0, 0, "", true);
 		credTextShit.screenCenter();
-
-		// credTextShit.alignment = CENTER;
-
 		credTextShit.visible = false;
 
-		ngSpr = new FlxSprite(0, FlxG.height * 0.52).loadGraphic(Paths.image('newgrounds_logo'));
+		ngSpr = new FlxSprite(0, FlxG.height * 0.52).loadGraphic(Paths.image('title/Sega'));
 		add(ngSpr);
 		ngSpr.visible = false;
 		ngSpr.setGraphicSize(Std.int(ngSpr.width * 0.8));
 		ngSpr.updateHitbox();
 		ngSpr.screenCenter(X);
 		ngSpr.antialiasing = ClientPrefs.globalAntialiasing;
+
+		tbdSpr = new FlxSprite(0, FlxG.height * 0.45).loadGraphic(Paths.image('title/TBDLogo'));
+		add(tbdSpr);
+		tbdSpr.visible = false;
+		tbdSpr.setGraphicSize(Std.int(tbdSpr.width * 0.9));
+		tbdSpr.updateHitbox();
+		tbdSpr.screenCenter(X);
+		tbdSpr.antialiasing = true;
 
 		FlxTween.tween(credTextShit, {y: credTextShit.y + 20}, 2.9, {ease: FlxEase.quadInOut, type: PINGPONG});
 
@@ -267,13 +279,8 @@ class TitleState extends MusicBeatState
 
 	override function update(elapsed:Float)
 	{
-		floatshit += 0.03 / FramerateTools.timeMultiplier();
-		//if (infinite != null)
-			//infinite.y += Math.sin(floatshit) / FramerateTools.timeMultiplier();
-
 		if (FlxG.sound.music != null)
 			Conductor.songPosition = FlxG.sound.music.time;
-		// FlxG.watch.addQuick('amp', FlxG.sound.music.amplitude);
 
 		var pressedEnter:Bool = FlxG.keys.justPressed.ENTER || controls.ACCEPT;
 
@@ -374,23 +381,25 @@ class TitleState extends MusicBeatState
 	{
 		super.beatHit();
 
-		if (logoBl != null) 
-			logoBl.animation.play('bump', true);
+		symbol.scale.set(1.1, 1.1);
+		FlxTween.cancelTweensOf(symbol);
+		FlxTween.tween(symbol, {"scale.x": 1, "scale.y": 1}, 0.15, {});
 
-		if (infinite != null)
-			infinite.animation.play('bump', true);
+		infinite.animation.play('bump', true);
 
 		if(!closedState) {
 			sickBeats++;
 			switch (sickBeats)
 			{
 				case 1:
-					createCoolText(['KAIRII AND TEAM TBD']);
+					createCoolText(['Team TBD']);
 
 				case 3:
-					addMoreText('present');
+					// addMoreText('presents');
+					tbdSpr.visible = true;
 
 				case 4:
+					tbdSpr.visible = false;
 					deleteCoolText();
 
 				case 5:

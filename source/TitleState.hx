@@ -114,7 +114,7 @@ class TitleState extends MusicBeatState
 
 		super.create();
 
-		FlxG.save.bind('vsinfinite', 'teamtbd');
+		FlxG.save.bind('VSInfinite', 'TeamTBD');
 		
 		ClientPrefs.loadPrefs();
 

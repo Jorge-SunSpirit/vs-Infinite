@@ -196,7 +196,7 @@ class TitleState extends MusicBeatState
 		//infinite.antialiasing = ClientPrefs.globalAntialiasing;
 		//add(infinite);
 
-		infinite = new FlxSprite(700, 0);
+		infinite = new FlxSprite(650, 25);
 		infinite.frames = Paths.getSparrowAtlas('titlescreen/Infinite_Title_Bumpin');
 		infinite.animation.addByPrefix('bump', "Infinite_Title_Bumpin", 24, false);
 		infinite.antialiasing = ClientPrefs.globalAntialiasing;

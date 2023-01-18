@@ -381,11 +381,15 @@ class TitleState extends MusicBeatState
 	{
 		super.beatHit();
 
-		symbol.scale.set(1.1, 1.1);
-		FlxTween.cancelTweensOf(symbol);
-		FlxTween.tween(symbol, {"scale.x": 1, "scale.y": 1}, 0.15, {});
+		if (symbol != null)
+		{
+			symbol.scale.set(1.1, 1.1);
+			FlxTween.cancelTweensOf(symbol);
+			FlxTween.tween(symbol, {"scale.x": 1, "scale.y": 1}, 0.15, {});
+		}
 
-		infinite.animation.play('bump', true);
+		if (infinite != null)
+			infinite.animation.play('bump', true);
 
 		if(!closedState) {
 			sickBeats++;

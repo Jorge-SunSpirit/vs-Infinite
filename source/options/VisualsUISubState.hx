@@ -103,7 +103,7 @@ class VisualsUISubState extends BaseOptionsMenu
 			'If checked, pauses the game when unfocused.',
 			'autoPause',
 			'bool',
-			true);
+			false);
 		option.onChange = onChangeAutoPause;
 		addOption(option);
 		

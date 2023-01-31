@@ -36,7 +36,7 @@ class ClientPrefs {
 	public static var pauseMusic:String = 'Frozen Projections';
 	public static var checkForUpdates:Bool = true;
 	public static var comboStacking = false;
-	public static var autoPause:Bool = true;
+	public static var autoPause:Bool = false;
 	public static var gameplaySettings:Map<String, Dynamic> = [
 		'scrollspeed' => 1.0,
 		'scrolltype' => 'multiplicative', 
@@ -142,7 +142,7 @@ class ClientPrefs {
 		FlxG.save.flush();
 
 		var save:FlxSave = new FlxSave();
-		save.bind('controls_v2' #if (flixel < "5.0.0"), 'TeamTBD' #end); //Placing this in a separate save so that it can be manually deleted without removing your Score and stuff
+		save.bind('controls_v2', CoolUtil.getSavePath()); //Placing this in a separate save so that it can be manually deleted without removing your Score and stuff
 		save.data.customControls = keyBinds;
 		save.flush();
 		FlxG.log.add("Settings saved!");
@@ -301,7 +301,7 @@ class ClientPrefs {
 			comboStacking = FlxG.save.data.comboStacking;
 
 		var save:FlxSave = new FlxSave();
-		save.bind('controls_v2' #if (flixel < "5.0.0"), 'ninjamuffin99' #end);
+		save.bind('controls_v2', CoolUtil.getSavePath());
 		if(save != null && save.data.customControls != null) {
 			var loadedControls:Map<String, Array<FlxKey>> = save.data.customControls;
 			for (control => keys in loadedControls) {

@@ -88,11 +88,13 @@ class MainMenuState extends MusicBeatState
 		var versionShit:FlxText = new FlxText(12, FlxG.height - 44, 0, "Psych Engine v" + psychEngineVersion, 12);
 		versionShit.scrollFactor.set();
 		versionShit.setFormat(Paths.font("futura.otf"), 16, FlxColor.RED, LEFT);
+		versionShit.setBorderStyle(OUTLINE, 0xFFF9EDD7, 1.25);
 		versionShit.antialiasing = ClientPrefs.globalAntialiasing;
 		add(versionShit);
 		var versionShit:FlxText = new FlxText(12, FlxG.height - 24, 0, "VS. Infinite v" + Application.current.meta.get('version'), 12);
 		versionShit.scrollFactor.set();
 		versionShit.setFormat(Paths.font("futura.otf"), 16, FlxColor.RED, LEFT);
+		versionShit.setBorderStyle(OUTLINE, 0xFFF9EDD7, 1.25);
 		versionShit.antialiasing = ClientPrefs.globalAntialiasing;
 		add(versionShit);
 

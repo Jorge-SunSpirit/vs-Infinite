@@ -73,7 +73,8 @@ class MainMenuState extends MusicBeatState
 		{
 			var menuItem:FlxSprite = new FlxSprite(35, 68 + (i * 105));
 			menuItem.frames = Paths.getSparrowAtlas('mainmenu/menu_assets');
-			menuItem.animation.addByPrefix('idle', optionShit[i], 24);
+			menuItem.animation.addByPrefix('idle', optionShit[i] + '_idle', 24);
+			menuItem.animation.addByPrefix('selected', optionShit[i] + '_selected', 24);
 			menuItem.animation.play('idle');
 			menuItem.angle = -6;
 			menuItem.ID = i;
@@ -233,16 +234,16 @@ class MainMenuState extends MusicBeatState
 		switch (curSelected)
 		{
 			case 0:
-				selector.x = -65;
+				selector.x = -115;
 				selector.y = 35;
 			case 1:
-				selector.x = -53;
+				selector.x = -90;
 				selector.y = 140;
 			case 2:
-				selector.x = -53;
+				selector.x = -90;
 				selector.y = 246;
 			case 3:
-				selector.x = -53;
+				selector.x = -90;
 				selector.y = 350;
 		}
 
@@ -250,16 +251,15 @@ class MainMenuState extends MusicBeatState
 		{
 			spr.animation.play('idle');
 			spr.updateHitbox();
-			spr.color = FlxColor.RED;
 
 			if (spr.ID == curSelected)
 			{
+				spr.animation.play('selected');
 				var selxpos:Float;
 				selxpos = selector.x;
 				selector.x = -250;
 				FlxTween.cancelTweensOf(selector);
 				FlxTween.tween(selector, {x: selxpos}, 0.5, {ease: FlxEase.elasticOut});
-				spr.color = 0xffFAEDD8;
 			}
 		});
 	}

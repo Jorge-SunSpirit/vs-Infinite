@@ -2,8 +2,12 @@
 <TextureAtlas imagePath="menu_assets.png">
 	<!-- Created with Adobe Animate version 20.0.3.25487 -->
 	<!-- http://www.adobe.com/products/animate.html -->
-	<SubTexture name="credits0000" x="10" y="10" width="198" height="65"/>
-	<SubTexture name="freeplay0000" x="218" y="10" width="234" height="65"/>
-	<SubTexture name="options0000" x="10" y="85" width="229" height="65"/>
-	<SubTexture name="story_mode0000" x="249" y="85" width="164" height="65"/>
+	<SubTexture name="credits_idle0000" x="10" y="10" width="300" height="57"/>
+	<SubTexture name="credits_selected0000" x="320" y="10" width="300" height="57"/>
+	<SubTexture name="freeplay_idle0000" x="630" y="10" width="300" height="57"/>
+	<SubTexture name="freeplay_selected0000" x="10" y="77" width="300" height="57"/>
+	<SubTexture name="options_idle0000" x="320" y="77" width="300" height="57"/>
+	<SubTexture name="options_selected0000" x="630" y="77" width="300" height="57"/>
+	<SubTexture name="story_mode_idle0000" x="10" y="144" width="300" height="57"/>
+	<SubTexture name="story_mode_selected0000" x="320" y="144" width="300" height="57"/>
 </TextureAtlas>

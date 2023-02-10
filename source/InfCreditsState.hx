@@ -39,7 +39,7 @@ class InfCreditsState extends MusicBeatState
 		['Crim',	'crim',	'Main Artist',	":v",	'https://twitter.com/ScrimbloCrimbo',	"0", "1"],
 		['SirDusterBuster',	'duster',	'Sprite Animator',	"When is vs Zavok?",	'https://twitter.com/SirDusterBuster',	"0", "2"],
 		['Miss Beepy',	'beepy',	'Infinite Sketches',	"hueh",	'https://www.youtube.com/watch?v=0MW9Nrg_kZU',	"0", "3"],
-		['Whoever TF',	'jorge',	'BG Artist',	"hueh",	'https://www.youtube.com/watch?v=0MW9Nrg_kZU',	"0", "4"],
+		['LezaLeza',	'leza',	'BG Artist',	"hueh",	'https://twitter.com/lezanikat',	"0", "4"],
 
 		
 		['M&M',	'mandm',	'Main Programmer',	"i put fortnite on a scu burner account",	'https://linktr.ee/ActualMandM',	"1", "0"],

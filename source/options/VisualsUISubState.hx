@@ -112,7 +112,7 @@ class VisualsUISubState extends BaseOptionsMenu
 			'pauseMusic',
 			'string',
 			'Frozen Projections',
-			['None', /*'Breakfast', 'Tea Time',*/ 'Frozen Projections']);
+			['None', 'Frozen Projections']);
 		addOption(option);
 		option.onChange = onChangePauseMusic;
 		

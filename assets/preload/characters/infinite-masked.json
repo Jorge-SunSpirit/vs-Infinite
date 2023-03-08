@@ -60,7 +60,7 @@
 	"image": "characters/InfiniteAssets_Masked",
 	"position": [
 		-230,
-		-40
+		-150
 	],
 	"healthicon": "maskedinfinite",
 	"flip_x": false,

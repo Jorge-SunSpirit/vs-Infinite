@@ -1,0 +1,80 @@
+{
+	"animations": [
+		{
+			"loop": false,
+			"offsets": [
+				0,
+				0
+			],
+			"anim": "idle",
+			"fps": 24,
+			"name": "MasklessInfinite_IdleDance",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-30,
+				-17
+			],
+			"anim": "singDOWN",
+			"fps": 24,
+			"name": "MasklessInfinite_SingDOWN",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-7,
+				55
+			],
+			"anim": "singLEFT",
+			"fps": 24,
+			"name": "MasklessInfinite_SingLEFT",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				3,
+				-41
+			],
+			"anim": "singUP",
+			"fps": 24,
+			"name": "MasklessInfinite_SingUP",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-45,
+				0
+			],
+			"anim": "singRIGHT",
+			"fps": 24,
+			"name": "MasklessInfinite_SingRIGHT instance",
+			"indices": []
+		}
+	],
+	"no_antialiasing": false,
+	"image": "characters/maskless_infinite",
+	"position": [
+		-380,
+		-120
+	],
+	"healthicon": "icon-maskedinfinite",
+	"flip_x": false,
+	"healthbar_colors": [
+		22,
+		62,
+		220
+	],
+	"camera_position": [
+		330,
+		280
+	],
+	"sing_duration": 6.1,
+	"death_Sound": "fnf_loss_sfx-sonic",
+	"shadow_Offset": 140,
+	"scale": 0.45
+}

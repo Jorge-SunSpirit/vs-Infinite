@@ -233,6 +233,8 @@ class MainMenuState extends MusicBeatState
 		if (curSelected < 0)
 			curSelected = menuItems.length - 1;
 
+		selector.x = -90;
+		/*
 		switch (curSelected)
 		{
 			case 0:
@@ -247,7 +249,7 @@ class MainMenuState extends MusicBeatState
 			case 3:
 				selector.x = -90;
 				selector.y = 350;
-		}
+		}*/
 
 		menuItems.forEach(function(spr:FlxSprite)
 		{
@@ -260,6 +262,7 @@ class MainMenuState extends MusicBeatState
 				var selxpos:Float;
 				selxpos = selector.x;
 				selector.x = -250;
+				selector.y = spr.y - 35;
 				FlxTween.cancelTweensOf(selector);
 				FlxTween.tween(selector, {x: selxpos}, 0.5, {ease: FlxEase.elasticOut});
 			}

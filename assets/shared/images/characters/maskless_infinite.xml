@@ -2,74 +2,72 @@
 <TextureAtlas imagePath="maskless_infinite.png">
 	<!-- Created with Adobe Animate version 20.0.3.25487 -->
 	<!-- http://www.adobe.com/products/animate.html -->
-	<SubTexture name="MasklessInfinite_IdleDance0000" x="10" y="10" width="1022" height="941" frameX="0" frameY="-2" frameWidth="1022" frameHeight="946"/>
-	<SubTexture name="MasklessInfinite_IdleDance0001" x="10" y="10" width="1022" height="941" frameX="0" frameY="-2" frameWidth="1022" frameHeight="946"/>
-	<SubTexture name="MasklessInfinite_IdleDance0002" x="1042" y="10" width="990" height="945" frameX="-11" frameY="0" frameWidth="1022" frameHeight="946"/>
-	<SubTexture name="MasklessInfinite_IdleDance0003" x="1042" y="10" width="990" height="945" frameX="-11" frameY="0" frameWidth="1022" frameHeight="946"/>
-	<SubTexture name="MasklessInfinite_IdleDance0004" x="2042" y="10" width="974" height="944" frameX="-16" frameY="-2" frameWidth="1022" frameHeight="946"/>
-	<SubTexture name="MasklessInfinite_IdleDance0005" x="2042" y="10" width="974" height="944" frameX="-16" frameY="-2" frameWidth="1022" frameHeight="946"/>
-	<SubTexture name="MasklessInfinite_IdleDance0006" x="3026" y="10" width="967" height="944" frameX="-19" frameY="-2" frameWidth="1022" frameHeight="946"/>
-	<SubTexture name="MasklessInfinite_IdleDance0007" x="3026" y="10" width="967" height="944" frameX="-19" frameY="-2" frameWidth="1022" frameHeight="946"/>
-	<SubTexture name="MasklessInfinite_IdleDance0008" x="4003" y="10" width="966" height="944" frameX="-19" frameY="-2" frameWidth="1022" frameHeight="946"/>
-	<SubTexture name="MasklessInfinite_IdleDance0009" x="4003" y="10" width="966" height="944" frameX="-19" frameY="-2" frameWidth="1022" frameHeight="946"/>
-	<SubTexture name="MasklessInfinite_IdleDance0010" x="4003" y="10" width="966" height="944" frameX="-19" frameY="-2" frameWidth="1022" frameHeight="946"/>
-	<SubTexture name="MasklessInfinite_IdleDance0011" x="4003" y="10" width="966" height="944" frameX="-19" frameY="-2" frameWidth="1022" frameHeight="946"/>
-	<SubTexture name="MasklessInfinite_IdleDance0012" x="4003" y="10" width="966" height="944" frameX="-19" frameY="-2" frameWidth="1022" frameHeight="946"/>
-	<SubTexture name="MasklessInfinite_IdleDance0013" x="2042" y="10" width="974" height="944" frameX="-16" frameY="-2" frameWidth="1022" frameHeight="946"/>
-	<SubTexture name="MasklessInfinite_SingDOWN0000" x="4979" y="10" width="1059" height="943" frameX="0" frameY="-7" frameWidth="1059" frameHeight="950"/>
-	<SubTexture name="MasklessInfinite_SingDOWN0001" x="4979" y="10" width="1059" height="943" frameX="0" frameY="-7" frameWidth="1059" frameHeight="950"/>
-	<SubTexture name="MasklessInfinite_SingDOWN0002" x="6048" y="10" width="1032" height="947" frameX="-4" frameY="-2" frameWidth="1059" frameHeight="950"/>
-	<SubTexture name="MasklessInfinite_SingDOWN0003" x="6048" y="10" width="1032" height="947" frameX="-4" frameY="-2" frameWidth="1059" frameHeight="950"/>
-	<SubTexture name="MasklessInfinite_SingDOWN0004" x="7090" y="10" width="986" height="943" frameX="-39" frameY="-1" frameWidth="1059" frameHeight="950"/>
-	<SubTexture name="MasklessInfinite_SingDOWN0005" x="7090" y="10" width="986" height="943" frameX="-39" frameY="-1" frameWidth="1059" frameHeight="950"/>
-	<SubTexture name="MasklessInfinite_SingDOWN0006" x="10" y="967" width="976" height="942" frameX="-44" frameY="-1" frameWidth="1059" frameHeight="950"/>
-	<SubTexture name="MasklessInfinite_SingDOWN0007" x="10" y="967" width="976" height="942" frameX="-44" frameY="-1" frameWidth="1059" frameHeight="950"/>
-	<SubTexture name="MasklessInfinite_SingDOWN0008" x="996" y="967" width="975" height="943" frameX="-45" frameY="0" frameWidth="1059" frameHeight="950"/>
-	<SubTexture name="MasklessInfinite_SingDOWN0009" x="996" y="967" width="975" height="943" frameX="-45" frameY="0" frameWidth="1059" frameHeight="950"/>
-	<SubTexture name="MasklessInfinite_SingDOWN0010" x="996" y="967" width="975" height="943" frameX="-45" frameY="0" frameWidth="1059" frameHeight="950"/>
-	<SubTexture name="MasklessInfinite_SingDOWN0011" x="996" y="967" width="975" height="943" frameX="-45" frameY="0" frameWidth="1059" frameHeight="950"/>
-	<SubTexture name="MasklessInfinite_SingDOWN0012" x="996" y="967" width="975" height="943" frameX="-45" frameY="0" frameWidth="1059" frameHeight="950"/>
-	<SubTexture name="MasklessInfinite_SingDOWN0013" x="996" y="967" width="975" height="943" frameX="-45" frameY="0" frameWidth="1059" frameHeight="950"/>
-	<SubTexture name="MasklessInfinite_SingLEFT0000" x="1981" y="967" width="976" height="976" frameX="0" frameY="-13" frameWidth="986" frameHeight="994"/>
-	<SubTexture name="MasklessInfinite_SingLEFT0001" x="1981" y="967" width="976" height="976" frameX="0" frameY="-13" frameWidth="986" frameHeight="994"/>
-	<SubTexture name="MasklessInfinite_SingLEFT0002" x="2967" y="967" width="967" height="992" frameX="-19" frameY="0" frameWidth="986" frameHeight="994"/>
-	<SubTexture name="MasklessInfinite_SingLEFT0003" x="2967" y="967" width="967" height="992" frameX="-19" frameY="0" frameWidth="986" frameHeight="994"/>
-	<SubTexture name="MasklessInfinite_SingLEFT0004" x="3944" y="967" width="930" height="972" frameX="-34" frameY="-21" frameWidth="986" frameHeight="994"/>
-	<SubTexture name="MasklessInfinite_SingLEFT0005" x="3944" y="967" width="930" height="972" frameX="-34" frameY="-21" frameWidth="986" frameHeight="994"/>
-	<SubTexture name="MasklessInfinite_SingLEFT0006" x="4884" y="967" width="928" height="972" frameX="-35" frameY="-22" frameWidth="986" frameHeight="994"/>
-	<SubTexture name="MasklessInfinite_SingLEFT0007" x="4884" y="967" width="928" height="972" frameX="-35" frameY="-22" frameWidth="986" frameHeight="994"/>
-	<SubTexture name="MasklessInfinite_SingLEFT0008" x="5822" y="967" width="928" height="972" frameX="-35" frameY="-22" frameWidth="986" frameHeight="994"/>
-	<SubTexture name="MasklessInfinite_SingLEFT0009" x="5822" y="967" width="928" height="972" frameX="-35" frameY="-22" frameWidth="986" frameHeight="994"/>
-	<SubTexture name="MasklessInfinite_SingLEFT0010" x="6760" y="967" width="928" height="972" frameX="-35" frameY="-22" frameWidth="986" frameHeight="994"/>
-	<SubTexture name="MasklessInfinite_SingLEFT0011" x="6760" y="967" width="928" height="972" frameX="-35" frameY="-22" frameWidth="986" frameHeight="994"/>
-	<SubTexture name="MasklessInfinite_SingLEFT0012" x="6760" y="967" width="928" height="972" frameX="-35" frameY="-22" frameWidth="986" frameHeight="994"/>
-	<SubTexture name="MasklessInfinite_SingLEFT0013" x="6760" y="967" width="928" height="972" frameX="-35" frameY="-22" frameWidth="986" frameHeight="994"/>
-	<SubTexture name="MasklessInfinite_SingRIGHT0000" x="10" y="1969" width="917" height="946" frameX="-5" frameY="-11" frameWidth="922" frameHeight="958"/>
-	<SubTexture name="MasklessInfinite_SingRIGHT0001" x="10" y="1969" width="917" height="946" frameX="-5" frameY="-11" frameWidth="922" frameHeight="958"/>
-	<SubTexture name="MasklessInfinite_SingRIGHT0002" x="937" y="1969" width="917" height="944" frameX="0" frameY="-13" frameWidth="922" frameHeight="958"/>
-	<SubTexture name="MasklessInfinite_SingRIGHT0003" x="937" y="1969" width="917" height="944" frameX="0" frameY="-13" frameWidth="922" frameHeight="958"/>
-	<SubTexture name="MasklessInfinite_SingRIGHT0004" x="1864" y="1969" width="880" height="956" frameX="-22" frameY="-2" frameWidth="922" frameHeight="958"/>
-	<SubTexture name="MasklessInfinite_SingRIGHT0005" x="1864" y="1969" width="880" height="956" frameX="-22" frameY="-2" frameWidth="922" frameHeight="958"/>
-	<SubTexture name="MasklessInfinite_SingRIGHT0006" x="2754" y="1969" width="875" height="957" frameX="-25" frameY="-1" frameWidth="922" frameHeight="958"/>
-	<SubTexture name="MasklessInfinite_SingRIGHT0007" x="2754" y="1969" width="875" height="957" frameX="-25" frameY="-1" frameWidth="922" frameHeight="958"/>
-	<SubTexture name="MasklessInfinite_SingRIGHT0008" x="3639" y="1969" width="875" height="958" frameX="-25" frameY="0" frameWidth="922" frameHeight="958"/>
-	<SubTexture name="MasklessInfinite_SingRIGHT0009" x="3639" y="1969" width="875" height="958" frameX="-25" frameY="0" frameWidth="922" frameHeight="958"/>
-	<SubTexture name="MasklessInfinite_SingRIGHT0010" x="3639" y="1969" width="875" height="958" frameX="-25" frameY="0" frameWidth="922" frameHeight="958"/>
-	<SubTexture name="MasklessInfinite_SingRIGHT0011" x="3639" y="1969" width="875" height="958" frameX="-25" frameY="0" frameWidth="922" frameHeight="958"/>
-	<SubTexture name="MasklessInfinite_SingRIGHT0012" x="3639" y="1969" width="875" height="958" frameX="-25" frameY="0" frameWidth="922" frameHeight="958"/>
-	<SubTexture name="MasklessInfinite_SingRIGHT0013" x="3639" y="1969" width="875" height="958" frameX="-25" frameY="0" frameWidth="922" frameHeight="958"/>
-	<SubTexture name="MasklessInfinite_SingUP0000" x="4524" y="1969" width="1118" height="903" frameX="0" frameY="0" frameWidth="1129" frameHeight="903"/>
-	<SubTexture name="MasklessInfinite_SingUP0001" x="4524" y="1969" width="1118" height="903" frameX="0" frameY="0" frameWidth="1129" frameHeight="903"/>
-	<SubTexture name="MasklessInfinite_SingUP0002" x="5652" y="1969" width="1124" height="883" frameX="-1" frameY="-14" frameWidth="1129" frameHeight="903"/>
-	<SubTexture name="MasklessInfinite_SingUP0003" x="5652" y="1969" width="1124" height="883" frameX="-1" frameY="-14" frameWidth="1129" frameHeight="903"/>
-	<SubTexture name="MasklessInfinite_SingUP0004" x="6786" y="1969" width="1107" height="846" frameX="-21" frameY="-48" frameWidth="1129" frameHeight="903"/>
-	<SubTexture name="MasklessInfinite_SingUP0005" x="6786" y="1969" width="1107" height="846" frameX="-21" frameY="-48" frameWidth="1129" frameHeight="903"/>
-	<SubTexture name="MasklessInfinite_SingUP0006" x="10" y="2937" width="1110" height="839" frameX="-19" frameY="-54" frameWidth="1129" frameHeight="903"/>
-	<SubTexture name="MasklessInfinite_SingUP0007" x="10" y="2937" width="1110" height="839" frameX="-19" frameY="-54" frameWidth="1129" frameHeight="903"/>
-	<SubTexture name="MasklessInfinite_SingUP0008" x="1130" y="2937" width="1110" height="838" frameX="-19" frameY="-55" frameWidth="1129" frameHeight="903"/>
-	<SubTexture name="MasklessInfinite_SingUP0009" x="1130" y="2937" width="1110" height="838" frameX="-19" frameY="-55" frameWidth="1129" frameHeight="903"/>
-	<SubTexture name="MasklessInfinite_SingUP0010" x="1130" y="2937" width="1110" height="838" frameX="-19" frameY="-55" frameWidth="1129" frameHeight="903"/>
-	<SubTexture name="MasklessInfinite_SingUP0011" x="1130" y="2937" width="1110" height="838" frameX="-19" frameY="-55" frameWidth="1129" frameHeight="903"/>
-	<SubTexture name="MasklessInfinite_SingUP0012" x="1130" y="2937" width="1110" height="838" frameX="-19" frameY="-55" frameWidth="1129" frameHeight="903"/>
-	<SubTexture name="MasklessInfinite_SingUP0013" x="1130" y="2937" width="1110" height="838" frameX="-19" frameY="-55" frameWidth="1129" frameHeight="903"/>
+	<SubTexture name="MasklessInfinite_IdleDance instance 10000" x="10" y="10" width="768" height="731" frameX="0" frameY="-7" frameWidth="768" frameHeight="738"/>
+	<SubTexture name="MasklessInfinite_IdleDance instance 10001" x="10" y="10" width="768" height="731" frameX="0" frameY="-7" frameWidth="768" frameHeight="738"/>
+	<SubTexture name="MasklessInfinite_IdleDance instance 10002" x="788" y="10" width="763" height="732" frameX="-5" frameY="-6" frameWidth="768" frameHeight="738"/>
+	<SubTexture name="MasklessInfinite_IdleDance instance 10003" x="788" y="10" width="763" height="732" frameX="-5" frameY="-6" frameWidth="768" frameHeight="738"/>
+	<SubTexture name="MasklessInfinite_IdleDance instance 10004" x="1561" y="10" width="752" height="735" frameX="-6" frameY="-3" frameWidth="768" frameHeight="738"/>
+	<SubTexture name="MasklessInfinite_IdleDance instance 10005" x="1561" y="10" width="752" height="735" frameX="-6" frameY="-3" frameWidth="768" frameHeight="738"/>
+	<SubTexture name="MasklessInfinite_IdleDance instance 10006" x="2323" y="10" width="751" height="738" frameX="-3" frameY="0" frameWidth="768" frameHeight="738"/>
+	<SubTexture name="MasklessInfinite_IdleDance instance 10007" x="2323" y="10" width="751" height="738" frameX="-3" frameY="0" frameWidth="768" frameHeight="738"/>
+	<SubTexture name="MasklessInfinite_IdleDance instance 10008" x="3084" y="10" width="753" height="738" frameX="0" frameY="0" frameWidth="768" frameHeight="738"/>
+	<SubTexture name="MasklessInfinite_IdleDance instance 10009" x="3084" y="10" width="753" height="738" frameX="0" frameY="0" frameWidth="768" frameHeight="738"/>
+	<SubTexture name="MasklessInfinite_IdleDance instance 10010" x="3084" y="10" width="753" height="738" frameX="0" frameY="0" frameWidth="768" frameHeight="738"/>
+	<SubTexture name="MasklessInfinite_IdleDance instance 10011" x="3084" y="10" width="753" height="738" frameX="0" frameY="0" frameWidth="768" frameHeight="738"/>
+	<SubTexture name="MasklessInfinite_IdleDance instance 10012" x="3084" y="10" width="753" height="738" frameX="0" frameY="0" frameWidth="768" frameHeight="738"/>
+	<SubTexture name="MasklessInfinite_IdleDance instance 10013" x="3084" y="10" width="753" height="738" frameX="0" frameY="0" frameWidth="768" frameHeight="738"/>
+	<SubTexture name="MasklessInfinite_SingDOWN instance 10000" x="3847" y="10" width="806" height="672" frameX="-2" frameY="-13" frameWidth="808" frameHeight="685"/>
+	<SubTexture name="MasklessInfinite_SingDOWN instance 10001" x="3847" y="10" width="806" height="672" frameX="-2" frameY="-13" frameWidth="808" frameHeight="685"/>
+	<SubTexture name="MasklessInfinite_SingDOWN instance 10002" x="4663" y="10" width="791" height="678" frameX="0" frameY="0" frameWidth="808" frameHeight="685"/>
+	<SubTexture name="MasklessInfinite_SingDOWN instance 10003" x="4663" y="10" width="791" height="678" frameX="0" frameY="0" frameWidth="808" frameHeight="685"/>
+	<SubTexture name="MasklessInfinite_SingDOWN instance 10004" x="5464" y="10" width="763" height="672" frameX="-21" frameY="-1" frameWidth="808" frameHeight="685"/>
+	<SubTexture name="MasklessInfinite_SingDOWN instance 10005" x="5464" y="10" width="763" height="672" frameX="-21" frameY="-1" frameWidth="808" frameHeight="685"/>
+	<SubTexture name="MasklessInfinite_SingDOWN instance 10006" x="6237" y="10" width="761" height="672" frameX="-22" frameY="0" frameWidth="808" frameHeight="685"/>
+	<SubTexture name="MasklessInfinite_SingDOWN instance 10007" x="6237" y="10" width="761" height="672" frameX="-22" frameY="0" frameWidth="808" frameHeight="685"/>
+	<SubTexture name="MasklessInfinite_SingDOWN instance 10008" x="6237" y="10" width="761" height="672" frameX="-22" frameY="0" frameWidth="808" frameHeight="685"/>
+	<SubTexture name="MasklessInfinite_SingDOWN instance 10009" x="6237" y="10" width="761" height="672" frameX="-22" frameY="0" frameWidth="808" frameHeight="685"/>
+	<SubTexture name="MasklessInfinite_SingDOWN instance 10010" x="6237" y="10" width="761" height="672" frameX="-22" frameY="0" frameWidth="808" frameHeight="685"/>
+	<SubTexture name="MasklessInfinite_SingDOWN instance 10011" x="6237" y="10" width="761" height="672" frameX="-22" frameY="0" frameWidth="808" frameHeight="685"/>
+	<SubTexture name="MasklessInfinite_SingDOWN instance 10012" x="6237" y="10" width="761" height="672" frameX="-22" frameY="0" frameWidth="808" frameHeight="685"/>
+	<SubTexture name="MasklessInfinite_SingDOWN instance 10013" x="6237" y="10" width="761" height="672" frameX="-22" frameY="0" frameWidth="808" frameHeight="685"/>
+	<SubTexture name="MasklessInfinite_SingLEFT instance 10000" x="7008" y="10" width="837" height="779" frameX="0" frameY="-4" frameWidth="852" frameHeight="783"/>
+	<SubTexture name="MasklessInfinite_SingLEFT instance 10001" x="10" y="799" width="837" height="779" frameX="0" frameY="-4" frameWidth="852" frameHeight="783"/>
+	<SubTexture name="MasklessInfinite_SingLEFT instance 10002" x="857" y="799" width="821" height="773" frameX="-31" frameY="-10" frameWidth="852" frameHeight="783"/>
+	<SubTexture name="MasklessInfinite_SingLEFT instance 10003" x="1688" y="799" width="821" height="773" frameX="-31" frameY="-10" frameWidth="852" frameHeight="783"/>
+	<SubTexture name="MasklessInfinite_SingLEFT instance 10004" x="2519" y="799" width="799" height="783" frameX="-43" frameY="0" frameWidth="852" frameHeight="783"/>
+	<SubTexture name="MasklessInfinite_SingLEFT instance 10005" x="3328" y="799" width="799" height="783" frameX="-43" frameY="0" frameWidth="852" frameHeight="783"/>
+	<SubTexture name="MasklessInfinite_SingLEFT instance 10006" x="4137" y="799" width="796" height="783" frameX="-46" frameY="0" frameWidth="852" frameHeight="783"/>
+	<SubTexture name="MasklessInfinite_SingLEFT instance 10007" x="4943" y="799" width="796" height="783" frameX="-46" frameY="0" frameWidth="852" frameHeight="783"/>
+	<SubTexture name="MasklessInfinite_SingLEFT instance 10008" x="5749" y="799" width="796" height="783" frameX="-46" frameY="0" frameWidth="852" frameHeight="783"/>
+	<SubTexture name="MasklessInfinite_SingLEFT instance 10009" x="6555" y="799" width="796" height="783" frameX="-46" frameY="0" frameWidth="852" frameHeight="783"/>
+	<SubTexture name="MasklessInfinite_SingLEFT instance 10010" x="5749" y="799" width="796" height="783" frameX="-46" frameY="0" frameWidth="852" frameHeight="783"/>
+	<SubTexture name="MasklessInfinite_SingLEFT instance 10011" x="6555" y="799" width="796" height="783" frameX="-46" frameY="0" frameWidth="852" frameHeight="783"/>
+	<SubTexture name="MasklessInfinite_SingLEFT instance 10012" x="5749" y="799" width="796" height="783" frameX="-46" frameY="0" frameWidth="852" frameHeight="783"/>
+	<SubTexture name="MasklessInfinite_SingLEFT instance 10013" x="6555" y="799" width="796" height="783" frameX="-46" frameY="0" frameWidth="852" frameHeight="783"/>
+	<SubTexture name="MasklessInfinite_SingRIGHT instance 10000" x="7361" y="799" width="819" height="819" frameX="-4" frameY="-13" frameWidth="823" frameHeight="832"/>
+	<SubTexture name="MasklessInfinite_SingRIGHT instance 10001" x="7361" y="799" width="819" height="819" frameX="-4" frameY="-13" frameWidth="823" frameHeight="832"/>
+	<SubTexture name="MasklessInfinite_SingRIGHT instance 10002" x="10" y="1628" width="809" height="829" frameX="0" frameY="-3" frameWidth="823" frameHeight="832"/>
+	<SubTexture name="MasklessInfinite_SingRIGHT instance 10003" x="10" y="1628" width="809" height="829" frameX="0" frameY="-3" frameWidth="823" frameHeight="832"/>
+	<SubTexture name="MasklessInfinite_SingRIGHT instance 10004" x="829" y="1628" width="761" height="832" frameX="-33" frameY="0" frameWidth="823" frameHeight="832"/>
+	<SubTexture name="MasklessInfinite_SingRIGHT instance 10005" x="829" y="1628" width="761" height="832" frameX="-33" frameY="0" frameWidth="823" frameHeight="832"/>
+	<SubTexture name="MasklessInfinite_SingRIGHT instance 10006" x="1600" y="1628" width="757" height="832" frameX="-35" frameY="0" frameWidth="823" frameHeight="832"/>
+	<SubTexture name="MasklessInfinite_SingRIGHT instance 10007" x="1600" y="1628" width="757" height="832" frameX="-35" frameY="0" frameWidth="823" frameHeight="832"/>
+	<SubTexture name="MasklessInfinite_SingRIGHT instance 10008" x="2367" y="1628" width="757" height="832" frameX="-35" frameY="0" frameWidth="823" frameHeight="832"/>
+	<SubTexture name="MasklessInfinite_SingRIGHT instance 10009" x="2367" y="1628" width="757" height="832" frameX="-35" frameY="0" frameWidth="823" frameHeight="832"/>
+	<SubTexture name="MasklessInfinite_SingRIGHT instance 10010" x="2367" y="1628" width="757" height="832" frameX="-35" frameY="0" frameWidth="823" frameHeight="832"/>
+	<SubTexture name="MasklessInfinite_SingRIGHT instance 10011" x="2367" y="1628" width="757" height="832" frameX="-35" frameY="0" frameWidth="823" frameHeight="832"/>
+	<SubTexture name="MasklessInfinite_SingRIGHT instance 10012" x="2367" y="1628" width="757" height="832" frameX="-35" frameY="0" frameWidth="823" frameHeight="832"/>
+	<SubTexture name="MasklessInfinite_SingRIGHT instance 10013" x="2367" y="1628" width="757" height="832" frameX="-35" frameY="0" frameWidth="823" frameHeight="832"/>
+	<SubTexture name="MasklessInfinite_SingUP instance 10000" x="3134" y="1628" width="797" height="677" frameX="-5" frameY="0" frameWidth="822" frameHeight="677"/>
+	<SubTexture name="MasklessInfinite_SingUP instance 10001" x="3134" y="1628" width="797" height="677" frameX="-5" frameY="0" frameWidth="822" frameHeight="677"/>
+	<SubTexture name="MasklessInfinite_SingUP instance 10002" x="3941" y="1628" width="816" height="638" frameX="0" frameY="-30" frameWidth="822" frameHeight="677"/>
+	<SubTexture name="MasklessInfinite_SingUP instance 10003" x="3941" y="1628" width="816" height="638" frameX="0" frameY="-30" frameWidth="822" frameHeight="677"/>
+	<SubTexture name="MasklessInfinite_SingUP instance 10004" x="4767" y="1628" width="787" height="607" frameX="-34" frameY="-58" frameWidth="822" frameHeight="677"/>
+	<SubTexture name="MasklessInfinite_SingUP instance 10005" x="4767" y="1628" width="787" height="607" frameX="-34" frameY="-58" frameWidth="822" frameHeight="677"/>
+	<SubTexture name="MasklessInfinite_SingUP instance 10006" x="5564" y="1628" width="786" height="602" frameX="-36" frameY="-62" frameWidth="822" frameHeight="677"/>
+	<SubTexture name="MasklessInfinite_SingUP instance 10007" x="5564" y="1628" width="786" height="602" frameX="-36" frameY="-62" frameWidth="822" frameHeight="677"/>
+	<SubTexture name="MasklessInfinite_SingUP instance 10008" x="5564" y="1628" width="786" height="602" frameX="-36" frameY="-62" frameWidth="822" frameHeight="677"/>
+	<SubTexture name="MasklessInfinite_SingUP instance 10009" x="5564" y="1628" width="786" height="602" frameX="-36" frameY="-62" frameWidth="822" frameHeight="677"/>
+	<SubTexture name="MasklessInfinite_SingUP instance 10010" x="5564" y="1628" width="786" height="602" frameX="-36" frameY="-62" frameWidth="822" frameHeight="677"/>
+	<SubTexture name="MasklessInfinite_SingUP instance 10011" x="5564" y="1628" width="786" height="602" frameX="-36" frameY="-62" frameWidth="822" frameHeight="677"/>
 </TextureAtlas>

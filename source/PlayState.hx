@@ -4086,14 +4086,20 @@ class PlayState extends MusicBeatState
 			tweenCamIn();
 		}
 
-		if (cameraBoundaries == null
-			|| (cameraBoundaries != null
-				&& (tempPos.x > cameraBoundaries[0] && tempPos.x < cameraBoundaries[2])
-				&& (tempPos.y > cameraBoundaries[1] && tempPos.y < cameraBoundaries[3])))
+		if (cameraBoundaries != null)
 		{
-			tempPos.copyTo(camFollow);
+			if (tempPos.x < cameraBoundaries[0])
+				tempPos.x = cameraBoundaries[0];
+			else if (tempPos.x > cameraBoundaries[2])
+				tempPos.x = cameraBoundaries[2];
+
+			if (tempPos.y < cameraBoundaries[1])
+				tempPos.y = cameraBoundaries[1];
+			else if (tempPos.y > cameraBoundaries[3])
+				tempPos.y = cameraBoundaries[3];
 		}
 
+		tempPos.copyTo(camFollow);
 		tempPos.destroy();
 	}
 

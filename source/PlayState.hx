@@ -299,6 +299,7 @@ class PlayState extends MusicBeatState
 	public var boyfriendCameraOffset:Array<Float> = null;
 	public var opponentCameraOffset:Array<Float> = null;
 	public var girlfriendCameraOffset:Array<Float> = null;
+	public var cameraBoundaries:Array<Float> = null;
 
 	#if DISCORD_ALLOWED
 	// Discord RPC variables
@@ -492,7 +493,8 @@ class PlayState extends MusicBeatState
 				camera_boyfriend: [0, 0],
 				camera_opponent: [0, 0],
 				camera_girlfriend: [0, 0],
-				camera_speed: 1
+				camera_speed: 1,
+				camera_boundaries: null
 			};
 		}
 
@@ -522,6 +524,9 @@ class PlayState extends MusicBeatState
 		girlfriendCameraOffset = stageData.camera_girlfriend;
 		if(girlfriendCameraOffset == null)
 			girlfriendCameraOffset = [0, 0];
+
+		if(stageData.camera_boundaries != null)
+			cameraBoundaries = stageData.camera_boundaries;
 
 		boyfriendGroup = new FlxSpriteGroup(BF_X, BF_Y);
 		dadGroup = new FlxSpriteGroup(DAD_X, DAD_Y);
@@ -3216,6 +3221,45 @@ class PlayState extends MusicBeatState
 		FlxG.watch.addQuick("beatShit", curBeat);
 		FlxG.watch.addQuick("stepShit", curStep);
 
+#if debug
+		if (FlxG.keys.pressed.CONTROL && (FlxG.keys.pressed.I || FlxG.keys.pressed.J || FlxG.keys.pressed.K || FlxG.keys.pressed.L))
+		{
+			isCameraOnForcedPos = true;
+
+			if (FlxG.keys.pressed.I)
+			{
+				if (FlxG.keys.pressed.SHIFT)
+					camFollow.y += -50;
+				else
+					camFollow.y += -10;
+			}
+			else if (FlxG.keys.pressed.K)
+			{
+				if (FlxG.keys.pressed.SHIFT)
+					camFollow.y += 50;
+				else
+					camFollow.y += 10;
+			}
+
+			if (FlxG.keys.pressed.J)
+			{
+				if (FlxG.keys.pressed.SHIFT)
+					camFollow.x += -50;
+				else
+					camFollow.x += -10;
+			}
+			else if (FlxG.keys.pressed.L)
+			{
+				if (FlxG.keys.pressed.SHIFT)
+					camFollow.x += 50;
+				else
+					camFollow.x += 10;
+			}
+		}
+
+		FlxG.watch.addQuick("camFollow", [camFollow.x, camFollow.y]);
+#end
+
 		// RESET = Quick Game Over Screen
 		if (!ClientPrefs.noReset && controls.RESET && canReset && !inCutscene && startedCountdown && !endingSong)
 		{
@@ -4018,18 +4062,20 @@ class PlayState extends MusicBeatState
 	var cameraTwn:FlxTween;
 	public function moveCamera(moveCameraTo:Dynamic)
 	{
+		var tempPos:FlxPoint = new FlxPoint();
+
 		if (moveCameraTo == 'dad' || moveCameraTo == true)
 		{
-			camFollow.set(dad.getMidpoint().x + 150, dad.getMidpoint().y - 100);
-			camFollow.x += dad.cameraPosition[0] + opponentCameraOffset[0];
-			camFollow.y += dad.cameraPosition[1] + opponentCameraOffset[1];
+			tempPos.set(dad.getMidpoint().x + 150, dad.getMidpoint().y - 100);
+			tempPos.x += dad.cameraPosition[0] + opponentCameraOffset[0];
+			tempPos.y += dad.cameraPosition[1] + opponentCameraOffset[1];
 			tweenCamIn();
 		}
 		else if(moveCameraTo == 'boyfriend' || moveCameraTo == false)
 		{
-			camFollow.set(boyfriend.getMidpoint().x - 100, boyfriend.getMidpoint().y - 100);
-			camFollow.x -= boyfriend.cameraPosition[0] - boyfriendCameraOffset[0];
-			camFollow.y += boyfriend.cameraPosition[1] + boyfriendCameraOffset[1];
+			tempPos.set(boyfriend.getMidpoint().x - 100, boyfriend.getMidpoint().y - 100);
+			tempPos.x -= boyfriend.cameraPosition[0] - boyfriendCameraOffset[0];
+			tempPos.y += boyfriend.cameraPosition[1] + boyfriendCameraOffset[1];
 
 			if (Paths.formatToSongPath(SONG.song) == 'tutorial' && cameraTwn == null && FlxG.camera.zoom != 1)
 			{
@@ -4043,10 +4089,19 @@ class PlayState extends MusicBeatState
 		}
 		else
 		{
-			camFollow.set(gf.getMidpoint().x, gf.getMidpoint().y);
-			camFollow.x += gf.cameraPosition[0] + girlfriendCameraOffset[0];
-			camFollow.y += gf.cameraPosition[1] + girlfriendCameraOffset[1];
+			tempPos.set(gf.getMidpoint().x, gf.getMidpoint().y);
+			tempPos.x += gf.cameraPosition[0] + girlfriendCameraOffset[0];
+			tempPos.y += gf.cameraPosition[1] + girlfriendCameraOffset[1];
 			tweenCamIn();
+		}
+
+		if (cameraBoundaries == null
+			|| (cameraBoundaries != null
+				&& (tempPos.x > cameraBoundaries[0] && tempPos.x < cameraBoundaries[2])
+				&& (tempPos.y > cameraBoundaries[1] && tempPos.y < cameraBoundaries[3])))
+		{
+			tempPos.copyTo(camFollow);
+			tempPos.destroy();
 		}
 	}
 

@@ -4101,8 +4101,9 @@ class PlayState extends MusicBeatState
 				&& (tempPos.y > cameraBoundaries[1] && tempPos.y < cameraBoundaries[3])))
 		{
 			tempPos.copyTo(camFollow);
-			tempPos.destroy();
 		}
+
+		tempPos.destroy();
 	}
 
 	function tweenCamIn() {

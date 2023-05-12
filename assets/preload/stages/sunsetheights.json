@@ -13,5 +13,5 @@
 	"camera_opponent": [0, 0],
 	"camera_girlfriend": [0, 0],
 	"camera_speed": 1,
-	"camera_boundaries": [300.5, 171.5, 1040.5, 670]
+	"camera_boundaries": [390.25, 222.75, 1351.3, 870.125]
 }

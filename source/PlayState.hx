@@ -4088,15 +4088,8 @@ class PlayState extends MusicBeatState
 
 		if (cameraBoundaries != null)
 		{
-			if (tempPos.x < cameraBoundaries[0])
-				tempPos.x = cameraBoundaries[0];
-			else if (tempPos.x > cameraBoundaries[2])
-				tempPos.x = cameraBoundaries[2];
-
-			if (tempPos.y < cameraBoundaries[1])
-				tempPos.y = cameraBoundaries[1];
-			else if (tempPos.y > cameraBoundaries[3])
-				tempPos.y = cameraBoundaries[3];
+			tempPos.x = CoolUtil.clamp(tempPos.x, cameraBoundaries[0] * defaultCamZoom, cameraBoundaries[2] * defaultCamZoom);
+			tempPos.y = CoolUtil.clamp(tempPos.y, cameraBoundaries[1] * defaultCamZoom, cameraBoundaries[3] * defaultCamZoom);
 		}
 
 		tempPos.copyTo(camFollow);

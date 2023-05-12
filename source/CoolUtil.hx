@@ -151,10 +151,4 @@ class CoolUtil
 			+ '/'
 			+ FlxSave.validate(FlxG.stage.application.meta.get('file')) #end;
 	}
-
-	public static function clamp(val:Float, min:Float, max:Float):Float {
-		if (val < min) val = min;
-		else if (val > max) val = max;
-		return val;
-	}
 }

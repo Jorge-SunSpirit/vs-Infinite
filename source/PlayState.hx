@@ -4088,8 +4088,8 @@ class PlayState extends MusicBeatState
 
 		if (cameraBoundaries != null)
 		{
-			tempPos.x = CoolUtil.clamp(tempPos.x, cameraBoundaries[0], cameraBoundaries[2]);
-			tempPos.y = CoolUtil.clamp(tempPos.y, cameraBoundaries[1], cameraBoundaries[3]);
+			tempPos.x = FlxMath.bound(tempPos.x, cameraBoundaries[0], cameraBoundaries[2]);
+			tempPos.y = FlxMath.bound(tempPos.y, cameraBoundaries[1], cameraBoundaries[3]);
 		}
 
 		tempPos.copyTo(camFollow);

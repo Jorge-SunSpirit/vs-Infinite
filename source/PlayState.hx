@@ -27,7 +27,11 @@ import flixel.group.FlxGroup.FlxTypedGroup;
 import flixel.math.FlxMath;
 import flixel.math.FlxPoint;
 import flixel.math.FlxRect;
+#if (flixel >= "5.3.0")
+import flixel.sound.FlxSound;
+#else
 import flixel.system.FlxSound;
+#end
 import flixel.text.FlxText;
 import flixel.tweens.FlxEase;
 import flixel.tweens.FlxTween;
@@ -3102,6 +3106,11 @@ class PlayState extends MusicBeatState
 			}
 		}
 
+		if (SONG.notes[curSection] != null && generatedMusic && !endingSong && !isCameraOnForcedPos)
+		{
+			moveCameraSection();
+		}
+
 		super.update(elapsed);
 
 		setOnLuas('curDecStep', curDecStep);
@@ -5236,11 +5245,6 @@ class PlayState extends MusicBeatState
 			|| (SONG.needsVoices && Math.abs(vocals.time - (Conductor.songPosition - Conductor.offset)) > (20 * playbackRate)))
 		{
 			resyncVocals();
-		}
-
-		if (SONG.notes[curSection] != null && generatedMusic && !endingSong && !isCameraOnForcedPos)
-		{
-			moveCameraSection();
 		}
 
 		if(curStep == lastStepHit) {

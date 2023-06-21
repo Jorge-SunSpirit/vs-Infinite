@@ -219,6 +219,7 @@ class PlayState extends MusicBeatState
 	public var cpuControlled:Bool = false;
 	public var practiceMode:Bool = false;
 	public var downScroll:Bool = false;
+	public var enableScrollSwap:Bool = false;
 
 	public var botplaySine:Float = 0;
 	public var botplayTxt:FlxText;
@@ -403,6 +404,7 @@ class PlayState extends MusicBeatState
 		instakillOnMiss = ClientPrefs.getGameplaySetting('instakill', false);
 		practiceMode = ClientPrefs.getGameplaySetting('practice', false);
 		cpuControlled = ClientPrefs.getGameplaySetting('botplay', false);
+		enableScrollSwap = ClientPrefs.getGameplaySetting('swapscroll', true);
 		downScroll = ClientPrefs.downScroll;
 
 		// var gameCam:FlxCamera = FlxG.camera;
@@ -3975,58 +3977,72 @@ class PlayState extends MusicBeatState
 					if (value2 == "true") FlxG.camera.fade(FlxColor.WHITE, 0.4, true);
 				}
 
+			case 'Glitch Effect':
+				var val1:Float = Std.parseFloat(value1);
+				if(Math.isNaN(val1)) val1 = 0.15;
+
+				camHUD.filtersEnabled = true;
+
+				new FlxTimer().start(val1, function(tmr:FlxTimer)
+				{
+					camHUD.filtersEnabled = false;
+				});
+
 			case 'Swap Notescroll':
-				downScroll = !downScroll;
-
-				notes.forEachAlive(function(daNote:Note)
+				if (enableScrollSwap)
 				{
-					var strumGroup:FlxTypedGroup<StrumNote> = playerStrums;
-					if (!daNote.mustPress)
-						strumGroup = opponentStrums;
+					downScroll = !downScroll;
 
-					strumGroup.members[daNote.noteData].downScroll = !strumGroup.members[daNote.noteData].downScroll;
-
-					if (daNote.isSustainNote && daNote.prevNote != null)
+					notes.forEachAlive(function(daNote:Note)
 					{
-						daNote.flipY = downScroll;
+						var strumGroup:FlxTypedGroup<StrumNote> = playerStrums;
+						if (!daNote.mustPress)
+							strumGroup = opponentStrums;
+	
+						strumGroup.members[daNote.noteData].downScroll = !strumGroup.members[daNote.noteData].downScroll;
+	
+						if (daNote.isSustainNote && daNote.prevNote != null)
+						{
+							daNote.flipY = downScroll;
+						}
+					});
+
+					if (downScroll)
+					{
+						strumLine.y = FlxG.height - 150;
+						timeTxt.y = FlxG.height - 44;
+						timeBarBG.y = timeTxt.y + (timeTxt.height / 4);
+						timeBar.y = timeBarBG.y + 4;
+						healthBarBG.y = 0.11 * FlxG.height;
+						healthBar.y = healthBarBG.y + 4;
+						iconP1.y = healthBar.y - 75;
+						iconP2.y = healthBar.y - 75;
+						scoreTxt.y = healthBarBG.y + 36;
+						botplayTxt.y = timeBarBG.y - 78;
 					}
-				});
+					else
+					{
+						strumLine.y = 50;
+						timeTxt.y = 19;
+						timeBarBG.y = timeTxt.y + (timeTxt.height / 4);
+						timeBar.y = timeBarBG.y + 4;
+						healthBarBG.y = FlxG.height * 0.89;
+						healthBar.y = healthBarBG.y + 4;
+						iconP1.y = healthBar.y - 75;
+						iconP2.y = healthBar.y - 75;
+						scoreTxt.y = healthBarBG.y + 36;
+						botplayTxt.y = timeBarBG.y + 55;
+					}
 
-				if (downScroll)
-				{
-					strumLine.y = FlxG.height - 150;
-					timeTxt.y = FlxG.height - 44;
-					timeBarBG.y = timeTxt.y + (timeTxt.height / 4);
-					timeBar.y = timeBarBG.y + 4;
-					healthBarBG.y = 0.11 * FlxG.height;
-					healthBar.y = healthBarBG.y + 4;
-					iconP1.y = healthBar.y - 75;
-					iconP2.y = healthBar.y - 75;
-					scoreTxt.y = healthBarBG.y + 36;
-					botplayTxt.y = timeBarBG.y - 78;
+					strumLineNotes.forEachAlive(function(daStrum:StrumNote)
+					{
+						daStrum.y = strumLine.y;
+						daStrum.downScroll = downScroll;
+					});
+
+					if (generatedMusic)
+						notes.sort(FlxSort.byY, downScroll ? FlxSort.ASCENDING : FlxSort.DESCENDING);	
 				}
-				else
-				{
-					strumLine.y = 50;
-					timeTxt.y = 19;
-					timeBarBG.y = timeTxt.y + (timeTxt.height / 4);
-					timeBar.y = timeBarBG.y + 4;
-					healthBarBG.y = FlxG.height * 0.89;
-					healthBar.y = healthBarBG.y + 4;
-					iconP1.y = healthBar.y - 75;
-					iconP2.y = healthBar.y - 75;
-					scoreTxt.y = healthBarBG.y + 36;
-					botplayTxt.y = timeBarBG.y + 55;
-				}
-
-				strumLineNotes.forEachAlive(function(daStrum:StrumNote)
-				{
-					daStrum.y = strumLine.y;
-					daStrum.downScroll = downScroll;
-				});
-
-				if (generatedMusic)
-					notes.sort(FlxSort.byY, downScroll ? FlxSort.ASCENDING : FlxSort.DESCENDING);
 
 				camHUD.filtersEnabled = true;
 

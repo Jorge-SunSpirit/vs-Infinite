@@ -6,9 +6,9 @@ Code repo for VS. Infinite by Team TBD.
 ## Installation:
 You must have [the most up-to-date version of Haxe](https://haxe.org/download/), seriously, stop using 4.1.5, it misses some stuff.
 
-open up a Command Prompt/PowerShell or Terminal, type `haxelib install hmm`
+Open up a Command Prompt/PowerShell or Terminal, type `haxelib install hmm`.
 
-after it finishes, simply type `haxelib run hmm install` in order to install most of the needed libraries for *Flavor Rave!*
+After it finishes, simply type `haxelib run hmm install` in order to install most of the needed libraries.
 
 hxCodec doesn't work with Haxe Module Manager, so it must be installed separately.
 `haxelib git hxCodec https://github.com/polybiusproxy/hxCodec.git`

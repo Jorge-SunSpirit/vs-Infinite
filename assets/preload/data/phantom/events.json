@@ -178,6 +178,21 @@
 						"Add Camera Zoom",
 						"0.028",
 						"0.02"
+					],
+					[
+						"Phantom Ruby",
+						"true",
+						"true"
+					]
+				]
+			],
+			[
+				95906.25,
+				[
+					[
+						"Phantom Ruby",
+						"false",
+						"true"
 					]
 				]
 			],

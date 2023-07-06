@@ -26,8 +26,28 @@
 				[
 					[
 						"Change Camera Zoom",
+						"1.2",
+						"1.3"
+					]
+				]
+			],
+			[
+				98499.9999999999,
+				[
+					[
+						"Change Camera Zoom",
 						"1",
-						"1.2"
+						"1.3"
+					]
+				]
+			],
+			[
+				108000,
+				[
+					[
+						"Phantom Ruby",
+						"true",
+						"true"
 					]
 				]
 			],
@@ -38,6 +58,16 @@
 						"Change Camera Zoom",
 						"0.82",
 						"1.2"
+					]
+				]
+			],
+			[
+				109250,
+				[
+					[
+						"Phantom Ruby",
+						"false",
+						"true"
 					]
 				]
 			],

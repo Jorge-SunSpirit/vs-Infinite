@@ -1,18 +1,216 @@
 {
 	"song": {
-		"speed": 2.8,
-		"stage": "sunsetheights",
-		"player1": "sonic",
-		"player2": "infinite-masked",
-		"player3": null,
-		"events": [],
-		"notes": [],
-		"splashSkin": null,
-		"validScore": false,
-		"gfVersion": "hidden",
-		"bpm": 160,
-		"arrowSkin": null,
-		"needsVoices": true,
-		"song": "Phantom"
+		"events": [
+			[
+				10500,
+				[
+					[
+						"Change Camera Zoom",
+						"1.2",
+						"1.4"
+					]
+				]
+			],
+			[
+				23718.75,
+				[
+					[
+						"Change Camera Zoom",
+						"0.77",
+						"0.8"
+					]
+				]
+			],
+			[
+				71812.5,
+				[
+					[
+						"Change Camera Zoom",
+						"1",
+						"0.8"
+					]
+				]
+			],
+			[
+				72000,
+				[
+					[
+						"Add Camera Zoom",
+						"0.028",
+						"0.02"
+					]
+				]
+			],
+			[
+				73500,
+				[
+					[
+						"Add Camera Zoom",
+						"0.028",
+						"0.02"
+					]
+				]
+			],
+			[
+				75000,
+				[
+					[
+						"Add Camera Zoom",
+						"0.028",
+						"0.02"
+					]
+				]
+			],
+			[
+				76500,
+				[
+					[
+						"Add Camera Zoom",
+						"0.028",
+						"0.02"
+					]
+				]
+			],
+			[
+				78000,
+				[
+					[
+						"Add Camera Zoom",
+						"0.028",
+						"0.02"
+					]
+				]
+			],
+			[
+				78750,
+				[
+					[
+						"Add Camera Zoom",
+						"0.028",
+						"0.02"
+					]
+				]
+			],
+			[
+				79500,
+				[
+					[
+						"Add Camera Zoom",
+						"0.028",
+						"0.02"
+					]
+				]
+			],
+			[
+				80250,
+				[
+					[
+						"Add Camera Zoom",
+						"0.028",
+						"0.02"
+					]
+				]
+			],
+			[
+				81000,
+				[
+					[
+						"Add Camera Zoom",
+						"0.028",
+						"0.02"
+					]
+				]
+			],
+			[
+				81750,
+				[
+					[
+						"Add Camera Zoom",
+						"0.028",
+						"0.02"
+					]
+				]
+			],
+			[
+				82500,
+				[
+					[
+						"Add Camera Zoom",
+						"0.028",
+						"0.02"
+					]
+				]
+			],
+			[
+				83250,
+				[
+					[
+						"Add Camera Zoom",
+						"0.028",
+						"0.02"
+					]
+				]
+			],
+			[
+				84000,
+				[
+					[
+						"Add Camera Zoom",
+						"0.028",
+						"0.02"
+					]
+				]
+			],
+			[
+				93000,
+				[
+					[
+						"Add Camera Zoom",
+						"0.028",
+						"0.02"
+					]
+				]
+			],
+			[
+				94500,
+				[
+					[
+						"Add Camera Zoom",
+						"0.028",
+						"0.02"
+					]
+				]
+			],
+			[
+				96000,
+				[
+					[
+						"Change Camera Zoom",
+						"0.77",
+						"0.7"
+					]
+				]
+			],
+			[
+				167812.5,
+				[
+					[
+						"Change Camera Zoom",
+						"0.86",
+						"1.5"
+					]
+				]
+			],
+			[
+				185812.5,
+				[
+					[
+						"Change Camera Zoom",
+						"0.77",
+						"2"
+					]
+				]
+			]
+		]
 	}
 }

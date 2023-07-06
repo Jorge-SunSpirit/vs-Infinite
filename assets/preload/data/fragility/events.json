@@ -1,18 +1,161 @@
 {
 	"song": {
-		"speed": 3.2,
-		"stage": "sunsetheights",
-		"player1": "sonic",
-		"player2": "infinite-masked",
-		"player3": null,
-		"events": [],
-		"notes": [],
-		"splashSkin": null,
-		"validScore": false,
-		"gfVersion": "hidden",
-		"bpm": 190,
-		"arrowSkin": "",
-		"needsVoices": true,
-		"song": "Fragility"
+		"events": [
+			[
+				40421.0526315789,
+				[
+					[
+						"Swap Notescroll",
+						"",
+						""
+					]
+				]
+			],
+			[
+				80842.1052631578,
+				[
+					[
+						"Swap Notescroll",
+						"",
+						""
+					]
+				]
+			],
+			[
+				83368.4210526315,
+				[
+					[
+						"Swap Notescroll",
+						"",
+						""
+					]
+				]
+			],
+			[
+				85894.7368421052,
+				[
+					[
+						"Swap Notescroll",
+						"",
+						""
+					]
+				]
+			],
+			[
+				88421.0526315789,
+				[
+					[
+						"Swap Notescroll",
+						"",
+						""
+					]
+				]
+			],
+			[
+				101052.631578947,
+				[
+					[
+						"Swap Notescroll",
+						"",
+						""
+					],
+					[
+						"Phantom Ruby",
+						"true",
+						"true"
+					]
+				]
+			],
+			[
+				102315.789473684,
+				[
+					[
+						"Phantom Ruby",
+						"false",
+						"false"
+					]
+				]
+			],
+			[
+				145263.157894737,
+				[
+					[
+						"Swap Notescroll",
+						"",
+						""
+					]
+				]
+			],
+			[
+				147789.473684211,
+				[
+					[
+						"Swap Notescroll",
+						"",
+						""
+					]
+				]
+			],
+			[
+				150315.789473684,
+				[
+					[
+						"Swap Notescroll",
+						"",
+						""
+					]
+				]
+			],
+			[
+				152842.105263158,
+				[
+					[
+						"Swap Notescroll",
+						"",
+						""
+					]
+				]
+			],
+			[
+				155368.421052632,
+				[
+					[
+						"Swap Notescroll",
+						"",
+						""
+					]
+				]
+			],
+			[
+				157894.736842105,
+				[
+					[
+						"Swap Notescroll",
+						"",
+						""
+					]
+				]
+			],
+			[
+				160421.052631579,
+				[
+					[
+						"Swap Notescroll",
+						"",
+						""
+					]
+				]
+			],
+			[
+				162947.368421053,
+				[
+					[
+						"Swap Notescroll",
+						"",
+						""
+					]
+				]
+			]
+		]
 	}
 }

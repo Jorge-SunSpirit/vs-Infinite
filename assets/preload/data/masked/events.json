@@ -1,18 +1,76 @@
 {
 	"song": {
-		"speed": 2.8,
-		"stage": "sunsetheights",
-		"player1": "sonic",
-		"player2": "infinite-masked",
-		"player3": null,
-		"events": [],
-		"notes": [],
-		"splashSkin": null,
-		"validScore": false,
-		"gfVersion": "hidden",
-		"bpm": 160,
-		"arrowSkin": null,
-		"needsVoices": true,
-		"song": "Masked"
+		"events": [
+			[
+				2500,
+				[
+					[
+						"Change Camera Zoom",
+						"1",
+						"1.4"
+					]
+				]
+			],
+			[
+				42500,
+				[
+					[
+						"Change Camera Zoom",
+						"0.77",
+						"6"
+					]
+				]
+			],
+			[
+				87833.3333333333,
+				[
+					[
+						"Change Camera Zoom",
+						"1",
+						"1.2"
+					]
+				]
+			],
+			[
+				109166.666666667,
+				[
+					[
+						"Change Camera Zoom",
+						"0.82",
+						"1.2"
+					]
+				]
+			],
+			[
+				130500,
+				[
+					[
+						"Change Camera Zoom",
+						"0.77",
+						"1.2"
+					]
+				]
+			],
+			[
+				151833.333333333,
+				[
+					[
+						"Change Camera Zoom",
+						"0.88",
+						"1.4"
+					]
+				]
+			],
+			[
+				173166.666666667,
+				[
+					[
+						"Change Camera Zoom",
+						"0.77",
+						"4"
+					]
+				]
+			]
+		]
 	}
 }

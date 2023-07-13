@@ -57,9 +57,7 @@ class DialogueBoxInfinite extends FlxSpriteGroup
 		box.antialiasing = ClientPrefs.globalAntialiasing;
 		add(box);
 
-		characterPortrait = new FlxSprite(179, 489).loadGraphic(Paths.image('dialogue/temp'));
-		characterPortrait.setGraphicSize(Std.int(characterPortrait.width / 1.5)); // 1080p -> 720p
-		characterPortrait.updateHitbox();
+		characterPortrait = new FlxSprite().loadGraphic(Paths.image('dialogue/fumo'));
 		characterPortrait.antialiasing = ClientPrefs.globalAntialiasing;
 		characterPortrait.visible = false;
 		add(characterPortrait);
@@ -69,8 +67,9 @@ class DialogueBoxInfinite extends FlxSpriteGroup
 		characterName.antialiasing = ClientPrefs.globalAntialiasing;
 		add(characterName);
 
-		dialogueText = new FlxTypeText(340, 504, 776, "", 24);
-		dialogueText.font = Paths.font("futura.otf");
+		dialogueText = new FlxTypeText(340, 504, 776, "");
+		dialogueText.setFormat(Paths.font("futura.otf"), 24, 0xFFFFFFFF, LEFT, FlxTextBorderStyle.OUTLINE, 0xFF181818);
+		dialogueText.borderSize = 1.5;
 		dialogueText.antialiasing = ClientPrefs.globalAntialiasing;
 		add(dialogueText);
 
@@ -85,6 +84,38 @@ class DialogueBoxInfinite extends FlxSpriteGroup
 	override function update(elapsed:Float)
 	{
 		super.update(elapsed);
+
+		#if debug
+		var posVal:Array<Float> = [50, 10];
+		var scaVal:Array<Float> = [0.05, 0.01];
+
+		if (FlxG.keys.pressed.CONTROL && (FlxG.keys.pressed.I || FlxG.keys.pressed.J || FlxG.keys.pressed.K || FlxG.keys.pressed.L || FlxG.keys.pressed.Q || FlxG.keys.pressed.E))
+		{
+			if (FlxG.keys.justPressed.I)
+				characterPortrait.y -= FlxG.keys.pressed.SHIFT ? posVal[0] : posVal[1];
+			else if (FlxG.keys.justPressed.K)
+				characterPortrait.y += FlxG.keys.pressed.SHIFT ? posVal[0] : posVal[1];
+
+			if (FlxG.keys.justPressed.J)
+				characterPortrait.x -= FlxG.keys.pressed.SHIFT ? posVal[0] : posVal[1];
+			else if (FlxG.keys.justPressed.L)
+				characterPortrait.x += FlxG.keys.pressed.SHIFT ? posVal[0] : posVal[1];
+
+			if (FlxG.keys.justPressed.Q)
+			{
+				characterPortrait.scale.x -= FlxG.keys.pressed.SHIFT ? scaVal[0] : scaVal[1];
+				characterPortrait.scale.y -= FlxG.keys.pressed.SHIFT ? scaVal[0] : scaVal[1];
+			}
+			else if (FlxG.keys.justPressed.E)
+			{
+				characterPortrait.scale.x += FlxG.keys.pressed.SHIFT ? scaVal[0] : scaVal[1];
+				characterPortrait.scale.y += FlxG.keys.pressed.SHIFT ? scaVal[0] : scaVal[1];
+			}
+		}
+
+		FlxG.watch.addQuick("portrait pos", [characterPortrait.x, characterPortrait.y]);
+		FlxG.watch.addQuick("portrait scale", [characterPortrait.scale.x]);
+		#end
 
 		if (allowInput)
 		{
@@ -164,6 +195,16 @@ class DialogueBoxInfinite extends FlxSpriteGroup
 
 		characterPortrait.loadGraphic(Paths.image('dialogue/${curDialogue.character}_${curDialogue.expression}'));
 		characterPortrait.visible = true;
+
+		switch (curDialogue.character.toLowerCase())
+		{
+			case 'infinite':
+				characterPortrait.scale.set(0.395, 0.395);
+				characterPortrait.setPosition(-474, -329);
+			case 'sonic':
+				characterPortrait.scale.set(0.399, 0.399);
+				characterPortrait.setPosition(-405, -160);
+		}
 
 		dialogueEnded = false;
 

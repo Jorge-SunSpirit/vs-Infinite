@@ -29,6 +29,7 @@ class Alphabet extends FlxSpriteGroup
 
 	public var bold:Bool = false;
 	public var letters:Array<AlphaCharacter> = [];
+	public var invert:Bool = false;
 
 	public var isMenuItem:Bool = false;
 	public var targetY:Int = 0;
@@ -43,13 +44,14 @@ class Alphabet extends FlxSpriteGroup
 	public var distancePerItem:FlxPoint = new FlxPoint(20, 120);
 	public var startPosition:FlxPoint = new FlxPoint(0, 0); //for the calculations
 
-	public function new(x:Float, y:Float, text:String = "", ?bold:Bool = true)
+	public function new(x:Float, y:Float, text:String = "", ?bold:Bool = true, ?invert:Bool = false)
 	{
 		super(x, y);
 
 		this.startPosition.x = x;
 		this.startPosition.y = y;
 		this.bold = bold;
+		this.invert = invert;
 		this.text = text;
 	}
 
@@ -215,7 +217,7 @@ class Alphabet extends FlxSpriteGroup
 					}
 					consecutiveSpaces = 0;
 
-					var letter:AlphaCharacter = new AlphaCharacter(xPos, rows * Y_PER_ROW * scaleY, character, bold, this);
+					var letter:AlphaCharacter = new AlphaCharacter(xPos, rows * Y_PER_ROW * scaleY, character, bold, invert, this);
 					letter.x += letter.letterOffset[0] * scaleX;
 					letter.y -= letter.letterOffset[1] * scaleY;
 					letter.row = rows;
@@ -327,7 +329,7 @@ class AlphaCharacter extends FlxSprite
 
 	public var row:Int = 0;
 	public var rowWidth:Float = 0;
-	public function new(x:Float, y:Float, character:String, bold:Bool, parent:Alphabet)
+	public function new(x:Float, y:Float, character:String, bold:Bool, invert:Bool, parent:Alphabet)
 	{
 		super(x, y);
 		this.parent = parent;
@@ -341,6 +343,7 @@ class AlphaCharacter extends FlxSprite
 		var suffix:String = '';
 		if(!bold)
 		{
+			color = invert ? 0xFFFFFFFF : 0xFF000000;
 			if(isTypeAlphabet(lowercase))
 			{
 				if(lowercase != character)

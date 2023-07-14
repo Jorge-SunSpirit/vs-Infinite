@@ -51,6 +51,9 @@ class DialogueBoxInfinite extends FlxSpriteGroup
 
 		this.dialogueData = dialogueData;
 
+		var bg:FlxSprite = new FlxSprite().makeGraphic(FlxG.width, FlxG.height, 0x77000000);
+		add(bg);
+
 		box = new FlxSprite(151, 460).loadGraphic(Paths.image('textbox'));
 		box.setGraphicSize(Std.int(box.width / 1.5)); // 1080p -> 720p
 		box.updateHitbox();

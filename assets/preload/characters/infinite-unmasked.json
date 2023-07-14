@@ -65,9 +65,9 @@
 	"healthicon": "icon-infinite",
 	"flip_x": false,
 	"healthbar_colors": [
-		22,
-		62,
-		220
+		255,
+		0,
+		80
 	],
 	"camera_position": [
 		150,

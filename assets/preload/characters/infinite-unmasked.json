@@ -62,7 +62,7 @@
 		-200,
 		-50
 	],
-	"healthicon": "icon-maskedinfinite",
+	"healthicon": "icon-infinite",
 	"flip_x": false,
 	"healthbar_colors": [
 		22,

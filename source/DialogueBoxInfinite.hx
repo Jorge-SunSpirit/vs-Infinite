@@ -49,6 +49,8 @@ class DialogueBoxInfinite extends FlxSpriteGroup
 	{
 		super();
 
+		CoolUtil.precacheMusic('cutscene');
+
 		this.dialogueData = dialogueData;
 
 		var bg:FlxSprite = new FlxSprite().makeGraphic(FlxG.width, FlxG.height, 0x77000000);
@@ -78,6 +80,7 @@ class DialogueBoxInfinite extends FlxSpriteGroup
 
 		FlxG.sound.play(Paths.sound('radioDialogue'), function()
 		{
+			FlxG.sound.playMusic(Paths.music('cutscene'), 1);
 			startDialogue();
 		});
 	}
@@ -230,6 +233,7 @@ class DialogueBoxInfinite extends FlxSpriteGroup
 	{
 		allowInput = false;
 		FlxG.sound.play(Paths.sound('cancelMenu'));
+		FlxG.sound.music.fadeOut((Conductor.crochet / 1000) * 4, 0);
 
 		new FlxTimer().start(0.1, function(tmr:FlxTimer)
 		{

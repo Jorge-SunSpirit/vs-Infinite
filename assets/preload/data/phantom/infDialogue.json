@@ -1,6 +1,18 @@
 {
 	"dialogue": [
 		{
+			"command": "jungle"
+		},
+		{
+			"character": "Fumo",
+			"expression": "Normal",
+			"text": "holy fuck",
+			"sound": ""
+		},
+		{
+			"command": "normal"
+		},
+		{
 			"character": "Infinite",
 			"expression": "Normal",
 			"text": "I can feel the fear in your heart, hero.",

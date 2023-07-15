@@ -27,12 +27,14 @@ typedef InfiniteDialogueLine =
 	var expression:Null<String>;
 	var text:Null<String>;
 	var sound:Null<String>; // Used for the voice clips
+	var command:Null<String>;
 }
 
 class DialogueBoxInfinite extends FlxSpriteGroup
 {
 	var dialogueData:InfiniteDialogueFile;
 
+	var bg:FlxSprite;
 	var box:FlxSprite;
 	var characterPortrait:FlxSprite;
 	var characterName:FlxText;
@@ -53,7 +55,8 @@ class DialogueBoxInfinite extends FlxSpriteGroup
 
 		this.dialogueData = dialogueData;
 
-		var bg:FlxSprite = new FlxSprite().makeGraphic(FlxG.width, FlxG.height, 0x77000000);
+		bg = new FlxSprite().makeGraphic(FlxG.width, FlxG.height, 0x77000000);
+		bg.antialiasing = ClientPrefs.globalAntialiasing;
 		add(bg);
 
 		box = new FlxSprite(151, 460).loadGraphic(Paths.image('textbox'));
@@ -62,7 +65,7 @@ class DialogueBoxInfinite extends FlxSpriteGroup
 		box.antialiasing = ClientPrefs.globalAntialiasing;
 		add(box);
 
-		characterPortrait = new FlxSprite().loadGraphic(Paths.image('dialogue/fumo'));
+		characterPortrait = new FlxSprite().loadGraphic(Paths.image('dialogue/Fumo_Normal'));
 		characterPortrait.antialiasing = ClientPrefs.globalAntialiasing;
 		characterPortrait.visible = false;
 		add(characterPortrait);
@@ -180,44 +183,75 @@ class DialogueBoxInfinite extends FlxSpriteGroup
 			curDialogue.text = '';
 		if (curDialogue.sound == null || curDialogue.sound.length < 1)
 			curDialogue.sound = '';
-
-		characterName.text = curDialogue.character;
-
-		dialogueText.resetText(curDialogue.text);
-		dialogueText.start(0.04, true);
-		dialogueText.completeCallback = function()
-		{
-			dialogueEnded = true;
-		};
+		if (curDialogue.command == null || curDialogue.command.length < 1)
+			curDialogue.command = '';
 
 		killVoice();
-
-		if (curDialogue.sound != '')
-			dialogueVoice = new FlxSound().loadEmbedded(Paths.sound('dialogue/${curDialogue.sound}'));
-		else
-			dialogueVoice = new FlxSound();
-
-		dialogueVoice.play();
-
-		characterPortrait.loadGraphic(Paths.image('dialogue/${curDialogue.character}_${curDialogue.expression}'));
-		characterPortrait.visible = true;
-
-		switch (curDialogue.character.toLowerCase())
-		{
-			case 'infinite':
-				characterPortrait.scale.set(0.395, 0.395);
-				characterPortrait.setPosition(-474, -329);
-			case 'sonic':
-				characterPortrait.scale.set(0.399, 0.399);
-				characterPortrait.setPosition(-405, -160);
-		}
-
-		dialogueEnded = false;
 
 		currentDialogue++;
 
 		if (nextDialogueThing != null)
 			nextDialogueThing();
+
+		if (curDialogue.command == '')
+		{
+			characterName.text = curDialogue.character;
+
+			dialogueText.resetText(curDialogue.text);
+			dialogueText.start(0.04, true);
+			dialogueText.completeCallback = function()
+			{
+				dialogueEnded = true;
+			};
+
+			if (curDialogue.sound != '')
+				dialogueVoice = new FlxSound().loadEmbedded(Paths.sound('dialogue/${curDialogue.sound}'));
+			else
+				dialogueVoice = new FlxSound();
+	
+			dialogueVoice.play();
+
+			characterPortrait.loadGraphic(Paths.image('dialogue/${curDialogue.character}_${curDialogue.expression}'));
+			characterPortrait.visible = true;
+	
+			switch (curDialogue.character.toLowerCase())
+			{
+				case 'infinite':
+					characterPortrait.scale.set(0.395, 0.395);
+					characterPortrait.setPosition(-474, -329);
+				case 'sonic':
+					characterPortrait.scale.set(0.399, 0.399);
+					characterPortrait.setPosition(-405, -160);
+				case 'fumo':
+					characterPortrait.visible = false;
+			}
+
+			dialogueEnded = false;
+		}
+		else
+		{
+			switch (curDialogue.command.toLowerCase())
+			{
+				case 'jungle':
+					bg.loadGraphic(Paths.image('dialogue/mystic_jungle'));
+					box.visible = false;
+					characterPortrait.visible = false;
+					characterName.visible = false;
+					dialogueText.screenCenter();
+					dialogueText.setFormat(Paths.font("futura.otf"), 24, 0xFFFFFFFF, CENTER, FlxTextBorderStyle.OUTLINE, 0xFF181818);
+				case 'normal':
+					bg.makeGraphic(FlxG.width, FlxG.height, 0x77000000);
+					box.visible = true;
+					characterPortrait.visible = true;
+					characterName.visible = true;
+					dialogueText.setPosition(340, 504);
+					dialogueText.setFormat(Paths.font("futura.otf"), 24, 0xFFFFFFFF, LEFT, FlxTextBorderStyle.OUTLINE, 0xFF181818);
+			}
+
+			dialogueEnded = true;
+			dialogueText.skip();
+			return startDialogue();
+		}
 	}
 
 	function killVoice()

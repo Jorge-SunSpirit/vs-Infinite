@@ -102,6 +102,7 @@ class ChartingState extends MusicBeatState
 		['Phantom Ruby', "Value 1: true or false to enable\nValue 2: true or false to flash white\nInvert the black and white of the screen"],
 		['Glitch Effect', "Value 1: Duration"],
 		['Swap Notescroll', "Swaps the notescroll!"],
+		['Initiate Fake Dialogue', "Dialogue box that user has no control over.\nValue 1: 'init' or 'advance'"],
 		['Change Camera Zoom',"Value 1: Zoom for the camera to change to\nValue 2: true/false to suddenly zoom, or\nnumerical value for duration"],
 		['Set Property', "Value 1: Variable name\nValue 2: New value"]
 	];

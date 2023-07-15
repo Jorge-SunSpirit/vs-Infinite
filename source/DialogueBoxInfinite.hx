@@ -49,7 +49,7 @@ class DialogueBoxInfinite extends FlxSpriteGroup
 
 	var currentDialogue:Int = 0;
 
-	public function new(dialogueData:InfiniteDialogueFile)
+	public function new(dialogueData:InfiniteDialogueFile):Void
 	{
 		super();
 
@@ -92,7 +92,7 @@ class DialogueBoxInfinite extends FlxSpriteGroup
 
 	var allowInput:Bool = true;
 
-	override function update(elapsed:Float)
+	override function update(elapsed:Float):Void
 	{
 		super.update(elapsed);
 
@@ -294,7 +294,7 @@ class DialogueBoxInfinite extends FlxSpriteGroup
 		}
 	}
 
-	function endDialogue()
+	function endDialogue():Void
 	{
 		dialogueEnded = true;
 		dialogueText.skip();
@@ -305,7 +305,7 @@ class DialogueBoxInfinite extends FlxSpriteGroup
 			closeDialogue();
 	}
 
-	function killVoice()
+	function killVoice():Void
 	{
 		if (dialogueVoice != null)
 		{

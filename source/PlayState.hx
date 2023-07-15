@@ -1738,6 +1738,31 @@ class PlayState extends MusicBeatState
 		}
 	}
 
+	var fakeInfiniteDialogue:DialogueBoxInfiniteFake;
+	public function startFakeInfiniteDialogue(dialogueFile:InfiniteDialogueFile):Void
+	{
+		if (dialogueFile == null)
+		{
+			FlxG.log.warn("Your dialogue file doesn't exist!");
+			return;
+		}
+
+		if (dialogueFile.dialogue.length > 0)
+		{
+			fakeInfiniteDialogue = new DialogueBoxInfiniteFake(dialogueFile);
+			fakeInfiniteDialogue.finishThing = function()
+			{
+				botplayTxt.visible = true;
+			}
+			fakeInfiniteDialogue.cameras = [camHUD];
+			add(fakeInfiniteDialogue);
+		}
+		else
+		{
+			FlxG.log.warn("Your dialogue file is badly formatted!");
+		}
+	}
+
 	function schoolIntro(?dialogueBox:DialogueBox):Void
 	{
 		// disable filters on the caching camera
@@ -4064,6 +4089,18 @@ class PlayState extends MusicBeatState
 				{
 					camHUD.filtersEnabled = false;
 				});
+
+			case 'Initiate Fake Dialogue':
+				switch (value1)
+				{
+					case 'init':
+						botplayTxt.visible = false;
+						startFakeInfiniteDialogue(midInfDialogue);
+					case 'advance':
+						fakeInfiniteDialogue.advanceDialogue();
+					case 'close':
+						fakeInfiniteDialogue.closeDialogue();
+				}
 
 			case 'Set Property':
 				var killMe:Array<String> = value1.split('.');

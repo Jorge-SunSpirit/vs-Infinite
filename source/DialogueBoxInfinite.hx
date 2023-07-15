@@ -258,16 +258,21 @@ class DialogueBoxInfinite extends FlxSpriteGroup
 						onComplete: function(twn:FlxTween)
 						{
 							bg.makeGraphic(FlxG.width, FlxG.height, 0x77000000);
-							box.visible = true;
-							characterPortrait.visible = true;
-							characterName.visible = true;
-							dialogueText.setPosition(340, 504);
-							dialogueText.setFormat(Paths.font("futura.otf"), 24, 0xFFFFFFFF, LEFT, FlxTextBorderStyle.OUTLINE, 0xFF181818);
+							dialogueText.visible = false;
 
-							new FlxTimer().start(1, function(tmr:FlxTimer)
-							{
-								this.alpha = 1;
-								endDialogue();
+							FlxTween.tween(this, {alpha: 1}, 1, {
+								ease: FlxEase.linear,
+								onComplete: function(twn:FlxTween)
+								{
+									box.visible = true;
+									characterPortrait.visible = true;
+									characterName.visible = true;
+									dialogueText.setPosition(340, 504);
+									dialogueText.setFormat(Paths.font("futura.otf"), 24, 0xFFFFFFFF, LEFT, FlxTextBorderStyle.OUTLINE, 0xFF181818);
+									dialogueText.visible = true;
+
+									endDialogue();
+								}
 							});
 						}
 					});

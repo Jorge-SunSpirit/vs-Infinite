@@ -154,11 +154,10 @@ class DialogueBoxInfinite extends FlxSpriteGroup
 					}
 				}
 			}
-			else if (PlayerSettings.player1.controls.BACK)
-			{
-				closeDialogue();
-			}
 		}
+
+		if (PlayerSettings.player1.controls.BACK)
+			closeDialogue();
 	}
 
 	public static function parseDialogue(path:String):InfiniteDialogueFile
@@ -197,6 +196,8 @@ class DialogueBoxInfinite extends FlxSpriteGroup
 
 		if (curDialogue.command == '')
 		{
+			allowInput = true;
+
 			characterName.text = curDialogue.character;
 
 			dialogueText.resetText(curDialogue.text);
@@ -223,7 +224,7 @@ class DialogueBoxInfinite extends FlxSpriteGroup
 				case 'infinite':
 					characterPortrait.scale.set(0.395, 0.395);
 					characterPortrait.setPosition(-474, -329);
-				case 'sonic':
+				case 'sonic' | 'tails':
 					characterPortrait.scale.set(0.399, 0.399);
 					characterPortrait.setPosition(-405, -160);
 			}
@@ -232,6 +233,8 @@ class DialogueBoxInfinite extends FlxSpriteGroup
 		}
 		else
 		{
+			allowInput = false;
+
 			switch (curDialogue.command.toLowerCase())
 			{
 				case 'bg':
@@ -251,6 +254,14 @@ class DialogueBoxInfinite extends FlxSpriteGroup
 						{
 							endDialogue();
 						});
+					});
+				}
+				case 'fadeout':
+				{
+					FlxG.sound.music.fadeOut(1.5, 0);
+					PlayState.instance.camHUD.fade(0xFF000000, 1.5, false, function()
+					{
+						endDialogue();
 					});
 				}
 				case 'flash':
@@ -287,7 +298,11 @@ class DialogueBoxInfinite extends FlxSpriteGroup
 	{
 		dialogueEnded = true;
 		dialogueText.skip();
-		startDialogue();
+
+		if (dialogueData.dialogue[currentDialogue] != null)
+			startDialogue();
+		else
+			closeDialogue();
 	}
 
 	function killVoice()

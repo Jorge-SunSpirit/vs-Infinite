@@ -4165,6 +4165,13 @@ class PlayState extends MusicBeatState
 					{
 						canPause = false;
 						endingSong = true;
+						// ddto flashback
+						iconP1.visible = false;
+						iconP2.visible = false;
+						healthBar.visible = false;
+						healthBarBG.visible = false;
+						scoreTxt.visible = false;
+						botplayTxt.visible = false;
 						startInfiniteDialogue(endInfDialogue);
 					};
 				}

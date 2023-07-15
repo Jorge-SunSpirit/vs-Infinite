@@ -5,6 +5,9 @@
 			"text": "mystic_jungle"
 		},
 		{
+			"command": "fadein"
+		},
+		{
 			"character": "Sonic",
 			"expression": "Hurt",
 			"text": "It doesn't matter how much that Ruby may help him.",
@@ -21,6 +24,45 @@
 			"expression": "NormalHurt",
 			"text": "There's no amount of illusions that can change that.",
 			"sound": ""
+		},
+		{
+			"character": "Tails",
+			"expression": "Icon",
+			"text": "Sonic! What happened at Mystic Jungle?",
+			"sound": ""
+		},
+		{
+			"character": "Sonic",
+			"expression": "Icon",
+			"text": "Those readings were Infinite’s doing... somehow...",
+			"sound": ""
+		},
+		{
+			"character": "Tails",
+			"expression": "Icon",
+			"text": "Infinite? That’s strange, we haven’t heard from him since the last time at one of Eggman’s fortresses...",
+			"sound": ""
+		},
+		{
+			"character": "Tails",
+			"expression": "Icon",
+			"text": "We can’t mull over him though, we’ve still gotta find those Chaos Emeralds with Amy.",
+			"sound": ""
+		},
+		{
+			"character": "Sonic",
+			"expression": "Icon",
+			"text": "Right, the islands! I’ll see you there, Tails!",
+			"sound": ""
+		},
+		{
+			"character": "Sonic",
+			"expression": "Snarky",
+			"text": "Let's rock n' roll!",
+			"sound": ""
+		},
+		{
+			"command": "fadeout"
 		}
 	]
 }

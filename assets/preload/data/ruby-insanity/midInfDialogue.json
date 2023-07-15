@@ -1,0 +1,40 @@
+{
+	"dialogue": [
+		{
+			"character": "Infinite",
+			"expression": "MadMaskless",
+			"text": "You want to know why I brought you here, Sonic?!",
+			"sound": ""
+		},
+		{
+			"character": "Infinite",
+			"expression": "MadMaskless",
+			"text": "It's for revenge. Revenge for my dreams, myself and my squad. That which you and your resistance took down!",
+			"sound": ""
+		},
+		{
+			"character": "Infinite",
+			"expression": "AngryMaskless",
+			"text": "So don't play with me, Sonic! You've known this from the start!",
+			"sound": ""
+		},
+		{
+			"character": "Sonic",
+			"expression": "Frustrated",
+			"text": "Revenge won't fix anything, Infinite! I won’t allow you to destroy this world!",
+			"sound": ""
+		},
+		{
+			"character": "Infinite",
+			"expression": "MadMaskless",
+			"text": "You'll never understand, Sonic, and with the Phantom Ruby fully recharged...",
+			"sound": ""
+		},
+		{
+			"character": "Infinite",
+			"expression": "Rage",
+			"text": "YOU WILL PAY!",
+			"sound": ""
+		}
+	]
+}

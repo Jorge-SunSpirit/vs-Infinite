@@ -1,0 +1,26 @@
+{
+	"dialogue": [
+		{
+			"command": "bg",
+			"text": "mystic_jungle"
+		},
+		{
+			"character": "Sonic",
+			"expression": "Hurt",
+			"text": "It doesn't matter how much that Ruby may help him.",
+			"sound": ""
+		},
+		{
+			"character": "Sonic",
+			"expression": "Hurt",
+			"text": "In the end, he'll just remain sad and lonely...",
+			"sound": ""
+		},
+		{
+			"character": "Sonic",
+			"expression": "NormalHurt",
+			"text": "There's no amount of illusions that can change that.",
+			"sound": ""
+		}
+	]
+}

@@ -237,6 +237,8 @@ class PlayState extends MusicBeatState
 	var dialogue:Array<String> = ['blah blah blah', 'coolswag'];
 	var dialogueJson:DialogueFile = null;
 	var infDialogue:InfiniteDialogueFile = null;
+	var midInfDialogue:InfiniteDialogueFile = null;
+	var endInfDialogue:InfiniteDialogueFile = null;
 
 	var dadbattleBlack:BGSprite;
 	var dadbattleLight:BGSprite;
@@ -1059,6 +1061,16 @@ class PlayState extends MusicBeatState
 		var file:String = Paths.json(songName + '/infDialogue'); //Checks for Infinite dialogue
 		if (OpenFlAssets.exists(file)) {
 			infDialogue = DialogueBoxInfinite.parseDialogue(file);
+		}
+
+		var file:String = Paths.json(songName + '/midInfDialogue'); //Checks for Infinite dialogue (mid-song)
+		if (OpenFlAssets.exists(file)) {
+			midInfDialogue = DialogueBoxInfinite.parseDialogue(file);
+		}
+
+		var file:String = Paths.json(songName + '/endInfDialogue'); //Checks for Infinite dialogue (end-song)
+		if (OpenFlAssets.exists(file)) {
+			endInfDialogue = DialogueBoxInfinite.parseDialogue(file);
 		}
 
 		var file:String = Paths.txt(songName + '/' + songName + 'Dialogue'); //Checks for vanilla/Senpai dialogue
@@ -4141,6 +4153,23 @@ class PlayState extends MusicBeatState
 	public function finishSong(?ignoreNoteOffset:Bool = false):Void
 	{
 		var finishCallback:Void->Void = endSong; //In case you want to change it in a specific song.
+
+		var daSong:String = Paths.formatToSongPath(curSong);
+		if (isStoryMode)
+		{
+			switch (daSong)
+			{
+				case 'ruby-insanity':
+				{
+					finishCallback = function()
+					{
+						canPause = false;
+						endingSong = true;
+						startInfiniteDialogue(endInfDialogue);
+					};
+				}
+			}
+		}
 
 		updateTime = false;
 		FlxG.sound.music.volume = 0;

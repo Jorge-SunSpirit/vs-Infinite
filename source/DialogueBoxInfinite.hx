@@ -10,6 +10,8 @@ import flixel.sound.FlxSound;
 import flixel.system.FlxSound;
 #end
 import flixel.text.FlxText;
+import flixel.tweens.FlxEase;
+import flixel.tweens.FlxTween;
 import flixel.util.FlxTimer;
 import haxe.Json;
 import openfl.utils.Assets;
@@ -233,25 +235,52 @@ class DialogueBoxInfinite extends FlxSpriteGroup
 			switch (curDialogue.command.toLowerCase())
 			{
 				case 'jungle':
+				{
 					bg.loadGraphic(Paths.image('dialogue/mystic_jungle'));
 					box.visible = false;
 					characterPortrait.visible = false;
 					characterName.visible = false;
 					dialogueText.screenCenter();
-					dialogueText.setFormat(Paths.font("futura.otf"), 24, 0xFFFFFFFF, CENTER, FlxTextBorderStyle.OUTLINE, 0xFF181818);
-				case 'normal':
-					bg.makeGraphic(FlxG.width, FlxG.height, 0x77000000);
-					box.visible = true;
-					characterPortrait.visible = true;
-					characterName.visible = true;
-					dialogueText.setPosition(340, 504);
-					dialogueText.setFormat(Paths.font("futura.otf"), 24, 0xFFFFFFFF, LEFT, FlxTextBorderStyle.OUTLINE, 0xFF181818);
-			}
+					dialogueText.setFormat(Paths.font("futura.otf"), 24, 0xFFFFFFFF, CENTER, FlxTextBorderStyle.OUTLINE, 0xFF000000);
 
-			dialogueEnded = true;
-			dialogueText.skip();
-			return startDialogue();
+					PlayState.instance.camHUD.fade(0xFF000000, 1.5, true, function()
+					{
+						new FlxTimer().start(0.5, function(tmr:FlxTimer)
+						{
+							endDialogue();
+						});
+					});
+				}
+				case 'normal':
+				{
+					FlxTween.tween(this, {alpha: 0}, 1.5, {
+						ease: FlxEase.linear,
+						onComplete: function(twn:FlxTween)
+						{
+							bg.makeGraphic(FlxG.width, FlxG.height, 0x77000000);
+							box.visible = true;
+							characterPortrait.visible = true;
+							characterName.visible = true;
+							dialogueText.setPosition(340, 504);
+							dialogueText.setFormat(Paths.font("futura.otf"), 24, 0xFFFFFFFF, LEFT, FlxTextBorderStyle.OUTLINE, 0xFF181818);
+
+							new FlxTimer().start(1, function(tmr:FlxTimer)
+							{
+								this.alpha = 1;
+								endDialogue();
+							});
+						}
+					});
+				}
+			}
 		}
+	}
+
+	function endDialogue()
+	{
+		dialogueEnded = true;
+		dialogueText.skip();
+		startDialogue();
 	}
 
 	function killVoice()

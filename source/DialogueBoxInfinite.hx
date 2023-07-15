@@ -218,14 +218,14 @@ class DialogueBoxInfinite extends FlxSpriteGroup
 	
 			switch (curDialogue.character.toLowerCase())
 			{
+				default:
+					characterPortrait.visible = false;
 				case 'infinite':
 					characterPortrait.scale.set(0.395, 0.395);
 					characterPortrait.setPosition(-474, -329);
 				case 'sonic':
 					characterPortrait.scale.set(0.399, 0.399);
 					characterPortrait.setPosition(-405, -160);
-				case 'fumo':
-					characterPortrait.visible = false;
 			}
 
 			dialogueEnded = false;

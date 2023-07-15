@@ -2,19 +2,19 @@
 	"dialogue": [
 		{
 			"character": "Sonic",
-			"expression": "Normal",
+			"expression": "Snarky",
 			"text": "Why did you come back? Do you like me that much?",
 			"sound": ""
 		},
 		{
 			"character": "Infinite",
-			"expression": "Normal",
+			"expression": "Mad",
 			"text": "This is not about you!",
 			"sound": ""
 		},
 		{
 			"character": "Sonic",
-			"expression": "Normal",
+			"expression": "Frustrated",
 			"text": "Then what IS it about, you masked clown?!",
 			"sound": ""
 		},
@@ -26,7 +26,7 @@
 		},
 		{
 			"character": "Sonic",
-			"expression": "Normal",
+			"expression": "Frustrated",
 			"text": "...",
 			"sound": ""
 		}

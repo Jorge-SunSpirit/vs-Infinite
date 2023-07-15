@@ -234,15 +234,17 @@ class DialogueBoxInfinite extends FlxSpriteGroup
 		{
 			switch (curDialogue.command.toLowerCase())
 			{
-				case 'jungle':
+				case 'bg':
 				{
-					bg.loadGraphic(Paths.image('dialogue/mystic_jungle'));
-					box.visible = false;
-					characterPortrait.visible = false;
-					characterName.visible = false;
-					dialogueText.screenCenter();
-					dialogueText.setFormat(Paths.font("futura.otf"), 24, 0xFFFFFFFF, CENTER, FlxTextBorderStyle.OUTLINE, 0xFF000000);
+					if (curDialogue.text.toLowerCase() == 'dark')
+						bg.makeGraphic(FlxG.width, FlxG.height, 0x77000000);
+					else
+						bg.loadGraphic(Paths.image('dialogue/${curDialogue.text}'));
 
+					endDialogue();
+				}
+				case 'fadein':
+				{
 					PlayState.instance.camHUD.fade(0xFF000000, 1.5, true, function()
 					{
 						new FlxTimer().start(0.5, function(tmr:FlxTimer)
@@ -251,31 +253,31 @@ class DialogueBoxInfinite extends FlxSpriteGroup
 						});
 					});
 				}
+				case 'flash':
+				{
+					PlayState.instance.camHUD.fade(0xFFFFFFFF, 0.5, true, function()
+					{
+						endDialogue();
+					});
+				}
+				case 'center':
+				{
+					box.visible = false;
+					characterPortrait.visible = false;
+					characterName.visible = false;
+					dialogueText.screenCenter();
+					dialogueText.setFormat(Paths.font("futura.otf"), 24, 0xFFFFFFFF, CENTER, FlxTextBorderStyle.OUTLINE, 0xFF000000);
+					endDialogue();
+				}
 				case 'normal':
 				{
-					FlxTween.tween(this, {alpha: 0}, 1.5, {
-						ease: FlxEase.linear,
-						onComplete: function(twn:FlxTween)
-						{
-							bg.makeGraphic(FlxG.width, FlxG.height, 0x77000000);
-							dialogueText.visible = false;
-
-							FlxTween.tween(this, {alpha: 1}, 1, {
-								ease: FlxEase.linear,
-								onComplete: function(twn:FlxTween)
-								{
-									box.visible = true;
-									characterPortrait.visible = true;
-									characterName.visible = true;
-									dialogueText.setPosition(340, 504);
-									dialogueText.setFormat(Paths.font("futura.otf"), 24, 0xFFFFFFFF, LEFT, FlxTextBorderStyle.OUTLINE, 0xFF181818);
-									dialogueText.visible = true;
-
-									endDialogue();
-								}
-							});
-						}
-					});
+					box.visible = true;
+					characterPortrait.visible = true;
+					characterName.visible = true;
+					dialogueText.setPosition(340, 504);
+					dialogueText.setFormat(Paths.font("futura.otf"), 24, 0xFFFFFFFF, LEFT, FlxTextBorderStyle.OUTLINE, 0xFF181818);
+					dialogueText.visible = true;
+					endDialogue();
 				}
 			}
 		}

@@ -1,16 +1,78 @@
 {
 	"dialogue": [
 		{
-			"command": "jungle"
+			"command": "bg",
+			"text": "mystic_jungle"
+		},
+		{
+			"command": "center"
+		},
+		{
+			"command": "fadein"
 		},
 		{
 			"character": "Fumo",
 			"expression": "Normal",
-			"text": "holy fuck",
+			"text": "Several hours before Sonic, Tails and Amy get lost on the Starfall Islands...",
 			"sound": ""
 		},
 		{
 			"command": "normal"
+		},
+		{
+			"character": "Sonic",
+			"expression": "Normal",
+			"text": "Tails said something about his radar locating some strange signal from Mystic Jungle. It should be right ahead...",
+			"sound": ""
+		},
+		{
+			"character": "Sonic",
+			"expression": "Thinking",
+			"text": "Something about readings similar to the Phantom Ruby...",
+			"sound": ""
+		},
+		{
+			"character": "Sonic",
+			"expression": "Confusion",
+			"text": "Ugh, after all this time, a Ruby sighting in Mystic Jungle?",
+			"sound": ""
+		},
+		{
+			"character": "Sonic",
+			"expression": "Frustrated",
+			"text": "*sigh* Give me a break!",
+			"sound": ""
+		},
+		{
+			"character": "Sonic",
+			"expression": "Thinking",
+			"text": "Hm... Eggman wouldn't just leave the Ruby out like that...",
+			"sound": ""
+		},
+		{
+			"character": "Sonic",
+			"expression": "Confusion",
+			"text": "Who's doing this?",
+			"sound": ""
+		},
+		{
+			"command": "bg",
+			"text": "dark"
+		},
+		{
+			"command": "flash"
+		},
+		{
+			"character": "Sonic",
+			"expression": "Confusion",
+			"text": "The City? This must be the Ruby's doing, but why would it do this?",
+			"sound": ""
+		},
+		{
+			"character": "Sonic",
+			"expression": "Thinking",
+			"text": "More importantly, where are my friends?",
+			"sound": ""
 		},
 		{
 			"character": "Infinite",
@@ -20,25 +82,25 @@
 		},
 		{
 			"character": "Sonic",
-			"expression": "Normal",
+			"expression": "Shocked",
 			"text": "You again?! What's going on here...",
 			"sound": ""
 		},
 		{
 			"character": "Infinite",
-			"expression": "Normal",
+			"expression": "Pointing",
 			"text": "Will you back down and flee? Or will you throw your life away in battle?",
 			"sound": ""
 		},
 		{
 			"character": "Sonic",
-			"expression": "Normal",
+			"expression": "Snarky",
 			"text": "Heh, you and I both know I'm not the type to back down from ANY fight!",
 			"sound": ""
 		},
 		{
 			"character": "Sonic",
-			"expression": "Normal",
+			"expression": "Snarky",
 			"text": "Bring it on!",
 			"sound": ""
 		}

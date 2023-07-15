@@ -2,25 +2,25 @@
 	"dialogue": [
 		{
 			"character": "Sonic",
-			"expression": "Normal",
+			"expression": "Snarky",
 			"text": "*sigh* These illusions are really starting to become an eyesore!",
 			"sound": ""
 		},
 		{
 			"character": "Sonic",
-			"expression": "Normal",
+			"expression": "Bored",
 			"text": "You got any more tricks you can show off? I'm getting bored.",
 			"sound": ""
 		},
 		{
 			"character": "Infinite",
-			"expression": "Normal",
+			"expression": "Mad",
 			"text": "I can still fight, Sonic!",
 			"sound": ""
 		},
 		{
 			"character": "Infinite",
-			"expression": "Normal",
+			"expression": "Angry",
 			"text": "I CAN STILL FIGHT!",
 			"sound": ""
 		}

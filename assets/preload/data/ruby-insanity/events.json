@@ -1,18 +1,106 @@
 {
 	"song": {
-		"speed": 2.8,
-		"stage": "sunsetheights",
-		"player1": "sonic",
-		"player2": "infinite-masked",
-		"player3": null,
-		"events": [],
-		"notes": [],
-		"splashSkin": null,
-		"validScore": false,
-		"gfVersion": "hidden",
-		"bpm": 160,
-		"arrowSkin": null,
-		"needsVoices": true,
-		"song": "RUBY INSANITY"
+		"events": [
+			[
+				103247.863247863,
+				[
+					[
+						"Phantom Ruby",
+						"true",
+						"true"
+					]
+				]
+			],
+			[
+				104478.632478633,
+				[
+					[
+						"Phantom Ruby",
+						"false",
+						"true"
+					]
+				]
+			],
+			[
+				186940.170940171,
+				[
+					[
+						"Phantom Ruby",
+						"true",
+						"true"
+					]
+				]
+			],
+			[
+				188170.94017094,
+				[
+					[
+						"Phantom Ruby",
+						"false",
+						"true"
+					]
+				]
+			],
+			[
+				206632.478632478,
+				[
+					[
+						"Phantom Ruby",
+						"true",
+						"true"
+					]
+				]
+			],
+			[
+				207863.247863247,
+				[
+					[
+						"Phantom Ruby",
+						"false",
+						"true"
+					]
+				]
+			],
+			[
+				231135.975135974,
+				[
+					[
+						"Phantom Ruby",
+						"true",
+						"true"
+					]
+				]
+			],
+			[
+				234990.52059052,
+				[
+					[
+						"Phantom Ruby",
+						"false",
+						"true"
+					]
+				]
+			],
+			[
+				471298.212898214,
+				[
+					[
+						"Phantom Ruby",
+						"true",
+						"true"
+					]
+				]
+			],
+			[
+				476221.289821291,
+				[
+					[
+						"Phantom Ruby",
+						"false",
+						"true"
+					]
+				]
+			]
+		]
 	}
 }

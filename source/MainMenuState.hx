@@ -54,7 +54,7 @@ class MainMenuState extends MusicBeatState
 
 		// persistentUpdate = persistentDraw = true;
 
-		var bg:FlxSprite = new FlxSprite(-80).loadGraphic(Paths.image('mainmenu/menu_bg'));
+		var bg:FlxSprite = new FlxSprite(-80).loadGraphic(Paths.image('menuBG'));
 		bg.scrollFactor.set(0, 0);
 		bg.screenCenter();
 		bg.antialiasing = ClientPrefs.globalAntialiasing;

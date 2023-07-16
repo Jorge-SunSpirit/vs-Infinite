@@ -242,7 +242,7 @@ class DialogueBoxInfinite extends FlxSpriteGroup
 					if (curDialogue.text.toLowerCase() == 'dark')
 						bg.makeGraphic(FlxG.width, FlxG.height, 0x77000000);
 					else
-						bg.loadGraphic(Paths.image('dialogue/${curDialogue.text}'));
+						bg.loadGraphic(Paths.image('dialogue/bg/${curDialogue.text}'));
 
 					endDialogue();
 				}

@@ -56,11 +56,14 @@
 			"sound": ""
 		},
 		{
+			"command": "rubystart"
+		},
+		{
 			"command": "bg",
 			"text": "dark"
 		},
 		{
-			"command": "flash"
+			"command": "rubyend"
 		},
 		{
 			"character": "Sonic",

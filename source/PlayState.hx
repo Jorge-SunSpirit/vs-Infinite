@@ -1358,11 +1358,18 @@ class PlayState extends MusicBeatState
 		}
 		RecalculateRating();
 
-		//PRECACHING MISS SOUNDS BECAUSE I THINK THEY CAN LAG PEOPLE AND FUCK THEM UP IDK HOW HAXE WORKS
+		//PRECACHING SOUNDS BECAUSE I THINK THEY CAN LAG PEOPLE AND FUCK THEM UP IDK HOW HAXE WORKS
 		if(ClientPrefs.hitsoundVolume > 0) precacheList.set('hitsound', 'sound');
-		precacheList.set('missnote1', 'sound');
-		precacheList.set('missnote2', 'sound');
-		precacheList.set('missnote3', 'sound');
+
+		for (i in 1...4)
+		{
+			precacheList.set('missnote$i', 'sound');
+		}
+
+		for (i in 1...7)
+		{
+			precacheList.set('rubyAttack$i', 'sound');
+		}
 
 		if (PauseSubState.songName != null) {
 			precacheList.set(PauseSubState.songName, 'music');
@@ -1724,7 +1731,7 @@ class PlayState extends MusicBeatState
 			}
 			infiniteDialogue.nextDialogueThing = startNextDialogue;
 			infiniteDialogue.skipDialogueThing = skipDialogue;
-			infiniteDialogue.cameras = [camHUD];
+			infiniteDialogue.cameras = [camOther];
 			add(infiniteDialogue);
 		}
 		else
@@ -1750,11 +1757,7 @@ class PlayState extends MusicBeatState
 		if (dialogueFile.dialogue.length > 0)
 		{
 			fakeInfiniteDialogue = new DialogueBoxInfiniteFake(dialogueFile);
-			fakeInfiniteDialogue.finishThing = function()
-			{
-				botplayTxt.visible = true;
-			}
-			fakeInfiniteDialogue.cameras = [camHUD];
+			fakeInfiniteDialogue.cameras = [camOther];
 			add(fakeInfiniteDialogue);
 		}
 		else
@@ -4014,6 +4017,7 @@ class PlayState extends MusicBeatState
 				{
 					camGame.setFilters(null);
 					if (value2 == "true") FlxG.camera.fade(FlxColor.WHITE, 0.4, true);
+					//FlxG.sound.play(Paths.soundRandom('rubyAttack', 1, 6), 0.9);
 				}
 
 			case 'Glitch Effect':
@@ -4094,7 +4098,6 @@ class PlayState extends MusicBeatState
 				switch (value1)
 				{
 					case 'init':
-						botplayTxt.visible = false;
 						startFakeInfiniteDialogue(midInfDialogue);
 					case 'advance':
 						fakeInfiniteDialogue.advanceDialogue();
@@ -4202,13 +4205,6 @@ class PlayState extends MusicBeatState
 					{
 						canPause = false;
 						endingSong = true;
-						// ddto flashback
-						iconP1.visible = false;
-						iconP2.visible = false;
-						healthBar.visible = false;
-						healthBarBG.visible = false;
-						scoreTxt.visible = false;
-						botplayTxt.visible = false;
 						startInfiniteDialogue(endInfDialogue);
 					};
 				}

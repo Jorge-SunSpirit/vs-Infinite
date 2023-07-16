@@ -29,8 +29,6 @@ class DialogueBoxInfiniteFake extends FlxSpriteGroup
 
 	var currentDialogue:Int = 0;
 
-	public var finishThing:Void->Void = null;
-
 	public function new(dialogueData:InfiniteDialogueFile)
 	{
 		super();
@@ -159,7 +157,6 @@ class DialogueBoxInfiniteFake extends FlxSpriteGroup
 		new FlxTimer().start(0.1, function(tmr:FlxTimer)
 		{
 			killVoice();
-			finishThing();
 			kill();
 		});
 	}

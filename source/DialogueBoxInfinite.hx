@@ -14,6 +14,7 @@ import flixel.tweens.FlxEase;
 import flixel.tweens.FlxTween;
 import flixel.util.FlxTimer;
 import haxe.Json;
+import openfl.filters.ColorMatrixFilter;
 import openfl.utils.Assets;
 
 using StringTools;
@@ -248,7 +249,7 @@ class DialogueBoxInfinite extends FlxSpriteGroup
 				}
 				case 'fadein':
 				{
-					PlayState.instance.camHUD.fade(0xFF000000, 1.5, true, function()
+					PlayState.instance.camOther.fade(0xFF000000, 1.5, true, function()
 					{
 						new FlxTimer().start(0.5, function(tmr:FlxTimer)
 						{
@@ -259,14 +260,35 @@ class DialogueBoxInfinite extends FlxSpriteGroup
 				case 'fadeout':
 				{
 					FlxG.sound.music.fadeOut(1.5, 0);
-					PlayState.instance.camHUD.fade(0xFF000000, 1.5, false, function()
+					PlayState.instance.camOther.fade(0xFF000000, 1.5, false, function()
 					{
-						endDialogue();
+						new FlxTimer().start(0.5, function(tmr:FlxTimer)
+						{
+							endDialogue();
+						});
 					});
 				}
 				case 'flash':
 				{
-					PlayState.instance.camHUD.fade(0xFFFFFFFF, 0.5, true, function()
+					PlayState.instance.camOther.fade(0xFFFFFFFF, 0.4, true, function()
+					{
+						endDialogue();
+					});
+				}
+				case 'rubystart':
+				{
+					PlayState.instance.camOther.setFilters([new ColorMatrixFilter([1, -1, -1, 0, 255, -1, 1, -1, 0, 255, -1, -1, 1, 0, 255, 0, 0, 0, 1, 0])]);
+					PlayState.instance.camOther.fade(0xFF000000, 0.4, true);
+					FlxG.sound.play(Paths.sound('rubyActivate'), function()
+					{
+						endDialogue();
+					});
+				}
+				case 'rubyend':
+				{
+					FlxG.sound.play(Paths.soundRandom('rubyAttack', 1, 6));
+					PlayState.instance.camOther.setFilters(null);
+					PlayState.instance.camOther.fade(0xFFFFFFFF, 0.4, true, function()
 					{
 						endDialogue();
 					});

@@ -211,12 +211,12 @@ class DialogueBoxInfinite extends FlxSpriteGroup
 				dialogueVoice = new FlxSound().loadEmbedded(Paths.sound('dialogue/${curDialogue.sound}'));
 			else
 				dialogueVoice = new FlxSound();
-	
+
 			dialogueVoice.play();
 
 			characterPortrait.loadGraphic(Paths.image('dialogue/${curDialogue.character}_${curDialogue.expression}'));
 			characterPortrait.visible = true;
-	
+
 			switch (curDialogue.character.toLowerCase())
 			{
 				default:

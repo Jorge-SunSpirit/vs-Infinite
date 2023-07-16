@@ -46,7 +46,7 @@ class DialogueBoxInfiniteFake extends FlxSpriteGroup
 		box.antialiasing = ClientPrefs.globalAntialiasing;
 		add(box);
 
-		characterPortrait = new FlxSprite().loadGraphic(Paths.image('dialogue/fumo'));
+		characterPortrait = new FlxSprite().loadGraphic(Paths.image('dialogue/Fumo_Normal'));
 		characterPortrait.antialiasing = ClientPrefs.globalAntialiasing;
 		characterPortrait.visible = false;
 		add(characterPortrait);
@@ -128,6 +128,8 @@ class DialogueBoxInfiniteFake extends FlxSpriteGroup
 
 		switch (curDialogue.character.toLowerCase())
 		{
+			default:
+				characterPortrait.visible = false;
 			case 'infinite':
 				characterPortrait.scale.set(0.395, 0.395);
 				characterPortrait.setPosition(-474, -329);

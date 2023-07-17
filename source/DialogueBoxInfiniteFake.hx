@@ -51,9 +51,8 @@ class DialogueBoxInfiniteFake extends FlxSpriteGroup
 		characterName.antialiasing = ClientPrefs.globalAntialiasing;
 		add(characterName);
 
-		dialogueText = new FlxTypeText(567, 151, 548, "");
-		dialogueText.setFormat(Paths.font("futura.otf"), 24, 0xFFFFFFFF, LEFT, FlxTextBorderStyle.OUTLINE, 0xFF181818);
-		dialogueText.borderSize = 1.5;
+		dialogueText = new FlxTypeText(567, 151, 548, "", 26);
+		dialogueText.font = Paths.font("futura.otf");
 		dialogueText.antialiasing = ClientPrefs.globalAntialiasing;
 		add(dialogueText);
 

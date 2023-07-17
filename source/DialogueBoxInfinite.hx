@@ -62,13 +62,13 @@ class DialogueBoxInfinite extends FlxSpriteGroup
 		bg.antialiasing = ClientPrefs.globalAntialiasing;
 		add(bg);
 
-		box = new FlxSprite(151, 460).loadGraphic(Paths.image('textbox'));
+		box = new FlxSprite(151, 460).loadGraphic(Paths.image('dialogue/normal/textbox'));
 		box.setGraphicSize(Std.int(box.width / 1.5)); // 1080p -> 720p
 		box.updateHitbox();
 		box.antialiasing = ClientPrefs.globalAntialiasing;
 		add(box);
 
-		characterPortrait = new FlxSprite().loadGraphic(Paths.image('dialogue/Fumo_Normal'));
+		characterPortrait = new FlxSprite().loadGraphic(Paths.image('dialogue/normal/portrait/Fumo_Normal'));
 		characterPortrait.antialiasing = ClientPrefs.globalAntialiasing;
 		characterPortrait.visible = false;
 		add(characterPortrait);
@@ -215,7 +215,7 @@ class DialogueBoxInfinite extends FlxSpriteGroup
 
 			dialogueVoice.play();
 
-			characterPortrait.loadGraphic(Paths.image('dialogue/${curDialogue.character}_${curDialogue.expression}'));
+			characterPortrait.loadGraphic(Paths.image('dialogue/normal/portrait/${curDialogue.character}_${curDialogue.expression}'));
 			characterPortrait.visible = true;
 
 			switch (curDialogue.character.toLowerCase())
@@ -243,7 +243,7 @@ class DialogueBoxInfinite extends FlxSpriteGroup
 					if (curDialogue.text.toLowerCase() == 'dark')
 						bg.makeGraphic(FlxG.width, FlxG.height, 0x77000000);
 					else
-						bg.loadGraphic(Paths.image('dialogue/bg/${curDialogue.text}'));
+						bg.loadGraphic(Paths.image('dialogue/normal/bg/${curDialogue.text}'));
 
 					endDialogue();
 				}

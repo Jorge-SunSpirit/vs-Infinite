@@ -1756,7 +1756,14 @@ class PlayState extends MusicBeatState
 
 		if (dialogueFile.dialogue.length > 0)
 		{
+			inCutscene = true;
+			camHUD.visible = false;
 			fakeInfiniteDialogue = new DialogueBoxInfiniteFake(dialogueFile);
+			fakeInfiniteDialogue.finishThing = function()
+			{
+				inCutscene = false;
+				camHUD.visible = true;
+			}
 			fakeInfiniteDialogue.cameras = [camOther];
 			add(fakeInfiniteDialogue);
 		}

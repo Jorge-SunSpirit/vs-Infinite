@@ -27,6 +27,8 @@ class DialogueBoxInfiniteFake extends FlxSpriteGroup
 	var dialogueText:FlxTypeText;
 	var dialogueVoice:FlxSound;
 
+	public var finishThing:Void->Void = null;
+
 	var currentDialogue:Int = 0;
 
 	public function new(dialogueData:InfiniteDialogueFile)
@@ -35,35 +37,27 @@ class DialogueBoxInfiniteFake extends FlxSpriteGroup
 
 		this.dialogueData = dialogueData;
 
-		var bg:FlxSprite = new FlxSprite().makeGraphic(FlxG.width, FlxG.height, 0x77000000);
-		add(bg);
-
-		box = new FlxSprite(151, 460).loadGraphic(Paths.image('textbox'));
-		box.setGraphicSize(Std.int(box.width / 1.5)); // 1080p -> 720p
-		box.updateHitbox();
+		box = new FlxSprite().loadGraphic(Paths.image('dialogue/fake/textbox'));
 		box.antialiasing = ClientPrefs.globalAntialiasing;
 		add(box);
 
-		characterPortrait = new FlxSprite().loadGraphic(Paths.image('dialogue/Fumo_Normal'));
+		characterPortrait = new FlxSprite(145, 93).loadGraphic(Paths.image('dialogue/fake/portrait/Fumo_Normal'));
 		characterPortrait.antialiasing = ClientPrefs.globalAntialiasing;
 		characterPortrait.visible = false;
 		add(characterPortrait);
 
-		characterName = new FlxText(1044, 616, "", 20);
+		characterName = new FlxText(566, 606, "", 36);
 		characterName.font = Paths.font("futura.otf");
 		characterName.antialiasing = ClientPrefs.globalAntialiasing;
 		add(characterName);
 
-		dialogueText = new FlxTypeText(340, 504, 776, "");
+		dialogueText = new FlxTypeText(567, 151, 548, "");
 		dialogueText.setFormat(Paths.font("futura.otf"), 24, 0xFFFFFFFF, LEFT, FlxTextBorderStyle.OUTLINE, 0xFF181818);
 		dialogueText.borderSize = 1.5;
 		dialogueText.antialiasing = ClientPrefs.globalAntialiasing;
 		add(dialogueText);
 
-		FlxG.sound.play(Paths.sound('radioDialogue'), function()
-		{
-			startDialogue();
-		});
+		startDialogue();
 	}
 
 	// Because this will be handled via events, here's a function solely for advancing text.
@@ -121,19 +115,15 @@ class DialogueBoxInfiniteFake extends FlxSpriteGroup
 
 		dialogueVoice.play();
 
-		characterPortrait.loadGraphic(Paths.image('dialogue/${curDialogue.character}_${curDialogue.expression}'));
+		characterPortrait.loadGraphic(Paths.image('dialogue/fake/portrait/${curDialogue.character}_${curDialogue.expression}'));
 		characterPortrait.visible = true;
 
 		switch (curDialogue.character.toLowerCase())
 		{
 			default:
 				characterPortrait.visible = false;
-			case 'infinite':
-				characterPortrait.scale.set(0.395, 0.395);
-				characterPortrait.setPosition(-474, -329);
-			case 'sonic':
-				characterPortrait.scale.set(0.399, 0.399);
-				characterPortrait.setPosition(-405, -160);
+			case 'sonic' | 'infinite':
+				// nothing
 		}
 
 		dialogueEnded = false;
@@ -157,6 +147,7 @@ class DialogueBoxInfiniteFake extends FlxSpriteGroup
 		new FlxTimer().start(0.1, function(tmr:FlxTimer)
 		{
 			killVoice();
+			finishThing();
 			kill();
 		});
 	}

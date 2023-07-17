@@ -60,7 +60,7 @@
 		},
 		{
 			"command": "bg",
-			"text": "dark"
+			"text": "sunset_heights"
 		},
 		{
 			"command": "rubyend"
@@ -76,6 +76,9 @@
 			"expression": "Thinking",
 			"text": "More importantly, where are my friends?",
 			"sound": ""
+		},
+		{
+			"command": "bgfadeout"
 		},
 		{
 			"character": "Infinite",

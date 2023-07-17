@@ -58,7 +58,10 @@ class DialogueBoxInfinite extends FlxSpriteGroup
 
 		this.dialogueData = dialogueData;
 
-		bg = new FlxSprite().makeGraphic(FlxG.width, FlxG.height, 0x77000000);
+		var dark = new FlxSprite().makeGraphic(FlxG.width, FlxG.height, 0x77000000);
+		add(dark);
+
+		bg = new FlxSprite().makeGraphic(FlxG.width, FlxG.height, 0x00000000);
 		bg.antialiasing = ClientPrefs.globalAntialiasing;
 		add(bg);
 
@@ -240,12 +243,28 @@ class DialogueBoxInfinite extends FlxSpriteGroup
 			{
 				case 'bg':
 				{
-					if (curDialogue.text.toLowerCase() == 'dark')
-						bg.makeGraphic(FlxG.width, FlxG.height, 0x77000000);
-					else
-						bg.loadGraphic(Paths.image('dialogue/normal/bg/${curDialogue.text}'));
-
+					bg.loadGraphic(Paths.image('dialogue/normal/bg/${curDialogue.text}'));
 					endDialogue();
+				}
+				case 'bgfadein':
+				{
+					FlxTween.tween(bg, {alpha: 1}, 1.5, {
+						ease: FlxEase.linear,
+						onComplete: function(twn:FlxTween)
+						{
+							endDialogue();
+						}
+					});
+				}
+				case 'bgfadeout':
+				{
+					FlxTween.tween(bg, {alpha: 0}, 1.5, {
+						ease: FlxEase.linear,
+						onComplete: function(twn:FlxTween)
+						{
+							endDialogue();
+						}
+					});
 				}
 				case 'fadein':
 				{

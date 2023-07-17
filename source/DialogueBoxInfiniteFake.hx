@@ -59,9 +59,14 @@ class DialogueBoxInfiniteFake extends FlxSpriteGroup
 		startDialogue();
 	}
 
+	var allowInput:Bool = true;
+
 	// Because this will be handled via events, here's a function solely for advancing text.
 	public function advanceDialogue():Void
 	{
+		if (!allowInput)
+			return;
+
 		dialogueText.skip();
 		if (dialogueData.dialogue[currentDialogue] != null)
 		{
@@ -141,6 +146,7 @@ class DialogueBoxInfiniteFake extends FlxSpriteGroup
 
 	public function closeDialogue():Void
 	{
+		allowInput = false;
 		FlxG.sound.play(Paths.sound('cancelMenu'));
 
 		new FlxTimer().start(0.1, function(tmr:FlxTimer)

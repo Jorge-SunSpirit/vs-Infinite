@@ -170,9 +170,14 @@
 				476221.289821291,
 				[
 					[
-						"Phantom Ruby",
-						"false",
-						"true"
+						"Black Screen",
+						"true",
+						"camOther"
+					],
+					[
+						"Screen Flash",
+						"camOther",
+						""
 					]
 				]
 			]

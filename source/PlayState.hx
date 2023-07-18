@@ -283,6 +283,8 @@ class PlayState extends MusicBeatState
 	var tankmanRun:FlxTypedGroup<TankmenBG>;
 	var foregroundSprites:FlxTypedGroup<BGSprite>;
 
+	var blackScreen:FlxSprite;
+
 	public var songScore:Int = 0;
 	public var songHits:Int = 0;
 	public var songMisses:Int = 0;
@@ -1246,6 +1248,10 @@ class PlayState extends MusicBeatState
 		timeBarBG.cameras = [camHUD];
 		timeTxt.cameras = [camHUD];
 		doof.cameras = [camHUD];
+
+		blackScreen = new FlxSprite().makeGraphic(FlxG.width, FlxG.height, FlxColor.BLACK);
+		blackScreen.visible = false;
+		insert(0, blackScreen);
 
 		// if (SONG.song == 'South')
 		// FlxG.camera.alpha = 0.7;
@@ -4026,6 +4032,39 @@ class PlayState extends MusicBeatState
 					if (value2 == "true") FlxG.camera.fade(FlxColor.WHITE, 0.4, true);
 					//FlxG.sound.play(Paths.soundRandom('rubyAttack', 1, 6), 0.9);
 				}
+
+			case 'Black Screen':
+				var camera:FlxCamera = null;
+
+				switch (value2)
+				{
+					case 'camHUD':
+						camera = camHUD;
+					case 'camOther':
+						camera = camOther;
+				}
+
+				if (camera != null)
+				{
+					blackScreen.camera = camera;
+					blackScreen.visible = (value1 == "true") ? true : false;
+				}
+
+			case 'Screen Flash':
+				var camera:FlxCamera = null;
+
+				switch (value1)
+				{
+					case 'camGame':
+						camera = camGame;
+					case 'camHUD':
+						camera = camHUD;
+					case 'camOther':
+						camera = camOther;
+				}
+
+				if (camera != null)
+					camera.fade(FlxColor.WHITE, 0.4, true);
 
 			case 'Glitch Effect':
 				var val1:Float = Std.parseFloat(value1);

@@ -100,6 +100,8 @@ class ChartingState extends MusicBeatState
 		['Change Character', "Value 1: Character to change (Dad, BF, GF)\nValue 2: New character's name"],
 		['Change Scroll Speed', "Value 1: Scroll Speed Multiplier (1 is default)\nValue 2: Time it takes to change fully in seconds."],
 		['Phantom Ruby', "Value 1: true or false to enable\nValue 2: true or false to flash white\nInvert the black and white of the screen"],
+		['Black Screen', "Value 1: true or false to enable\nValue 2: Camera (camHUD or camOther)\nMakes the screen black."],
+		['Screen Flash', "Value 1: Camera (camGame, camHUD or camOther)\nFlashes the screen."],
 		['Glitch Effect', "Value 1: Duration"],
 		['Swap Notescroll', "Swaps the notescroll!"],
 		['Initiate Fake Dialogue', "Dialogue box that user has no control over.\nValue 1: 'init' or 'advance'"],

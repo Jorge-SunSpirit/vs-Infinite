@@ -147,13 +147,8 @@ class DialogueBoxInfiniteFake extends FlxSpriteGroup
 	public function closeDialogue():Void
 	{
 		allowInput = false;
-		FlxG.sound.play(Paths.sound('cancelMenu'));
-
-		new FlxTimer().start(0.1, function(tmr:FlxTimer)
-		{
-			killVoice();
-			finishThing();
-			kill();
-		});
+		killVoice();
+		finishThing();
+		kill();
 	}
 }

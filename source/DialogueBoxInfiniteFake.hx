@@ -37,6 +37,9 @@ class DialogueBoxInfiniteFake extends FlxSpriteGroup
 
 		this.dialogueData = dialogueData;
 
+		var dark = new FlxSprite(-FlxG.width / 2, -FlxG.height / 2).makeGraphic(FlxG.width * 2, FlxG.height * 2, 0x77000000);
+		add(dark);
+
 		box = new FlxSprite().loadGraphic(Paths.image('dialogue/fake/textbox'));
 		box.antialiasing = ClientPrefs.globalAntialiasing;
 		add(box);

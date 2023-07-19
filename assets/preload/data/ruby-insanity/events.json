@@ -158,6 +158,11 @@
 						"Change Character",
 						"dad",
 						"infinite-masked"
+					],
+					[
+						"Screen Flash",
+						"camHUD",
+						""
 					]
 				]
 			],

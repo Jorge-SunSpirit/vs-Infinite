@@ -85,11 +85,6 @@
 				392528.982128982,
 				[
 					[
-						"Change Character",
-						"dad",
-						"infinite-unmasked"
-					],
-					[
 						"Initiate Fake Dialogue",
 						"init",
 						""
@@ -153,6 +148,16 @@
 						"Initiate Fake Dialogue",
 						"advance",
 						""
+					]
+				]
+			],
+			[
+				431913.597513598,
+				[
+					[
+						"Change Character",
+						"dad",
+						"infinite-masked"
 					]
 				]
 			],

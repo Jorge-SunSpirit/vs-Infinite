@@ -44,17 +44,19 @@ class DialogueBoxInfiniteFake extends FlxSpriteGroup
 		box.antialiasing = ClientPrefs.globalAntialiasing;
 		add(box);
 
-		characterPortrait = new FlxSprite(145, 93).loadGraphic(Paths.image('dialogue/fake/portrait/Fumo_Normal'));
+		characterPortrait = new FlxSprite(268, 160).loadGraphic(Paths.image('dialogue/fake/portrait/Fumo_Normal'));
 		characterPortrait.antialiasing = ClientPrefs.globalAntialiasing;
+		characterPortrait.scale.set(0.75, 0.75);
+		characterPortrait.updateHitbox();
 		characterPortrait.visible = false;
 		add(characterPortrait);
 
-		characterName = new FlxText(566, 606, "", 36);
+		characterName = new FlxText(582, 544, "", 28);
 		characterName.font = Paths.font("futura.otf");
 		characterName.antialiasing = ClientPrefs.globalAntialiasing;
 		add(characterName);
 
-		dialogueText = new FlxTypeText(567, 151, 548, "", 26);
+		dialogueText = new FlxTypeText(582, 204, 410, "", 22);
 		dialogueText.font = Paths.font("futura.otf");
 		dialogueText.antialiasing = ClientPrefs.globalAntialiasing;
 		add(dialogueText);

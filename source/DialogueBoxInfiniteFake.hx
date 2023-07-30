@@ -109,7 +109,7 @@ class DialogueBoxInfiniteFake extends FlxSpriteGroup
 		characterName.text = curDialogue.character;
 
 		dialogueText.resetText(curDialogue.text);
-		dialogueText.start(0.04, true);
+		dialogueText.start(0.04 / PlayState.instance.playbackRate, true);
 		dialogueText.completeCallback = function()
 		{
 			dialogueEnded = true;

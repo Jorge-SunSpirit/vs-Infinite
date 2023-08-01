@@ -510,20 +510,6 @@ class EditorPlayState extends MusicBeatState
 		stepTxt.text = 'Step: ' + curStep;
 		super.update(elapsed);
 	}
-	
-	override public function onFocus():Void
-	{
-		vocals.play();
-
-		super.onFocus();
-	}
-	
-	override public function onFocusLost():Void
-	{
-		vocals.pause();
-
-		super.onFocusLost();
-	}
 
 	override function beatHit()
 	{

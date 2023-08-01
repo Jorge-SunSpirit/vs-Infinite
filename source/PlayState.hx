@@ -211,7 +211,6 @@ class PlayState extends MusicBeatState
 	private var generatedMusic:Bool = false;
 	public var endingSong:Bool = false;
 	public var startingSong:Bool = false;
-	public var vocalsFinished:Bool = false;
 	private var updateTime:Bool = true;
 	public static var changedDifficulty:Bool = false;
 	public static var chartingMode:Bool = false;
@@ -2498,10 +2497,6 @@ class PlayState extends MusicBeatState
 		FlxG.sound.music.pitch = playbackRate;
 		FlxG.sound.music.onComplete = finishSong.bind();
 		vocals.play();
-		vocals.onComplete = function()
-		{
-			vocalsFinished = true;
-		}
 
 		if(startOnTime > 0)
 		{
@@ -2933,7 +2928,7 @@ class PlayState extends MusicBeatState
 	{
 		if (paused)
 		{
-			if (FlxG.sound.music != null && !startingSong && !endingSong)
+			if (FlxG.sound.music != null && !startingSong)
 			{
 				FlxG.sound.music.time = Conductor.songPosition;
 				resyncVocals();
@@ -3020,16 +3015,16 @@ class PlayState extends MusicBeatState
 		if (_exiting || finishTimer != null) return;
 
 		vocals.pause();
+
 		FlxG.sound.music.play();
-		Conductor.songPosition = FlxG.sound.music.time;
 		FlxG.sound.music.pitch = playbackRate;
-
-		if (vocalsFinished)
-			return;
-
-		vocals.time = Conductor.songPosition;
+		Conductor.songPosition = FlxG.sound.music.time;
+		if (Conductor.songPosition <= vocals.length)
+		{
+			vocals.time = Conductor.songPosition;
+			vocals.pitch = playbackRate;
+		}
 		vocals.play();
-		vocals.pitch = playbackRate;
 	}
 
 	public var paused:Bool = false;
@@ -3050,6 +3045,61 @@ class PlayState extends MusicBeatState
 		}
 
 		callOnLuas('onUpdate', [elapsed]);
+
+		if (startedCountdown)
+		{
+			if (FlxG.sound.music.time == prevMusicTime || startingSong)
+			{
+				Conductor.songPosition += FlxG.elapsed * 1000 * playbackRate;
+			}
+			else if (!startingSong)
+			{
+				Conductor.songPosition = FlxG.sound.music.time;
+				prevMusicTime = Conductor.songPosition;
+			}
+		}
+
+		if (startingSong)
+		{
+			if (startedCountdown && Conductor.songPosition >= 0)
+				startSong();
+			else if(!startedCountdown)
+				Conductor.songPosition = -Conductor.crochet * 5;
+		}
+		else
+		{
+			if (!paused)
+			{
+				songTime += FlxG.game.ticks - previousFrameTime;
+				previousFrameTime = FlxG.game.ticks;
+
+				// Interpolation type beat
+				if (Conductor.lastSongPos != Conductor.songPosition)
+				{
+					songTime = (songTime + Conductor.songPosition) / 2;
+					Conductor.lastSongPos = Conductor.songPosition;
+				}
+
+				if (updateTime)
+				{
+					var curTime:Float = Conductor.songPosition - ClientPrefs.noteOffset;
+					if(curTime < 0) curTime = 0;
+					songPercent = (curTime / songLength);
+
+					var songCalc:Float = (songLength - curTime);
+					if(ClientPrefs.timeBarType == 'Time Elapsed') songCalc = curTime;
+
+					var secondsTotal:Int = Math.floor(songCalc / 1000);
+					if(secondsTotal < 0) secondsTotal = 0;
+
+					if(ClientPrefs.timeBarType.startsWith('Time'))
+						timeTxt.text = FlxStringUtil.formatTime(secondsTotal, false);
+
+					if(ClientPrefs.timeBarType == 'Combined')
+						timeTxt.text = '${SONG.song} (${FlxStringUtil.formatTime(secondsTotal, false)})';
+				}
+			}
+		}
 
 		switch (curStage)
 		{
@@ -3197,61 +3247,6 @@ class PlayState extends MusicBeatState
 		if (SONG.notes[curSection] != null && generatedMusic && !endingSong && !isCameraOnForcedPos)
 		{
 			moveCameraSection();
-		}
-
-		if (startedCountdown)
-		{
-			if (FlxG.sound.music.time == prevMusicTime)
-			{
-				Conductor.songPosition += FlxG.elapsed * 1000 * playbackRate;
-			}
-			else
-			{
-				Conductor.songPosition = FlxG.sound.music.time;
-				prevMusicTime = Conductor.songPosition;
-			}
-		}
-
-		if (startingSong)
-		{
-			if (startedCountdown && Conductor.songPosition >= 0)
-				startSong();
-			else if(!startedCountdown)
-				Conductor.songPosition = -Conductor.crochet * 5;
-		}
-		else
-		{
-			if (!paused)
-			{
-				songTime += FlxG.game.ticks - previousFrameTime;
-				previousFrameTime = FlxG.game.ticks;
-
-				// Interpolation type beat
-				if (Conductor.lastSongPos != Conductor.songPosition)
-				{
-					songTime = (songTime + Conductor.songPosition) / 2;
-					Conductor.lastSongPos = Conductor.songPosition;
-				}
-
-				if (updateTime)
-				{
-					var curTime:Float = Conductor.songPosition - ClientPrefs.noteOffset;
-					if(curTime < 0) curTime = 0;
-					songPercent = (curTime / songLength);
-
-					var songCalc:Float = (songLength - curTime);
-					if(ClientPrefs.timeBarType == 'Time Elapsed') songCalc = curTime;
-
-					var secondsTotal:Int = Math.floor(songCalc / 1000);
-					if(secondsTotal < 0) secondsTotal = 0;
-
-					if(ClientPrefs.timeBarType.startsWith('Time'))
-						timeTxt.text = FlxStringUtil.formatTime(secondsTotal, false);
-
-					if(ClientPrefs.timeBarType == 'Combined')
-						timeTxt.text = '${SONG.song} (${FlxStringUtil.formatTime(secondsTotal, false)})';
-				}
-			}
 		}
 
 		super.update(elapsed);
@@ -4727,10 +4722,6 @@ class PlayState extends MusicBeatState
 		{
 			if(!boyfriend.stunned && generatedMusic && !endingSong)
 			{
-				//more accurate hit time for the ratings?
-				var lastTime:Float = Conductor.songPosition;
-				Conductor.songPosition = FlxG.sound.music.time;
-
 				var canMiss:Bool = !ClientPrefs.ghostTapping;
 
 				// heavily based on my own code LOL if it aint broke dont fix it
@@ -4786,9 +4777,6 @@ class PlayState extends MusicBeatState
 				// Shubs, this is for the "Just the Two of Us" achievement lol
 				//									- Shadow Mario
 				keysPressed[key] = true;
-
-				//more accurate hit time for the ratings? part 2 (Now that the calculations are done, go back to the time it was before for not causing a note stutter)
-				Conductor.songPosition = lastTime;
 			}
 
 			var spr:StrumNote = playerStrums.members[key];
@@ -5408,11 +5396,8 @@ class PlayState extends MusicBeatState
 	var lastStepHit:Int = -1;
 	override function stepHit()
 	{
-		if (!startingSong && !endingSong && !vocalsFinished)
-		{
-			if (Math.abs(vocals.time - FlxG.sound.music.time) > 15)
-				resyncVocals();
-		}
+		if (!startingSong && Conductor.songPosition <= vocals.length && Math.abs(vocals.time - FlxG.sound.music.time) > 20)
+			resyncVocals();
 
 		super.stepHit();
 

@@ -5395,7 +5395,7 @@ class PlayState extends MusicBeatState
 	var lastStepHit:Int = -1;
 	override function stepHit()
 	{
-		if (!startingSong && Conductor.songPosition <= vocals.length && Math.abs(vocals.time - FlxG.sound.music.time) > 20)
+		if (!startingSong && Conductor.songPosition <= vocals.length && Math.abs(vocals.time - FlxG.sound.music.time) > 15)
 			resyncVocals();
 
 		super.stepHit();

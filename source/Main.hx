@@ -86,6 +86,13 @@ class Main extends Sprite
 			game.width = Math.ceil(stageWidth / game.zoom);
 			game.height = Math.ceil(stageHeight / game.zoom);
 		}
+
+		#if CRASH_HANDLER
+		Lib.current.loaderInfo.uncaughtErrorEvents.addEventListener(UncaughtErrorEvent.UNCAUGHT_ERROR, onCrash);
+		#if cpp
+		untyped __global__.__hxcpp_set_critical_error_handler(onFatalCrash);
+		#end
+		#end
 	
 		ClientPrefs.loadDefaultKeys();
 		addChild(new FlxGame(game.width, game.height, game.initialState, #if (flixel < "5.0.0") game.zoom, #end game.framerate, game.framerate, game.skipSplash, game.startFullscreen));
@@ -103,10 +110,6 @@ class Main extends Sprite
 		#if html5
 		FlxG.mouse.visible = false;
 		#end
-		
-		#if CRASH_HANDLER
-		Lib.current.loaderInfo.uncaughtErrorEvents.addEventListener(UncaughtErrorEvent.UNCAUGHT_ERROR, onCrash);
-		#end
 
 		#if DISCORD_ALLOWED
 		if (!DiscordClient.isInitialized) {
@@ -123,6 +126,16 @@ class Main extends Sprite
 	#if CRASH_HANDLER
 	function onCrash(e:UncaughtErrorEvent):Void
 	{
+		crashHandler(e);
+	}
+
+	function onFatalCrash(msg:String):Void
+	{
+		crashHandler(msg);
+	}
+
+	function crashHandler(?e:UncaughtErrorEvent, ?msg:String):Void
+	{
 		var errMsg:String = "";
 		var path:String;
 		var callStack:Array<StackItem> = CallStack.exceptionStack(true);
@@ -133,18 +146,21 @@ class Main extends Sprite
 
 		path = "./crash/" + "VSInfinite_" + dateNow + ".txt";
 
+		errMsg += '${msg != null ? msg : e.error}\n';
+
 		for (stackItem in callStack)
 		{
 			switch (stackItem)
 			{
 				case FilePos(s, file, line, column):
-					errMsg += file + " (line " + line + ")\n";
+					errMsg += 'in ${file} (line ${line})\n';
 				default:
 					Sys.println(stackItem);
 			}
 		}
 
-		errMsg += "\nUncaught Error: " + e.error + "\nPlease report this error to the GitHub page: https://github.com/Jorge-SunSpirit/vs-Infinite\n\n> Crash Handler written by: sqirra-rng";
+		errMsg += "\nPlease report this error to the GitHub page: https://github.com/Jorge-SunSpirit/vs-Infinite";
+		errMsg += "\n\n> Crash Handler written by: squirra-rng and EliteMasterEric";
 
 		if (!FileSystem.exists("./crash/"))
 			FileSystem.createDirectory("./crash/");

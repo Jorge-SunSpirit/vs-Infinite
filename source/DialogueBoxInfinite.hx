@@ -380,7 +380,9 @@ class DialogueBoxInfinite extends FlxSpriteGroup
 	{
 		allowInput = false;
 		FlxG.sound.play(Paths.sound('cancelMenu'));
-		FlxG.sound.music.fadeOut((Conductor.crochet / 1000) * 4, 0);
+
+		if (FlxG.sound.music != null && FlxG.sound.music.playing)
+			FlxG.sound.music.fadeOut((Conductor.crochet / 1000) * 4, 0);
 
 		new FlxTimer().start(0.1, function(tmr:FlxTimer)
 		{

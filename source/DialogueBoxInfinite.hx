@@ -54,8 +54,6 @@ class DialogueBoxInfinite extends FlxSpriteGroup
 	{
 		super();
 
-		CoolUtil.precacheMusic('cutscene');
-
 		this.dialogueData = dialogueData;
 
 		var dark = new FlxSprite().makeGraphic(FlxG.width, FlxG.height, 0x77000000);
@@ -89,7 +87,6 @@ class DialogueBoxInfinite extends FlxSpriteGroup
 
 		FlxG.sound.play(Paths.sound('radioDialogue'), function()
 		{
-			FlxG.sound.playMusic(Paths.music('cutscene'), 1);
 			startDialogue();
 		});
 	}
@@ -241,6 +238,30 @@ class DialogueBoxInfinite extends FlxSpriteGroup
 
 			switch (curDialogue.command.toLowerCase())
 			{
+				case 'playmusic':
+				{
+					FlxG.sound.playMusic(Paths.music(curDialogue.text), 1);
+					endDialogue();
+				}
+				case 'pausemusic':
+				{
+					FlxG.sound.music.fadeOut(1, 0, function(twn:FlxTween)
+					{
+						FlxG.sound.music.pause();
+					});
+					endDialogue();
+				}
+				case 'resumemusic':
+				{
+					FlxG.sound.music.play();
+					FlxG.sound.music.fadeIn();
+					endDialogue();
+				}
+				case 'stopmusic':
+				{
+					FlxG.sound.music.fadeOut();
+					endDialogue();
+				}
 				case 'bg':
 				{
 					bg.loadGraphic(Paths.image('dialogue/normal/bg/${curDialogue.text}'));

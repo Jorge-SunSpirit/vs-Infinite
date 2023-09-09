@@ -259,7 +259,7 @@ class DialogueBoxInfinite extends FlxSpriteGroup
 				}
 				case 'stopmusic':
 				{
-					FlxG.sound.music.fadeOut();
+					FlxG.sound.music.stop();
 					endDialogue();
 				}
 				case 'bg':

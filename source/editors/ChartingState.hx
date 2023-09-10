@@ -960,6 +960,7 @@ class ChartingState extends MusicBeatState
 		var directories:Array<String> = [];
 
 		#if MODS_ALLOWED
+		directories.push(Paths.getPreloadPath('custom_notetypes/'));
 		directories.push(Paths.mods('custom_notetypes/'));
 		directories.push(Paths.mods(Paths.currentModDirectory + '/custom_notetypes/'));
 		for(mod in Paths.getGlobalMods())
@@ -1022,6 +1023,7 @@ class ChartingState extends MusicBeatState
 		var directories:Array<String> = [];
 
 		#if MODS_ALLOWED
+		directories.push(Paths.getPreloadPath('custom_events/'));
 		directories.push(Paths.mods('custom_events/'));
 		directories.push(Paths.mods(Paths.currentModDirectory + '/custom_events/'));
 		for(mod in Paths.getGlobalMods())

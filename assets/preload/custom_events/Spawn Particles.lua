@@ -1,12 +1,12 @@
 local particles = false;
 local particleSprite = '';
 local direction = '';
+
 function onEvent(name, value1, value2) 
-	if name == 'Spawn Particles' and not flashingLights then
+	if name == 'Spawn Particles' then
 		particles = not particles;
 		particleSprite = value1;
 		direction = value2;
-		debugPrint(particleSprite);
 	end
 end
 

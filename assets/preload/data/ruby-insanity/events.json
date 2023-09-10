@@ -82,32 +82,22 @@
 				]
 			],
 			[
-				392528.982128982,
+				393759.751359752,
 				[
 					[
 						"Initiate Fake Dialogue",
 						"init",
-						""
+						"You want to know"
 					]
 				]
 			],
 			[
-				397452.059052059,
+				399298.212898213,
 				[
 					[
 						"Initiate Fake Dialogue",
 						"advance",
-						""
-					]
-				]
-			],
-			[
-				402375.135975136,
-				[
-					[
-						"Initiate Fake Dialogue",
-						"advance",
-						""
+						"Its for revenge"
 					]
 				]
 			],
@@ -117,7 +107,7 @@
 					[
 						"Initiate Fake Dialogue",
 						"advance",
-						""
+						"So dont play with me"
 					]
 				]
 			],
@@ -127,27 +117,27 @@
 					[
 						"Initiate Fake Dialogue",
 						"advance",
-						""
+						"Revenge wont fix anything"
 					]
 				]
 			],
 			[
-				417144.366744367,
+				419605.905205906,
 				[
 					[
 						"Initiate Fake Dialogue",
 						"advance",
-						""
+						"Youll never understand"
 					]
 				]
 			],
 			[
-				422067.443667444,
+				429452.05905206,
 				[
 					[
 						"Initiate Fake Dialogue",
 						"advance",
-						""
+						"YOU WILL PAY"
 					]
 				]
 			],
@@ -163,6 +153,11 @@
 						"Screen Flash",
 						"camHUD",
 						""
+					],
+					[
+						"Initiate Fake Dialogue",
+						"advance",
+						"end"
 					]
 				]
 			],

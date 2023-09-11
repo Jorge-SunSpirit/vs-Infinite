@@ -59,9 +59,10 @@ class InfCreditsState extends MusicBeatState
 		#end
 
 		persistentUpdate = true;
+
 		bg = new FlxSprite().loadGraphic(Paths.image('credits/VSInfiniteCredits'));
-		add(bg);
 		bg.screenCenter();
+		add(bg);
 
 		graybox = new FlxSprite(0, 10).makeGraphic(346, 88, FlxColor.BLACK);
 		graybox.alpha = 0.5;
@@ -79,13 +80,18 @@ class InfCreditsState extends MusicBeatState
 			grpOptions.add(creditObject);
 		}
 
-		/* this is just gonna be too much of a hassle once we tackle final credits i feel
+		// this is just gonna be too much of a hassle once we tackle final credits i feel
+		// but i'll add it back just incase
+		var descBox = new FlxSprite(0, 638).makeGraphic(754, 38, FlxColor.BLACK);
+		descBox.screenCenter();
+		descBox.alpha = 0.5;
+		add(descBox);
+
 		descText = new FlxText(264, 640, 753, "", 32);
 		descText.setFormat(Paths.font("futura.otf"), 32, 0xFFFFBDBD, CENTER, FlxTextBorderStyle.SHADOW, FlxColor.BLACK);
 		descText.scrollFactor.set();
 		descText.antialiasing = ClientPrefs.globalAntialiasing;
 		add(descText);
-		*/
 
 		changeSelection();
 		super.create();

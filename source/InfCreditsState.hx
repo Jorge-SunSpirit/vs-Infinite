@@ -41,7 +41,6 @@ class InfCreditsState extends MusicBeatState
 		['Miss Beepy',	'beepy',	'Infinite Sketches',	"hueh",	'https://www.youtube.com/watch?v=0MW9Nrg_kZU',	"0", "3"],
 		['LezaLeza',	'leza',	'BG Artist',	"hueh",	'https://twitter.com/lezanikat',	"0", "4"],
 
-		
 		['M&M',	'mandm',	'Main Programmer',	"i put fortnite on a scu burner account",	'https://linktr.ee/ActualMandM',	"1", "0"],
 		['Jorge - SunSpirit',	'jorge',	'UI Programmer',	"Defeat me with heat beams, you're crazy!",	'https://twitter.com/Jorge_SunSpirit',	"1", "1"],
 		['HighPoweredKeyz',	'hpk',	'Chromatic Assistance',	"Stay creative, and stay powerful.",	'https://twitter.com/HighPoweredArt',	"1", "2"],
@@ -71,9 +70,8 @@ class InfCreditsState extends MusicBeatState
 		grpOptions = new FlxTypedGroup<CreditsItem>();
 		add(grpOptions);
 		
-		for(i in userChara){
+		for (i in userChara)
 			creditsStuff.push(i);
-		}
 	
 		for (i in 0...creditsStuff.length)
 		{
@@ -81,50 +79,43 @@ class InfCreditsState extends MusicBeatState
 			grpOptions.add(creditObject);
 		}
 
-		
+		/* this is just gonna be too much of a hassle once we tackle final credits i feel
 		descText = new FlxText(264, 640, 753, "", 32);
 		descText.setFormat(Paths.font("futura.otf"), 32, 0xFFFFBDBD, CENTER, FlxTextBorderStyle.SHADOW, FlxColor.BLACK);
 		descText.scrollFactor.set();
 		descText.antialiasing = ClientPrefs.globalAntialiasing;
 		add(descText);
+		*/
 
 		changeSelection();
 		super.create();
 	}
 
 	var quitting:Bool = false;
+
 	override function update(elapsed:Float)
 	{
 		if (FlxG.sound.music.volume < 0.7)
-		{
 			FlxG.sound.music.volume += 0.5 * FlxG.elapsed;
-		}
 
-		if(!quitting)
+		if (!quitting)
 		{
-			if(creditsStuff.length > 1)
+			if (creditsStuff.length > 1)
 			{
-
 				if (controls.UI_UP_P)
-				{
 					changeSelection('up');
-				}
 				if (controls.UI_DOWN_P)
-				{
 					changeSelection('down');
-				}
 				if (controls.UI_LEFT_P)
-				{
 					changeSelection('left');
-				}
 				if (controls.UI_RIGHT_P)
-				{
 					changeSelection('right');
-				}
 			}
 
-			if(controls.ACCEPT && creditsStuff[curSelected][4] != 'hueh')
+			if (controls.ACCEPT && creditsStuff[curSelected][4] != 'hueh')
+			{
 				CoolUtil.browserLoad(creditsStuff[curSelected][4]);
+			}
 			else if(controls.ACCEPT && creditsStuff[curSelected][4] == 'hueh')
 			{
 				MusicBeatState.switchState(new CreditsState());
@@ -145,6 +136,7 @@ class InfCreditsState extends MusicBeatState
 	function changeSelection(?direction:String)
 	{
 		var change:Int = 0;
+
 		switch(direction)
 		{
 			case 'left':
@@ -162,12 +154,14 @@ class InfCreditsState extends MusicBeatState
 		FlxG.sound.play(Paths.sound('scrollMenu'), 0.4);
 
 		curSelected += change;
+
 		if (curSelected < 0)
 		{
 			var quickmaths:Int = 0;
 			quickmaths = curSelected + creditsStuff.length; //I'm dumb
 			curSelected = quickmaths;
 		}
+
 		if (curSelected >= creditsStuff.length)
 		{
 			var quickmaths:Int = 0;
@@ -189,9 +183,10 @@ class InfCreditsState extends MusicBeatState
 				FlxTween.cancelTweensOf(graybox);
 				FlxTween.tween(graybox, {x: item.x, y:item.y}, 0.1, {ease: FlxEase.circOut});
 			}
-
 		}
-		descText.text = creditsStuff[curSelected][3];
+
+		if (descText != null)
+			descText.text = creditsStuff[curSelected][3];
 	}
 }
 

@@ -103,7 +103,7 @@ class FreeplayState extends MusicBeatState
 		}
 		WeekData.loadTheFirstEnabledMod();
 
-		bg = new FlxSprite().loadGraphic(Paths.image('menuDesat'));
+		bg = new FlxSprite().loadGraphic(Paths.image('freeplay/bg/default'));
 		bg.antialiasing = ClientPrefs.globalAntialiasing;
 		bg.screenCenter();
 		add(bg);
@@ -456,6 +456,12 @@ class FreeplayState extends MusicBeatState
 		{
 			curDifficulty = newPos;
 		}
+
+		var songName:String = Paths.formatToSongPath(songs[curSelected].songName);
+		var img = Paths.image('freeplay/bg/$songName');
+		if (img == null) img = Paths.image('freeplay/bg/default');
+
+		bg.loadGraphic(img);
 	}
 
 }

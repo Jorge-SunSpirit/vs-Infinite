@@ -3,9 +3,9 @@
 	"hideFreeplay": false,
 	"weekBackground": "stage",
 	"freeplayColor": [
-		146,
-		113,
-		253
+		255,
+		0,
+		80
 	],
 	"weekBefore": "tutorial",
 	"startUnlocked": true,
@@ -19,41 +19,41 @@
 			"Phantom",
 			"maskedinfinite",
 			[
-				146,
-				113,
-				253
+				250,
+				119,
+				35
 			],
-			"Kairii"
+			"JACKALRUIN"
 		],
 		[
 			"Masked",
 			"maskedinfinite",
 			[
-				146,
-				113,
-				253
+				250,
+				119,
+				35
 			],
-			"Kairii"
+			"JACKALRUIN"
 		],
 		[
 			"Fragility",
 			"maskedinfinite",
 			[
-				146,
-				113,
-				253
+				250,
+				119,
+				35
 			],
-			"Kairii"
+			"JACKALRUIN"
 		],
 		[
 			"RUBY INSANITY",
 			"infinite",
 			[
-				146,
-				113,
-				253
+				204,
+				0,
+				255
 			],
-			"Kairii"
+			"JACKALRUIN"
 		]
 	],
 	"hideStoryMode": false,

@@ -5,6 +5,10 @@
 			"text": "mystic_jungle"
 		},
 		{
+			"command": "playmusic",
+			"text": "cutscene"
+		},
+		{
 			"command": "center"
 		},
 		{
@@ -76,6 +80,9 @@
 			"expression": "Thinking",
 			"text": "More importantly, where are my friends?",
 			"sound": ""
+		},
+		{
+			"command": "pausemusic"
 		},
 		{
 			"command": "bgfadeout"

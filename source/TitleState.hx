@@ -255,6 +255,15 @@ class TitleState extends MusicBeatState
 
 		FlxTween.tween(credTextShit, {y: credTextShit.y + 20}, 2.9, {ease: FlxEase.quadInOut, type: PINGPONG});
 
+		#if sys
+		if (!initialized && Argument.parse(Sys.args()))
+		{
+			initialized = true;
+			FlxG.sound.playMusic(Paths.music('freakyMenu'), 0);
+			return;
+		}
+		#end
+
 		if (initialized)
 			skipIntro();
 		else

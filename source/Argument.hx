@@ -26,8 +26,8 @@ class Argument
 Usage:
   ${exeName} (menu | story | freeplay | mods | options)
   ${exeName} credits [-p | --psych]
-  ${exeName} play "Song Name" ["Mod Folder"] [-s | --story]
-  ${exeName} chart "Song Name" ["Mod Folder"]
+  ${exeName} play "Song Name" ["Mod Folder"] [-s | --story] [-d=<val> | --diff=<val>]
+  ${exeName} chart "Song Name" ["Mod Folder"] [-d=<val> | --diff=<val>]
   ${exeName} debug ["Mod Folder"]
   ${exeName} character <char> ["Mod Folder"]
   ${exeName} -h | --help
@@ -75,24 +75,37 @@ Options:
 			case 'play':
 			{
 				var modFolder:String = null;
+				var diff:String = null;
 				for (i in 2...args.length)
 				{
 					if (args[i] == '-s' || args[i] == '--story')
-					{
 						PlayState.isStoryMode = true;
-						continue;
-					}
 
-					modFolder = args[i];
+					else if (args[i].startsWith('-d=') || args[i].startsWith('--diff='))
+						diff = (args[i].split('='))[1];
+
+					else if (modFolder != null)
+						modFolder = args[i];
 				}
 
-				setupSong(args[1], modFolder);
+				setupSong(args[1], modFolder, diff);
 				LoadingState.loadAndSwitchState(new PlayState(), true);
 			}
 
 			case 'chart':
 			{
-				setupSong(args[1], args[2]);
+				var modFolder:String = null;
+				var diff:String = null;
+				for (i in 2...args.length)
+				{
+					if (args[i].startsWith('-d') || args[i].startsWith('--diff'))
+						diff = (args[i].split('='))[1];
+
+					else if (modFolder != null)
+						modFolder = args[i];
+				}
+
+				setupSong(args[1], args[2], diff);
 				LoadingState.loadAndSwitchState(new ChartingState(), true);
 			}
 
@@ -112,7 +125,7 @@ Options:
 		return true;
 	}
 
-	static function setupSong(songName:String, ?modFolder:String):Void
+	static function setupSong(songName:String, ?modFolder:String, ?diff:String):Void
 	{
 		WeekData.reloadWeekFiles(PlayState.isStoryMode);
 
@@ -142,8 +155,8 @@ Options:
 			Paths.currentModDirectory = modFolder;
 		}
 
-		// hardcoding diff because i do NOT want to figure out how to specify it
-		PlayState.SONG = Song.loadFromJson('${songName}-hard', songName);
+		var jsonName:String = songName + (diff != null ? '-${diff}' : '');
+		PlayState.SONG = Song.loadFromJson(jsonName, songName);
 	}
 }
 #end

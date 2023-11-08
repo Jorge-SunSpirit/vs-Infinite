@@ -33,9 +33,10 @@ Usage:
   ${exeName} -h | --help
 
 Options:
-  -h, --help   Show this screen.
-  -s, --story  Enables story mode when in play state.
-  -p, --psych  Opens the Psych Engine credits state.
+  -h       --help        Show this screen.
+  -s       --story       Enables story mode when in play state.
+  -p       --psych       Opens the Psych Engine credits state.
+  -d=<val> --diff=<val>  Sets the difficulty for the song. [default: normal]
 ');
 
 				Sys.exit(0);

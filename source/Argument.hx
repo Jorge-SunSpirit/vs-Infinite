@@ -36,7 +36,7 @@ Options:
   -h       --help        Show this screen.
   -s       --story       Enables story mode when in play state.
   -p       --psych       Opens the Psych Engine credits state.
-  -d=<val> --diff=<val>  Sets the difficulty for the song. [default: normal]
+  -d=<val> --diff=<val>  Sets the difficulty for the song. [default: ${CoolUtil.defaultDifficulty.toLowerCase().trim()}]
 ');
 
 				Sys.exit(0);
@@ -156,7 +156,8 @@ Options:
 			Paths.currentModDirectory = modFolder;
 		}
 
-		var jsonName:String = songName + (diff != null ? '-${diff}' : '');
+		var defaultDiff:Bool = diff == null || (diff != null && diff.toLowerCase().trim() == CoolUtil.defaultDifficulty.toLowerCase().trim());
+		var jsonName:String = songName + (!defaultDiff ? '-${diff}' : '');
 		PlayState.SONG = Song.loadFromJson(jsonName, songName);
 	}
 }

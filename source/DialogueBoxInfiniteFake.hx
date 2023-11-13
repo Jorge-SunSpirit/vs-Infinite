@@ -25,7 +25,7 @@ class DialogueBoxInfiniteFake extends FlxSpriteGroup
 	var characterPortrait:FlxSprite;
 	var characterName:FlxText;
 	var dialogueText:FlxTypeText;
-	var dialogueVoice:FlxSound;
+	//var dialogueVoice:FlxSound;
 
 	public var finishThing:Void->Void = null;
 
@@ -112,8 +112,10 @@ class DialogueBoxInfiniteFake extends FlxSpriteGroup
 		dialogueText.skip();
 		if (dialogueData.dialogue[currentDialogue] != null)
 		{
+			/*
 			if (dialogueData.dialogue[currentDialogue].sound == '')
 				FlxG.sound.play(Paths.sound('scrollMenu'));
+			*/
 
 			startDialogue();
 		}
@@ -140,8 +142,10 @@ class DialogueBoxInfiniteFake extends FlxSpriteGroup
 			curDialogue.expression = '';
 		if (curDialogue.text == null || curDialogue.text.length < 1)
 			curDialogue.text = '';
+		/*
 		if (curDialogue.sound == null || curDialogue.sound.length < 1)
 			curDialogue.sound = '';
+		*/
 
 		characterName.text = curDialogue.character;
 
@@ -152,6 +156,7 @@ class DialogueBoxInfiniteFake extends FlxSpriteGroup
 			dialogueEnded = true;
 		};
 
+		/*
 		killVoice();
 
 		if (curDialogue.sound != '')
@@ -160,6 +165,7 @@ class DialogueBoxInfiniteFake extends FlxSpriteGroup
 			dialogueVoice = new FlxSound();
 
 		dialogueVoice.play();
+		*/
 
 		characterPortrait.loadGraphic(Paths.image('dialogue/fake/portrait/${curDialogue.character}_${curDialogue.expression}'));
 		characterPortrait.visible = true;
@@ -179,6 +185,7 @@ class DialogueBoxInfiniteFake extends FlxSpriteGroup
 		currentDialogue++;
 	}
 
+	/*
 	function killVoice():Void
 	{
 		if (dialogueVoice != null)
@@ -187,11 +194,12 @@ class DialogueBoxInfiniteFake extends FlxSpriteGroup
 			dialogueVoice.destroy();
 		}
 	}
+	*/
 
 	public function closeDialogue():Void
 	{
 		allowInput = false;
-		killVoice();
+		// killVoice();
 		finishThing();
 		kill();
 	}

@@ -44,9 +44,9 @@ class DialogueBoxInfiniteFake extends FlxSpriteGroup
 		box.antialiasing = ClientPrefs.globalAntialiasing;
 		add(box);
 
-		characterPortrait = new FlxSprite(268, 160).loadGraphic(Paths.image('dialogue/fake/portrait/Fumo_Normal'));
+		characterPortrait = new FlxSprite(-154, -192).loadGraphic(Paths.image('dialogue/fake/portrait/Fumo_Normal'));
 		characterPortrait.antialiasing = ClientPrefs.globalAntialiasing;
-		characterPortrait.scale.set(0.75, 0.75);
+		characterPortrait.scale.set(0.35, 0.35);
 		characterPortrait.updateHitbox();
 		characterPortrait.visible = false;
 		add(characterPortrait);
@@ -64,6 +64,43 @@ class DialogueBoxInfiniteFake extends FlxSpriteGroup
 		startDialogue();
 	}
 
+	#if debug
+	override function update(elapsed:Float):Void
+	{
+		super.update(elapsed);
+
+		var posVal:Array<Float> = [50 / 4, 10 / 4];
+		var scaVal:Array<Float> = [0.05, 0.01];
+
+		if (FlxG.keys.pressed.CONTROL && (FlxG.keys.pressed.I || FlxG.keys.pressed.J || FlxG.keys.pressed.K || FlxG.keys.pressed.L || FlxG.keys.pressed.Q || FlxG.keys.pressed.E))
+		{
+			if (FlxG.keys.justPressed.I)
+				characterPortrait.y -= FlxG.keys.pressed.SHIFT ? posVal[0] : posVal[1];
+			else if (FlxG.keys.justPressed.K)
+				characterPortrait.y += FlxG.keys.pressed.SHIFT ? posVal[0] : posVal[1];
+
+			if (FlxG.keys.justPressed.J)
+				characterPortrait.x -= FlxG.keys.pressed.SHIFT ? posVal[0] : posVal[1];
+			else if (FlxG.keys.justPressed.L)
+				characterPortrait.x += FlxG.keys.pressed.SHIFT ? posVal[0] : posVal[1];
+
+			if (FlxG.keys.justPressed.Q)
+			{
+				characterPortrait.scale.x -= FlxG.keys.pressed.SHIFT ? scaVal[0] : scaVal[1];
+				characterPortrait.scale.y -= FlxG.keys.pressed.SHIFT ? scaVal[0] : scaVal[1];
+			}
+			else if (FlxG.keys.justPressed.E)
+			{
+				characterPortrait.scale.x += FlxG.keys.pressed.SHIFT ? scaVal[0] : scaVal[1];
+				characterPortrait.scale.y += FlxG.keys.pressed.SHIFT ? scaVal[0] : scaVal[1];
+			}
+		}
+	
+		FlxG.watch.addQuick("portrait pos", [characterPortrait.x, characterPortrait.y]);
+		FlxG.watch.addQuick("portrait scale", [characterPortrait.scale.x]);
+	}
+	#end
+		
 	var allowInput:Bool = true;
 
 	// Because this will be handled via events, here's a function solely for advancing text.
@@ -131,8 +168,10 @@ class DialogueBoxInfiniteFake extends FlxSpriteGroup
 		{
 			default:
 				characterPortrait.visible = false;
-			case 'sonic' | 'infinite':
-				// nothing
+			case 'infinite':
+				characterPortrait.setPosition(-154, -192);
+			case 'sonic':
+				characterPortrait.setPosition(-45, -45);
 		}
 
 		dialogueEnded = false;

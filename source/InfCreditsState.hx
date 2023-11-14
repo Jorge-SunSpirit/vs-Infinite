@@ -36,16 +36,24 @@ class InfCreditsState extends MusicBeatState
 	var userChara:Array<Array<String>> = [ //Name - Icon name - role - Quote of the day - Link - Which Row - position
 		//column 1
 		['JACKALRUIN',	'jackalruin',	'Director, Music, UI',	"BECKON THE SKY",	'https://www.youtube.com/@JACKALRUIN',	"0", "0"],
-		['Crim',	'crim',	'Main Artist',	":v",	'https://twitter.com/ScrimbloCrimbo',	"0", "1"],
-		['SirDusterBuster',	'duster',	'Sprite Animator',	"When is vs Zavok?",	'https://twitter.com/SirDusterBuster',	"0", "2"],
-		['Hisa',	'hisa',	'Infinite Sketches',	"hueh",	'https://www.youtube.com/watch?v=0MW9Nrg_kZU',	"0", "3"],
-		['LezaLeza',	'leza',	'BG Artist',	"hueh",	'https://twitter.com/lezanikat',	"0", "4"],
+		['crim',	'crim',	'Main Artist',	":v",	'https://twitter.com/ScrimbloCrimbo',	"1", "0"],
+		['Juno Songs',	'psych',	'Freeplay Artwork',	"",	'https://twitter.com/ScrimbloCrimbo',	"2", "0"],
 
-		['M&M',	'mandm',	'Main Programmer',	"i put fortnite on a scu burner account",	'https://linktr.ee/ActualMandM',	"1", "0"],
-		['Jorge - SunSpirit',	'jorge',	'UI Programmer',	"Defeat me with heat beams, you're crazy!",	'https://twitter.com/Jorge_SunSpirit',	"1", "1"],
-		['HighPoweredKeyz',	'hpk',	'Chromatic Assistance',	"Stay creative, and stay powerful.",	'https://twitter.com/HighPoweredArt',	"1", "2"],
-		['Flootena',	'flootena',	'Charter',	"hueh",	'https://twitter.com/FlootenaDX',	"1", "3"],
-		['Psych Engine Team',	'psych',	'Psych Engine Credits',	"Open the Psych Engine Credits Here!",	'hueh',	"1", "4"]
+		['Amai Hisa',	'hisa',	'Artist',	"hueh",	'https://www.youtube.com/watch?v=0MW9Nrg_kZU',	"0", "1"],
+		['HighPoweredKeyz',	'hpk',	'Animations, Chromatics, and Graphics',	"Stay creative, and stay powerful.",	'https://twitter.com/HighPoweredArt',	"1", "1"],
+		['Lezanikat',	'leza',	'Background artist',	"hueh",	'https://twitter.com/lezanikat',	"2", "1"],
+
+		['M&M',	'mandm',	'Main Programmer',	"i put fortnite on a scu burner account",	'https://linktr.ee/ActualMandM',	"0", "2"],
+		['Jorge - SunSpirit',	'jorge',	'UI Programmer',	"Defeat me with heat beams, you're crazy!",	'https://twitter.com/Jorge_SunSpirit',	"1", "2"],
+		['SirDusterBuster',	'duster',	'Chart Events',	"When is vs Zavok?",	'https://twitter.com/SirDusterBuster',	"2", "2"],
+
+		['James Dijit',	'psych',	'Voice of Infinite',	"hueh",	'https://twitter.com/FlootenaDX',	"0", "3"],
+		['TheNamesFaceless',	'psych',	'Voice of Jorge',	"hueh",	'https://twitter.com/FlootenaDX',	"1", "3"],
+		['Redpandaa98',	'psych',	'Voice of Tails',	"hueh",	'https://twitter.com/FlootenaDX',	"2", "3"],
+		
+		['Flootena',	'flootena',	'Charter',	"hueh",	'https://twitter.com/FlootenaDX',	"0", "4"],
+		['Aizakku',	'psych',	'Charter',	"hueh",	'https://twitter.com/FlootenaDX',	"1", "4"],
+		['Psych Engine Team',	'psych',	'Psych Engine Credits',	"Open the Psych Engine Credits Here!",	'hueh',	"2", "4"]
 	];
 
 	var bg:FlxSprite;
@@ -76,7 +84,7 @@ class InfCreditsState extends MusicBeatState
 	
 		for (i in 0...creditsStuff.length)
 		{
-			var creditObject:CreditsItem = new CreditsItem(290 + (346 * Std.parseFloat(creditsStuff[i][5])), 171 + (88 * Std.parseFloat(creditsStuff[i][6])), creditsStuff[i][0], creditsStuff[i][2], creditsStuff[i][1]);
+			var creditObject:CreditsItem = new CreditsItem(112 + (353 * Std.parseFloat(creditsStuff[i][5])), 171 + (92 * Std.parseFloat(creditsStuff[i][6])), creditsStuff[i][0], creditsStuff[i][2], creditsStuff[i][1]);
 			grpOptions.add(creditObject);
 		}
 
@@ -146,13 +154,13 @@ class InfCreditsState extends MusicBeatState
 		switch(direction)
 		{
 			case 'left':
-				change = -5;
-			case 'right':
-				change = 5;
-			case 'up':
 				change = -1;
-			case 'down':
+			case 'right':
 				change = 1;
+			case 'up':
+				change = -3;
+			case 'down':
+				change = 3;
 			default:
 				change = 0;
 		}
@@ -217,7 +225,7 @@ class CreditsItem extends FlxSpriteGroup
 		username.antialiasing = ClientPrefs.globalAntialiasing;
 		add(username);
 
-		var userrole:FlxText = new FlxText(70, 45, 200, role);
+		var userrole:FlxText = new FlxText(70, 45, 250, role);
 		userrole.setFormat(Paths.font("futura.otf"), 20, 0xFFddcdb7, FlxTextAlign.LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		userrole.antialiasing = ClientPrefs.globalAntialiasing;
 		add(userrole);

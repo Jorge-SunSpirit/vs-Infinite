@@ -48,7 +48,7 @@ class InfCreditsState extends MusicBeatState
 		['SirDusterBuster',	'duster',	'Chart Events',	"When is vs Zavok?",	'https://twitter.com/SirDusterBuster',	"2", "2"],
 
 		['James Dijit',	'psych',	'Voice of Infinite',	"hueh",	'https://twitter.com/FlootenaDX',	"0", "3"],
-		['TheNamesFaceless',	'psych',	'Voice of Jorge',	"hueh",	'https://twitter.com/FlootenaDX',	"1", "3"],
+		['TheNamesFaceless',	'psych',	'Voice of Sonic',	"hueh",	'https://twitter.com/FlootenaDX',	"1", "3"],
 		['Redpandaa98',	'psych',	'Voice of Tails',	"hueh",	'https://twitter.com/FlootenaDX',	"2", "3"],
 		
 		['Flootena',	'flootena',	'Charter',	"hueh",	'https://twitter.com/FlootenaDX',	"0", "4"],

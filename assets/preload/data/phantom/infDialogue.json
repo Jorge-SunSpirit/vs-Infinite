@@ -2,7 +2,7 @@
 	"dialogue": [
 		{
 			"command": "bg",
-			"text": "mystic_jungle"
+			"text": "black"
 		},
 		{
 			"command": "playmusic",
@@ -22,6 +22,10 @@
 		},
 		{
 			"command": "normal"
+		},
+		{
+			"command": "bg",
+			"text": "mystic_jungle"
 		},
 		{
 			"character": "Sonic",

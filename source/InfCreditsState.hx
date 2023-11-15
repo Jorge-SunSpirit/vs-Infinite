@@ -133,15 +133,15 @@ class InfCreditsState extends MusicBeatState
 				{
 					CoolUtil.browserLoad('https://www.youtube.com/watch?v=0MW9Nrg_kZU');
 				}
+				else if (creditsStuff[curSelected][0] == 'Psych Engine Team')
+				{
+					MusicBeatState.switchState(new CreditsState());
+					quitting = true;
+				}
 				else if (creditsStuff[curSelected][4] != '')
 				{
 					CoolUtil.browserLoad(creditsStuff[curSelected][4]);
 				}
-			}
-			else if(controls.ACCEPT && creditsStuff[curSelected][4] == 'hueh')
-			{
-				MusicBeatState.switchState(new CreditsState());
-				quitting = true;
 			}
 
 			if (controls.BACK)

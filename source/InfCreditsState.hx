@@ -69,6 +69,7 @@ class InfCreditsState extends MusicBeatState
 		persistentUpdate = true;
 
 		bg = new FlxSprite().loadGraphic(Paths.image('credits/VSInfiniteCredits'));
+		bg.antialiasing = ClientPrefs.globalAntialiasing;
 		bg.screenCenter();
 		add(bg);
 
@@ -97,8 +98,8 @@ class InfCreditsState extends MusicBeatState
 
 		descText = new FlxText(264, 640, 753, "", 32);
 		descText.setFormat(Paths.font("futura.otf"), 32, 0xFFFFBDBD, CENTER, FlxTextBorderStyle.SHADOW, FlxColor.BLACK);
-		descText.scrollFactor.set();
 		descText.antialiasing = ClientPrefs.globalAntialiasing;
+		descText.scrollFactor.set();
 		add(descText);
 
 		changeSelection();

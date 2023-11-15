@@ -53,7 +53,7 @@ class InfCreditsState extends MusicBeatState
 		
 		['Flootena',	'flootena',	'Charter',	"hueh",	'https://twitter.com/FlootenaDX',	"0", "4"],
 		['Aizakku',	'aizakku',	'Charter',	"hueh",	'https://twitter.com/FlootenaDX',	"1", "4"],
-		['Psych Engine Team',	'psych',	'Psych Engine Credits',	"Open the Psych Engine Credits Here!",	'hueh',	"2", "4"]
+		['Psych Engine Team',	'psych',	'Psych Engine Credits',	"Open the Psych Engine Credits Here!",	'',	"2", "4"]
 	];
 
 	var bg:FlxSprite;
@@ -127,9 +127,16 @@ class InfCreditsState extends MusicBeatState
 					changeSelection('right');
 			}
 
-			if (controls.ACCEPT && creditsStuff[curSelected][4] != 'hueh')
+			if (controls.ACCEPT)
 			{
-				CoolUtil.browserLoad(creditsStuff[curSelected][4]);
+				if (creditsStuff[curSelected][0] == 'Jorge - SunSpirit' && FlxG.keys.pressed.G)
+				{
+					CoolUtil.browserLoad('https://www.youtube.com/watch?v=0MW9Nrg_kZU');
+				}
+				else if (creditsStuff[curSelected][4] != '')
+				{
+					CoolUtil.browserLoad(creditsStuff[curSelected][4]);
+				}
 			}
 			else if(controls.ACCEPT && creditsStuff[curSelected][4] == 'hueh')
 			{

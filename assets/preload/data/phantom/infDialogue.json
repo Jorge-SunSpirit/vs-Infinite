@@ -31,7 +31,7 @@
 			"character": "Sonic",
 			"expression": "Normal",
 			"text": "Tails said something about his radar locating some strange signal from Mystic Jungle. It should be right ahead...",
-			"sound": ""
+			"sound": "radioDialogue"
 		},
 		{
 			"character": "Sonic",

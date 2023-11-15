@@ -85,10 +85,14 @@ class DialogueBoxInfinite extends FlxSpriteGroup
 		dialogueText.antialiasing = ClientPrefs.globalAntialiasing;
 		add(dialogueText);
 
+		startDialogue();
+
+		/*
 		FlxG.sound.play(Paths.sound('radioDialogue'), function()
 		{
 			startDialogue();
 		});
+		*/
 	}
 
 	var allowInput:Bool = true;

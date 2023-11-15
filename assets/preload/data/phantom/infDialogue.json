@@ -12,20 +12,23 @@
 			"command": "center"
 		},
 		{
-			"command": "fadein"
-		},
-		{
 			"character": "Fumo",
 			"expression": "Normal",
 			"text": "Several hours before Sonic, Tails and Amy get lost on the Starfall Islands...",
 			"sound": ""
 		},
 		{
-			"command": "normal"
+			"command": "hidetext"
 		},
 		{
 			"command": "bg",
 			"text": "mystic_jungle"
+		},
+		{
+			"command": "fadein"
+		},
+		{
+			"command": "normal"
 		},
 		{
 			"character": "Sonic",

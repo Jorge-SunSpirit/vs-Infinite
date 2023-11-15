@@ -312,6 +312,16 @@ class DialogueBoxInfinite extends FlxSpriteGroup
 						});
 					});
 				}
+				case 'fadeout2':
+				{
+					PlayState.instance.camOther.fade(0xFF000000, 1.5, false, function()
+					{
+						new FlxTimer().start(0.5, function(tmr:FlxTimer)
+						{
+							endDialogue();
+						});
+					});
+				}
 				case 'flash':
 				{
 					PlayState.instance.camOther.fade(0xFFFFFFFF, 0.4, true, function()
@@ -353,6 +363,16 @@ class DialogueBoxInfinite extends FlxSpriteGroup
 					characterName.visible = true;
 					dialogueText.setPosition(340, 504);
 					dialogueText.setFormat(Paths.font("futura.otf"), 24, 0xFFFFFFFF, LEFT, FlxTextBorderStyle.OUTLINE, 0xFF181818);
+					dialogueText.visible = true;
+					endDialogue();
+				}
+				case 'hidetext':
+				{
+					dialogueText.visible = false;
+					endDialogue();
+				}
+				case 'showtext':
+				{
 					dialogueText.visible = true;
 					endDialogue();
 				}

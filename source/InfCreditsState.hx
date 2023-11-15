@@ -37,22 +37,22 @@ class InfCreditsState extends MusicBeatState
 		//column 1
 		['JACKALRUIN',	'jackalruin',	'Director, Music, UI',	"BECKON THE SKY",	'https://www.youtube.com/@JACKALRUIN',	"0", "0"],
 		['crim',	'crim',	'Main Artist',	":v",	'https://twitter.com/ScrimbloCrimbo',	"1", "0"],
-		['Juno Songs',	'psych',	'Freeplay Artwork',	"",	'https://twitter.com/ScrimbloCrimbo',	"2", "0"],
+		['Juno Songs',	'juno',	'Freeplay Artwork',	"",	'https://twitter.com/ScrimbloCrimbo',	"2", "0"],
 
 		['Amai Hisa',	'hisa',	'Artist',	"hueh",	'https://www.youtube.com/watch?v=0MW9Nrg_kZU',	"0", "1"],
 		['HighPoweredKeyz',	'hpk',	'Animations, Chromatics, and Graphics',	"Stay creative, and stay powerful.",	'https://twitter.com/HighPoweredArt',	"1", "1"],
-		['Lezanikat',	'leza',	'Background artist',	"hueh",	'https://twitter.com/lezanikat',	"2", "1"],
+		['Lezanikat',	'leza',	'Background Artist',	"hueh",	'https://twitter.com/lezanikat',	"2", "1"],
 
 		['M&M',	'mandm',	'Main Programmer',	"i put fortnite on a scu burner account",	'https://linktr.ee/ActualMandM',	"0", "2"],
 		['Jorge - SunSpirit',	'jorge',	'UI Programmer',	"Defeat me with heat beams, you're crazy!",	'https://twitter.com/Jorge_SunSpirit',	"1", "2"],
 		['SirDusterBuster',	'duster',	'Chart Events',	"When is vs Zavok?",	'https://twitter.com/SirDusterBuster',	"2", "2"],
 
-		['James Dijit',	'psych',	'Voice of Infinite',	"hueh",	'https://twitter.com/FlootenaDX',	"0", "3"],
-		['TheNamesFaceless',	'psych',	'Voice of Sonic',	"hueh",	'https://twitter.com/FlootenaDX',	"1", "3"],
-		['Redpandaa98',	'psych',	'Voice of Tails',	"hueh",	'https://twitter.com/FlootenaDX',	"2", "3"],
+		['James Dijit',	'dijit',	'Voice of Infinite',	"hueh",	'https://twitter.com/FlootenaDX',	"0", "3"],
+		['TheNamesFaceless',	'faceless',	'Voice of Sonic',	"hueh",	'https://twitter.com/FlootenaDX',	"1", "3"],
+		['Redpandaa98',	'redpanda',	'Voice of Tails',	"hueh",	'https://twitter.com/FlootenaDX',	"2", "3"],
 		
 		['Flootena',	'flootena',	'Charter',	"hueh",	'https://twitter.com/FlootenaDX',	"0", "4"],
-		['Aizakku',	'psych',	'Charter',	"hueh",	'https://twitter.com/FlootenaDX',	"1", "4"],
+		['Aizakku',	'aizakku',	'Charter',	"hueh",	'https://twitter.com/FlootenaDX',	"1", "4"],
 		['Psych Engine Team',	'psych',	'Psych Engine Credits',	"Open the Psych Engine Credits Here!",	'hueh',	"2", "4"]
 	];
 

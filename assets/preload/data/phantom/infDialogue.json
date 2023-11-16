@@ -18,6 +18,9 @@
 			"sound": ""
 		},
 		{
+			"command": "fadeout2"
+		},
+		{
 			"command": "hidetext"
 		},
 		{

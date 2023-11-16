@@ -51,8 +51,8 @@ class InfCreditsState extends MusicBeatState
 		['TheNamesFaceless',	'faceless',	'Voice of Sonic',	"Live life to the fullest. Atleast, thats what I figure!",	'https://twitter.com/ThenameFaceless',	"1", "3"],
 		['Redpandaa98',	'redpanda',	'Voice of Tails',	"hueh",	'https://twitter.com/redpandaa98',	"2", "3"],
 		
-		['Flootena',	'flootena',	'Charter',	"hueh",	'https://twitter.com/FlootenaDX',	"0", "4"],
-		['Aizakku',	'aizakku',	'Charter',	"hueh",	'https://twitter.com/ItsAizakku',	"1", "4"],
+		['Flootena',	'flootena',	'Charter',	"Play Puyo Puyo Please",	'https://twitter.com/FlootenaDX',	"0", "4"],
+		['Aizakku',	'aizakku',	'Charter',	"Like a knight, I'll fight, until the fight is won",	'https://twitter.com/ItsAizakku',	"1", "4"],
 		['Psych Engine Team',	'psych',	'Psych Engine Credits',	"Open the Psych Engine Credits Here!",	'',	"2", "4"]
 	];
 

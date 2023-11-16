@@ -47,7 +47,7 @@ class InfCreditsState extends MusicBeatState
 		['Jorge - SunSpirit',	'jorge',	'UI Programmer',	"Defeat me with heat beams, you're crazy!",	'https://twitter.com/Jorge_SunSpirit',	"1", "2"],
 		['SirDusterBuster',	'duster',	'Chart Events',	"When is vs Zavok?",	'https://twitter.com/SirDusterBuster',	"2", "2"],
 
-		['James Dijit',	'dijit',	'Voice of Infinite',	"hueh",	'https://twitter.com/FlootenaDX',	"0", "3"],
+		['James Dijit',	'dijit',	'Voice of Infinite',	"Dance with me, my friends. The crowd awaits!",	'https://twitter.com/FlootenaDX',	"0", "3"],
 		['TheNamesFaceless',	'faceless',	'Voice of Sonic',	"hueh",	'https://twitter.com/FlootenaDX',	"1", "3"],
 		['Redpandaa98',	'redpanda',	'Voice of Tails',	"hueh",	'https://twitter.com/FlootenaDX',	"2", "3"],
 		

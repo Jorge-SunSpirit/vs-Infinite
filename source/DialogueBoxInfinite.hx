@@ -236,6 +236,11 @@ class DialogueBoxInfinite extends FlxSpriteGroup
 
 			switch (curDialogue.command.toLowerCase())
 			{
+				default:
+				{
+					// Invalid command, immediately end incase this is an older build playing newer commands so we don't softlock
+					endDialogue();
+				}
 				case 'playmusic':
 				{
 					FlxG.sound.playMusic(Paths.music(curDialogue.text), 1);

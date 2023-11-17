@@ -67,6 +67,9 @@
 		},
 		{
 			"command": "fadeout"
+		},
+		{
+			"command": "noclosesfx"
 		}
 	]
 }

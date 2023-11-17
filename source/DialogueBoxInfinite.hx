@@ -164,6 +164,7 @@ class DialogueBoxInfinite extends FlxSpriteGroup
 	}
 
 	var dialogueEnded:Bool = false;
+	var playClose:Bool = true;
 
 	function startDialogue():Void
 	{
@@ -383,6 +384,21 @@ class DialogueBoxInfinite extends FlxSpriteGroup
 					FlxG.sound.play(Paths.sound(curDialogue.sound));
 					endDialogue();
 				}
+				case 'noclosesfx':
+				{
+					playClose = false;
+					endDialogue();
+				}
+				case 'timer':
+				{
+					var duration:Float = Std.parseFloat(curDialogue.text);
+					if(Math.isNaN(duration) || duration < 0) duration = 0;
+
+					new FlxTimer().start(duration, function(tmr:FlxTimer)
+					{
+						endDialogue();
+					});
+				}
 			}
 		}
 	}
@@ -410,7 +426,9 @@ class DialogueBoxInfinite extends FlxSpriteGroup
 	function closeDialogue():Void
 	{
 		allowInput = false;
-		FlxG.sound.play(Paths.sound('cancelMenu'));
+
+		if (playClose)
+			FlxG.sound.play(Paths.sound('cancelMenu'));
 
 		if (FlxG.sound.music != null && FlxG.sound.music.playing)
 			FlxG.sound.music.fadeOut((Conductor.crochet / 1000) * 4, 0);

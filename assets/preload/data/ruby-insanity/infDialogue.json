@@ -1,6 +1,26 @@
 {
 	"dialogue": [
 		{
+			"command": "center"
+		},
+		{
+			"command": "bg",
+			"text": "sunset_heights"
+		},
+		{
+			"command": "rubystart"
+		},
+		{
+			"command": "bg",
+			"text": "null_space"
+		},
+		{
+			"command": "rubyend"
+		},
+		{
+			"command": "normal"
+		},
+		{
 			"character": "Sonic",
 			"expression": "Frustrated",
 			"text": "Infinite!",
@@ -53,6 +73,9 @@
 			"expression": "FrustratedGrin",
 			"text": "Now let's wrap this up!",
 			"sound": ""
+		},
+		{
+			"command": "bgfadeout"
 		}
 	]
 }

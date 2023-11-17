@@ -414,7 +414,7 @@ class DialogueBoxInfinite extends FlxSpriteGroup
 			closeDialogue();
 	}
 
-	function killVoice():Void
+	inline function killVoice():Void
 	{
 		if (dialogueVoice != null)
 		{
@@ -435,6 +435,7 @@ class DialogueBoxInfinite extends FlxSpriteGroup
 
 		new FlxTimer().start(0.1, function(tmr:FlxTimer)
 		{
+			PlayState.instance.camOther.setFilters(null);
 			killVoice();
 			finishThing();
 			kill();

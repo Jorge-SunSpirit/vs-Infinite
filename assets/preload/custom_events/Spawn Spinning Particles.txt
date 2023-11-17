@@ -1,4 +1,4 @@
-Spawn Particles
+Spawn Spinning Particles
 Doing it a second time will disable it afterwards
 
 Value 1: Sprite

@@ -3,7 +3,7 @@ local particleSprite = '';
 local ypos = '';
 
 function onEvent(name, value1, value2) 
-	if name == 'Spawn Particles' then
+	if name == 'Spawn Spinning Particles' then
 		particles = not particles;
 		particleSprite = value1;
 		ypos = tonumber(value2);
@@ -22,6 +22,7 @@ function onBeatHit()
 			parti.antialiasing = ClientPrefs.globalAntialiasing;
 			parti.x = FlxG.random.int(-500, 2000);
 			parti.y = game.boyfriend.y + ypos;
+			parti.angularVelocity = FlxG.random.float(-90, 90) / game.playbackRate;
 			parti.scale.set(scale, scale);
 			game.add(parti);
 

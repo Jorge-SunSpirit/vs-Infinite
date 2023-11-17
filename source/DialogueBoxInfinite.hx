@@ -86,13 +86,6 @@ class DialogueBoxInfinite extends FlxSpriteGroup
 		add(dialogueText);
 
 		startDialogue();
-
-		/*
-		FlxG.sound.play(Paths.sound('radioDialogue'), function()
-		{
-			startDialogue();
-		});
-		*/
 	}
 
 	var allowInput:Bool = true;
@@ -352,6 +345,7 @@ class DialogueBoxInfinite extends FlxSpriteGroup
 					box.visible = false;
 					characterPortrait.visible = false;
 					characterName.visible = false;
+					dialogueText.fieldWidth = FlxG.width;
 					dialogueText.screenCenter();
 					dialogueText.setFormat(Paths.font("futura.otf"), 24, 0xFFFFFFFF, CENTER, FlxTextBorderStyle.OUTLINE, 0xFF000000);
 					endDialogue();
@@ -361,6 +355,7 @@ class DialogueBoxInfinite extends FlxSpriteGroup
 					box.visible = true;
 					characterPortrait.visible = true;
 					characterName.visible = true;
+					dialogueText.fieldWidth = 776;
 					dialogueText.setPosition(340, 504);
 					dialogueText.setFormat(Paths.font("futura.otf"), 24, 0xFFFFFFFF, LEFT, FlxTextBorderStyle.OUTLINE, 0xFF181818);
 					dialogueText.visible = true;
@@ -374,6 +369,18 @@ class DialogueBoxInfinite extends FlxSpriteGroup
 				case 'showtext':
 				{
 					dialogueText.visible = true;
+					endDialogue();
+				}
+				case 'playsound':
+				{
+					FlxG.sound.play(Paths.sound(curDialogue.sound), function()
+					{
+						endDialogue();
+					});
+				}
+				case 'playsound2':
+				{
+					FlxG.sound.play(Paths.sound(curDialogue.sound));
 					endDialogue();
 				}
 			}

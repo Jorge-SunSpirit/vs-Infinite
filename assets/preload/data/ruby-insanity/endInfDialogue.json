@@ -11,7 +11,7 @@
 			"character": "Sonic",
 			"expression": "Hurt",
 			"text": "It doesn't matter how much that Ruby may help him.",
-			"sound": "radioDialogue"
+			"sound": ""
 		},
 		{
 			"character": "Sonic",
@@ -24,6 +24,10 @@
 			"expression": "NormalHurt",
 			"text": "There's no amount of illusions that can change that.",
 			"sound": ""
+		},
+		{
+			"command": "playsound2",
+			"sound": "radioDialogue"
 		},
 		{
 			"character": "Tails",

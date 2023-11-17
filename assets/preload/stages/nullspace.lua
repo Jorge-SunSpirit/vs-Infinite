@@ -1,8 +1,8 @@
 function onCreate()
-
 	posX = -400;
 	posY = -425;
 	scale = 1.7;
+
 	-- background shit
 	makeLuaSprite('bg', 'nullspace/bg1', posX, posY);
 	setScrollFactor('bg', 0.2, 0.2);
@@ -38,6 +38,5 @@ function onCreate()
 end
 
 function onCreatePost()
-	triggerEvent('Spawn Particles', 'nullspace/particle1', 'down')
-	close(true); --For performance reasons, close this script once the stage is fully loaded, as this script won't be used anymore after loading the stage
+	triggerEvent('Spawn Particles', 'nullspace/particle1', 'down');
 end

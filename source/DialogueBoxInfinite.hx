@@ -165,6 +165,7 @@ class DialogueBoxInfinite extends FlxSpriteGroup
 
 	var dialogueEnded:Bool = false;
 	var playClose:Bool = true;
+	var centerMode:Bool = false;
 
 	function startDialogue():Void
 	{
@@ -213,19 +214,22 @@ class DialogueBoxInfinite extends FlxSpriteGroup
 
 			dialogueVoice.play();
 
-			characterPortrait.loadGraphic(Paths.image('dialogue/normal/portrait/${curDialogue.character}_${curDialogue.expression}'));
-			characterPortrait.visible = true;
-
-			switch (curDialogue.character.toLowerCase())
+			if (!centerMode)
 			{
-				default:
-					characterPortrait.visible = false;
-				case 'infinite':
-					characterPortrait.scale.set(0.395, 0.395);
-					characterPortrait.setPosition(-474, -329);
-				case 'sonic' | 'tails':
-					characterPortrait.scale.set(0.399, 0.399);
-					characterPortrait.setPosition(-405, -160);
+				characterPortrait.loadGraphic(Paths.image('dialogue/normal/portrait/${curDialogue.character}_${curDialogue.expression}'));
+				characterPortrait.visible = true;
+	
+				switch (curDialogue.character.toLowerCase())
+				{
+					default:
+						characterPortrait.visible = false;
+					case 'infinite':
+						characterPortrait.scale.set(0.395, 0.395);
+						characterPortrait.setPosition(-474, -329);
+					case 'sonic' | 'tails':
+						characterPortrait.scale.set(0.399, 0.399);
+						characterPortrait.setPosition(-405, -160);
+				}
 			}
 
 			dialogueEnded = false;
@@ -348,6 +352,7 @@ class DialogueBoxInfinite extends FlxSpriteGroup
 				}
 				case 'center':
 				{
+					centerMode = true;
 					box.visible = false;
 					characterPortrait.visible = false;
 					characterName.visible = false;
@@ -358,6 +363,7 @@ class DialogueBoxInfinite extends FlxSpriteGroup
 				}
 				case 'normal':
 				{
+					centerMode = false;
 					box.visible = true;
 					characterPortrait.visible = true;
 					characterName.visible = true;

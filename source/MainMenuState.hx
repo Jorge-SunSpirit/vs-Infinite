@@ -35,6 +35,7 @@ class MainMenuState extends MusicBeatState
 		'options'
 	];
 
+	var changeTxt:FlxText;
 	var selector:FlxSprite;
 
 	var debugKeys:Array<FlxKey>;
@@ -67,8 +68,6 @@ class MainMenuState extends MusicBeatState
 		menuItems = new FlxTypedGroup<FlxSprite>();
 		add(menuItems);
 
-		var scale:Float = 1;
-
 		for (i in 0...optionShit.length)
 		{
 			var menuItem:FlxSprite = new FlxSprite(35, 68 + (i * 105));
@@ -84,6 +83,13 @@ class MainMenuState extends MusicBeatState
 			menuItem.antialiasing = ClientPrefs.globalAntialiasing;
 			menuItem.updateHitbox();
 		}
+
+		changeTxt = new FlxText(menuItems.members[0].x - 10, menuItems.members[0].y + 70, 0, 'Press CTRL to open the Gameplay Changers Menu', 12);
+		changeTxt.setFormat(Paths.font("futura.otf"), 16, FlxColor.RED, LEFT);
+		changeTxt.setBorderStyle(OUTLINE, 0xFFF9EDD7, 1.5);
+		changeTxt.antialiasing = ClientPrefs.globalAntialiasing;
+		changeTxt.angle = -6;
+		add(changeTxt);
 
 		var versionShit:FlxText = new FlxText(12, FlxG.height - 44, 0, "Psych Engine v" + psychEngineVersion, 12);
 		versionShit.scrollFactor.set();
@@ -234,22 +240,8 @@ class MainMenuState extends MusicBeatState
 			curSelected = menuItems.length - 1;
 
 		selector.x = -90;
-		/*
-		switch (curSelected)
-		{
-			case 0:
-				selector.x = -115;
-				selector.y = 35;
-			case 1:
-				selector.x = -90;
-				selector.y = 140;
-			case 2:
-				selector.x = -90;
-				selector.y = 246;
-			case 3:
-				selector.x = -90;
-				selector.y = 350;
-		}*/
+
+		changeTxt.visible = (curSelected == 0);
 
 		menuItems.forEach(function(spr:FlxSprite)
 		{

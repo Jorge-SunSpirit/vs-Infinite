@@ -34,6 +34,10 @@
 			"command": "fadein"
 		},
 		{
+			"command": "timer",
+			"text": "0.5"
+		},
+		{
 			"command": "normal"
 		},
 		{

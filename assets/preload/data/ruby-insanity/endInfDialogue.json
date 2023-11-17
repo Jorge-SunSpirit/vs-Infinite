@@ -1,11 +1,21 @@
 {
 	"dialogue": [
 		{
+			"command": "center"
+		},
+		{
 			"command": "bg",
 			"text": "mystic_jungle"
 		},
 		{
 			"command": "rubyend"
+		},
+		{
+			"command": "timer",
+			"text": "0.6"
+		},
+		{
+			"command": "normal"
 		},
 		{
 			"character": "Sonic",
@@ -26,7 +36,7 @@
 			"sound": ""
 		},
 		{
-			"command": "playsound2",
+			"command": "playsound",
 			"sound": "radioDialogue"
 		},
 		{

@@ -18,6 +18,10 @@
 			"command": "rubyend"
 		},
 		{
+			"command": "timer",
+			"text": "0.6"
+		},
+		{
 			"command": "normal"
 		},
 		{

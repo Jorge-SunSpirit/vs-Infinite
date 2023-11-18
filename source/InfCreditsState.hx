@@ -41,7 +41,7 @@ class InfCreditsState extends MusicBeatState
 
 		['Amai Hisa',	'hisa',	'Artist',	"I guess we're the kids that never let it go",	'https://twitter.com/AmaiHisa',	"0", "1"],
 		['HighPoweredKeyz',	'hpk',	'Animations, Chromatics, and Graphics',	"Stay creative, and stay powerful.",	'https://twitter.com/HighPoweredArt',	"1", "1"],
-		['Lezanikat',	'leza',	'Background Artist',	"hueh",	'https://twitter.com/lezanikat',	"2", "1"],
+		['Lezanikat',	'leza',	'Background Artist',	"A1",	'https://twitter.com/lezanikat',	"2", "1"],
 
 		['M&M',	'mandm',	'Main Programmer',	"i put fortnite on a scu burner account",	'https://linktr.ee/ActualMandM',	"0", "2"],
 		['Jorge - SunSpirit',	'jorge',	'UI Programmer',	"Defeat me with heat beams, you're crazy!",	'https://twitter.com/Jorge_SunSpirit',	"1", "2"],

@@ -208,7 +208,7 @@ class DialogueBoxInfinite extends FlxSpriteGroup
 			};
 
 			if (curDialogue.sound != '')
-				dialogueVoice = new FlxSound().loadEmbedded(Paths.sound('dialogue/${curDialogue.sound}'));
+				dialogueVoice = new FlxSound().loadEmbedded(Paths.sound('dialogue/${Paths.formatToSongPath(PlayState.SONG.song)}/${curDialogue.sound}'));
 			else
 				dialogueVoice = new FlxSound();
 

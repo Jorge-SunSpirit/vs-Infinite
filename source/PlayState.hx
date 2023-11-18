@@ -1794,6 +1794,7 @@ class PlayState extends MusicBeatState
 
 		if (dialogueFile.dialogue.length > 0)
 		{
+			vocals.volume = 1;
 			inCutscene = true;
 			camHUD.visible = false;
 			fakeInfiniteDialogue = new DialogueBoxInfiniteFake(dialogueFile);

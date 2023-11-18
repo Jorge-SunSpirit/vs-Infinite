@@ -119,7 +119,7 @@ class FreeplayState extends MusicBeatState
 		for (i in 0...songs.length)
 		{
 			Paths.currentModDirectory = songs[i].folder;
-			var songObject:FreeplayItem = new FreeplayItem(716 + (i * 2), 62 + (i* 72), songs[i].songName, songs[i].songCharacter, songs[i].artist);
+			var songObject:FreeplayItem = new FreeplayItem(716 + (i * 2), 62 + (i* 72), songs[i].songName, songs[i].songCharacter, songs[i].artist, songs[i].folder);
 			songObject.angle = -6;
 			grpSongs.add(songObject);
 		}
@@ -147,7 +147,7 @@ class FreeplayState extends MusicBeatState
 		}
 		curDifficulty = Math.round(Math.max(0, CoolUtil.defaultDifficulties.indexOf(lastDifficultyName)));
 		
-		changeSelection();
+		changeSelection(false);
 		changeDiff();
 
 		#if PRELOAD_ALL
@@ -161,6 +161,15 @@ class FreeplayState extends MusicBeatState
 		text.setFormat(Paths.font("futura.otf"), size, FlxColor.WHITE, RIGHT);
 		text.antialiasing = ClientPrefs.globalAntialiasing;
 		add(text);
+
+		for (item in grpSongs.members)
+		{
+			Paths.currentModDirectory = item.songFolder;
+			item.updatescore();
+		}
+
+		changeSelection(false);
+		changeDiff();
 
 		super.create();
 	}
@@ -345,7 +354,8 @@ class FreeplayState extends MusicBeatState
 
 		for (item in grpSongs.members)
 		{
-			item.updatescore();
+			if (item.ID == 0)
+				item.updatescore();
 		}
 	}
 
@@ -500,11 +510,13 @@ class FreeplayItem extends FlxSpriteGroup
 	var bg:FlxSprite;
 	var songname:FlxText;
 	var score:FlxText;
+	public var songFolder:String;
 	var charIcon:HealthIcon;
 
-	public function new(x:Float = 0, y:Float = 0, songs:String, chara:String, artist:String)
+	public function new(x:Float = 0, y:Float = 0, songs:String, chara:String, artist:String, folder:String)
 	{
 		song = songs;
+		songFolder = folder;
 		super(x, y);
 
 		#if !switch

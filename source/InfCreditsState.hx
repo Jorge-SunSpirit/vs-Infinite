@@ -89,9 +89,7 @@ class InfCreditsState extends MusicBeatState
 			grpOptions.add(creditObject);
 		}
 
-		// this is just gonna be too much of a hassle once we tackle final credits i feel
-		// but i'll add it back just incase
-		var descBox = new FlxSprite(0, 638).makeGraphic(754, 38, FlxColor.BLACK);
+		var descBox = new FlxSprite(0, 638).makeGraphic(764, 38, FlxColor.BLACK);
 		descBox.screenCenter(X);
 		descBox.alpha = 0.5;
 		add(descBox);

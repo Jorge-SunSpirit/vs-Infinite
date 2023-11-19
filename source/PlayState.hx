@@ -2205,7 +2205,7 @@ class PlayState extends MusicBeatState
 
 	override public function update(elapsed:Float)
 	{
-		if (staticlol != null && ClientPrefs.shaders)
+		if (staticlol != null && ClientPrefs.shaders && camHUD.filtersEnabled)
 		{
 			iTime += elapsed;
 			staticlol.iTime.value = [iTime];

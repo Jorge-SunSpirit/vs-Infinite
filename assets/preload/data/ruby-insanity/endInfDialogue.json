@@ -25,19 +25,19 @@
 			"character": "Sonic",
 			"expression": "Hurt",
 			"text": "It doesn't matter how much that Ruby may help him.",
-			"sound": ""
+			"sound": "sonic6"
 		},
 		{
 			"character": "Sonic",
 			"expression": "Hurt",
 			"text": "In the end, he'll just remain sad and lonely...",
-			"sound": ""
+			"sound": "sonic7"
 		},
 		{
 			"character": "Sonic",
 			"expression": "NormalHurt",
 			"text": "There's no amount of illusions that can change that.",
-			"sound": ""
+			"sound": "sonic8"
 		},
 		{
 			"command": "playsound",
@@ -51,53 +51,53 @@
 		},
 		{
 			"command": "bg",
-			"text": "mystic_jungle"
+			"text": "MilesElectric1"
 		},
 		{
 			"character": "Tails",
 			"expression": "Icon",
 			"text": "Sonic! What happened at Mystic Jungle?",
-			"sound": ""
+			"sound": "tails1"
 		},
 		{
 			"command": "bg",
-			"text": "mystic_jungle"
+			"text": "MilesElectric2"
 		},
 		{
 			"character": "Sonic",
 			"expression": "Icon",
 			"text": "Those readings were Infinite’s doing... somehow...",
-			"sound": ""
+			"sound": "sonic9"
 		},
 		{
 			"command": "bg",
-			"text": "mystic_jungle"
+			"text": "MilesElectric3"
 		},
 		{
 			"character": "Tails",
 			"expression": "Icon",
 			"text": "Infinite? That’s strange, we haven’t heard from him since the last time at one of Eggman’s fortresses...",
-			"sound": ""
+			"sound": "tails2"
 		},
 		{
 			"command": "bg",
-			"text": "mystic_jungle"
+			"text": "MilesElectric4"
 		},
 		{
 			"character": "Tails",
 			"expression": "Icon",
 			"text": "We can’t mull over him though, we’ve still gotta find those Chaos Emeralds with Amy.",
-			"sound": ""
+			"sound": "tails3"
 		},
 		{
 			"command": "bg",
-			"text": "mystic_jungle"
+			"text": "MilesElectric5"
 		},
 		{
 			"character": "Sonic",
 			"expression": "Icon",
 			"text": "Right, the islands! I’ll see you there, Tails!",
-			"sound": ""
+			"sound": "sonic10"
 		},
 		{
 			"command": "bg",
@@ -110,7 +110,7 @@
 			"character": "Sonic",
 			"expression": "Snarky",
 			"text": "Let's rock n' roll!",
-			"sound": ""
+			"sound": "sonic11"
 		},
 		{
 			"command": "fadeout"

@@ -44,37 +44,41 @@
 			"character": "Sonic",
 			"expression": "Normal",
 			"text": "Tails said something about his radar locating some strange signal from Mystic Jungle. It should be right ahead...",
-			"sound": ""
+			"sound": "sonic1"
 		},
 		{
 			"character": "Sonic",
 			"expression": "Thinking",
 			"text": "Something about readings similar to the Phantom Ruby...",
-			"sound": ""
+			"sound": "sonic2"
 		},
 		{
 			"character": "Sonic",
 			"expression": "Confusion",
 			"text": "Ugh, after all this time, a Ruby sighting in Mystic Jungle?",
-			"sound": ""
+			"sound": "sonic3"
 		},
 		{
 			"character": "Sonic",
 			"expression": "Frustrated",
 			"text": "*sigh* Give me a break!",
-			"sound": ""
+			"sound": "sonic4"
+		},
+		{
+			"command": "bg",
+			"text": "mystic_jungle2"
 		},
 		{
 			"character": "Sonic",
 			"expression": "Thinking",
 			"text": "Hm... Eggman wouldn't just leave the Ruby out like that...",
-			"sound": ""
+			"sound": "sonic5"
 		},
 		{
 			"character": "Sonic",
 			"expression": "Confusion",
 			"text": "Who's doing this?",
-			"sound": ""
+			"sound": "sonic6"
 		},
 		{
 			"command": "stopmusic"
@@ -93,13 +97,13 @@
 			"character": "Sonic",
 			"expression": "Confusion",
 			"text": "The City? This must be the Ruby's doing, but why would it do this?",
-			"sound": ""
+			"sound": "sonic7"
 		},
 		{
 			"character": "Sonic",
 			"expression": "Thinking",
 			"text": "More importantly, where are my friends?",
-			"sound": ""
+			"sound": "sonic8"
 		},
 		{
 			"command": "bgfadeout"
@@ -113,31 +117,31 @@
 			"character": "Infinite",
 			"expression": "Normal",
 			"text": "I can feel the fear in your heart, hero.",
-			"sound": ""
+			"sound": "infinite1"
 		},
 		{
 			"character": "Sonic",
 			"expression": "Shocked",
 			"text": "You again?! What's going on here...",
-			"sound": ""
+			"sound": "sonic9"
 		},
 		{
 			"character": "Infinite",
 			"expression": "Pointing",
 			"text": "Will you back down and flee? Or will you throw your life away in battle?",
-			"sound": ""
+			"sound": "infinite2"
 		},
 		{
 			"character": "Sonic",
 			"expression": "Snarky",
 			"text": "Heh, you and I both know I'm not the type to back down from ANY fight!",
-			"sound": ""
+			"sound": "sonic10"
 		},
 		{
 			"character": "Sonic",
 			"expression": "Snarky",
 			"text": "Bring it on!",
-			"sound": ""
+			"sound": "sonic11"
 		}
 	]
 }

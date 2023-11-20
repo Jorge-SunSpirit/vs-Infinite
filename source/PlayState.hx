@@ -940,10 +940,9 @@ class PlayState extends MusicBeatState
 		}
 		#end
 
-		var daSong:String = Paths.formatToSongPath(curSong);
 		if (isStoryMode && !seenCutscene)
 		{
-			switch (daSong)
+			switch (Paths.formatToSongPath(curSong))
 			{
 				case 'phantom' | 'masked' | 'fragility' | 'ruby-insanity':
 					startInfiniteDialogue(infDialogue);
@@ -1332,12 +1331,7 @@ class PlayState extends MusicBeatState
 		if (dialogueFile == null)
 		{
 			FlxG.log.warn("Your dialogue file doesn't exist!");
-
-			if (endingSong)
-				endSong()
-			else
-				startCountdown();
-
+			startAndEnd();
 			return;
 		}
 
@@ -1348,9 +1342,20 @@ class PlayState extends MusicBeatState
 			infiniteDialogue.finishThing = function()
 			{
 				if (endingSong)
-					endSong()
+				{
+					switch (Paths.formatToSongPath(curSong))
+					{
+						default:
+							endSong();
+
+						case 'ruby-insanity':
+							startVideo('credits');
+					}
+				}
 				else
+				{
 					startCountdown();
+				}
 			}
 			infiniteDialogue.nextDialogueThing = startNextDialogue;
 			infiniteDialogue.skipDialogueThing = skipDialogue;
@@ -1360,11 +1365,7 @@ class PlayState extends MusicBeatState
 		else
 		{
 			FlxG.log.warn("Your dialogue file is badly formatted!");
-
-			if (endingSong)
-				endSong()
-			else
-				startCountdown();
+			startAndEnd();
 		}
 	}
 
@@ -3167,10 +3168,9 @@ class PlayState extends MusicBeatState
 	{
 		var finishCallback:Void->Void = endSong; //In case you want to change it in a specific song.
 
-		var daSong:String = Paths.formatToSongPath(curSong);
 		if (isStoryMode)
 		{
-			switch (daSong)
+			switch (Paths.formatToSongPath(curSong))
 			{
 				case 'ruby-insanity':
 				{

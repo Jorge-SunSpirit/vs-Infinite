@@ -218,13 +218,21 @@ class DialogueBoxInfinite extends FlxSpriteGroup
 			dialogueText.completeCallback = function()
 			{
 				dialogueEnded = true;
-				FlxTween.tween(advanceText, {alpha: 1}, 0.5, {ease: FlxEase.linear, startDelay: 0.5});
+				if (curDialogue.sound == '') FlxTween.tween(advanceText, {alpha: 1}, 0.5, {ease: FlxEase.linear, startDelay: 0.5});
 			};
 
 			if (curDialogue.sound != '')
+			{
 				dialogueVoice = new FlxSound().loadEmbedded(Paths.sound('dialogue/${Paths.formatToSongPath(PlayState.SONG.song)}/${curDialogue.sound}'));
+				dialogueVoice.onComplete = function()
+				{
+					FlxTween.tween(advanceText, {alpha: 1}, 0.5, {ease: FlxEase.linear, startDelay: 0.5});
+				};
+			}
 			else
+			{
 				dialogueVoice = new FlxSound();
+			}
 
 			dialogueVoice.play();
 

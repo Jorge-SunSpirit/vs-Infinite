@@ -1338,6 +1338,7 @@ class PlayState extends MusicBeatState
 		if (dialogueFile.dialogue.length > 0)
 		{
 			inCutscene = true;
+			camHUD.visible = false;
 			var infiniteDialogue:DialogueBoxInfinite = new DialogueBoxInfinite(dialogueFile);
 			infiniteDialogue.finishThing = function()
 			{
@@ -1354,6 +1355,7 @@ class PlayState extends MusicBeatState
 				}
 				else
 				{
+					camHUD.visible = true;
 					startCountdown();
 				}
 			}

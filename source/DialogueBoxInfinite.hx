@@ -44,6 +44,7 @@ class DialogueBoxInfinite extends FlxSpriteGroup
 	var characterName:FlxText;
 	var dialogueText:FlxTypeText;
 	var dialogueVoice:FlxSound;
+	var advanceText:FlxText;
 
 	public var finishThing:Void->Void = null;
 	public var nextDialogueThing:Void->Void = null;
@@ -85,6 +86,14 @@ class DialogueBoxInfinite extends FlxSpriteGroup
 		dialogueText.borderSize = 1.5;
 		dialogueText.antialiasing = ClientPrefs.globalAntialiasing;
 		add(dialogueText);
+
+		advanceText = new FlxText(0, 670, "Press ENTER to continue.", 20);
+		advanceText.antialiasing = ClientPrefs.globalAntialiasing;
+		advanceText.setBorderStyle(OUTLINE, 0xFF181818, 1.5);
+		advanceText.font = Paths.font("futura.otf");
+		advanceText.screenCenter(X);
+		advanceText.alpha = 0;
+		add(advanceText);
 
 		startDialogue();
 	}
@@ -195,6 +204,9 @@ class DialogueBoxInfinite extends FlxSpriteGroup
 		if (nextDialogueThing != null)
 			nextDialogueThing();
 
+		FlxTween.cancelTweensOf(advanceText);
+		advanceText.alpha = 0;
+
 		if (curDialogue.command == '')
 		{
 			allowInput = true;
@@ -206,6 +218,7 @@ class DialogueBoxInfinite extends FlxSpriteGroup
 			dialogueText.completeCallback = function()
 			{
 				dialogueEnded = true;
+				FlxTween.tween(advanceText, {alpha: 1}, 0.5, {ease: FlxEase.linear, startDelay: 0.5});
 			};
 
 			if (curDialogue.sound != '')
@@ -294,6 +307,9 @@ class DialogueBoxInfinite extends FlxSpriteGroup
 				case 'bg':
 				{
 					bg.loadGraphic(Paths.image('dialogue/normal/bg/${curDialogue.text}'));
+					bg.setGraphicSize(FlxG.width);
+					bg.updateHitbox();
+					bg.screenCenter();
 					endDialogue();
 				}
 				case 'bgfadein':

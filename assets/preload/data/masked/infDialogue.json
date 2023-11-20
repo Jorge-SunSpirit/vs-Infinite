@@ -1,6 +1,11 @@
 {
 	"dialogue": [
 		{
+			"command": "playmusic",
+			"text": "frozen-projections",
+			"number": 0.3
+		},
+		{
 			"character": "Sonic",
 			"expression": "Snarky",
 			"text": "Why did you come back? Do you like me that much?",

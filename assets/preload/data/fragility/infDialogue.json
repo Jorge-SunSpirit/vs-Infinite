@@ -1,6 +1,11 @@
 {
 	"dialogue": [
 		{
+			"command": "playmusic",
+			"text": "frozen-projections",
+			"number": 0.3
+		},
+		{
 			"character": "Sonic",
 			"expression": "Snarky",
 			"text": "*sigh* These illusions are really starting to become an eyesore!",

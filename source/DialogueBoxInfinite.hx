@@ -31,6 +31,7 @@ typedef InfiniteDialogueLine =
 	var text:Null<String>;
 	var sound:Null<String>; // Used for the voice clips
 	var command:Null<String>;
+	var number:Null<Float>; // Used for any command that uses a float
 }
 
 class DialogueBoxInfinite extends FlxSpriteGroup
@@ -247,21 +248,42 @@ class DialogueBoxInfinite extends FlxSpriteGroup
 				}
 				case 'playmusic':
 				{
-					FlxG.sound.playMusic(Paths.music(curDialogue.text), 1);
+					if (curDialogue.number == null)
+						curDialogue.number = 1;
+
+					FlxG.sound.playMusic(Paths.music(curDialogue.text), curDialogue.number);
 					endDialogue();
 				}
 				case 'pausemusic':
 				{
-					FlxG.sound.music.fadeOut(1, 0, function(twn:FlxTween)
+					if (curDialogue.number == null)
+						curDialogue.number = 1;
+
+					FlxG.sound.music.fadeOut(curDialogue.number, 0, function(twn:FlxTween)
+					{
+						FlxG.sound.music.pause();
+						endDialogue();
+					});
+				}
+				case 'pausemusic2':
+				{
+					if (curDialogue.number == null)
+						curDialogue.number = 1;
+
+					FlxG.sound.music.fadeOut(curDialogue.number, 0, function(twn:FlxTween)
 					{
 						FlxG.sound.music.pause();
 					});
+
 					endDialogue();
 				}
 				case 'resumemusic':
 				{
+					if (curDialogue.number == null)
+						curDialogue.number = 1;
+
 					FlxG.sound.music.play();
-					FlxG.sound.music.fadeIn();
+					FlxG.sound.music.fadeIn(curDialogue.number);
 					endDialogue();
 				}
 				case 'stopmusic':
@@ -276,7 +298,10 @@ class DialogueBoxInfinite extends FlxSpriteGroup
 				}
 				case 'bgfadein':
 				{
-					FlxTween.tween(bg, {alpha: 1}, 1.5, {
+					if (curDialogue.number == null)
+						curDialogue.number = 1.5;
+
+					FlxTween.tween(bg, {alpha: 1}, curDialogue.number, {
 						ease: FlxEase.linear,
 						onComplete: function(twn:FlxTween)
 						{
@@ -286,7 +311,10 @@ class DialogueBoxInfinite extends FlxSpriteGroup
 				}
 				case 'bgfadeout':
 				{
-					FlxTween.tween(bg, {alpha: 0}, 1.5, {
+					if (curDialogue.number == null)
+						curDialogue.number = 1.5;
+
+					FlxTween.tween(bg, {alpha: 0}, curDialogue.number, {
 						ease: FlxEase.linear,
 						onComplete: function(twn:FlxTween)
 						{
@@ -296,7 +324,10 @@ class DialogueBoxInfinite extends FlxSpriteGroup
 				}
 				case 'fadein':
 				{
-					PlayState.instance.camOther.fade(0xFF000000, 1.5, true, function()
+					if (curDialogue.number == null)
+						curDialogue.number = 1.5;
+
+					PlayState.instance.camOther.fade(0xFF000000, curDialogue.number, true, function()
 					{
 						new FlxTimer().start(0.5, function(tmr:FlxTimer)
 						{
@@ -306,8 +337,11 @@ class DialogueBoxInfinite extends FlxSpriteGroup
 				}
 				case 'fadeout':
 				{
-					FlxG.sound.music.fadeOut(1.5, 0);
-					PlayState.instance.camOther.fade(0xFF000000, 1.5, false, function()
+					if (curDialogue.number == null)
+						curDialogue.number = 1.5;
+
+					FlxG.sound.music.fadeOut(curDialogue.number, 0);
+					PlayState.instance.camOther.fade(0xFF000000, curDialogue.number, false, function()
 					{
 						new FlxTimer().start(0.5, function(tmr:FlxTimer)
 						{
@@ -317,7 +351,10 @@ class DialogueBoxInfinite extends FlxSpriteGroup
 				}
 				case 'fadeout2':
 				{
-					PlayState.instance.camOther.fade(0xFF000000, 1.5, false, function()
+					if (curDialogue.number == null)
+						curDialogue.number = 1.5;
+
+					PlayState.instance.camOther.fade(0xFF000000, curDialogue.number, false, function()
 					{
 						new FlxTimer().start(0.5, function(tmr:FlxTimer)
 						{
@@ -327,7 +364,10 @@ class DialogueBoxInfinite extends FlxSpriteGroup
 				}
 				case 'flash':
 				{
-					PlayState.instance.camOther.fade(0xFFFFFFFF, 0.4, true, function()
+					if (curDialogue.number == null)
+						curDialogue.number = 0.4;
+
+					PlayState.instance.camOther.fade(0xFFFFFFFF, curDialogue.number, true, function()
 					{
 						endDialogue();
 					});
@@ -385,14 +425,20 @@ class DialogueBoxInfinite extends FlxSpriteGroup
 				}
 				case 'playsound':
 				{
-					FlxG.sound.play(Paths.sound(curDialogue.sound), function()
+					if (curDialogue.number == null)
+						curDialogue.number = 1;
+
+					FlxG.sound.play(Paths.sound(curDialogue.sound), curDialogue.number, function()
 					{
 						endDialogue();
 					});
 				}
 				case 'playsound2':
 				{
-					FlxG.sound.play(Paths.sound(curDialogue.sound));
+					if (curDialogue.number == null)
+						curDialogue.number = 1;
+
+					FlxG.sound.play(Paths.sound(curDialogue.sound), curDialogue.number);
 					endDialogue();
 				}
 				case 'noclosesfx':
@@ -402,10 +448,10 @@ class DialogueBoxInfinite extends FlxSpriteGroup
 				}
 				case 'timer':
 				{
-					var duration:Float = Std.parseFloat(curDialogue.text);
-					if(Math.isNaN(duration) || duration < 0) duration = 0;
+					if (curDialogue.number == null)
+						curDialogue.number = 0;
 
-					new FlxTimer().start(duration, function(tmr:FlxTimer)
+					new FlxTimer().start(curDialogue.number, function(tmr:FlxTimer)
 					{
 						endDialogue();
 					});

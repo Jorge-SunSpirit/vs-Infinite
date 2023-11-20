@@ -35,7 +35,7 @@
 		},
 		{
 			"command": "timer",
-			"text": "0.5"
+			"number": 0.5
 		},
 		{
 			"command": "normal"
@@ -77,6 +77,9 @@
 			"sound": ""
 		},
 		{
+			"command": "stopmusic"
+		},
+		{
 			"command": "rubystart"
 		},
 		{
@@ -99,10 +102,12 @@
 			"sound": ""
 		},
 		{
-			"command": "pausemusic"
+			"command": "bgfadeout"
 		},
 		{
-			"command": "bgfadeout"
+			"command": "playmusic",
+			"text": "frozen-projections",
+			"number": 0.3
 		},
 		{
 			"character": "Infinite",

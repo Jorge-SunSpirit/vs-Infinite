@@ -1,4 +1,4 @@
-hidden
-infinite
-infinite-masked
 sonic
+infinite-masked
+infinite
+hidden

@@ -37,9 +37,9 @@ class InfCreditsState extends MusicBeatState
 		//column 1
 		['JACKALRUIN',	'jackalruin',	'Director, Music, UI',	"BECKON THE SKY",	'https://www.youtube.com/@JACKALRUIN',	"0", "0"],
 		['crim',	'crim',	'Main Artist',	":v",	'https://twitter.com/ScrimbloCrimbo',	"1", "0"],
-		['Juno Songs',	'juno',	'Freeplay Artwork',	"",	'https://twitter.com/JunoSongsYT',	"2", "0"],
+		['Juno Songs',	'juno',	'Freeplay Artwork',	"Enjoy your future! It's gonna be great!",	'https://twitter.com/JunoSongsYT',	"2", "0"],
 
-		['AMAI HISA',	'hisa',	'Artist',	"I guess we're the kids that never let it go",	'https://twitter.com/AmaiHisa',	"0", "1"],
+		['Amai HISA',	'hisa',	'Artist',	"I guess we're the kids that never let it go",	'https://twitter.com/AmaiHisa',	"0", "1"],
 		['HighPoweredKeyz',	'hpk',	'Animations, Chromatics, and Graphics',	"Stay creative, and stay powerful.",	'https://twitter.com/HighPoweredArt',	"1", "1"],
 		['Lezanikat',	'leza',	'Background Artist',	"A1",	'https://twitter.com/lezanikat',	"2", "1"],
 

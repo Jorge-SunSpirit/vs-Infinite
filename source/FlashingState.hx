@@ -39,29 +39,17 @@ class FlashingState extends MusicBeatState
 				{
 					ClientPrefs.flashing = false;
 					ClientPrefs.saveSettings();
-					FlxG.sound.play(Paths.sound('confirmMenu'));
-
-					// WHY DID IT FLASH WHEN YOU TELL IT TO NOT FLASH LMAO
-					FlxTween.tween(disclaimer, {alpha: 0}, 1.5,
-					{
-						onComplete: function (twn:FlxTween)
-						{
-							MusicBeatState.switchState(new TitleState());
-						}
-					});
 				}
-				else
+
+				FlxG.sound.play(Paths.sound('confirmMenu'));
+
+				FlxTween.tween(disclaimer, {alpha: 0}, 1.5,
 				{
-					FlxG.sound.play(Paths.sound('confirmMenu'));
-
-					FlxTween.tween(disclaimer, {alpha: 0}, 1.5,
+					onComplete: function (twn:FlxTween)
 					{
-						onComplete: function (twn:FlxTween)
-						{
-							MusicBeatState.switchState(new TitleState());
-						}
-					});
-				}
+						MusicBeatState.switchState(new TitleState());
+					}
+				});
 			}
 		}
 

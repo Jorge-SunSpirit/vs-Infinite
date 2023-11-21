@@ -50,7 +50,7 @@ class InfCreditsState extends MusicBeatState
 		['James Dijit',	'dijit',	'Voice of Infinite',	"Dance with me, my friends. The crowd awaits!",	'https://twitter.com/JamesDijit',	"0", "3"],
 		['TheNamesFaceless',	'faceless',	'Voice of Sonic',	"Live life to the fullest. Atleast, thats what I figure!",	'https://twitter.com/ThenameFaceless',	"1", "3"],
 		['Redpandaa98',	'redpanda',	'Voice of Tails',	"alright Fazgang, let's spring this trap >:3",	'https://twitter.com/redpandaa98',	"2", "3"],
-		
+
 		['Flootena',	'flootena',	'Charter',	"Play Puyo Puyo Please",	'https://twitter.com/FlootenaDX',	"0", "4"],
 		['Aizakku',	'aizakku',	'Charter',	"Like a knight, I'll fight, until the fight is won",	'https://twitter.com/ItsAizakku',	"1", "4"],
 		['Psych Engine Team',	'psych',	'Psych Engine Credits',	"Open the Psych Engine Credits Here!",	'',	"2", "4"]

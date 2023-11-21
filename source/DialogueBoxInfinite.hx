@@ -183,6 +183,9 @@ class DialogueBoxInfinite extends FlxSpriteGroup
 
 	function startDialogue():Void
 	{
+		if (!allowUpdate)
+			return;
+
 		var curDialogue:InfiniteDialogueLine = null;
 		do
 		{

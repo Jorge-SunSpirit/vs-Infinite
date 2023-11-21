@@ -99,9 +99,13 @@ class DialogueBoxInfinite extends FlxSpriteGroup
 	}
 
 	var allowInput:Bool = true;
+	var allowUpdate:Bool = true;
 
 	override function update(elapsed:Float):Void
 	{
+		if (!allowUpdate)
+			return;
+
 		super.update(elapsed);
 
 		#if debug
@@ -179,6 +183,9 @@ class DialogueBoxInfinite extends FlxSpriteGroup
 
 	function startDialogue():Void
 	{
+		if (!allowUpdate)
+			return;
+
 		var curDialogue:InfiniteDialogueLine = null;
 		do
 		{
@@ -517,6 +524,7 @@ class DialogueBoxInfinite extends FlxSpriteGroup
 		new FlxTimer().start(0.1, function(tmr:FlxTimer)
 		{
 			PlayState.instance.camOther.setFilters(null);
+			allowUpdate = false;
 			killVoice();
 			finishThing();
 			kill();

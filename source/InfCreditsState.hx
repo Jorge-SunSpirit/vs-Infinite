@@ -43,7 +43,7 @@ class InfCreditsState extends MusicBeatState
 		['HighPoweredKeyz',	'hpk',	'Animations, Chromatics, and Graphics',	"Stay creative, and stay powerful.",	'https://twitter.com/HighPoweredArt',	"1", "1"],
 		['Lezanikat',	'leza',	'Background Artist',	"A1",	'https://twitter.com/lezanikat',	"2", "1"],
 
-		['M&M',	'mandm',	'Main Programmer',	"i put fortnite on a scu burner account",	'https://linktr.ee/ActualMandM',	"0", "2"],
+		['M&M',	'mandm',	'Main Programmer',	"Hello! I'm Emu Otori! Emu is meaning smile!",	'https://linktr.ee/ActualMandM',	"0", "2"],
 		['Jorge - SunSpirit',	'jorge',	'UI Programmer',	"Defeat me with heat beams, you're crazy!",	'https://twitter.com/Jorge_SunSpirit',	"1", "2"],
 		['SirDusterBuster',	'duster',	'Chart Events',	"When is vs Zavok?",	'https://twitter.com/SirDusterBuster',	"2", "2"],
 

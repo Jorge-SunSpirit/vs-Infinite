@@ -49,25 +49,25 @@
 		},
 		{
 			"character": "Infinite",
-			"expression": "Normal",
+			"expression": "MasklessReveal",
 			"text": "Heh...",
 			"sound": "infinite1"
 		},
 		{
 			"character": "Infinite",
-			"expression": "Pointing",
+			"expression": "MasklessReveal",
 			"text": "You haven't figured it out, yet?",
 			"sound": "infinite2"
 		},
 		{
 			"character": "Infinite",
-			"expression": "Mad",
+			"expression": "MasklessReveal",
 			"text": "This is all an illusion. And for as long as you're manipulated by the Phantom Ruby's power...",
 			"sound": "infinite3"
 		},
 		{
 			"character": "Infinite",
-			"expression": "Angry",
+			"expression": "Rage",
 			"text": "I WILL CONTINUE TO FIGHT!",
 			"sound": "infinite4"
 		},

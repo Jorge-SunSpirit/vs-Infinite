@@ -38,5 +38,8 @@ function onCreate()
 end
 
 function onCreatePost()
-	triggerEvent('Spawn Particles', 'nullspace/particle1', 'down');
+	addLuaScript('custom_events/Spawn Spinning Particles');
+	addLuaScript('custom_events/Spawn Particles');
+	triggerEvent('Spawn Particles', 'nullspace/particle1', '600');
+	triggerEvent('Spawn Spinning Particles', 'nullspace/particle2', '600');
 end

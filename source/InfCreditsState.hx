@@ -35,7 +35,7 @@ class InfCreditsState extends MusicBeatState
 
 	var userChara:Array<Array<String>> = [ //Name - Icon name - role - Quote of the day - Link - Which Row - position
 		//column 1
-		['JACKALRUIN',	'jackalruin',	'Director, Music, UI',	"BECKON THE SKY",	'https://www.youtube.com/@JACKALRUIN',	"0", "0"],
+		['JACKALRUIN',	'jackalruin',	'Director, Music, UI, Story',	"BECKON THE SKY",	'https://www.youtube.com/@JACKALRUIN',	"0", "0"],
 		['crim',	'crim',	'Main Artist',	":v",	'https://twitter.com/ScrimbloCrimbo',	"1", "0"],
 		['Juno Songs',	'juno',	'Freeplay Artwork',	"Enjoy your future! It's gonna be great!",	'https://twitter.com/JunoSongsYT',	"2", "0"],
 
@@ -45,7 +45,7 @@ class InfCreditsState extends MusicBeatState
 
 		['M&M',	'mandm',	'Main Programmer',	"Hello! I'm Emu Otori! Emu is meaning smile!",	'https://linktr.ee/ActualMandM',	"0", "2"],
 		['Jorge - SunSpirit',	'jorge',	'UI Programmer',	"Defeat me with heat beams, you're crazy!",	'https://twitter.com/Jorge_SunSpirit',	"1", "2"],
-		['SirDusterBuster',	'duster',	'Chart Events',	"When is vs Zavok?",	'https://twitter.com/SirDusterBuster',	"2", "2"],
+		['SirDusterBuster',	'duster',	'Chart Events and Animator',	"When is vs Zavok?",	'https://twitter.com/SirDusterBuster',	"2", "2"],
 
 		['James Dijit',	'dijit',	'Voice of Infinite',	"Dance with me, my friends. The crowd awaits!",	'https://twitter.com/JamesDijit',	"0", "3"],
 		['TheNamesFaceless',	'faceless',	'Voice of Sonic',	"Live life to the fullest. Atleast, thats what I figure!",	'https://twitter.com/ThenameFaceless',	"1", "3"],

@@ -1,150 +1,161 @@
 {
 	"animations": [
 		{
-			"loop": false,
 			"offsets": [
 				0,
 				0
 			],
-			"anim": "idle",
+			"loop": false,
 			"fps": 24,
-			"name": "Sonic_IdleDance",
-			"indices": []
+			"anim": "idle",
+			"indices": [],
+			"name": "Sonic_IdleDance"
 		},
 		{
-			"loop": false,
 			"offsets": [
 				112,
 				-55
 			],
-			"anim": "singDOWN",
+			"loop": false,
 			"fps": 24,
-			"name": "Sonic_SingDOWN instance",
-			"indices": []
+			"anim": "singDOWN",
+			"indices": [],
+			"name": "Sonic_SingDOWN instance"
 		},
 		{
-			"loop": false,
 			"offsets": [
 				101,
 				-36
 			],
-			"anim": "singLEFT",
+			"loop": false,
 			"fps": 24,
-			"name": "Sonic_SingLEFT instance",
-			"indices": []
+			"anim": "singLEFT",
+			"indices": [],
+			"name": "Sonic_SingLEFT instance"
 		},
 		{
-			"loop": false,
 			"offsets": [
 				16,
 				-26
 			],
-			"anim": "singUP",
+			"loop": false,
 			"fps": 24,
-			"name": "Sonic_SingUP instance",
-			"indices": []
+			"anim": "singUP",
+			"indices": [],
+			"name": "Sonic_SingUP instance"
 		},
 		{
-			"loop": false,
 			"offsets": [
 				40,
 				-5
 			],
-			"anim": "singRIGHT",
+			"loop": false,
 			"fps": 24,
-			"name": "Sonic_SingRIGHT instance",
-			"indices": []
+			"anim": "singRIGHT",
+			"indices": [],
+			"name": "Sonic_SingRIGHT instance"
 		},
 		{
-			"loop": false,
 			"offsets": [
 				108,
 				-56
 			],
-			"anim": "singDOWNmiss",
+			"loop": false,
 			"fps": 24,
-			"name": "Sonic_SingDOWN_MISS",
-			"indices": []
+			"anim": "singDOWNmiss",
+			"indices": [],
+			"name": "Sonic_SingDOWN_MISS"
 		},
 		{
-			"loop": false,
 			"offsets": [
 				102,
 				-37
 			],
-			"anim": "singLEFTmiss",
+			"loop": false,
 			"fps": 24,
-			"name": "Sonic_SingLEFT_MISS",
-			"indices": []
+			"anim": "singLEFTmiss",
+			"indices": [],
+			"name": "Sonic_SingLEFT_MISS"
 		},
 		{
-			"loop": false,
 			"offsets": [
 				16,
 				-26
 			],
-			"anim": "singUPmiss",
+			"loop": false,
 			"fps": 24,
-			"name": "Sonic_SingUP_Miss",
-			"indices": []
+			"anim": "singUPmiss",
+			"indices": [],
+			"name": "Sonic_SingUP_Miss"
 		},
 		{
-			"loop": false,
 			"offsets": [
 				40,
 				-5
 			],
-			"anim": "singRIGHTmiss",
+			"loop": false,
 			"fps": 24,
-			"name": "Sonic_SingRIGHT_MISS",
-			"indices": []
+			"anim": "singRIGHTmiss",
+			"indices": [],
+			"name": "Sonic_SingRIGHT_MISS"
 		},
 		{
+			"loop": false,
 			"offsets": [
 				285,
 				283
 			],
-			"loop": false,
-			"fps": 24,
 			"anim": "firstDeath",
-			"indices": [],
-			"name": "Sonic_GameOver_LIP_SYNC"
+			"fps": 24,
+			"name": "Sonic_GameOver_LIP_SYNC",
+			"indices": []
 		},
 		{
+			"loop": true,
 			"offsets": [
 				-197,
 				-431
 			],
-			"loop": true,
-			"fps": 24,
 			"anim": "deathLoop",
-			"indices": [],
-			"name": "Sonic_GameOver_bop"
+			"fps": 24,
+			"name": "Sonic_GameOver_bop",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [
 				-196,
 				-431
 			],
-			"loop": false,
-			"fps": 24,
 			"anim": "deathConfirm",
-			"indices": [],
-			"name": "Sonic_GameOver_bop"
+			"fps": 24,
+			"name": "Sonic_GameOver_bop",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [
 				3,
 				16
 			],
+			"anim": "micFlip",
+			"fps": 24,
+			"name": "Sonic_Cooler_Idle",
+			"indices": []
+		},
+		{
+			"offsets": [
+				108,
+				-1
+			],
 			"indices": [],
 			"fps": 24,
-			"anim": "micFlip",
+			"anim": "cutscene",
 			"loop": false,
-			"name": "Sonic_Cooler_Idle"
+			"name": "Sonic_Cutscene instance 1"
 		}
 	],
-	"no_antialiasing": false,
+	"no_antialiasing": true,
 	"image": "characters/VS_Infinite_Sonic_Assets",
 	"position": [
 		0,
@@ -162,7 +173,5 @@
 		100
 	],
 	"sing_duration": 6.1,
-	"death_Sound": "fnf_loss_sfx-sonic",
-	"shadow_Offset": 140,
 	"scale": 0.8
 }

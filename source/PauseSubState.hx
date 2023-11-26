@@ -50,6 +50,7 @@ class PauseSubState extends MusicBeatSubstate
 			if(!PlayState.instance.startingSong)
 			{
 				num = 1;
+				menuItemsOG.insert(3, 'Skip Time');
 			}
 			menuItemsOG.insert(3 + num, 'End Song');
 			menuItemsOG.insert(4 + num, 'Toggle Practice Mode');
@@ -172,6 +173,34 @@ class PauseSubState extends MusicBeatSubstate
 		}
 
 		var daSelected:String = menuItems[curSelected];
+		if (daSelected == 'Skip Time')
+		{
+			if (controls.UI_LEFT_P)
+				{
+					FlxG.sound.play(Paths.sound('scrollMenu'), 0.4);
+					curTime -= 1000;
+					holdTime = 0;
+				}
+			if (controls.UI_RIGHT_P)
+				{
+					FlxG.sound.play(Paths.sound('scrollMenu'), 0.4);
+					curTime += 1000;
+					holdTime = 0;
+				}
+
+			if(controls.UI_LEFT || controls.UI_RIGHT)
+				{
+					holdTime += elapsed;
+					if(holdTime > 0.5)
+					{
+						curTime += 45000 * elapsed * (controls.UI_LEFT ? -1 : 1);
+					}
+
+					if(curTime >= FlxG.sound.music.length) curTime -= FlxG.sound.music.length;
+					else if(curTime < 0) curTime += FlxG.sound.music.length;
+					updateSkipTimeText();
+				}
+		}
 
 		if (accepted)
 		{
@@ -235,6 +264,21 @@ class PauseSubState extends MusicBeatSubstate
 					FlxG.sound.playMusic(Paths.music('freakyMenu'));
 					PlayState.changedDifficulty = false;
 					PlayState.chartingMode = false;
+				case 'Skip Time':
+					if(curTime < Conductor.songPosition)
+					{
+						PlayState.startOnTime = curTime;
+						restartSong(true);
+					}
+					else
+					{
+						if (curTime != Conductor.songPosition)
+						{
+							PlayState.instance.clearNotesBefore(curTime);
+							PlayState.instance.setSongTime(curTime);
+						}
+						close();
+					}
 			}
 		}
 	}
@@ -286,6 +330,12 @@ class PauseSubState extends MusicBeatSubstate
 				//Yes I need to do this. Flixel is dumb
 				item.y = itemY;
 				item.color = 0xFFC90000;
+
+				if (menuItems[curSelected] == 'Skip Time')
+				{
+					curTime = Math.max(0, Conductor.songPosition);
+					updateSkipTimeText();
+				}
 			}
 			else
 			{
@@ -293,6 +343,17 @@ class PauseSubState extends MusicBeatSubstate
 				item.color = 0xFFE8D8C0;
 			}			
 
+		}
+	}
+
+	function updateSkipTimeText()
+	{
+		for (item in grpMenuShit.members)
+		{
+			if (item.ID == 0 && menuItems[curSelected] == 'Skip Time')
+				item.text == FlxStringUtil.formatTime(Math.max(0, Math.floor(curTime / 1000)), false) + ' / ' + FlxStringUtil.formatTime(Math.max(0, Math.floor(FlxG.sound.music.length / 1000)), false);
+
+			trace(FlxStringUtil.formatTime(Math.max(0, Math.floor(curTime / 1000)), false) + ' / ' + FlxStringUtil.formatTime(Math.max(0, Math.floor(FlxG.sound.music.length / 1000)), false));
 		}
 	}
 
@@ -312,7 +373,6 @@ class PauseSubState extends MusicBeatSubstate
 			FlxTween.tween(item, {x: 40}, 0.4, {ease: FlxEase.elasticOut});
 			item.antialiasing = ClientPrefs.globalAntialiasing;
 			grpMenuShit.add(item);
-
 		}
 		curSelected = 0;
 		changeSelection();

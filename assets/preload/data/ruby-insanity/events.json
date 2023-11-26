@@ -2,32 +2,22 @@
 	"song": {
 		"events": [
 			[
-				103247.863247863,
+				83555.5555555556,
 				[
 					[
-						"Phantom Ruby",
-						"true",
-						"true"
+						"Change Scroll Speed",
+						"1.5",
+						"1.2"
 					]
 				]
 			],
 			[
-				104478.632478633,
+				183247.863247863,
 				[
 					[
-						"Phantom Ruby",
-						"false",
-						"true"
-					]
-				]
-			],
-			[
-				186940.170940171,
-				[
-					[
-						"Phantom Ruby",
-						"true",
-						"true"
+						"Change Scroll Speed",
+						"1.4",
+						"0.6"
 					]
 				]
 			],
@@ -35,9 +25,19 @@
 				188170.94017094,
 				[
 					[
-						"Phantom Ruby",
-						"false",
-						"true"
+						"Change Scroll Speed",
+						"1.25",
+						"1"
+					]
+				]
+			],
+			[
+				198017.094017094,
+				[
+					[
+						"Change Scroll Speed",
+						"1.55",
+						"7"
 					]
 				]
 			],
@@ -45,99 +45,49 @@
 				206632.478632478,
 				[
 					[
-						"Phantom Ruby",
-						"true",
-						"true"
+						"Change Scroll Speed",
+						"1.4",
+						"1.2"
 					]
 				]
 			],
 			[
-				207863.247863247,
+				234390.52059052,
 				[
 					[
-						"Phantom Ruby",
-						"false",
-						"true"
+						"Change Scroll Speed",
+						"1.45",
+						"0.6"
 					]
 				]
 			],
 			[
-				231135.975135974,
+				258615.52059052,
 				[
 					[
-						"Phantom Ruby",
-						"true",
-						"true"
+						"Change Scroll Speed",
+						"1.5",
+						"0.4"
 					]
 				]
 			],
 			[
-				234990.52059052,
+				332221.289821289,
 				[
 					[
-						"Phantom Ruby",
-						"false",
-						"true"
+						"Change Scroll Speed",
+						"1.65",
+						"1.2"
 					]
 				]
 			],
 			[
-				393144.366744367,
+				392528.982128982,
 				[
 					[
-						"Initiate Fake Dialogue",
-						"init",
-						"You want to know"
-					]
-				]
-			],
-			[
-				397375.135975136,
-				[
-					[
-						"Initiate Fake Dialogue",
-						"advance",
-						"Its for revenge"
-					]
-				]
-			],
-			[
-				408067.443667444,
-				[
-					[
-						"Initiate Fake Dialogue",
-						"advance",
-						"So dont play with me"
-					]
-				]
-			],
-			[
-				414682.828282829,
-				[
-					[
-						"Initiate Fake Dialogue",
-						"advance",
-						"Revenge (Creeper? Aw man)"
-					]
-				]
-			],
-			[
-				420452.05905206,
-				[
-					[
-						"Initiate Fake Dialogue",
-						"advance",
-						"Youll never understand"
-					]
-				]
-			],
-			[
-				429298.212898214,
-				[
-					[
-						"Initiate Fake Dialogue",
-						"advance",
-						"YOU WILL PAY"
+						"Change Scroll Speed",
+						"1.25",
+						"1"
 					]
 				]
 			],
@@ -145,44 +95,24 @@
 				431913.597513598,
 				[
 					[
+						"Change Scroll Speed",
+						"1.5",
+						"0.4"
+					],
+					[
 						"Change Character",
 						"dad",
 						"infinite-masked"
-					],
-					[
-						"Screen Flash",
-						"camHUD",
-						""
-					],
-					[
-						"Initiate Fake Dialogue",
-						"advance",
-						"end"
 					]
 				]
 			],
 			[
-				471298.212898214,
+				466375.135975137,
 				[
 					[
-						"Phantom Ruby",
-						"true",
-						"true"
-					]
-				]
-			],
-			[
-				476221.289821291,
-				[
-					[
-						"Black Screen",
-						"true",
-						"camOther"
-					],
-					[
-						"Screen Flash",
-						"camOther",
-						""
+						"Change Scroll Speed",
+						"1.6",
+						"4.5"
 					]
 				]
 			]

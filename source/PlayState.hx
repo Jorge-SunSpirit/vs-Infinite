@@ -266,6 +266,11 @@ class PlayState extends MusicBeatState
 
 	public var defaultCamZoom:Float = 1.05;
 
+	//Thank you Holofunk dev team. Y'all the gyattest
+	var camNoteExtend:Float = 0;
+	public var camNoteX:Float = 0;
+	public var camNoteY:Float = 0;
+
 	// how big to stretch the pixel art assets
 	public static var daPixelZoom:Float = 6;
 	private var singAnimations:Array<String> = ['singLEFT', 'singDOWN', 'singUP', 'singRIGHT'];
@@ -3123,6 +3128,11 @@ class PlayState extends MusicBeatState
 						charaTrail = 'bf';
 				}
 				toggleCharaTrail = !toggleCharaTrail;
+			case 'Note Camera Movement':
+				camNoteExtend = Std.parseFloat(value1);
+
+				if (Math.isNaN(camNoteExtend))
+					camNoteExtend = 0;
 		}
 		callOnLuas('onEvent', [eventName, value1, value2]);
 	}
@@ -3159,12 +3169,14 @@ class PlayState extends MusicBeatState
 			tempPos.set(dad.getMidpoint().x + 150, dad.getMidpoint().y - 100);
 			tempPos.x += dad.cameraPosition[0] + opponentCameraOffset[0];
 			tempPos.y += dad.cameraPosition[1] + opponentCameraOffset[1];
+			noteCamera(dad, false);
 		}
 		else if(moveCameraTo == 'boyfriend' || moveCameraTo == false)
 		{
 			tempPos.set(boyfriend.getMidpoint().x - 100, boyfriend.getMidpoint().y - 100);
 			tempPos.x -= boyfriend.cameraPosition[0] - boyfriendCameraOffset[0];
 			tempPos.y += boyfriend.cameraPosition[1] + boyfriendCameraOffset[1];
+			noteCamera(boyfriend, true);
 		}
 		else
 		{
@@ -3172,6 +3184,9 @@ class PlayState extends MusicBeatState
 			tempPos.x += gf.cameraPosition[0] + girlfriendCameraOffset[0];
 			tempPos.y += gf.cameraPosition[1] + girlfriendCameraOffset[1];
 		}
+
+		tempPos.x += camNoteX;
+		tempPos.y += camNoteY;
 
 		if (cameraBoundaries != null)
 		{
@@ -3181,6 +3196,31 @@ class PlayState extends MusicBeatState
 
 		tempPos.copyTo(camFollow);
 		tempPos.destroy();
+	}
+
+	private function noteCamera(focusedChar:Character, mustHit:Bool)
+	{
+		if (camNoteExtend == 0)
+			return;
+
+		if ((focusedChar == boyfriend && mustHit) || (focusedChar == dad && !mustHit))
+		{
+			camNoteX = 0;
+			if (focusedChar.animation.curAnim.name.startsWith('singLEFT'))
+				camNoteX -= camNoteExtend;
+			if (focusedChar.animation.curAnim.name.startsWith('singRIGHT'))
+				camNoteX += camNoteExtend;
+			if (focusedChar.animation.curAnim.name.startsWith('idle'))
+				camNoteX = 0;
+
+			camNoteY = 0;
+			if (focusedChar.animation.curAnim.name.startsWith('singDOWN'))
+				camNoteY += camNoteExtend;
+			if (focusedChar.animation.curAnim.name.startsWith('singUP'))
+				camNoteY -= camNoteExtend;
+			if (focusedChar.animation.curAnim.name.startsWith('idle'))
+				camNoteY = 0;
+		}
 	}
 
 	function snapCamFollowToPos(x:Float, y:Float) {

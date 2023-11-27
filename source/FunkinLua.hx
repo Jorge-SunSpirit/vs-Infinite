@@ -3124,7 +3124,7 @@ class FunkinLua {
 	public function luaTrace(text:String, ignoreCheck:Bool = false, deprecated:Bool = false, color:FlxColor = FlxColor.WHITE) {
 		#if LUA_ALLOWED
 		// can you believe i don't know how the fuck this is getting called?
-		if (text == 'nullspace/particle1')
+		if (text.contains('nullspace'))
 			return;
 
 		if(ignoreCheck || getBool('luaDebugMode')) {

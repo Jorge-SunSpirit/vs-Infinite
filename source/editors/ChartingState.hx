@@ -106,7 +106,8 @@ class ChartingState extends MusicBeatState
 		['Swap Notescroll', "Swaps the notescroll!"],
 		['Initiate Fake Dialogue', "Dialogue box that user has no control over.\nValue 1: 'init' or 'advance'"],
 		['Change Camera Zoom',"Value 1: Zoom for the camera to change to\nValue 2: true/false to suddenly zoom, or\nnumerical value for duration"],
-		['Set Property', "Value 1: Variable name\nValue 2: New value"]
+		['Set Property', "Value 1: Variable name\nValue 2: New value"],
+		['Create Character Trail', "Value 1: Which Character who will be using a trail (1 at a time!)\nValue 2: There isn't one, don't put anything there"]
 	];
 
 	var _file:FileReference;

@@ -243,6 +243,9 @@ class PlayState extends MusicBeatState
 	var midInfDialogue:InfiniteDialogueFile = null;
 	var endInfDialogue:InfiniteDialogueFile = null;
 
+	var toggleCharaTrail:Bool = false;
+	var charaTrail:Character;
+
 	var dadbattleBlack:BGSprite;
 	var dadbattleLight:BGSprite;
 	var dadbattleSmokes:FlxSpriteGroup;
@@ -3109,6 +3112,17 @@ class PlayState extends MusicBeatState
 				} else {
 					FunkinLua.setVarInArray(this, value1, value2);
 				}
+			case 'Create Character Trail':
+				switch(value1.toLowerCase().trim()) 
+				{
+					case 'gf' | 'girlfriend':
+						charaTrail = gf;
+					case 'dad' | 'opponent':
+						charaTrail = dad;
+					default:
+						charaTrail = boyfriend;
+				}
+				toggleCharaTrail = !toggleCharaTrail;
 		}
 		callOnLuas('onEvent', [eventName, value1, value2]);
 	}
@@ -4157,6 +4171,9 @@ class PlayState extends MusicBeatState
 			notes.sort(FlxSort.byY, downScroll ? FlxSort.ASCENDING : FlxSort.DESCENDING);
 		}
 
+		if (toggleCharaTrail)
+			createTrail(charaTrail);
+
 		iconP1.scale.set(1.2, 1.2);
 		iconP2.scale.set(1.2, 1.2);
 
@@ -4304,6 +4321,22 @@ class PlayState extends MusicBeatState
 		setOnLuas('rating', ratingPercent);
 		setOnLuas('ratingName', ratingName);
 		setOnLuas('ratingFC', ratingFC);
+	}
+
+	function createTrail(char:Character)
+	{
+		var trailSprite:FlxSprite = new FlxSprite(char.x, char.y);
+		trailSprite.offset.set(char.offset.x, char.offset.y);
+		trailSprite.scale.set(char.scale.x, char.scale.y);
+		trailSprite.updateHitbox();
+		trailSprite.alpha = 0.6;
+		trailSprite.blend = ADD;
+		trailSprite.color = FlxColor.fromRGB(char.healthColorArray[0], char.healthColorArray[1], char.healthColorArray[2]);
+		trailSprite.frames = Paths.getSparrowAtlas(char.imageFile);
+		trailSprite.animation.addByPrefix('hueh', char.animation.frameName, 0, false);
+		addBehindDad(trailSprite);
+		FlxTween.tween(trailSprite, {alpha: 0}, 1.5, {ease: FlxEase.linear,onComplete: function(twn:FlxTween)
+		{remove(trailSprite);}});
 	}
 
 	#if ACHIEVEMENTS_ALLOWED

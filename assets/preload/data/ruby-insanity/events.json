@@ -2,22 +2,32 @@
 	"song": {
 		"events": [
 			[
-				83555.5555555556,
+				103247.863247863,
 				[
 					[
-						"Change Scroll Speed",
-						"1.5",
-						"1.2"
+						"Phantom Ruby",
+						"true",
+						"true"
 					]
 				]
 			],
 			[
-				183247.863247863,
+				104478.632478633,
 				[
 					[
-						"Change Scroll Speed",
-						"1.4",
-						"0.6"
+						"Phantom Ruby",
+						"false",
+						"true"
+					]
+				]
+			],
+			[
+				186940.170940171,
+				[
+					[
+						"Phantom Ruby",
+						"true",
+						"true"
 					]
 				]
 			],
@@ -25,19 +35,9 @@
 				188170.94017094,
 				[
 					[
-						"Change Scroll Speed",
-						"1.25",
-						"1"
-					]
-				]
-			],
-			[
-				198017.094017094,
-				[
-					[
-						"Change Scroll Speed",
-						"1.55",
-						"7"
+						"Phantom Ruby",
+						"false",
+						"true"
 					]
 				]
 			],
@@ -45,49 +45,39 @@
 				206632.478632478,
 				[
 					[
-						"Change Scroll Speed",
-						"1.4",
-						"1.2"
+						"Phantom Ruby",
+						"true",
+						"true"
 					]
 				]
 			],
 			[
-				234390.52059052,
+				207863.247863247,
 				[
 					[
-						"Change Scroll Speed",
-						"1.45",
-						"0.6"
+						"Phantom Ruby",
+						"false",
+						"true"
 					]
 				]
 			],
 			[
-				258615.52059052,
+				231135.975135974,
 				[
 					[
-						"Change Scroll Speed",
-						"1.5",
-						"0.4"
+						"Phantom Ruby",
+						"true",
+						"true"
 					]
 				]
 			],
 			[
-				332221.289821289,
+				234990.52059052,
 				[
 					[
-						"Change Scroll Speed",
-						"1.65",
-						"1.2"
-					]
-				]
-			],
-			[
-				392528.982128982,
-				[
-					[
-						"Change Scroll Speed",
-						"1.25",
-						"1"
+						"Phantom Ruby",
+						"false",
+						"true"
 					]
 				]
 			],
@@ -95,24 +85,39 @@
 				431913.597513598,
 				[
 					[
-						"Change Scroll Speed",
-						"1.5",
-						"0.4"
-					],
-					[
 						"Change Character",
 						"dad",
 						"infinite-masked"
+					],
+					[
+						"Screen Flash",
+						"camHUD",
+						""
 					]
 				]
 			],
 			[
-				466375.135975137,
+				471298.212898214,
 				[
 					[
-						"Change Scroll Speed",
-						"1.6",
-						"4.5"
+						"Phantom Ruby",
+						"true",
+						"true"
+					]
+				]
+			],
+			[
+				476221.289821291,
+				[
+					[
+						"Black Screen",
+						"true",
+						"camOther"
+					],
+					[
+						"Screen Flash",
+						"camOther",
+						""
 					]
 				]
 			]

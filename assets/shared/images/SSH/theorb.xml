@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="theorb.png">
+	<!-- Created with Adobe Animate version 21.0.6.41649 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="RubyAura0000" x="5" y="5" width="1273" height="716"/>
+	<SubTexture name="RubyAura0001" x="1283" y="5" width="1273" height="716"/>
+	<SubTexture name="RubyAura0002" x="2561" y="5" width="1273" height="716"/>
+	<SubTexture name="RubyAura0003" x="3839" y="5" width="1273" height="716"/>
+	<SubTexture name="RubyAura0004" x="5117" y="5" width="1273" height="716"/>
+	<SubTexture name="RubyAura0005" x="6395" y="5" width="1273" height="716"/>
+	<SubTexture name="RubyAura0006" x="5" y="726" width="1273" height="716"/>
+	<SubTexture name="RubyAura0007" x="1283" y="726" width="1273" height="716"/>
+	<SubTexture name="RubyAura0008" x="2561" y="726" width="1273" height="716"/>
+	<SubTexture name="RubyAura0009" x="3839" y="726" width="1273" height="716"/>
+	<SubTexture name="RubyAura0010" x="5117" y="726" width="1273" height="716"/>
+	<SubTexture name="RubyAura0011" x="6395" y="726" width="1273" height="716"/>
+	<SubTexture name="RubyAura0012" x="5" y="1447" width="1273" height="716"/>
+	<SubTexture name="RubyAura0013" x="1283" y="1447" width="1273" height="716"/>
+	<SubTexture name="RubyAura0014" x="2561" y="1447" width="1273" height="716"/>
+	<SubTexture name="RubyAura0015" x="3839" y="1447" width="1273" height="716"/>
+	<SubTexture name="RubyAura0016" x="5117" y="1447" width="1273" height="716"/>
+	<SubTexture name="RubyAura0017" x="6395" y="1447" width="1273" height="716"/>
+	<SubTexture name="RubyAura0018" x="5" y="2168" width="1273" height="716"/>
+	<SubTexture name="RubyAura0019" x="1283" y="2168" width="1273" height="716"/>
+	<SubTexture name="RubyAura0020" x="2561" y="2168" width="1273" height="716"/>
+	<SubTexture name="RubyAura0021" x="3839" y="2168" width="1273" height="716"/>
+	<SubTexture name="RubyAura0022" x="5117" y="2168" width="1273" height="716"/>
+	<SubTexture name="RubyAura0023" x="6395" y="2168" width="1273" height="716"/>
+</TextureAtlas>

@@ -155,7 +155,7 @@
 			"name": "Sonic_Cutscene instance 1"
 		}
 	],
-	"no_antialiasing": true,
+	"no_antialiasing": false,
 	"image": "characters/VS_Infinite_Sonic_Assets",
 	"position": [
 		0,

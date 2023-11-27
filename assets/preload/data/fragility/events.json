@@ -2,12 +2,102 @@
 	"song": {
 		"events": [
 			[
+				1263.15789473684,
+				[
+					[
+						"Note Camera Movement",
+						"9",
+						""
+					]
+				]
+			],
+			[
+				10105.2631578947,
+				[
+					[
+						"Change Camera Zoom",
+						"1.3",
+						"5"
+					]
+				]
+			],
+			[
+				20210.5263157895,
+				[
+					[
+						"Change Camera Zoom",
+						"1.1",
+						"0.5"
+					],
+					[
+						"Screen Flash",
+						"camGame",
+						""
+					],
+					[
+						"Create Character Trail",
+						"dad",
+						""
+					]
+				]
+			],
+			[
+				37894.7368421053,
+				[
+					[
+						"Change Camera Zoom",
+						"0.8",
+						"0.5"
+					]
+				]
+			],
+			[
 				40421.0526315789,
 				[
 					[
 						"Swap Notescroll",
 						"",
 						""
+					],
+					[
+						"Change Camera Zoom",
+						"1.1",
+						"0.5"
+					],
+					[
+						"Spawn Spinning Particles",
+						"SSH/infiniparticle",
+						"640"
+					]
+				]
+			],
+			[
+				50526.3157894737,
+				[
+					[
+						"Change Camera Zoom",
+						"0.9",
+						"0.5"
+					]
+				]
+			],
+			[
+				60631.5789473684,
+				[
+					[
+						"Change Camera Zoom",
+						"1.3",
+						"0.5"
+					]
+				]
+			],
+			[
+				70736.8421052631,
+				[
+					[
+						"Change Camera Zoom",
+						"1.1",
+						"0.5"
 					]
 				]
 			],
@@ -17,6 +107,16 @@
 					[
 						"Swap Notescroll",
 						"",
+						""
+					],
+					[
+						"Change Camera Zoom",
+						"1.2",
+						"0.5"
+					],
+					[
+						"Screen Flash",
+						"camGame",
 						""
 					]
 				]
@@ -52,6 +152,26 @@
 				]
 			],
 			[
+				90947.3684210525,
+				[
+					[
+						"Change Camera Zoom",
+						"1.3",
+						"0.5"
+					]
+				]
+			],
+			[
+				99157.894736842,
+				[
+					[
+						"Spawn Spinning Particles",
+						"SSH/infiniparticle",
+						"640"
+					]
+				]
+			],
+			[
 				101052.631578947,
 				[
 					[
@@ -63,6 +183,16 @@
 						"Phantom Ruby",
 						"true",
 						"true"
+					],
+					[
+						"Change Camera Zoom",
+						"0.7",
+						"0.5"
+					],
+					[
+						"Create Character Trail",
+						"dad",
+						""
 					]
 				]
 			],
@@ -73,6 +203,21 @@
 						"Phantom Ruby",
 						"false",
 						"true"
+					],
+					[
+						"Change Camera Zoom",
+						"0.8",
+						"0.5"
+					]
+				]
+			],
+			[
+				122526.315789474,
+				[
+					[
+						"Change Camera Zoom",
+						"1",
+						"0.5"
 					]
 				]
 			],
@@ -83,6 +228,31 @@
 						"Swap Notescroll",
 						"",
 						""
+					],
+					[
+						"Change Camera Zoom",
+						"1.4",
+						"0.5"
+					],
+					[
+						"Screen Flash",
+						"camGame",
+						""
+					],
+					[
+						"Create Character Trail",
+						"dad",
+						""
+					]
+				]
+			],
+			[
+				145342.105263158,
+				[
+					[
+						"Spawn Spinning Particles",
+						"SSH/infiniparticle",
+						"640"
 					]
 				]
 			],
@@ -153,6 +323,81 @@
 						"Swap Notescroll",
 						"",
 						""
+					]
+				]
+			],
+			[
+				165157.894736842,
+				[
+					[
+						"Spawn Spinning Particles",
+						"SSH/infiniparticle",
+						"640"
+					]
+				]
+			],
+			[
+				165473.684210526,
+				[
+					[
+						"Change Camera Zoom",
+						"0.9",
+						"5"
+					]
+				]
+			],
+			[
+				169263.157894737,
+				[
+					[
+						"Create Character Trail",
+						"dad",
+						""
+					]
+				]
+			],
+			[
+				192000,
+				[
+					[
+						"Change Camera Zoom",
+						"1.1",
+						"5"
+					]
+				]
+			],
+			[
+				209684.210526316,
+				[
+					[
+						"Change Camera Zoom",
+						"1.3",
+						"0.5"
+					]
+				]
+			],
+			[
+				209763.157894737,
+				[
+					[
+						"Spawn Spinning Particles",
+						"SSH/infiniparticle",
+						"640"
+					],
+					[
+						"Create Character Trail",
+						"dad",
+						""
+					]
+				]
+			],
+			[
+				229894.736842106,
+				[
+					[
+						"Change Camera Zoom",
+						"0.7",
+						"4"
 					]
 				]
 			]

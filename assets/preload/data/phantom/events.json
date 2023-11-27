@@ -2,6 +2,16 @@
 	"song": {
 		"events": [
 			[
+				4500,
+				[
+					[
+						"Note Camera Movement",
+						"9",
+						""
+					]
+				]
+			],
+			[
 				10500,
 				[
 					[

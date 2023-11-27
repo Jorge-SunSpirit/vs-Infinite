@@ -2,6 +2,16 @@
 	"song": {
 		"events": [
 			[
+				1333.33333333333,
+				[
+					[
+						"Note Camera Movement",
+						"9",
+						""
+					]
+				]
+			],
+			[
 				2500,
 				[
 					[
@@ -28,6 +38,16 @@
 						"Change Camera Zoom",
 						"1.2",
 						"1.3"
+					]
+				]
+			],
+			[
+				88000,
+				[
+					[
+						"Screen Flash",
+						"camGame",
+						""
 					]
 				]
 			],

@@ -173,5 +173,7 @@
 		100
 	],
 	"sing_duration": 6.1,
+	"death_Sound": "fnf_loss_sfx-sonic",
+	"shadow_Offset": 140,
 	"scale": 0.8
 }

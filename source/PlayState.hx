@@ -233,6 +233,7 @@ class PlayState extends MusicBeatState
 	public var camHUD:FlxCamera;
 	public var camGame:FlxCamera;
 	public var camOther:FlxCamera;
+	public var camOther2:FlxCamera;
 	public var camCache:FlxCamera;
 	public var cameraSpeed:Float = 1;
 
@@ -380,15 +381,18 @@ class PlayState extends MusicBeatState
 		camGame = new FlxCamera();
 		camHUD = new FlxCamera();
 		camOther = new FlxCamera();
+		camOther2 = new FlxCamera();
 		camCache = new FlxCamera();
 		camHUD.bgColor.alpha = 0;
 		camOther.bgColor.alpha = 0;
+		camOther2.bgColor.alpha = 0;
 		camCache.bgColor.alpha = 0;
 		camHUD.filtersEnabled = false;
 
 		FlxG.cameras.reset(camGame);
 		FlxG.cameras.add(camHUD, false);
 		FlxG.cameras.add(camOther, false);
+		FlxG.cameras.add(camOther2, false);
 		FlxG.cameras.add(camCache, false);
 		grpNoteSplashes = new FlxTypedGroup<NoteSplash>();
 
@@ -2985,6 +2989,8 @@ class PlayState extends MusicBeatState
 						camera = camHUD;
 					case 'camOther':
 						camera = camOther;
+					case 'camOther2':
+						camera = camOther2;
 				}
 
 				if (camera != null)
@@ -3004,6 +3010,8 @@ class PlayState extends MusicBeatState
 						camera = camHUD;
 					case 'camOther':
 						camera = camOther;
+					case 'camOther2':
+						camera = camOther2;
 				}
 
 				if (camera != null)

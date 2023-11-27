@@ -53,8 +53,8 @@ function onStepHit()
 	end
 	if curStep == 4480 then
 		doTweenAlpha('hudAlpha', 'camHUD', 0, 0.4, 'linear');
-		--setProperty('cameraSpeed', 2);
-		triggerEvent('Camera Follow Pos', '620', '326');
+		-- setProperty('cameraSpeed', 2);
+		-- triggerEvent('Camera Follow Pos', '620', '326');
 	end
 	if curStep == 4488 then
 		setProperty('bf.skipDance', true);
@@ -153,6 +153,8 @@ function onStepHit()
 	end
 	
 	if curStep == 4975 then
+		setObjectCamera('thignie', 'other2');
+		cameraShake('other2', 0.01, 0.25);
 		setTextSize('thignie', 90)
 		setTextString('thignie', "PAY!");
 		screenCenter('thignie', 'xy');

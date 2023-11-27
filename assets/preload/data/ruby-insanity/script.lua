@@ -23,7 +23,6 @@ function onCreatePost()
     makeGraphic('black', 1280, 720, '0x000000');
     setScrollFactor('black', 0, 0);
 	setObjectCamera('black', 'other');
-	setProperty('black.alpha', 0.001);
     addLuaSprite('black', false);
 	
 	makeLuaText('thignie', "Why doesn't this  work :", 1280, 0, 600);

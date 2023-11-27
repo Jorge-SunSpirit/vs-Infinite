@@ -244,7 +244,7 @@ class PlayState extends MusicBeatState
 	var endInfDialogue:InfiniteDialogueFile = null;
 
 	var toggleCharaTrail:Bool = false;
-	var charaTrail:Character;
+	var charaTrail:String = 'dad';
 
 	var dadbattleBlack:BGSprite;
 	var dadbattleLight:BGSprite;
@@ -3116,11 +3116,11 @@ class PlayState extends MusicBeatState
 				switch(value1.toLowerCase().trim()) 
 				{
 					case 'gf' | 'girlfriend':
-						charaTrail = gf;
+						charaTrail = 'gf';
 					case 'dad' | 'opponent':
-						charaTrail = dad;
+						charaTrail = 'dad';
 					default:
-						charaTrail = boyfriend;
+						charaTrail = 'bf';
 				}
 				toggleCharaTrail = !toggleCharaTrail;
 		}
@@ -4172,7 +4172,17 @@ class PlayState extends MusicBeatState
 		}
 
 		if (toggleCharaTrail)
-			createTrail(charaTrail);
+		{
+			switch(charaTrail) 
+				{
+					case 'gf' | 'girlfriend':
+						createTrail(gf);
+					case 'dad' | 'opponent':
+						createTrail(dad);
+					default:
+						createTrail(boyfriend);
+				}
+		}
 
 		iconP1.scale.set(1.2, 1.2);
 		iconP2.scale.set(1.2, 1.2);
@@ -4326,7 +4336,6 @@ class PlayState extends MusicBeatState
 	function createTrail(char:Character)
 	{
 		var trailSprite:FlxSprite = new FlxSprite(char.x, char.y);
-		trailSprite.offset.set(char.offset.x, char.offset.y);
 		trailSprite.scale.set(char.scale.x, char.scale.y);
 		trailSprite.updateHitbox();
 		trailSprite.alpha = 0.6;
@@ -4334,6 +4343,8 @@ class PlayState extends MusicBeatState
 		trailSprite.color = FlxColor.fromRGB(char.healthColorArray[0], char.healthColorArray[1], char.healthColorArray[2]);
 		trailSprite.frames = Paths.getSparrowAtlas(char.imageFile);
 		trailSprite.animation.addByPrefix('hueh', char.animation.frameName, 0, false);
+		trailSprite.animation.play('hueh', true);
+		trailSprite.offset.set(char.offset.x, char.offset.y);
 		addBehindDad(trailSprite);
 		FlxTween.tween(trailSprite, {alpha: 0}, 1.5, {ease: FlxEase.linear,onComplete: function(twn:FlxTween)
 		{remove(trailSprite);}});

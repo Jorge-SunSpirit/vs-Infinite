@@ -15,6 +15,10 @@
 			"text": "null_space"
 		},
 		{
+			"command": "timer",
+			"number": 0.6
+		},
+		{
 			"command": "rubyend"
 		},
 		{

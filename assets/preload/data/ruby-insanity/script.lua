@@ -224,7 +224,6 @@ function onStepHit()
 		doTweenZoom('hueh', 'camGame', 1.2, 0.5, 'circOut');
 		setProperty('thignie.alpha', 1);
 		setTextString('thignie', 'You want to know why I brought you here, Sonic?!');
-		setProperty('vocals.volume', 1);
 	end
 	
 	if curStep == 4544 then

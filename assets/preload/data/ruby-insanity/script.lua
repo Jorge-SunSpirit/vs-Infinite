@@ -126,7 +126,6 @@ function onCreatePost()
     setScrollFactor('black', 0, 0);
 	setObjectCamera('black', 'other');
     addLuaSprite('black', false);
-	setProperty('black.alpha', 0.0001);
 	
 	makeAnimatedLuaSprite('eyeThingie', 'nullspace/CutsceneEye', 0, 0);
 	addAnimationByPrefix('eyeThingie', 'eye', 'EyeAnim instance 1', 24, false);

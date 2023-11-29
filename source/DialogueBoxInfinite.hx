@@ -358,7 +358,7 @@ class DialogueBoxInfinite extends FlxSpriteGroup
 					if (curDialogue.number == null)
 						curDialogue.number = 1.5;
 
-					PlayState.instance.camOther.fade(0xFF000000, curDialogue.number, true, function()
+					PlayState.instance.camOther2.fade(0xFF000000, curDialogue.number, true, function()
 					{
 						new FlxTimer().start(0.5, function(tmr:FlxTimer)
 						{
@@ -372,7 +372,7 @@ class DialogueBoxInfinite extends FlxSpriteGroup
 						curDialogue.number = 1.5;
 
 					FlxG.sound.music.fadeOut(curDialogue.number, 0);
-					PlayState.instance.camOther.fade(0xFF000000, curDialogue.number, false, function()
+					PlayState.instance.camOther2.fade(0xFF000000, curDialogue.number, false, function()
 					{
 						new FlxTimer().start(0.5, function(tmr:FlxTimer)
 						{
@@ -385,7 +385,7 @@ class DialogueBoxInfinite extends FlxSpriteGroup
 					if (curDialogue.number == null)
 						curDialogue.number = 1.5;
 
-					PlayState.instance.camOther.fade(0xFF000000, curDialogue.number, false, function()
+					PlayState.instance.camOther2.fade(0xFF000000, curDialogue.number, false, function()
 					{
 						new FlxTimer().start(0.5, function(tmr:FlxTimer)
 						{
@@ -398,15 +398,15 @@ class DialogueBoxInfinite extends FlxSpriteGroup
 					if (curDialogue.number == null)
 						curDialogue.number = 0.4;
 
-					PlayState.instance.camOther.fade(0xFFFFFFFF, curDialogue.number, true, function()
+					PlayState.instance.camOther2.fade(0xFFFFFFFF, curDialogue.number, true, function()
 					{
 						endDialogue();
 					});
 				}
 				case 'rubystart':
 				{
-					PlayState.instance.camOther.setFilters([new ColorMatrixFilter([1, -1, -1, 0, 255, -1, 1, -1, 0, 255, -1, -1, 1, 0, 255, 0, 0, 0, 1, 0])]);
-					PlayState.instance.camOther.fade(0xFF000000, 0.4, true);
+					PlayState.instance.camOther2.setFilters([new ColorMatrixFilter([1, -1, -1, 0, 255, -1, 1, -1, 0, 255, -1, -1, 1, 0, 255, 0, 0, 0, 1, 0])]);
+					PlayState.instance.camOther2.fade(0xFF000000, 0.4, true);
 					FlxG.sound.play(Paths.sound('rubyActivate'), function()
 					{
 						endDialogue();
@@ -415,8 +415,8 @@ class DialogueBoxInfinite extends FlxSpriteGroup
 				case 'rubyend':
 				{
 					FlxG.sound.play(Paths.soundRandom('rubyAttack', 1, 6));
-					PlayState.instance.camOther.setFilters(null);
-					PlayState.instance.camOther.fade(0xFFFFFFFF, 0.4, true, function()
+					PlayState.instance.camOther2.setFilters(null);
+					PlayState.instance.camOther2.fade(0xFFFFFFFF, 0.4, true, function()
 					{
 						endDialogue();
 					});
@@ -523,7 +523,7 @@ class DialogueBoxInfinite extends FlxSpriteGroup
 
 		new FlxTimer().start(0.1, function(tmr:FlxTimer)
 		{
-			PlayState.instance.camOther.setFilters(null);
+			PlayState.instance.camOther2.setFilters(null);
 			allowUpdate = false;
 			killVoice();
 			finishThing();

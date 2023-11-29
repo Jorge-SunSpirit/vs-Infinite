@@ -63,6 +63,7 @@ function onStepHit()
 		doTweenAlpha('black', 'black', 1, 3);
 	end
 	if curStep == 2152 then
+		setProperty('foreground.alpha', 0.0001);
 		setProperty('rubyspeed.alpha', 0.0001);
 		setProperty('rubyglow.alpha', 0.0001);
 		setProperty('dramashadow.alpha', 1);

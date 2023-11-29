@@ -2,7 +2,7 @@ function onCreatePost()
 	makeAnimatedLuaSprite('infiniteSprite','characters/InfiniteCutscene', getProperty('dad.x')+130, getProperty('dad.y')+110)
 	addAnimationByPrefix('infiniteSprite', 'anim', 'RubyInsanityCutsceneAnim', 24, false)
 	scaleObject('infiniteSprite', 0.65, 0.65)
-	setProperty('infiniteSprite.alpha', 0.001);
+	setProperty('infiniteSprite.alpha', 0.0001);
 	addLuaSprite('infiniteSprite', true)
 	
 	makeLuaSprite('barTop', '', 0, -102);
@@ -19,6 +19,107 @@ function onCreatePost()
 	addLuaSprite('barBottom', false);
 	setObjectCamera('barBottom', 'other');
 
+	makeLuaSprite('groundjungle', 'jungle/mystic_jungle_BG', -400, -400);
+	setScrollFactor('groundjungle', 1, 1);
+	scaleObject('groundjungle', 1.7, 1.7);
+	setProperty('groundjungle.alpha', 0.0001);
+	addLuaSprite('groundjungle', false);
+
+	makeLuaSprite('bgssh', 'SSH/skybox', -600, -300);
+	setScrollFactor('bgssh', 0.2, 1);
+	scaleObject('bgssh', 2, 2);
+	setProperty('bgssh.alpha', 0.0001);
+	updateHitbox('bgssh');
+	
+	makeLuaSprite('stageback3ssh', 'SSH/bg3', -600, -300);
+	setScrollFactor('stageback3ssh', 0.75, 1);
+	scaleObject('stageback3ssh', 2, 2);
+	setProperty('stageback3ssh.alpha', 0.0001);
+	updateHitbox('stageback3ssh');
+	
+	makeLuaSprite('stageback2ssh', 'SSH/bg2', -600, -300);
+	setScrollFactor('stageback2ssh', 0.8, 1);
+	scaleObject('stageback2ssh', 2, 2);
+	setProperty('stageback2ssh.alpha', 0.0001);
+	updateHitbox('stageback2ssh');
+	
+	makeLuaSprite('stagebackssh', 'SSH/bg', -600, -300);
+	setScrollFactor('stagebackssh', 0.9, 1);
+	scaleObject('stagebackssh', 2, 2);
+	setProperty('stagebackssh.alpha', 0.0001);
+	updateHitbox('stagebackssh');
+	
+	makeLuaSprite('groundssh', 'SSH/main', -600, -300);
+	setScrollFactor('groundssh', 1, 1);
+	scaleObject('groundssh', 2, 2);
+	setProperty('groundssh.alpha', 0.0001);
+	updateHitbox('groundssh');
+	
+	makeLuaSprite('foregroundssh', 'SSH/foreground', -600, -300);
+	setScrollFactor('foregroundssh', 1.2, 1);
+	scaleObject('foregroundssh', 2, 2);
+	setProperty('foregroundssh.alpha', 0.0001);
+	updateHitbox('foregroundssh');
+
+	addLuaSprite('bgssh', false);
+	addLuaSprite('stageback3ssh', false);
+	addLuaSprite('stageback2ssh', false);
+	addLuaSprite('stagebackssh', false);
+	addLuaSprite('groundssh', false);
+	addLuaSprite('foregroundssh', true);
+
+	makeLuaSprite('bgmetro', 'metropolis/metrosky', -550, -340);
+	setScrollFactor('bgmetro', 0.2, 0.7);
+	scaleObject('bgmetro', 1.8, 1.8);
+	setProperty('bgmetro.alpha', 0.0001);
+	updateHitbox('bgmetro');
+	
+	makeLuaSprite('stageback2metro', 'metropolis/metrofarbg', -550, -340);
+	setScrollFactor('stageback2metro', 0.5, 0.9);
+	scaleObject('stageback2metro', 1.8, 1.8);
+	setProperty('stageback2metro.alpha', 0.0001);
+	updateHitbox('stageback2metro');
+	
+	makeLuaSprite('stagebackmetro', 'metropolis/metrobg', -550, -340);
+	setScrollFactor('stagebackmetro', 0.7, 1);
+	scaleObject('stagebackmetro', 1.8, 1.8);
+	setProperty('stagebackmetro.alpha', 0.0001);
+	updateHitbox('stagebackmetro');
+	
+	makeLuaSprite('groundmetro', 'metropolis/metrofg', -550, -340);
+	setScrollFactor('groundmetro', 1, 1);
+	scaleObject('groundmetro', 1.8, 1.8);
+	setProperty('groundmetro.alpha', 0.0001);
+	updateHitbox('groundmetro');
+
+	addLuaSprite('bgmetro', false);
+	addLuaSprite('stageback2metro', false);
+	addLuaSprite('stagebackmetro', false);
+	addLuaSprite('groundmetro', false);
+
+	makeAnimatedLuaSprite('clash', 'nullspace/Clash', 0, 0);
+	addAnimationByPrefix('clash', 'finale', 'ClashBG', 24, true);
+	setScrollFactor('clash', 0, 0);
+	scaleObject('clash', 1.5, 1.5);
+	setProperty('clash.alpha', 0.0001);
+	addLuaSprite('clash', false);
+    screenCenter('clash');
+
+	makeLuaSprite('nullglow', 'nullspace/nullglow', 0, 0);
+	scaleObject('nullglow', 1.1, 1.1);
+	setProperty('nullglow.alpha', 0.0001);
+	setObjectCamera('nullglow', 'hud');
+	addLuaSprite('nullglow', false);
+    screenCenter('nullglow');
+
+	makeLuaSprite('purple', '', 0, 0);	
+    makeGraphic('purple', 1280, 720, '0x9146FF');
+    setScrollFactor('purple', 0, 0);
+	setProperty('purple.alpha', 0.0001);
+	scaleObject('purple', 3, 3);
+    screenCenter('purple');
+    addLuaSprite('purple', false);
+
 	makeLuaSprite('black', '', 0, 0);	
     makeGraphic('black', 1280, 720, '0x000000');
     setScrollFactor('black', 0, 0);
@@ -30,7 +131,7 @@ function onCreatePost()
 	setTextAlignment('thignie', 'center');
 	setObjectCamera('thignie', 'other');
 	setTextSize('thignie', 25);
-	setProperty('thignie.alpha', 0.001);
+	setProperty('thignie.alpha', 0.0001);
 	setTextColor('thignie', '0xE8D8C0');
 	setTextFont('thignie', 'futura.otf');
 	addLuaText('thignie', true);
@@ -49,6 +150,40 @@ function onStepHit()
 	end
 	if curStep == 144 then
 		setProperty('isCameraOnForcedPos', false);
+	end
+	if curStep == 1024 then
+		setProperty('nullglow.alpha', 1);
+		setProperty('groundjungle.alpha', 1);
+		setProperty('purple.alpha', 0.2);
+	end
+	if curStep == 2112 then
+		setProperty('groundjungle.alpha', 0);
+		setProperty('bgssh.alpha', 1);
+		setProperty('stageback3ssh.alpha', 1);
+		setProperty('stageback2ssh.alpha', 1);
+		setProperty('stagebackssh.alpha', 1);
+		setProperty('groundssh.alpha', 1);
+		setProperty('foregroundssh.alpha', 1);
+		setProperty('nullglow.alpha', 1);
+	end
+	if curStep == 2656 then
+		setProperty('bgssh.alpha', 0);
+		setProperty('stageback3ssh.alpha', 0);
+		setProperty('stageback2ssh.alpha', 0);
+		setProperty('stagebackssh.alpha', 0);
+		setProperty('groundssh.alpha', 0);
+		setProperty('foregroundssh.alpha', 0);
+		setProperty('bgmetro.alpha', 1);
+		setProperty('stageback2metro.alpha', 1);
+		setProperty('stagebackmetro.alpha', 1);
+		setProperty('groundmetro.alpha', 1);
+	end
+	if curStep == 3712 then
+		doTweenAlpha('purple', 'purple', 0, 1, 'linear');
+		setProperty('bgmetro.alpha', 0);
+		setProperty('stageback2metro.alpha', 0);
+		setProperty('stagebackmetro.alpha', 0);
+		setProperty('groundmetro.alpha', 0);
 	end
 	if curStep == 4480 then
 		doTweenAlpha('hudAlpha', 'camHUD', 0, 0.4, 'linear');
@@ -178,5 +313,11 @@ function onStepHit()
 	end
 	if curStep == 5008 then
 		triggerEvent('Camera Follow Pos', '', '');
+		setProperty('clash.alpha', 1);
+		setProperty('nullglow.alpha', 1);
+	end
+	if curStep == 5504 then
+		setProperty('nullglow.alpha', 0);
+		setProperty('clash.alpha', 0);
 	end
 end

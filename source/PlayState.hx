@@ -1374,7 +1374,7 @@ class PlayState extends MusicBeatState
 			}
 			infiniteDialogue.nextDialogueThing = startNextDialogue;
 			infiniteDialogue.skipDialogueThing = skipDialogue;
-			infiniteDialogue.cameras = [camOther2];
+			infiniteDialogue.cameras = [camOther];
 			add(infiniteDialogue);
 		}
 		else
@@ -1404,7 +1404,7 @@ class PlayState extends MusicBeatState
 				inCutscene = false;
 				camHUD.visible = true;
 			}
-			fakeInfiniteDialogue.cameras = [camOther2];
+			fakeInfiniteDialogue.cameras = [camOther];
 			add(fakeInfiniteDialogue);
 		}
 		else

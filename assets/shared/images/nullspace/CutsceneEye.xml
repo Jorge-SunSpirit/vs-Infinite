@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="CutsceneEye.png">
+	<!-- Created with Adobe Animate version 21.0.6.41649 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="EyeAnim instance 10000" x="5" y="5" width="970" height="741" frameX="0" frameY="-23" frameWidth="970" frameHeight="787"/>
+	<SubTexture name="EyeAnim instance 10001" x="980" y="5" width="970" height="741" frameX="0" frameY="-23" frameWidth="970" frameHeight="787"/>
+	<SubTexture name="EyeAnim instance 10002" x="1955" y="5" width="970" height="783" frameX="0" frameY="-2" frameWidth="970" frameHeight="787"/>
+	<SubTexture name="EyeAnim instance 10003" x="2930" y="5" width="970" height="783" frameX="0" frameY="-2" frameWidth="970" frameHeight="787"/>
+	<SubTexture name="EyeAnim instance 10004" x="5" y="793" width="970" height="787"/>
+	<SubTexture name="EyeAnim instance 10005" x="980" y="793" width="970" height="787"/>
+	<SubTexture name="EyeAnim instance 10006" x="1955" y="793" width="970" height="787"/>
+	<SubTexture name="EyeAnim instance 10007" x="2930" y="793" width="970" height="787"/>
+	<SubTexture name="EyeAnim instance 10008" x="5" y="1585" width="970" height="787"/>
+	<SubTexture name="EyeAnim instance 10009" x="980" y="1585" width="970" height="787"/>
+	<SubTexture name="EyeAnim instance 10010" x="1955" y="1585" width="970" height="787"/>
+	<SubTexture name="EyeAnim instance 10011" x="2930" y="1585" width="970" height="787"/>
+	<SubTexture name="EyeAnim instance 10012" x="2930" y="1585" width="970" height="787"/>
+	<SubTexture name="EyeAnim instance 10013" x="5" y="2377" width="970" height="787"/>
+	<SubTexture name="EyeAnim instance 10014" x="980" y="2377" width="970" height="787"/>
+	<SubTexture name="EyeAnim instance 10015" x="980" y="2377" width="970" height="787"/>
+	<SubTexture name="EyeAnim instance 10016" x="980" y="2377" width="970" height="787"/>
+	<SubTexture name="EyeAnim instance 10017" x="980" y="2377" width="970" height="787"/>
+	<SubTexture name="EyeAnim instance 10018" x="980" y="2377" width="970" height="787"/>
+	<SubTexture name="EyeAnim instance 10019" x="980" y="2377" width="970" height="787"/>
+	<SubTexture name="EyeAnim instance 10020" x="980" y="2377" width="970" height="787"/>
+	<SubTexture name="EyeAnim instance 10021" x="980" y="2377" width="970" height="787"/>
+	<SubTexture name="EyeAnim instance 10022" x="980" y="2377" width="970" height="787"/>
+	<SubTexture name="EyeAnim instance 10023" x="980" y="2377" width="970" height="787"/>
+	<SubTexture name="EyeAnim instance 10024" x="980" y="2377" width="970" height="787"/>
+	<SubTexture name="EyeAnim instance 10025" x="980" y="2377" width="970" height="787"/>
+	<SubTexture name="EyeAnim instance 10026" x="980" y="2377" width="970" height="787"/>
+	<SubTexture name="EyeAnim instance 10027" x="980" y="2377" width="970" height="787"/>
+	<SubTexture name="EyeAnim instance 10028" x="980" y="2377" width="970" height="787"/>
+	<SubTexture name="EyeAnim instance 10029" x="980" y="2377" width="970" height="787"/>
+	<SubTexture name="EyeAnim instance 10030" x="980" y="2377" width="970" height="787"/>
+	<SubTexture name="EyeAnim instance 10031" x="980" y="2377" width="970" height="787"/>
+	<SubTexture name="EyeAnim instance 10032" x="1955" y="2377" width="970" height="787"/>
+	<SubTexture name="EyeAnim instance 10033" x="1955" y="2377" width="970" height="787"/>
+	<SubTexture name="EyeAnim instance 10034" x="2930" y="2377" width="970" height="787"/>
+	<SubTexture name="EyeAnim instance 10035" x="2930" y="2377" width="970" height="787"/>
+	<SubTexture name="EyeAnim instance 10036" x="5" y="3169" width="822" height="636" frameX="-70" frameY="-71" frameWidth="970" frameHeight="787"/>
+	<SubTexture name="EyeAnim instance 10037" x="5" y="3169" width="822" height="636" frameX="-70" frameY="-71" frameWidth="970" frameHeight="787"/>
+	<SubTexture name="EyeAnim instance 10038" x="832" y="3169" width="822" height="636" frameX="-70" frameY="-71" frameWidth="970" frameHeight="787"/>
+	<SubTexture name="EyeAnim instance 10039" x="832" y="3169" width="822" height="636" frameX="-70" frameY="-71" frameWidth="970" frameHeight="787"/>
+	<SubTexture name="EyeAnim instance 10040" x="1659" y="3169" width="822" height="636" frameX="-70" frameY="-71" frameWidth="970" frameHeight="787"/>
+	<SubTexture name="EyeAnim instance 10041" x="1659" y="3169" width="822" height="636" frameX="-70" frameY="-71" frameWidth="970" frameHeight="787"/>
+	<SubTexture name="EyeAnim instance 10042" x="1659" y="3169" width="822" height="636" frameX="-70" frameY="-71" frameWidth="970" frameHeight="787"/>
+	<SubTexture name="EyeAnim instance 10043" x="1659" y="3169" width="822" height="636" frameX="-70" frameY="-71" frameWidth="970" frameHeight="787"/>
+	<SubTexture name="EyeAnim instance 10044" x="1659" y="3169" width="822" height="636" frameX="-70" frameY="-71" frameWidth="970" frameHeight="787"/>
+	<SubTexture name="EyeAnim instance 10045" x="1659" y="3169" width="822" height="636" frameX="-70" frameY="-71" frameWidth="970" frameHeight="787"/>
+	<SubTexture name="EyeAnim instance 10046" x="1659" y="3169" width="822" height="636" frameX="-70" frameY="-71" frameWidth="970" frameHeight="787"/>
+	<SubTexture name="EyeAnim instance 10047" x="1659" y="3169" width="822" height="636" frameX="-70" frameY="-71" frameWidth="970" frameHeight="787"/>
+	<SubTexture name="EyeAnim instance 10048" x="1659" y="3169" width="822" height="636" frameX="-70" frameY="-71" frameWidth="970" frameHeight="787"/>
+	<SubTexture name="EyeAnim instance 10049" x="1659" y="3169" width="822" height="636" frameX="-70" frameY="-71" frameWidth="970" frameHeight="787"/>
+	<SubTexture name="EyeAnim instance 10050" x="1659" y="3169" width="822" height="636" frameX="-70" frameY="-71" frameWidth="970" frameHeight="787"/>
+	<SubTexture name="EyeAnim instance 10051" x="1659" y="3169" width="822" height="636" frameX="-70" frameY="-71" frameWidth="970" frameHeight="787"/>
+	<SubTexture name="EyeAnim instance 10052" x="1659" y="3169" width="822" height="636" frameX="-70" frameY="-71" frameWidth="970" frameHeight="787"/>
+	<SubTexture name="EyeAnim instance 10053" x="1659" y="3169" width="822" height="636" frameX="-70" frameY="-71" frameWidth="970" frameHeight="787"/>
+	<SubTexture name="EyeAnim instance 10054" x="1659" y="3169" width="822" height="636" frameX="-70" frameY="-71" frameWidth="970" frameHeight="787"/>
+	<SubTexture name="EyeAnim instance 10055" x="1659" y="3169" width="822" height="636" frameX="-70" frameY="-71" frameWidth="970" frameHeight="787"/>
+	<SubTexture name="EyeAnim instance 10056" x="1659" y="3169" width="822" height="636" frameX="-70" frameY="-71" frameWidth="970" frameHeight="787"/>
+	<SubTexture name="EyeAnim instance 10057" x="1659" y="3169" width="822" height="636" frameX="-70" frameY="-71" frameWidth="970" frameHeight="787"/>
+	<SubTexture name="EyeAnim instance 10058" x="1659" y="3169" width="822" height="636" frameX="-70" frameY="-71" frameWidth="970" frameHeight="787"/>
+	<SubTexture name="EyeAnim instance 10059" x="1659" y="3169" width="822" height="636" frameX="-70" frameY="-71" frameWidth="970" frameHeight="787"/>
+	<SubTexture name="EyeAnim instance 10060" x="1659" y="3169" width="822" height="636" frameX="-70" frameY="-71" frameWidth="970" frameHeight="787"/>
+</TextureAtlas>

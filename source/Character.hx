@@ -59,6 +59,8 @@ class Character extends FlxSprite
 	public var curCharacter:String = DEFAULT_CHARACTER;
 
 	public var colorTween:FlxTween;
+	public var holding:Bool = false;
+	public var singing:Bool = false;
 	public var holdTimer:Float = 0;
 	public var heyTimer:Float = 0;
 	public var specialAnim:Bool = false;
@@ -243,8 +245,6 @@ class Character extends FlxSprite
 
 		if (!animdebug && facing != initFacing)
 		{
-			
-
 			if (animation.getByName('singRIGHT') != null)
 				{
 					var oldRight = animation.getByName('singRIGHT').frames;
@@ -315,9 +315,9 @@ class Character extends FlxSprite
 	override function update(elapsed:Float)
 	{
 		floatshit += 0.03 / FramerateTools.timeMultiplier();
+
 		if (!debugMode && float)
 			y += Math.sin(floatshit) / FramerateTools.timeMultiplier();
-
 
 		if(!debugMode && animation.curAnim != null)
 		{
@@ -339,6 +339,8 @@ class Character extends FlxSprite
 				dance();
 			}
 
+			singing = animation.curAnim.name.startsWith("sing") || animation.curAnim.name.startsWith("hold");
+
 			switch (curCharacter)
 			{
 				case 'pico-speaker':
@@ -356,14 +358,28 @@ class Character extends FlxSprite
 						playAnim(animation.curAnim.name, false, false, animation.curAnim.frames.length - 3);
 			}
 
-			if (!isPlayer)
+			if (isPlayer)
 			{
-				if (animation.curAnim.name.startsWith('sing'))
+				if (singing)
+				{
+					holdTimer += elapsed;
+				}
+				else
+					holdTimer = 0;
+	
+				if (animation.curAnim.name.endsWith('miss') && animation.curAnim.finished && !debugMode)
+				{
+					playAnim('idle', true, false, 10);
+				}
+			}
+			else
+			{
+				if (singing)
 				{
 					holdTimer += elapsed;
 				}
 
-				if (holdTimer >= Conductor.stepCrochet * 0.001 * singDuration)
+				if (holdTimer >= Conductor.stepCrochet * (0.0011 / (FlxG.sound.music != null ? FlxG.sound.music.pitch : 1)) * singDuration)
 				{
 					dance();
 					holdTimer = 0;
@@ -375,7 +391,28 @@ class Character extends FlxSprite
 				playAnim(animation.curAnim.name + '-loop');
 			}
 		}
+
 		super.update(elapsed);
+
+		if (!debugMode && animation.curAnim != null) {
+			// ANDROMEDAAAAAAAAAAAAAAAAAAAAAAA
+			var name = animation.curAnim.name;
+			if (name.startsWith("hold")) {
+				if (name.endsWith("start") && animation.curAnim.finished) {
+					var newName = name.substring(0, name.length - 5);
+					var singName = "sing" + name.substring(3, name.length - 5);
+					if (animation.getByName(newName) != null) {
+						playAnim(newName, true);
+					}
+					else {
+						playAnim(singName, true);
+					}
+				}
+			}
+			else if (holding) { // Pause on first frame when holding
+				animation.curAnim.curFrame = 0;
+			}
+		}
 	}
 
 	public var danced:Bool = false;
@@ -387,6 +424,8 @@ class Character extends FlxSprite
 	{
 		if (!debugMode && !skipDance && !specialAnim)
 		{
+			holding = false;
+
 			if(danceIdle)
 			{
 				danced = !danced;

@@ -35,8 +35,12 @@ class Note extends FlxSprite
 
 	public var spawned:Bool = false;
 
-	public var tail:Array<Note> = []; // for sustains
-	public var parent:Note;
+	public var isParent:Bool = false;
+	public var children:Array<Note> = []; // for sustains
+	public var parent:Note = null;
+	public var spotInLine:Int = 0;
+	public var sustainActive:Bool = false;
+
 	public var blockHit:Bool = false; // only works for player
 
 	public var sustainLength:Float = 0;
@@ -104,7 +108,7 @@ class Note extends FlxSprite
 
 	public function resizeByRatio(ratio:Float) //haha funny twitter shit
 	{
-		if(isSustainNote && !animation.curAnim.name.endsWith('end'))
+		if(isSustainNote && !isSustainEnd())
 		{
 			scale.y *= ratio;
 			updateHitbox();
@@ -342,6 +346,10 @@ class Note extends FlxSprite
 		}
 	}
 
+	public function isSustainEnd() {
+		return spotInLine == parent.children.length - 1;
+	}
+
 	override function update(elapsed:Float)
 	{
 		super.update(elapsed);
@@ -369,7 +377,7 @@ class Note extends FlxSprite
 			}
 		}
 
-		if (tooLate && !inEditor)
+		if (tooLate && !inEditor && !sustainActive)
 		{
 			if (alpha > 0.3)
 				alpha = 0.3;

@@ -14,6 +14,7 @@ class StrumNote extends FlxSprite
 	public var direction:Float = 90;//plan on doing scroll directions soon -bb
 	public var downScroll:Bool = false;//plan on doing scroll directions soon -bb
 	public var sustainReduce:Bool = true;
+	public var holding:Bool = false;
 	
 	private var player:Int;
 	
@@ -135,13 +136,15 @@ class StrumNote extends FlxSprite
 				resetAnim = 0;
 			}
 		}
-		//if(animation.curAnim != null){ //my bad i was upset
+
 		if(animation.curAnim.name == 'confirm' && !PlayState.isPixelStage) {
 			centerOrigin();
-		//}
 		}
 
 		super.update(elapsed);
+
+		if (holding) // Pause on first frame when holding
+			animation.curAnim.curFrame = 0;
 	}
 
 	public function playAnim(anim:String, ?force:Bool = false) {

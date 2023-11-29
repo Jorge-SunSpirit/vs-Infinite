@@ -274,6 +274,7 @@ class PlayState extends MusicBeatState
 	// how big to stretch the pixel art assets
 	public static var daPixelZoom:Float = 6;
 	private var singAnimations:Array<String> = ['singLEFT', 'singDOWN', 'singUP', 'singRIGHT'];
+	private var holdAnimations:Array<String> = ['holdLEFT', 'holdDOWN', 'holdUP', 'holdRIGHT'];
 
 	public var inCutscene:Bool = false;
 	public var skipCountdown:Bool = false;
@@ -1840,10 +1841,15 @@ class PlayState extends MusicBeatState
 				swagNote.scrollFactor.set();
 
 				var susLength:Float = swagNote.sustainLength;
-
 				susLength = susLength / Conductor.stepCrochet;
+
+				if(susLength > 0) {
+					swagNote.isParent = true;
+				}
+
 				unspawnNotes.push(swagNote);
 
+				var type:Int = 0;
 				var floorSus:Int = Math.floor(susLength);
 				if(floorSus > 0) {
 					for (susNote in 0...floorSus+1)
@@ -1851,12 +1857,10 @@ class PlayState extends MusicBeatState
 						oldNote = unspawnNotes[Std.int(unspawnNotes.length - 1)];
 
 						var sustainNote:Note = new Note(daStrumTime + (Conductor.stepCrochet * susNote) + (Conductor.stepCrochet / FlxMath.roundDecimal(songSpeed, 2)), daNoteData, oldNote, true);
+						sustainNote.scrollFactor.set();
 						sustainNote.mustPress = gottaHitNote;
 						sustainNote.gfNote = (section.gfSection && (songNotes[1]<4));
 						sustainNote.noteType = swagNote.noteType;
-						sustainNote.scrollFactor.set();
-						swagNote.tail.push(sustainNote);
-						sustainNote.parent = swagNote;
 						unspawnNotes.push(sustainNote);
 
 						if (sustainNote.mustPress)
@@ -1871,6 +1875,11 @@ class PlayState extends MusicBeatState
 								sustainNote.x += FlxG.width / 2 + 25;
 							}
 						}
+
+						sustainNote.parent = swagNote;
+						swagNote.children.push(sustainNote);
+						sustainNote.spotInLine = type;
+						type++;
 					}
 				}
 
@@ -3821,8 +3830,21 @@ class PlayState extends MusicBeatState
 			{
 				// hold note functions
 				if (strumsBlocked[daNote.noteData] != true && daNote.isSustainNote && parsedHoldArray[daNote.noteData] && daNote.canBeHit
-				&& daNote.mustPress && !daNote.tooLate && !daNote.wasGoodHit && !daNote.blockHit) {
+					&& daNote.mustPress && !daNote.tooLate && !daNote.wasGoodHit && !daNote.blockHit && daNote.sustainActive) {
 					goodNoteHit(daNote);
+				}
+
+				// hold release functions
+				if (daNote.mustPress && !cpuControlled && daNote.isSustainNote && daNote.sustainActive && !parsedHoldArray[daNote.noteData] && !cpuControlled && !daNote.ignoreNote && !endingSong 
+					&& (daNote.tooLate || !daNote.wasGoodHit)) { // Hold notes
+					// trace("User released key while playing a sustain at: " + daNote.spotInLine);
+					noteMiss(daNote);
+					for (i in daNote.parent.children) {
+						i.alpha = 0.1;
+						i.multAlpha = 0.1;
+						i.sustainActive = false;
+						health -= (0.08 * healthLoss) / daNote.parent.children.length;
+					}
 				}
 			});
 
@@ -3875,8 +3897,15 @@ class PlayState extends MusicBeatState
 				note.destroy();
 			}
 		});
+
+		if (daNote.isSustainNote && !daNote.sustainActive){
+			return;
+		}
+
 		combo = 0;
-		health -= daNote.missHealth * healthLoss;
+		if (!daNote.isSustainNote) {
+			health -= daNote.missHealth * healthLoss;
+		}
 		
 		if(instakillOnMiss)
 		{
@@ -3953,10 +3982,64 @@ class PlayState extends MusicBeatState
 		callOnLuas('noteMissPress', [direction]);
 	}
 
+	function playAnimNote(char:Character, note:Note, ?altAnim:String = "")
+		{
+			var animToPlay:String = "";
+			animToPlay = singAnimations[Std.int(Math.abs(note.noteData))];
+	
+			if (note.isParent && note.children.length > 0) {
+				if (char.animation.getByName(holdAnimations[Std.int(Math.abs(note.noteData))] + "start") != null) {
+					animToPlay = holdAnimations[Std.int(Math.abs(note.noteData))] + "start";
+				}
+				else if (char.animation.getByName(holdAnimations[Std.int(Math.abs(note.noteData))]) != null) {
+					animToPlay = holdAnimations[Std.int(Math.abs(note.noteData))];
+				}
+			}
+			else if (note.isSustainNote) {
+				if (char.animation.getByName(holdAnimations[Std.int(Math.abs(note.noteData))]) != null) {
+					animToPlay = holdAnimations[Std.int(Math.abs(note.noteData))];
+				}
+			}
+	
+			if (note.isSustainNote && note.isSustainEnd()){
+				if (char.animation.getByName(holdAnimations[Std.int(Math.abs(note.noteData))] + "end") != null) {
+					animToPlay = holdAnimations[Std.int(Math.abs(note.noteData))] + "end";
+				}
+			}
+	
+			if (note.isSustainNote && !note.isSustainEnd()) {
+				char.holding = true;
+			}
+			else {
+				char.holding = false;
+			}
+	
+			if (char.animation.getByName(animToPlay + altAnim) != null) {
+				animToPlay += altAnim;
+			}
+	
+			if (char != null) {
+				if (char.animation.curAnim != null) {
+					if (!note.isSustainNote || (note.isSustainNote && !note.isSustainEnd())) {
+						if ((!animToPlay.startsWith("hold") || char.animation.curAnim.name != animToPlay)) {
+							char.playAnim(animToPlay, true);
+						}
+					}
+				}
+				char.holdTimer = 0;
+			}
+		}
+
 	function opponentNoteHit(note:Note):Void
 	{
 		if (Paths.formatToSongPath(SONG.song) != 'tutorial')
 			camZooming = true;
+
+		if (note.isParent) {
+			for (i in note.children) {
+				i.sustainActive = true;		
+			}
+		}
 
 		if(note.noteType == 'Hey!' && dad.animOffsets.exists('hey')) {
 			dad.playAnim('hey', true);
@@ -3972,17 +4055,7 @@ class PlayState extends MusicBeatState
 				}
 			}
 
-			var char:Character = dad;
-			var animToPlay:String = singAnimations[Std.int(Math.abs(note.noteData))] + altAnim;
-			if(note.gfNote) {
-				char = gf;
-			}
-
-			if(char != null)
-			{
-				char.playAnim(animToPlay, true);
-				char.holdTimer = 0;
-			}
+			playAnimNote(dad, note, altAnim);
 		}
 
 		if (SONG.needsVoices)
@@ -4048,25 +4121,29 @@ class PlayState extends MusicBeatState
 				combo += 1;
 				if(combo > 9999) combo = 9999;
 				popUpScore(note);
+				/* Enable Sustains to be hit. 
+				//This is to prevent hitting sustains if you hold a strum before the note is coming without hitting the note parent. 
+				(I really hope I made me understand lol.) */
+				if (note.isParent)
+					for (i in note.children)
+						i.sustainActive = true;
 			}
-			health += note.hitHealth * healthGain;
+			else if (note.isSustainNote)
+			{
+				health += note.hitHealth * healthGain;
+			}
 
 			if(!note.noAnimation) {
-				var animToPlay:String = singAnimations[Std.int(Math.abs(note.noteData))];
+				var altAnim:String = note.animSuffix;
 
-				if(note.gfNote)
+				if (SONG.notes[curSection] != null)
 				{
-					if(gf != null)
-					{
-						gf.playAnim(animToPlay + note.animSuffix, true);
-						gf.holdTimer = 0;
+					if (SONG.notes[curSection].altAnim && !SONG.notes[curSection].gfSection) {
+						altAnim = '-alt';
 					}
 				}
-				else
-				{
-					boyfriend.playAnim(animToPlay + note.animSuffix, true);
-					boyfriend.holdTimer = 0;
-				}
+				
+				playAnimNote(note.gfNote ? gf : boyfriend, note, altAnim);
 
 				if(note.noteType == 'Hey!') {
 					if(boyfriend.animOffsets.exists('hey')) {

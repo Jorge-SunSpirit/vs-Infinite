@@ -21,4 +21,5 @@
 	<SubTexture name="BGLightning0016" x="5" y="4345" width="1920" height="1080"/>
 	<SubTexture name="BGLightning0017" x="1930" y="4345" width="1920" height="1080"/>
 	<SubTexture name="BGLightning0018" x="3855" y="4345" width="1920" height="1080"/>
+	<SubTexture name="BGLightning0019" x="5780" y="4345" width="1920" height="1080"/>
 </TextureAtlas>

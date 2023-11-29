@@ -118,6 +118,7 @@ function onCreatePost()
 	setProperty('purple.alpha', 0.0001);
 	scaleObject('purple', 3, 3);
     screenCenter('purple');
+	setBlendMode('purple', 'add');
     addLuaSprite('purple', false);
 
 	makeLuaSprite('black', '', 0, 0);	
@@ -125,6 +126,15 @@ function onCreatePost()
     setScrollFactor('black', 0, 0);
 	setObjectCamera('black', 'other');
     addLuaSprite('black', false);
+	setProperty('black.alpha', 0.0001);
+	
+	makeAnimatedLuaSprite('eyeThingie', 'nullspace/CutsceneEye', 0, 0);
+	addAnimationByPrefix('eyeThingie', 'eye', 'EyeAnim instance 1', 24, false);
+	setScrollFactor('eyeThingie', 0, 0);
+	setProperty('eyeThingie.alpha', 0.0001);
+	setObjectCamera('eyeThingie', 'other');
+	addLuaSprite('eyeThingie', false);
+    screenCenter('eyeThingie');
 	
 	makeLuaText('thignie', "Why doesn't this  work :", 1280, 0, 600);
 	screenCenter('thignie', 'x');
@@ -154,7 +164,9 @@ function onStepHit()
 	if curStep == 1024 then
 		setProperty('nullglow.alpha', 1);
 		setProperty('groundjungle.alpha', 1);
-		setProperty('purple.alpha', 0.2);
+		setProperty('purple.alpha', 0.4);
+		setProperty('boyfriend.hasShadow', true);
+		setProperty('dad.hasShadow', true);
 	end
 	if curStep == 2112 then
 		setProperty('groundjungle.alpha', 0);
@@ -184,6 +196,8 @@ function onStepHit()
 		setProperty('stageback2metro.alpha', 0);
 		setProperty('stagebackmetro.alpha', 0);
 		setProperty('groundmetro.alpha', 0);
+		setProperty('boyfriend.hasShadow', false);
+		setProperty('dad.hasShadow', false);
 	end
 	if curStep == 4480 then
 		doTweenAlpha('hudAlpha', 'camHUD', 0, 0.4, 'linear');
@@ -271,6 +285,13 @@ function onStepHit()
 	
 	if curStep == 4920 then
 		setProperty('thignie.alpha', 0.001);
+		triggerEvent('Screen Flash', 'camOther');
+		setProperty('eyeThingie.alpha', 1);
+		objectPlayAnimation('eyeThingie', 'eye', true)
+	end
+	
+	if curStep == 4952 then
+		doTweenAlpha('Eyes', 'eyeThingie', 0, 0.4, 'linear');
 	end
 	
 	if curStep == 4960 then
@@ -315,6 +336,13 @@ function onStepHit()
 		triggerEvent('Camera Follow Pos', '', '');
 		setProperty('clash.alpha', 1);
 		setProperty('nullglow.alpha', 1);
+	end
+	if curStep == 5248 then
+		setProperty('isCameraOnForcedPos', true);
+		doTweenZoom('zoomcamera', 'camGame', 0.8, 0.1);
+		setProperty('defaultCamZoom', 0.8);
+		setProperty('camFollow.x', 650);
+		setProperty('camFollow.y', 300);
 	end
 	if curStep == 5504 then
 		setProperty('nullglow.alpha', 0);

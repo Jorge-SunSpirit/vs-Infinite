@@ -212,12 +212,27 @@
 				]
 			],
 			[
+				121263.157894737,
+				[
+					[
+						"Phantom Ruby",
+						"true",
+						"true"
+					]
+				]
+			],
+			[
 				122526.315789474,
 				[
 					[
 						"Change Camera Zoom",
 						"1",
 						"0.5"
+					],
+					[
+						"Phantom Ruby",
+						"false",
+						"true"
 					]
 				]
 			],

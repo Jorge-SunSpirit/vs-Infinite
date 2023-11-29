@@ -167,8 +167,13 @@ function onStepHit()
 		setProperty('boyfriend.hasShadow', true);
 		setProperty('dad.hasShadow', true);
 	end
-	if curStep == 2112 then
+	if curStep == 1536 then
 		setProperty('groundjungle.alpha', 0);
+		setProperty('nullglow.alpha', 0);
+		setProperty('boyfriend.hasShadow', false);
+		setProperty('dad.hasShadow', false);
+	end
+	if curStep == 2112 then
 		setProperty('bgssh.alpha', 1);
 		setProperty('stageback3ssh.alpha', 1);
 		setProperty('stageback2ssh.alpha', 1);
@@ -176,6 +181,8 @@ function onStepHit()
 		setProperty('groundssh.alpha', 1);
 		setProperty('foregroundssh.alpha', 1);
 		setProperty('nullglow.alpha', 1);
+		setProperty('boyfriend.hasShadow', true);
+		setProperty('dad.hasShadow', true);
 	end
 	if curStep == 2656 then
 		setProperty('bgssh.alpha', 0);
@@ -191,6 +198,7 @@ function onStepHit()
 	end
 	if curStep == 3712 then
 		doTweenAlpha('purple', 'purple', 0, 1, 'linear');
+		setProperty('nullglow.alpha', 0);
 		setProperty('bgmetro.alpha', 0);
 		setProperty('stageback2metro.alpha', 0);
 		setProperty('stagebackmetro.alpha', 0);
@@ -282,14 +290,14 @@ function onStepHit()
 		setTextString('thignie', "And with the Phantom Ruby fully recharged...");
 	end
 	
-	if curStep == 4920 then
+	if curStep == 4922 then
 		setProperty('thignie.alpha', 0.001);
 		triggerEvent('Screen Flash', 'camOther');
 		setProperty('eyeThingie.alpha', 1);
 		objectPlayAnimation('eyeThingie', 'eye', true)
 	end
 	
-	if curStep == 4952 then
+	if curStep == 4940 then
 		doTweenAlpha('Eyes', 'eyeThingie', 0, 0.4, 'linear');
 	end
 	

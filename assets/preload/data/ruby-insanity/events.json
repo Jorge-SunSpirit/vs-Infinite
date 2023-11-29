@@ -6,7 +6,7 @@
 				[
 					[
 						"Note Camera Movement",
-						"0.8",
+						"25",
 						""
 					]
 				]
@@ -53,6 +53,16 @@
 						"Screen Flash",
 						"camGame",
 						""
+					],
+					[
+						"Glitch Effect",
+						"0.2",
+						""
+					],
+					[
+						"Swap Notescroll",
+						"",
+						""
 					]
 				]
 			],
@@ -73,6 +83,16 @@
 						"Change Camera Zoom",
 						"0.9",
 						"0.5"
+					],
+					[
+						"Glitch Effect",
+						"0.2",
+						""
+					],
+					[
+						"Swap Notescroll",
+						"",
+						""
 					]
 				]
 			],
@@ -83,6 +103,36 @@
 						"Change Camera Zoom",
 						"1.2",
 						"0.5"
+					],
+					[
+						"Glitch Effect",
+						"0.2",
+						""
+					],
+					[
+						"Swap Notescroll",
+						"",
+						""
+					],
+					[
+						"Screen Flash",
+						"camGame",
+						""
+					]
+				]
+			],
+			[
+				163555.555555555,
+				[
+					[
+						"Swap Notescroll",
+						"",
+						""
+					],
+					[
+						"Glitch Effect",
+						"0.2",
+						""
 					]
 				]
 			],
@@ -118,6 +168,16 @@
 						"Screen Flash",
 						"camGame",
 						""
+					],
+					[
+						"Swap Notescroll",
+						"",
+						""
+					],
+					[
+						"Glitch Effect",
+						"0.2",
+						""
 					]
 				]
 			],
@@ -148,6 +208,16 @@
 						"Phantom Ruby",
 						"true",
 						"true"
+					],
+					[
+						"Glitch Effect",
+						"0.2",
+						""
+					],
+					[
+						"Swap Notescroll",
+						"",
+						""
 					]
 				]
 			],
@@ -223,6 +293,16 @@
 						"Change Camera Zoom",
 						"0.95",
 						"0.5"
+					],
+					[
+						"Swap Notescroll",
+						"",
+						""
+					],
+					[
+						"Glitch Effect",
+						"0.2",
+						""
 					]
 				]
 			],
@@ -233,6 +313,16 @@
 						"Change Camera Zoom",
 						"0.8",
 						"3"
+					],
+					[
+						"Glitch Effect",
+						"0.2",
+						""
+					],
+					[
+						"Swap Notescroll",
+						"",
+						""
 					]
 				]
 			],

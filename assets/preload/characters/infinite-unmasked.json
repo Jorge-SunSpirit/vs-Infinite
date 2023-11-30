@@ -1,59 +1,92 @@
 {
 	"animations": [
 		{
+			"loop": false,
 			"offsets": [
 				0,
 				0
 			],
-			"loop": false,
-			"fps": 24,
 			"anim": "idle",
-			"indices": [],
-			"name": "MasklessInfinite_IdleDance"
+			"fps": 24,
+			"name": "MasklessInfinite_IdleDance",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [
 				-12,
 				-65
 			],
-			"loop": false,
-			"fps": 24,
 			"anim": "singDOWN",
-			"indices": [],
-			"name": "MasklessInfinite_SingDOWN"
+			"fps": 24,
+			"name": "MasklessInfinite_SingDOWN",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [
 				-2,
 				9
 			],
-			"loop": false,
-			"fps": 24,
 			"anim": "singLEFT",
-			"indices": [],
-			"name": "MasklessInfinite_SingLEFT"
+			"fps": 24,
+			"name": "MasklessInfinite_SingLEFT",
+			"indices": []
 		},
 		{
+			"loop": false,
+			"offsets": [
+				-2,
+				-2
+			],
+			"anim": "holdLEFTstart",
+			"fps": 24,
+			"name": "MasklessInfinite_HoldLEFTStart",
+			"indices": []
+		},
+		{
+			"loop": true,
+			"offsets": [
+				-2,
+				-2
+			],
+			"anim": "holdLEFT",
+			"fps": 24,
+			"name": "MasklessInfinite_HoldLEFT instance",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-3,
+				9
+			],
+			"anim": "holdLEFTend",
+			"fps": 24,
+			"name": "MasklessInfinite_HoldLEFTEnd",
+			"indices": []
+		},
+		{
+			"loop": false,
 			"offsets": [
 				3,
 				-81
 			],
-			"loop": false,
-			"fps": 24,
 			"anim": "singUP",
-			"indices": [],
-			"name": "MasklessInfinite_SingUP"
+			"fps": 24,
+			"name": "MasklessInfinite_SingUP",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [
 				-19,
 				40
 			],
-			"loop": false,
-			"fps": 24,
 			"anim": "singRIGHT",
-			"indices": [],
-			"name": "MasklessInfinite_SingRIGHT"
+			"fps": 24,
+			"name": "MasklessInfinite_SingRIGHT",
+			"indices": []
 		}
 	],
 	"no_antialiasing": false,

@@ -523,6 +523,7 @@ class DialogueBoxInfinite extends FlxSpriteGroup
 
 		new FlxTimer().start(0.1, function(tmr:FlxTimer)
 		{
+			PlayState.instance.camOther2.fade(0xFF000000, 0, true);
 			PlayState.instance.camOther2.setFilters(null);
 			allowUpdate = false;
 			killVoice();

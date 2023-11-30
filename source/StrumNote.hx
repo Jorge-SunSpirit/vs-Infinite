@@ -128,22 +128,25 @@ class StrumNote extends FlxSprite
 		ID = noteData;
 	}
 
-	override function update(elapsed:Float) {
-		if(resetAnim > 0) {
+	override function update(elapsed:Float)
+	{
+		if (resetAnim > 0)
+		{
 			resetAnim -= elapsed;
-			if(resetAnim <= 0) {
+
+			if (resetAnim <= 0)
+			{
 				playAnim('static');
 				resetAnim = 0;
 			}
 		}
 
-		if(animation.curAnim.name == 'confirm' && !PlayState.isPixelStage) {
+		if (animation.curAnim.name == 'confirm' && !PlayState.isPixelStage)
 			centerOrigin();
-		}
 
 		super.update(elapsed);
 
-		if (holding) // Pause on first frame when holding
+		if (holding && animation.curAnim != null) // Pause on first frame when holding
 			animation.curAnim.curFrame = 0;
 	}
 

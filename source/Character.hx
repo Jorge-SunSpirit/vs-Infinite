@@ -204,31 +204,33 @@ class Character extends FlxSprite
 				if(json.healthbar_colors != null && json.healthbar_colors.length > 2)
 					healthColorArray = json.healthbar_colors;
 
-				antialiasing = !noAntialiasing;
-				if(!ClientPrefs.globalAntialiasing) antialiasing = false;
+				antialiasing = !ClientPrefs.globalAntialiasing ? false : !noAntialiasing;
 
 				animationsArray = json.animations;
-				if(animationsArray != null && animationsArray.length > 0) {
-					for (anim in animationsArray) {
+
+				if (animationsArray != null && animationsArray.length > 0)
+				{
+					for (anim in animationsArray)
+					{
 						var animAnim:String = '' + anim.anim;
 						var animName:String = '' + anim.name;
 						var animFps:Int = anim.fps;
 						var animLoop:Bool = !!anim.loop; //Bruh
 						var animIndices:Array<Int> = anim.indices;
-						if(animIndices != null && animIndices.length > 0) {
-							animation.addByIndices(animAnim, animName, animIndices, "", animFps, animLoop);
-						} else {
-							animation.addByPrefix(animAnim, animName, animFps, animLoop);
-						}
 
-						if(anim.offsets != null && anim.offsets.length > 1) {
+						if (animIndices != null && animIndices.length > 0)
+							animation.addByIndices(animAnim, animName, animIndices, "", animFps, animLoop);
+						else
+							animation.addByPrefix(animAnim, animName, animFps, animLoop);
+
+						if (anim.offsets != null && anim.offsets.length > 1)
 							addOffset(anim.anim, anim.offsets[0], anim.offsets[1]);
-						}
 					}
-				} else {
+				}
+				else
+				{
 					quickAnimAdd('idle', 'BF idle dance');
 				}
-				//trace('Loaded file to character ' + curCharacter);
 		}
 
 		if (!animdebug) setFacingFlip((initFacing == FlxObject.LEFT ? FlxObject.RIGHT : FlxObject.LEFT), true, false);
@@ -341,43 +343,20 @@ class Character extends FlxSprite
 
 			singing = animation.curAnim.name.startsWith("sing") || animation.curAnim.name.startsWith("hold");
 
-			switch (curCharacter)
-			{
-				case 'pico-speaker':
-					if (animationNotes.length > 0 && Conductor.songPosition > animationNotes[0][0])
-					{
-						var noteData:Int = 1;
-						if (animationNotes[0][1] > 2)
-							noteData = 3;
-
-						noteData += FlxG.random.int(0, 1);
-						playAnim('shoot' + noteData, true);
-						animationNotes.shift();
-					}
-					if (animation.curAnim.finished)
-						playAnim(animation.curAnim.name, false, false, animation.curAnim.frames.length - 3);
-			}
-
 			if (isPlayer)
 			{
 				if (singing)
-				{
 					holdTimer += elapsed;
-				}
 				else
 					holdTimer = 0;
 	
 				if (animation.curAnim.name.endsWith('miss') && animation.curAnim.finished && !debugMode)
-				{
 					playAnim('idle', true, false, 10);
-				}
 			}
 			else
 			{
 				if (singing)
-				{
 					holdTimer += elapsed;
-				}
 
 				if (holdTimer >= Conductor.stepCrochet * (0.0011 / (FlxG.sound.music != null ? FlxG.sound.music.pitch : 1)) * singDuration)
 				{
@@ -394,23 +373,27 @@ class Character extends FlxSprite
 
 		super.update(elapsed);
 
-		if (!debugMode && animation.curAnim != null) {
+		if (!debugMode && animation.curAnim != null)
+		{
 			// ANDROMEDAAAAAAAAAAAAAAAAAAAAAAA
 			var name = animation.curAnim.name;
-			if (name.startsWith("hold")) {
-				if (name.endsWith("start") && animation.curAnim.finished) {
+
+			if (name.startsWith("hold"))
+			{
+				if (name.endsWith("start") && animation.curAnim.finished)
+				{
 					var newName = name.substring(0, name.length - 5);
 					var singName = "sing" + name.substring(3, name.length - 5);
-					if (animation.getByName(newName) != null) {
+
+					if (animation.getByName(newName) != null)
 						playAnim(newName, true);
-					}
-					else {
+					else
 						playAnim(singName, true);
-					}
 				}
 			}
-			else if (holding) { // Pause on first frame when holding
-				animation.curAnim.curFrame = 0;
+			else if (holding)
+			{
+				animation.curAnim.curFrame = 0; // Pause on first frame when holding
 			}
 		}
 	}
@@ -426,7 +409,7 @@ class Character extends FlxSprite
 		{
 			holding = false;
 
-			if(danceIdle)
+			if (danceIdle)
 			{
 				danced = !danced;
 
@@ -435,8 +418,9 @@ class Character extends FlxSprite
 				else
 					playAnim('danceLeft' + idleSuffix);
 			}
-			else if(animation.getByName('idle' + idleSuffix) != null) {
-					playAnim('idle' + idleSuffix);
+			else if (animation.getByName('idle' + idleSuffix) != null)
+			{
+				playAnim('idle' + idleSuffix);
 			}
 		}
 	}

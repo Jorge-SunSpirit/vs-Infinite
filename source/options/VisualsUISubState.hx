@@ -63,6 +63,13 @@ class VisualsUISubState extends BaseOptionsMenu
 			true);
 		addOption(option);
 
+		var option:Option = new Option('Note Camera Movement',
+			"If unchecked, camera won't move based on note direction.",
+			'noteCamera',
+			'bool',
+			true);
+		addOption(option);
+
 		var option:Option = new Option('Camera Zooms',
 			"If unchecked, the camera won't zoom in on a beat hit.",
 			'camZooms',

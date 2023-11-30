@@ -37,6 +37,7 @@ class ClientPrefs {
 	public static var checkForUpdates:Bool = true;
 	public static var comboStacking = false;
 	public static var autoPause:Bool = false;
+	public static var noteCamera:Bool = true;
 	public static var gameplaySettings:Map<String, Dynamic> = [
 		'scrollspeed' => 1.0,
 		'scrolltype' => 'multiplicative', 
@@ -56,8 +57,7 @@ class ClientPrefs {
 		'practice' => false,
 		'botplay' => false,
 		'opponentplay' => false,
-		'swapscroll' => true,
-		'notecamera' => true
+		'swapscroll' => true
 	];
 
 	public static var comboOffset:Array<Int> = [0, 0, 0, 0];
@@ -138,6 +138,7 @@ class ClientPrefs {
 		FlxG.save.data.hitsoundVolume = hitsoundVolume;
 		FlxG.save.data.pauseMusic = pauseMusic;
 		FlxG.save.data.autoPause = autoPause;
+		FlxG.save.data.noteCamera = noteCamera;
 		FlxG.save.data.checkForUpdates = checkForUpdates;
 		FlxG.save.data.comboStacking = comboStacking;
 	
@@ -276,6 +277,9 @@ class ClientPrefs {
 		if(FlxG.save.data.autoPause != null) {
 			autoPause = FlxG.save.data.autoPause;
 			FlxG.autoPause = autoPause;
+		}
+		if(FlxG.save.data.noteCamera != null) {
+			noteCamera = FlxG.save.data.noteCamera;
 		}
 		if(FlxG.save.data.gameplaySettings != null)
 		{

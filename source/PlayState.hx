@@ -385,7 +385,7 @@ class PlayState extends MusicBeatState
 		practiceMode = ClientPrefs.getGameplaySetting('practice', false);
 		cpuControlled = ClientPrefs.getGameplaySetting('botplay', false);
 		enableScrollSwap = ClientPrefs.getGameplaySetting('swapscroll', true);
-		enableNoteCamera = ClientPrefs.getGameplaySetting('notecamera', true);
+		enableNoteCamera = ClientPrefs.noteCamera;
 		downScroll = ClientPrefs.downScroll;
 
 		// var gameCam:FlxCamera = FlxG.camera;

@@ -224,6 +224,7 @@ class PlayState extends MusicBeatState
 	public var practiceMode:Bool = false;
 	public var downScroll:Bool = false;
 	public var enableScrollSwap:Bool = false;
+	public var enableNoteCamera:Bool = false;
 
 	public var botplaySine:Float = 0;
 	public var botplayTxt:FlxText;
@@ -384,6 +385,7 @@ class PlayState extends MusicBeatState
 		practiceMode = ClientPrefs.getGameplaySetting('practice', false);
 		cpuControlled = ClientPrefs.getGameplaySetting('botplay', false);
 		enableScrollSwap = ClientPrefs.getGameplaySetting('swapscroll', true);
+		enableNoteCamera = ClientPrefs.getGameplaySetting('notecamera', true);
 		downScroll = ClientPrefs.downScroll;
 
 		// var gameCam:FlxCamera = FlxG.camera;
@@ -1421,6 +1423,7 @@ class PlayState extends MusicBeatState
 	public var countdownSet:FlxSprite;
 	public var countdownGo:FlxSprite;
 	public static var startOnTime:Float = 0;
+	public static var checkpointHit:Bool = false;
 
 	function cacheCountdown()
 	{
@@ -1930,6 +1933,8 @@ class PlayState extends MusicBeatState
 		generatedMusic = true;
 	}
 
+	public var hasCheckpoints:Bool = false;
+
 	function eventPushed(event:EventNote) {
 		switch(event.event) {
 			case 'Change Character':
@@ -1979,6 +1984,9 @@ class PlayState extends MusicBeatState
 				smoke.active = true;
 				smoke.flipX = true;
 				dadbattleSmokes.add(smoke);
+
+			case 'Set Checkpoint':
+				hasCheckpoints = true;
 		}
 
 		if(!eventPushedMap.exists(event.event)) {
@@ -3126,6 +3134,7 @@ class PlayState extends MusicBeatState
 				} else {
 					FunkinLua.setVarInArray(this, value1, value2);
 				}
+
 			case 'Create Character Trail':
 				switch(value1.toLowerCase().trim()) 
 				{
@@ -3137,12 +3146,24 @@ class PlayState extends MusicBeatState
 						charaTrail = 'bf';
 				}
 				toggleCharaTrail = !toggleCharaTrail;
-			case 'Note Camera Movement':
-				camNoteExtend = Std.parseFloat(value1);
 
-				if (Math.isNaN(camNoteExtend))
-					camNoteExtend = 0;
+			case 'Note Camera Movement':
+				if (enableNoteCamera)
+				{
+					camNoteExtend = Std.parseFloat(value1);
+	
+					if (Math.isNaN(camNoteExtend))
+						camNoteExtend = 0;
+				}
+
+			case 'Set Checkpoint':
+				if (!PlayState.chartingMode)
+				{
+					startOnTime = Conductor.songPosition;
+					checkpointHit = true;
+				}
 		}
+
 		callOnLuas('onEvent', [eventName, value1, value2]);
 	}
 
@@ -3303,6 +3324,9 @@ class PlayState extends MusicBeatState
 
 		deathCounter = 0;
 		seenCutscene = false;
+
+		startOnTime = 0;
+		checkpointHit = false;
 
 		#if ACHIEVEMENTS_ALLOWED
 		if(achievementObj != null) {

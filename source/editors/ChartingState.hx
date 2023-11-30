@@ -108,7 +108,8 @@ class ChartingState extends MusicBeatState
 		['Change Camera Zoom',"Value 1: Zoom for the camera to change to\nValue 2: true/false to suddenly zoom, or\nnumerical value for duration"],
 		['Set Property', "Value 1: Variable name\nValue 2: New value"],
 		['Create Character Trail', "Value 1: Which Character who will be using a trail (1 at a time!)\nValue 2: There isn't one, don't put anything there"],
-		['Note Camera Movement', "Moves the camera by a specified amount whenever a note is hit.\nValue 1: Amount\n\n(BAD ENDING used 15)"]
+		['Note Camera Movement', "Moves the camera by a specified amount whenever a note is hit.\nValue 1: Amount\n\n(BAD ENDING used 15)"],
+		['Set Checkpoint', "Event that sets a song checkpoint for when\nthe player tries again."]
 	];
 
 	var _file:FileReference;

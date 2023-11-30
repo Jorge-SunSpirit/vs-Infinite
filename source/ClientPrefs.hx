@@ -56,7 +56,8 @@ class ClientPrefs {
 		'practice' => false,
 		'botplay' => false,
 		'opponentplay' => false,
-		'swapscroll' => true
+		'swapscroll' => true,
+		'notecamera' => true
 	];
 
 	public static var comboOffset:Array<Int> = [0, 0, 0, 0];

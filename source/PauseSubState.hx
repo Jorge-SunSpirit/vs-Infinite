@@ -42,7 +42,7 @@ class PauseSubState extends MusicBeatSubstate
 		FlxG.sound.play(Paths.sound('pause'));
 		if(CoolUtil.difficulties.length < 2) menuItemsOG.remove('Change Difficulty'); //No need to change difficulty if there is only one!
 
-		if(PlayState.chartingMode)
+		if (PlayState.chartingMode)
 		{
 			menuItemsOG.insert(2, 'Leave Charting Mode');
 			
@@ -56,6 +56,11 @@ class PauseSubState extends MusicBeatSubstate
 			menuItemsOG.insert(4 + num, 'Toggle Practice Mode');
 			menuItemsOG.insert(5 + num, 'Toggle Botplay');
 		}
+		else if (PlayState.instance.hasCheckpoints && PlayState.checkpointHit)
+		{
+			menuItemsOG.insert(2, 'Restart from Checkpoint');
+		}
+
 		menuItems = menuItemsOG;
 
 		for (i in 0...CoolUtil.difficulties.length) {
@@ -238,7 +243,12 @@ class PauseSubState extends MusicBeatSubstate
 					PlayState.instance.practiceMode = !PlayState.instance.practiceMode;
 					PlayState.changedDifficulty = true;
 					// practiceText.visible = PlayState.instance.practiceMode;
+				case "Restart from Checkpoint":
+					PlayState.deathCounter++; // you're not getting away with that lmao
+					restartSong();
 				case "Restart Song":
+					PlayState.startOnTime = 0;
+					PlayState.checkpointHit = false;
 					restartSong();
 				case "Leave Charting Mode":
 					restartSong();

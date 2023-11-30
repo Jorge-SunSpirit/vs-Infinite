@@ -1987,6 +1987,7 @@ class PlayState extends MusicBeatState
 
 			case 'Set Checkpoint':
 				hasCheckpoints = true;
+				#if debug Paths.sound('checkpoint'); #end
 		}
 
 		if(!eventPushedMap.exists(event.event)) {
@@ -3157,11 +3158,9 @@ class PlayState extends MusicBeatState
 				}
 
 			case 'Set Checkpoint':
-				if (!PlayState.chartingMode)
-				{
-					startOnTime = Conductor.songPosition;
-					checkpointHit = true;
-				}
+				startOnTime = Conductor.songPosition;
+				checkpointHit = true;
+				#if debug FlxG.sound.play(Paths.sound('checkpoint'), 2 / 3); #end
 		}
 
 		callOnLuas('onEvent', [eventName, value1, value2]);

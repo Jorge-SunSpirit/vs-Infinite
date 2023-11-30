@@ -40,25 +40,29 @@ class PauseSubState extends MusicBeatSubstate
 	{
 		super();
 		FlxG.sound.play(Paths.sound('pause'));
-		if(CoolUtil.difficulties.length < 2) menuItemsOG.remove('Change Difficulty'); //No need to change difficulty if there is only one!
+		if(CoolUtil.difficulties.length < 2) menuItemsOG.remove('Change Difficulty'); // No need to change difficulty if there is only one!
+
+		var num:Int = 0;
+
+		if (PlayState.instance.hasCheckpoints && PlayState.checkpointHit)
+		{
+			menuItemsOG.insert(2, 'Restart from Checkpoint');
+			num++;
+		}
 
 		if (PlayState.chartingMode)
 		{
-			menuItemsOG.insert(2, 'Leave Charting Mode');
+			menuItemsOG.insert(2 + num, 'Leave Charting Mode');
 			
-			var num:Int = 0;
-			if(!PlayState.instance.startingSong)
+			if (!PlayState.instance.startingSong)
 			{
-				num = 1;
-				menuItemsOG.insert(3, 'Skip Time');
+				menuItemsOG.insert(3 + num, 'Skip Time');
+				num++;
 			}
+
 			menuItemsOG.insert(3 + num, 'End Song');
 			menuItemsOG.insert(4 + num, 'Toggle Practice Mode');
 			menuItemsOG.insert(5 + num, 'Toggle Botplay');
-		}
-		else if (PlayState.instance.hasCheckpoints && PlayState.checkpointHit)
-		{
-			menuItemsOG.insert(2, 'Restart from Checkpoint');
 		}
 
 		menuItems = menuItemsOG;

@@ -35,11 +35,10 @@ class FlashingState extends MusicBeatState
 				FlxTransitionableState.skipNextTransIn = true;
 				FlxTransitionableState.skipNextTransOut = true;
 
-				if (!back)
-				{
-					ClientPrefs.flashing = false;
-					ClientPrefs.saveSettings();
-				}
+				// Psych checks if it's null in the save
+				// Let's always save this value based on 'back' so it doesn't appear again
+				ClientPrefs.flashing = back;
+				ClientPrefs.saveSettings();
 
 				FlxG.sound.play(Paths.sound('confirmMenu'));
 

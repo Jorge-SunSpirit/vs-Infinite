@@ -203,6 +203,7 @@ class PlayState extends MusicBeatState
 	private var timeBarBG:AttachedSprite;
 	public var timeBar:FlxBar;
 
+	public var validScore:Bool = true;
 	public var ratingsData:Array<Rating> = [];
 	public var sicks:Int = 0;
 	public var goods:Int = 0;
@@ -1418,12 +1419,13 @@ class PlayState extends MusicBeatState
 	var startTimer:FlxTimer;
 	var finishTimer:FlxTimer = null;
 
+	public static var startOnTime:Float = 0;
+	public static var checkpointHit:Bool = false;
+
 	// For being able to mess with the sprites on Lua
 	public var countdownReady:FlxSprite;
 	public var countdownSet:FlxSprite;
 	public var countdownGo:FlxSprite;
-	public static var startOnTime:Float = 0;
-	public static var checkpointHit:Bool = false;
 
 	function cacheCountdown()
 	{
@@ -1479,7 +1481,10 @@ class PlayState extends MusicBeatState
 
 			if(startOnTime < 0) startOnTime = 0;
 
-			if (startOnTime > 0) {
+			if (startOnTime > 0)
+			{
+				if (checkpointHit) validScore = false;
+
 				clearNotesBefore(startOnTime);
 				setSongTime(startOnTime - 350);
 				return;
@@ -3331,15 +3336,16 @@ class PlayState extends MusicBeatState
 		#end
 
 		var ret:Dynamic = callOnLuas('onEndSong', [], false);
-		if(ret != FunkinLua.Function_Stop && !transitioning) {
-			if (SONG.validScore)
+
+		if (ret != FunkinLua.Function_Stop && !transitioning)
+		{
+			if (validScore)
 			{
-				#if !switch
 				var percent:Float = ratingPercent;
 				if(Math.isNaN(percent)) percent = 0;
 				Highscore.saveScore(SONG.song, songScore, storyDifficulty, percent);
-				#end
 			}
+
 			playbackRate = 1;
 
 			if (chartingMode)
@@ -3361,23 +3367,23 @@ class PlayState extends MusicBeatState
 					FlxG.sound.playMusic(Paths.music('freakyMenu'));
 
 					cancelMusicFadeTween();
-					if(FlxTransitionableState.skipNextTransIn) {
+
+					if (FlxTransitionableState.skipNextTransIn)
 						CustomFadeTransition.nextCamera = null;
-					}
+
 					MusicBeatState.switchState(new InfCreditsState());
 
-					// if ()
-					if(!ClientPrefs.getGameplaySetting('practice', false) && !ClientPrefs.getGameplaySetting('botplay', false)) {
+					if (!ClientPrefs.getGameplaySetting('practice', false) && !ClientPrefs.getGameplaySetting('botplay', false))
+					{
 						StoryMenuState.weekCompleted.set(WeekData.weeksList[storyWeek], true);
 
-						if (SONG.validScore)
-						{
+						if (validScore)
 							Highscore.saveWeekScore(WeekData.getWeekFileName(), campaignScore, storyDifficulty);
-						}
 
 						FlxG.save.data.weekCompleted = StoryMenuState.weekCompleted;
 						FlxG.save.flush();
 					}
+
 					changedDifficulty = false;
 				}
 				else
@@ -3431,6 +3437,8 @@ class PlayState extends MusicBeatState
 				FlxG.sound.playMusic(Paths.music('freakyMenu'));
 				changedDifficulty = false;
 			}
+
+			validScore = true;
 			transitioning = true;
 		}
 	}
@@ -4451,12 +4459,15 @@ class PlayState extends MusicBeatState
 
 			// Rating FC
 			ratingFC = "";
-			if (sicks > 0) ratingFC = "SFC";
-			if (goods > 0) ratingFC = "GFC";
-			if (bads > 0 || shits > 0) ratingFC = "FC";
-			if (songMisses > 0 && songMisses < 10) ratingFC = "SDCB";
+
+			if (!validScore) ratingFC = "Invalid";
+			else if (sicks > 0) ratingFC = "SFC";
+			else if (goods > 0) ratingFC = "GFC";
+			else if (bads > 0 || shits > 0) ratingFC = "FC";
+			else if (songMisses > 0 && songMisses < 10) ratingFC = "SDCB";
 			else if (songMisses >= 10) ratingFC = "Clear";
 		}
+
 		updateScore(badHit); // score will only update after rating is calculated, if it's a badHit, it shouldn't bounce -Ghost
 		setOnLuas('rating', ratingPercent);
 		setOnLuas('ratingName', ratingName);

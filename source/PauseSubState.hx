@@ -257,6 +257,8 @@ class PauseSubState extends MusicBeatSubstate
 				case "Leave Charting Mode":
 					restartSong();
 					PlayState.chartingMode = false;
+					PlayState.startOnTime = 0;
+					PlayState.checkpointHit = false;
 				case "End Song":
 					close();
 					PlayState.instance.finishSong(true);
@@ -267,6 +269,8 @@ class PauseSubState extends MusicBeatSubstate
 					PlayState.instance.botplayTxt.alpha = 1;
 					PlayState.instance.botplaySine = 0;
 				case "Exit to Menu":
+					PlayState.startOnTime = 0;
+					PlayState.checkpointHit = false;
 					PlayState.deathCounter = 0;
 					PlayState.seenCutscene = false;
 					if(PlayState.isStoryMode) {

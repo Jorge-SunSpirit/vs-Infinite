@@ -104,6 +104,8 @@ class Character extends FlxSprite
 	{
 		super(x, y);
 
+		animation = new PsychAnimationController(this);
+
 		#if (haxe >= "4.0.0")
 		animOffsets = new Map();
 		#else

@@ -33,27 +33,27 @@ class InfCreditsState extends MusicBeatState
 	private var iconArray:Array<AttachedSprite> = [];
 	private var creditsStuff:Array<Array<String>> = [];
 
-	var userChara:Array<Array<String>> = [ //Name - Icon name - role - Quote of the day - Link - Which Row - position
-		//column 1
-		['JACKALRUIN',	'jackalruin',	'Director, Music, UI, Story',	"BECKON THE SKY",	'https://www.youtube.com/@JACKALRUIN',	"0", "0"],
-		['crim',	'crim',	'Main Artist',	":v",	'https://twitter.com/ScrimbloCrimbo',	"1", "0"],
-		['Amai HISA',	'hisa',	'Artist',	"I guess we're the kids that never let it go",	'https://twitter.com/AmaiHisa',	"2", "0"],
+	var userChara:Array<Array<String>> = [
+		//Name					Icon name		role									Quote of the day											Link									Row		position
+		['JACKALRUIN',			'jackalruin',	'Director, Music, UI, Story',			"BECKON THE SKY",											'https://www.youtube.com/@JACKALRUIN',	"0",	"0"],
+		['crim',				'crim',			'Main Artist',							":v",														'https://twitter.com/ScrimbloCrimbo',	"1",	"0"],
+		['Amai HISA',			'hisa',			'Artist',								"I guess we're the kids that never let it go",				'https://twitter.com/AmaiHisa',			"2",	"0"],
 		
-		['Juno Songs',	'juno',	'Freeplay Artwork',	"Enjoy your future! It's gonna be great!",	'https://twitter.com/JunoSongsYT',	"0", "1"],
-		['HighPoweredKeyz',	'hpk',	'Animations, Chromatics, and Graphics',	"Stay creative, and stay powerful.",	'https://twitter.com/HighPoweredArt',	"1", "1"],
-		['Lezanikat',	'leza',	'Background Artist',	"A1",	'https://twitter.com/lezanikat',	"2", "1"],
+		['Juno Songs',			'juno',			'Freeplay Artwork',						"Enjoy your future! It's gonna be great!",					'https://twitter.com/JunoSongsYT',		"0",	"1"],
+		['HighPoweredKeyz',		'hpk',			'Animations, Chromatics, and Graphics',	"Stay creative, and stay powerful.",						'https://twitter.com/HighPoweredArt',	"1",	"1"],
+		['Lezanikat',			'leza',			'Background Artist',					"A1",														'https://twitter.com/lezanikat',		"2",	"1"],
 
-		['M&M',	'mandm',	'Main Programmer',	"Hello! I'm Emu Otori! Emu is meaning smile!",	'https://linktr.ee/ActualMandM',	"0", "2"],
-		['Jorge - SunSpirit',	'jorge',	'UI Programmer',	"Defeat me with heat beams, you're crazy!",	'https://twitter.com/Jorge_SunSpirit',	"1", "2"],
-		['SirDusterBuster',	'duster',	'Chart Events and Animator',	"When is vs Zavok?",	'https://twitter.com/SirDusterBuster',	"2", "2"],
+		['M&M',					'mandm',		'Main Programmer',						"Hello! I'm Emu Otori! Emu is meaning smile!",				'https://linktr.ee/ActualMandM',		"0",	"2"],
+		['Jorge - SunSpirit',	'jorge',		'UI Programmer',						"Defeat me with heat beams, you're crazy!",					'https://twitter.com/Jorge_SunSpirit',	"1",	"2"],
+		['SirDusterBuster',		'duster',		'Chart Events and Animator',			"When is vs Zavok?",										'https://twitter.com/SirDusterBuster',	"2",	"2"],
 
-		['James Dijit',	'dijit',	'Voice of Infinite',	"Dance with me, my friends. The crowd awaits!",	'https://twitter.com/JamesDijit',	"0", "3"],
-		['TheNamesFaceless',	'faceless',	'Voice of Sonic',	"Live life to the fullest. Atleast, thats what I figure!",	'https://twitter.com/ThenameFaceless',	"1", "3"],
-		['Redpandaa98',	'redpanda',	'Voice of Tails',	"alright Fazgang, let's spring this trap >:3",	'https://twitter.com/redpandaa98',	"2", "3"],
+		['James Dijit',			'dijit',		'Voice of Infinite',					"Dance with me, my friends. The crowd awaits!",				'https://twitter.com/JamesDijit',		"0",	"3"],
+		['TheNamesFaceless',	'faceless',		'Voice of Sonic',						"Live life to the fullest. Atleast, thats what I figure!",	'https://twitter.com/ThenameFaceless',	"1",	"3"],
+		['Redpandaa98',			'redpanda',		'Voice of Tails',						"alright Fazgang, let's spring this trap >:3",				'https://twitter.com/redpandaa98',		"2",	"3"],
 
-		['Flootena',	'flootena',	'Charter',	"Play Puyo Puyo Please",	'https://twitter.com/FlootenaDX',	"0", "4"],
-		['Aizakku',	'aizakku',	'Charter',	"Like a knight, I'll fight, until the fight is won",	'https://twitter.com/ItsAizakku',	"1", "4"],
-		['Psych Engine Team',	'psych',	'Psych Engine Credits',	"Open the Psych Engine Credits Here!",	'',	"2", "4"]
+		['Flootena',			'flootena',		'Charter',								"Play Puyo Puyo Please",									'https://twitter.com/FlootenaDX',		"0",	"4"],
+		['Aizakku',				'aizakku',		'Charter',								"Like a knight, I'll fight, until the fight is won",		'https://twitter.com/ItsAizakku',		"1",	"4"],
+		['Psych Engine Team',	'psych',		'Psych Engine Credits',					"View additional and Psych Engine credits",					'',										"2",	"4"]
 	];
 
 	var bg:FlxSprite;

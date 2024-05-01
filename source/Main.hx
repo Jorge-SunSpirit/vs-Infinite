@@ -77,9 +77,9 @@ class Main extends Sprite
 
 	#if windows
 	@:functionCode('
-		HWND hWnd = GetActiveWindow();
+		HWND hwnd = GetActiveWindow();
 		const DWM_WINDOW_CORNER_PREFERENCE corner_preference = DWMWCP_DONOTROUND;
-		DwmSetWindowAttribute(hWnd, DWMWA_WINDOW_CORNER_PREFERENCE, &corner_preference, sizeof(corner_preference));
+		DwmSetWindowAttribute(hwnd, DWMWA_WINDOW_CORNER_PREFERENCE, &corner_preference, sizeof(corner_preference));
     ')
 	#end
 	private function setupGame():Void

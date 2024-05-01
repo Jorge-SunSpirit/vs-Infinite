@@ -64,7 +64,7 @@
 			"name": "hxCodec",
 			"type": "git",
 			"ref": "main",
-			"url": "https://github.com/polybiusproxy/hxCodec.git"
+			"url": "https://github.com/FunkinCrew/hxCodec.git"
 		},
 		{
 			"name": "linc_luajit",

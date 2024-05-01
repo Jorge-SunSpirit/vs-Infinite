@@ -3,6 +3,7 @@ package;
 
 import Sys.sleep;
 import discord_rpc.DiscordRpc;
+import lime.app.Application;
 
 #if LUA_ALLOWED
 import llua.Lua;
@@ -83,7 +84,7 @@ class DiscordClient
 			details: details,
 			state: state,
 			largeImageKey: 'vs_infinite_-_discord_rpc',
-			largeImageText: "Engine Version: " + MainMenuState.psychEngineVersion,
+			largeImageText: "Version: " + Application.current.meta.get('version'),
 			smallImageKey : smallImageKey,
 			// Obtained times are in milliseconds so they are divided so Discord can use it
 			startTimestamp : Std.int(startTimestamp / 1000),

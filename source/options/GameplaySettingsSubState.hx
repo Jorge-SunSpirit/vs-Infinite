@@ -69,10 +69,10 @@ class GameplaySettingsSubState extends BaseOptionsMenu
 			'percent',
 			0);
 		addOption(option);
-		option.scrollSpeed = 1.6;
+		option.scrollSpeed = 3.2; // doubled scroll speed since change value was halfed
 		option.minValue = 0.0;
 		option.maxValue = 1;
-		option.changeValue = 0.1;
+		option.changeValue = 0.05;
 		option.decimals = 1;
 
 		var option:Option = new Option('Ghost Tapping',

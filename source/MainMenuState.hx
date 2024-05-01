@@ -18,6 +18,7 @@ import flixel.util.FlxColor;
 import lime.app.Application;
 import editors.MasterEditorMenu;
 import flixel.input.keyboard.FlxKey;
+import options.OptionsState;
 
 using StringTools;
 
@@ -210,7 +211,8 @@ class MainMenuState extends MusicBeatState
 									case 'credits':
 										MusicBeatState.switchState(new InfCreditsState());
 									case 'options':
-										LoadingState.loadAndSwitchState(new options.OptionsState());
+										LoadingState.loadAndSwitchState(new OptionsState());
+										OptionsState.onPlayState = false;
 								}
 							});
 						}

@@ -34,6 +34,7 @@ class OptionsState extends MusicBeatState
 	var grayArray:Array<FlxSprite> = [];
 	private static var curSelected:Int = 0;
 	public static var menuBG:FlxSprite;
+	public static var onPlayState:Bool = false;
 
 	function openSelectedSubstate(label:String) {
 		switch(label) {
@@ -48,9 +49,9 @@ class OptionsState extends MusicBeatState
 			case 'Gameplay':
 				openSubState(new options.GameplaySettingsSubState());
 			case 'Adjust Delay and Combo':
-				LoadingState.loadAndSwitchState(new options.NoteOffsetState());
+				MusicBeatState.switchState(new options.NoteOffsetState());
 			case 'Mods':
-				LoadingState.loadAndSwitchState(new ModsMenuState());
+				MusicBeatState.switchState(new ModsMenuState());
 		}
 	}
 
@@ -116,7 +117,12 @@ class OptionsState extends MusicBeatState
 
 		if (controls.BACK) {
 			FlxG.sound.play(Paths.sound('cancelMenu'));
-			MusicBeatState.switchState(new MainMenuState());
+			if(onPlayState)
+			{
+				MusicBeatState.switchState(new PlayState());
+				FlxG.sound.music.volume = 0;
+			}
+			else MusicBeatState.switchState(new MainMenuState());
 		}
 
 		if (controls.ACCEPT) {

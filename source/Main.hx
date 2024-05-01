@@ -27,6 +27,9 @@ import sys.io.Process;
 
 using StringTools;
 
+#if windows
+@:cppFileCode('#include <windows.h>\n#include <dwmapi.h>\n\n#pragma comment(lib, "Dwmapi")')
+#end
 class Main extends Sprite
 {
 	var game = {
@@ -72,6 +75,13 @@ class Main extends Sprite
 		setupGame();
 	}
 
+	#if windows
+	@:functionCode('
+		HWND hWnd = GetActiveWindow();
+		const DWM_WINDOW_CORNER_PREFERENCE corner_preference = DWMWCP_DONOTROUND;
+		DwmSetWindowAttribute(hWnd, DWMWA_WINDOW_CORNER_PREFERENCE, &corner_preference, sizeof(corner_preference));
+    ')
+	#end
 	private function setupGame():Void
 	{
 		var stageWidth:Int = Lib.current.stage.stageWidth;

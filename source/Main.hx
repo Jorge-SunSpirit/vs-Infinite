@@ -27,9 +27,22 @@ import sys.io.Process;
 
 using StringTools;
 
-#if windows
-@:cppFileCode('#include <windows.h>\n#include <dwmapi.h>\n\n#pragma comment(lib, "Dwmapi")')
+#if linux
+@:cppInclude('./external/gamemode_client.h')
+@:cppFileCode('
+	#define GAMEMODE_AUTO
+')
 #end
+
+#if windows
+@:cppFileCode('
+	#include <windows.h>
+	#include <dwmapi.h>
+
+	#pragma comment(lib, "Dwmapi")
+')
+#end
+
 class Main extends Sprite
 {
 	var game = {
@@ -80,7 +93,7 @@ class Main extends Sprite
 		HWND hwnd = GetActiveWindow();
 		const DWM_WINDOW_CORNER_PREFERENCE corner_preference = DWMWCP_DONOTROUND;
 		DwmSetWindowAttribute(hwnd, DWMWA_WINDOW_CORNER_PREFERENCE, &corner_preference, sizeof(corner_preference));
-    ')
+	')
 	#end
 	private function setupGame():Void
 	{

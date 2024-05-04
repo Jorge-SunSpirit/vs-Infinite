@@ -34,7 +34,7 @@ using StringTools;
 ')
 #end
 
-#if windows
+#if NO_W11_CORNERS
 @:cppFileCode('
 	#include <windows.h>
 	#include <dwmapi.h>
@@ -42,7 +42,6 @@ using StringTools;
 	#pragma comment(lib, "Dwmapi")
 ')
 #end
-
 class Main extends Sprite
 {
 	var game = {
@@ -88,7 +87,7 @@ class Main extends Sprite
 		setupGame();
 	}
 
-	#if windows
+	#if NO_W11_CORNERS
 	@:functionCode('
 		HWND hwnd = GetActiveWindow();
 		const DWM_WINDOW_CORNER_PREFERENCE corner_preference = DWMWCP_DONOTROUND;

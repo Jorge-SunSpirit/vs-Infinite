@@ -53,6 +53,9 @@
 	<define name="TITLE_SCREEN_EASTER_EGG" if="officialBuild"/> <!-- DELETE THE if="officialBuild" for enabling this on an unofficial build -->
 	<define name="CRASH_HANDLER" if="desktop" unless="debug" />
 
+	<!-- Requires Windows 11 SDK (10.0.22000.0) and up -->
+	<!-- <define name="NO_W11_CORNERS" if="windows" /> -->
+
 	<assets path="assets/preload" rename="assets"/>
 	<section if="TITLE_SCREEN_EASTER_EGG">
 		<assets path="assets/secrets" rename="assets"/>

@@ -44,6 +44,12 @@ using StringTools;
 #end
 class Main extends Sprite
 {
+	// These are taken from Funkin' 0.3.2
+	public static var VERSION(get, never):String;
+	public static final GIT_BRANCH:String = funkin.util.macro.GitCommit.getGitBranch();
+	public static final GIT_HASH:String = funkin.util.macro.GitCommit.getGitCommitHash();
+	public static final GIT_HAS_LOCAL_CHANGES:Bool = funkin.util.macro.GitCommit.getGitHasLocalChanges();
+
 	var game = {
 		width: 1280, // WINDOW width
 		height: 720, // WINDOW height
@@ -55,6 +61,18 @@ class Main extends Sprite
 	};
 
 	public static var fpsVar:FPSCounter;
+
+	#if !PUBLIC_BUILD
+	static function get_VERSION():String
+	{
+	  return 'v${FlxG.stage.application.meta.get('version')} (${GIT_BRANCH} : ${GIT_HASH}${GIT_HAS_LOCAL_CHANGES ? ' : MODIFIED' : ''})';
+	}
+	#else
+	static function get_VERSION():String
+	{
+	  return 'v${FlxG.stage.application.meta.get('version')}';
+	}
+	#end
 
 	// You can pretty much ignore everything from here on - your code should go in your states.
 
@@ -144,7 +162,8 @@ class Main extends Sprite
 	#if CRASH_HANDLER
 	function onCrash(e:UncaughtErrorEvent):Void
 	{
-		var errMsg:String = "";
+		// Always use the non-public build version text for the start of the error message
+		var errMsg:String = 'VS. Infinite v${FlxG.stage.application.meta.get('version')} (${GIT_BRANCH} : ${GIT_HASH}${GIT_HAS_LOCAL_CHANGES ? ' : MODIFIED' : ''})\n\n';
 		var path:String;
 		var callStack:Array<StackItem> = CallStack.exceptionStack(true);
 		var dateNow:String = Date.now().toString();
